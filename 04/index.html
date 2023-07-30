@@ -827,7 +827,7 @@
 <h2 id="integrando-sqlalchemy-a-nossa-aplicacao-fastapi">Integrando SQLAlchemy à Nossa Aplicação FastAPI</h2>
 <p>Para aqueles que não estão familiarizados, o SQLAlchemy é uma biblioteca Python que facilita a interação com um banco de dados SQL. Ele faz isso oferecendo uma forma de trabalhar com bancos de dados que aproveita a facilidade e o poder do Python, ao mesmo tempo em que mantém a eficiência e a flexibilidade dos bancos de dados SQL.</p>
 <details class="tip">
-<summary>Caso nunca tenha trabalhado com SQLalchemy</summary>
+<summary>Caso nunca tenha trabalhado com SQLAlchemy</summary>
 <p>Temos diversas lives de Python focadas nesse assunto.</p>
 <p>Esta sobre o ORM em específico:</p>
 <p><a class="glightbox" href="https://www.youtube.com/embed/UgaybOYMKS0" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/UgaybOYMKS0" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
@@ -877,11 +877,11 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="k">yield</span> <span class="n">session</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="gerenciando-dependencias-com-fastapi">Gerenciando Dependências com FastAPI</h2>
-<p>Assim como a sessão SQLAlchemy, que implementa vários padrões arquiteturais importantes, FastAPI também usa um conceito de padrão arquitetural chamado "Injeção de Dependência". </p>
+<p>Assim como a sessão SQLAlchemy, que implementa vários padrões arquiteturais importantes, FastAPI também usa um conceito de padrão arquitetural chamado "Injeção de Dependência".</p>
 <p>No mundo do desenvolvimento de software, uma "dependência" é um componente que um módulo de software precisa para realizar sua função. Imagine um módulo como uma fábrica e as dependências como as partes ou matérias-primas que a fábrica precisa para produzir seus produtos. Em vez de a fábrica ter que buscar essas peças por conta própria (o que seria ineficiente), elas são entregues à fábrica, prontas para serem usadas. Este é o conceito de Injeção de Dependência.</p>
 <p>A Injeção de Dependência permite que mantenhamos um baixo nível de acoplamento entre diferentes módulos de um sistema. As dependências entre os módulos não são definidas no código, mas sim pela configuração de uma infraestrutura de software (container) que é responsável por "injetar" em cada componente suas dependências declaradas.</p>
 <p>Em termos práticos, o que isso significa é que, em vez de cada parte do nosso código ter que criar suas próprias instâncias de classes ou serviços de que depende (o que pode levar a duplicação de código e tornar os testes mais difíceis), essas instâncias são criadas uma vez e depois injetadas onde são necessárias.</p>
-<p>FastAPI fornece a função <code>Depends</code> para ajudar a declarar e gerenciar essas dependências. É uma maneira declarativa de dizer ao FastAPI: "Antes de executar esta função, execute primeiro essa outra função e passe-me o resultado". Isso é especialmente útil quando temos operações que precisam ser realizadas antes de cada request, como abrir uma sessão de banco de dados. </p>
+<p>FastAPI fornece a função <code>Depends</code> para ajudar a declarar e gerenciar essas dependências. É uma maneira declarativa de dizer ao FastAPI: "Antes de executar esta função, execute primeiro essa outra função e passe-me o resultado". Isso é especialmente útil quando temos operações que precisam ser realizadas antes de cada request, como abrir uma sessão de banco de dados.</p>
 <h2 id="modificando-o-endpoint-post-users">Modificando o Endpoint POST /users</h2>
 <p>Agora que temos a nossa sessão de banco de dados sendo gerenciada por meio do FastAPI e da injeção de dependências, vamos atualizar nossos endpoints para que possam tirar proveito disso. Começaremos com a rota de POST para a criação de usuários. Ao invés de usarmos o banco de dados falso que criamos inicialmente, agora vamos fazer a inserção real dos usuários no nosso banco de dados.</p>
 <p>Para isso, vamos modificar o nosso endpoint da seguinte maneira:</p>
@@ -1123,7 +1123,7 @@
 <h2 id="cobertura-e-testes-nao-feitos">Cobertura e testes não feitos</h2>
 <p>Com o banco de dados agora em funcionamento, podemos verificar a cobertura de código do arquivo <code>fast_zero/app.py</code>. Se olharmos para a imagem abaixo, vemos que ainda há alguns casos que não testamos. Por exemplo, o que acontece quando tentamos atualizar ou excluir um usuário que não existe?</p>
 <p><a class="glightbox" href="../assets/04_coverage_mostrando_casos_nao_testados_de_erro.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/04_coverage_mostrando_casos_nao_testados_de_erro.png"></a></p>
-<p>Esses três casos ficam como exercício para quem está acompanhando este curso. </p>
+<p>Esses três casos ficam como exercício para quem está acompanhando este curso.</p>
 <p>Além disso, não devemos esquecer de remover a implementação do banco de dados falso <code>database = []</code> que usamos inicialmente e remover também as definições de <code>TestClient</code> em <code>test_app.py</code> pois tudo está usando as fixtures agora!</p>
 <h2 id="commit">Commit</h2>
 <p>Agora que terminamos a atualização dos nossos endpoints, vamos fazer o commit das nossas alterações. O processo é o seguinte:</p>
@@ -1143,7 +1143,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 25, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2023</span>
       
     
   </small>

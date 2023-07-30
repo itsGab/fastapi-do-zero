@@ -931,7 +931,7 @@
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kn">from</span> <span class="nn">jose</span> <span class="kn">import</span> <span class="n">jwt</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="kn">from</span> <span class="nn">passlib.context</span> <span class="kn">import</span> <span class="n">CryptContext</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s1">'your-secret-key'</span>  <span class="c1"># Isso é privisório, vamos ajustar!</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s1">'your-secret-key'</span>  <span class="c1"># Isso é provisório, vamos ajustar!</span>
 <a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">ALGORITHM</span> <span class="o">=</span> <span class="s1">'HS256'</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span> <span class="o">=</span> <span class="mi">30</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="n">pwd_context</span> <span class="o">=</span> <span class="n">CryptContext</span><span class="p">(</span><span class="n">schemes</span><span class="o">=</span><span class="p">[</span><span class="s1">'bcrypt'</span><span class="p">],</span> <span class="n">deprecated</span><span class="o">=</span><span class="s1">'auto'</span><span class="p">)</span>
@@ -1253,7 +1253,7 @@
 <p>Aqui, a função <code>get_current_user</code> é definida como assíncrona, indicando que ela pode realizar operações de IO (como consultar um banco de dados) de forma não bloqueante. Esta função aceita dois argumentos: <code>session</code> e <code>token</code>. O <code>session</code> é obtido através da função <code>get_session</code> (não mostrada aqui), que deve retornar uma sessão de banco de dados ativa. O <code>token</code> é obtido do header de autorização da requisição, que é esperado ser do tipo Bearer (indicado pelo esquema OAuth2).</p>
 <p>A variável <code>credentials_exception</code> é definida como uma exceção HTTP que será lançada sempre que houver um problema com as credenciais fornecidas pelo usuário. O status 401 indica que a autenticação falhou e a mensagem "Could not validate credentials" é retornada ao cliente. Além disso, um cabeçalho 'WWW-Authenticate' é incluído na resposta, indicando que o cliente deve fornecer autenticação.</p>
 <p>No bloco <code>try</code>, tentamos decodificar o token JWT usando a chave secreta e o algoritmo especificado. O token decodificado é armazenado na variável <code>payload</code>. Extraímos o campo 'sub' (normalmente usado para armazenar o identificador do usuário no token JWT) e verificamos se ele existe. Se não, lançamos a exceção <code>credentials_exception</code>. Em seguida, criamos um objeto <code>TokenData</code> com o username.</p>
-<p>Por fim, realizamos uma consulta ao banco de dados para encontrar o usuário com o e-mail correspondente ao username contido no token. <code>session.scalar</code> é usado para retornar a primeira coluna do primeiro resultado da consulta. sS nenhum usuário for encontrado, lançamos a exceção <code>credentials_exception</code>. Se um usuário for encontrado, retornamos esse usuário.</p>
+<p>Por fim, realizamos uma consulta ao banco de dados para encontrar o usuário com o e-mail correspondente ao username contido no token. <code>session.scalar</code> é usado para retornar a primeira coluna do primeiro resultado da consulta. Se nenhum usuário for encontrado, lançamos a exceção <code>credentials_exception</code>. Se um usuário for encontrado, retornamos esse usuário.</p>
 <h3 id="aplicacao-da-protecao-ao-endpoint">Aplicação da proteção ao endpoint</h3>
 <p>Primeiro, vamos aplicar a autenticação no endpoint PUT. Se o <code>user_id</code> da rota não corresponder ao <code>id</code> do usuário autenticado, retornaremos um erro 400. Se tudo estiver correto, o usuário será atualizado normalmente.</p>
 <div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="p">(</span>
@@ -1408,7 +1408,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 27, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2023</span>
       
     
   </small>

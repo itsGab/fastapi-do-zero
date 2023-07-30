@@ -505,8 +505,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#implementados-os-testes-para-rota-de-delte" class="md-nav__link">
-    Implementados os testes para rota de DELTE
+  <a href="#implementando-o-teste-da-rota-de-delete" class="md-nav__link">
+    Implementando o teste da rota de DELETE
   </a>
   
 </li>
@@ -878,8 +878,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#implementados-os-testes-para-rota-de-delte" class="md-nav__link">
-    Implementados os testes para rota de DELTE
+  <a href="#implementando-o-teste-da-rota-de-delete" class="md-nav__link">
+    Implementando o teste da rota de DELETE
   </a>
   
 </li>
@@ -955,7 +955,7 @@
 <p>O HTTP é baseado no modelo de requisição-resposta: o cliente faz uma requisição para o servidor, e o servidor responde a essa requisição. Essas requisições e respostas são formatadas de acordo com as regras do protocolo HTTP.</p>
 <p>A seguir, vamos explorar como os verbos HTTP, os códigos de resposta e os códigos de erro são utilizados para gerenciar a comunicação entre o cliente e a API.</p>
 <h2 id="compreendendo-os-verbos-http-codigos-de-resposta-e-codigos-de-erro">Compreendendo os Verbos HTTP, Códigos de Resposta e Códigos de Erro</h2>
-<p>Quando trabalhamos com APIs REST, o uso apropriado dos verbos HTTP, códigos de resposta e códigos de erro é crucial para criar uma API clara e consistente. </p>
+<p>Quando trabalhamos com APIs REST, o uso apropriado dos verbos HTTP, códigos de resposta e códigos de erro é crucial para criar uma API clara e consistente.</p>
 <h3 id="verbos-http">Verbos HTTP</h3>
 <p>Os verbos HTTP indicam a ação desejada a ser executada em um determinado recurso. Os verbos mais comuns são:</p>
 <ul>
@@ -1039,7 +1039,7 @@
 <p>Neste exemplo, o campo <code>username</code> é esperado como uma string, o campo <code>email</code> como uma string que valida o formato de um endereço de email (graças à anotação <code>EmailStr</code> do Pydantic), e o campo <code>password</code> também é esperado como uma string.</p>
 <p>Ao usar este esquema, qualquer tentativa de criar um usuário com dados que não correspondam a este formato (por exemplo, um email que não é válido, ou um campo de nome de usuário que não é uma string) resultará em um erro de validação.</p>
 <h3 id="suporte-a-emails">Suporte a emails</h3>
-<p>Para que o pydantic suporte a validação de emails, é necessário instalar o <code>pydantic[email]</code></p>
+<p>Para que o Pydantic suporte a validação de emails, é necessário instalar o <code>pydantic[email]</code></p>
 <p>Ademais, se tentarmos criar um usuário com um email inválido, o Pydantic irá automaticamente validar o campo e retornar um erro útil. Isso nos poupa muito trabalho de validação manual e ajuda a manter nossa API robusta e confiável.</p>
 <h2 id="implementando-as-rotas-crud">Implementando as Rotas CRUD</h2>
 <p>CRUD é um acrônimo que representa as quatro operações básicas que você pode realizar em qualquer banco de dados persistente:</p>
@@ -1094,7 +1094,7 @@
 <p><a class="glightbox" href="../assets/02_swagger.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_swagger.png"></a></p>
 <p>Dessa forma, podemos testar de forma simplificada a nossa API, enviando o JSON e realizando alguns testes.</p>
 <p><a class="glightbox" href="../assets/02_swagger_com_request.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_swagger_com_request.png"></a></p>
-<p>Entretanto, precisamos prestar atenção a um detalhe: nosso modelo retorna a senha do usuário, o que é uma péssima prática de segurança. </p>
+<p>Entretanto, precisamos prestar atenção a um detalhe: nosso modelo retorna a senha do usuário, o que é uma péssima prática de segurança.</p>
 <p><a class="glightbox" href="../assets/02_respsota_do_swagger.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_respsota_do_swagger.png"></a></p>
 <p>Para evitar isso, podemos criar um novo modelo que será usado somente para resposta. Dessa forma, não expomos os dados que não queremos na API:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-10">10</a></span>
@@ -1172,7 +1172,7 @@
 <a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
 <a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="c1"># parte da resposta foi omitida</span>
 </code></pre></div>
-<p>Vemos que temos 3 Miss. Possívelmente das linhas que acabamos de escrever.</p>
+<p>Vemos que temos 3 Miss. Possivelmente das linhas que acabamos de escrever.</p>
 <p><a class="glightbox" href="../assets/02_cobertura_get_sem_testes.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_cobertura_get_sem_testes.png"></a></p>
 <p>Então, vamos escrever nosso teste. Esse teste para a rota POST precisa verificar se a criação de um novo usuário funciona corretamente. Nós enviamos uma solicitação POST com um novo usuário para a rota /users/. Em seguida, verificamos se a resposta tem o status HTTP 201 (Criado) e se a resposta contém o novo usuário criado.</p>
 <div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">():</span>
@@ -1310,7 +1310,7 @@
 <a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'User deleted'</span><span class="p">}</span>
 </code></pre></div>
 <p>Com a implementação da rota DELETE concluída, é fundamental garantirmos que essa rota está funcionando conforme o esperado. Para isso, precisamos escrever testes para essa rota.</p>
-<h4 id="implementados-os-testes-para-rota-de-delte">Implementados os testes para rota de DELTE</h4>
+<h4 id="implementando-o-teste-da-rota-de-delete">Implementando o teste da rota de DELETE</h4>
 <p>Nosso teste da rota DELETE precisa verificar se a exclusão de um usuário existente funciona corretamente. Nós enviamos uma solicitação DELETE para a rota /users/{user_id}. Em seguida, verificamos se a resposta tem o status HTTP 200 (OK) e se a resposta contém uma mensagem informando que o usuário foi excluído.</p>
 <div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">def</span> <span class="nf">test_delete_user</span><span class="p">():</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'/users/1'</span><span class="p">)</span>
@@ -1343,7 +1343,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2023</span>
       
     
   </small>

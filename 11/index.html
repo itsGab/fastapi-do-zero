@@ -658,16 +658,16 @@
 </code></pre></div>
 <p>A opção <code>--local-only</code> diz para o <code>flyctl</code> construir a imagem Docker localmente e depois fazer o upload dela para o Fly.io.</p>
 <h2 id="configurando-a-instancia-do-postgresql-no-flyio">Configurando a instância do PostgreSQL no Fly.io</h2>
-<p>Agora, vamos criar uma instância do PostgreSQL. O Fly.io fornece um serviço PostgreSQL que podemos usar para criar uma nova instância do PostgreSQL com apenas alguns comandos. </p>
+<p>Agora, vamos criar uma instância do PostgreSQL. O Fly.io fornece um serviço PostgreSQL que podemos usar para criar uma nova instância do PostgreSQL com apenas alguns comandos.</p>
 <h2 id="configurando-as-variaveis-de-ambiente-e-rodando-as-migracoes-do-alembic">Configurando as variáveis de ambiente e rodando as migrações do Alembic</h2>
-<p>Com a instância criada, algumas variáveis de ambiente serão automaticamente definidas para nós. Para que o Alembic possa executar as migrações, precisamos configurar a variável <code>DATABASE_URL</code> no nosso aplicativo para apontar para a instância do PostgreSQL do Fly.io. </p>
+<p>Com a instância criada, algumas variáveis de ambiente serão automaticamente definidas para nós. Para que o Alembic possa executar as migrações, precisamos configurar a variável <code>DATABASE_URL</code> no nosso aplicativo para apontar para a instância do PostgreSQL do Fly.io.</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>fly<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span>&lt;value&gt;
 </code></pre></div>
-<p>Substitua <code>&lt;value&gt;</code> pela string de conexão do seu banco de dados PostgreSQL. </p>
+<p>Substitua <code>&lt;value&gt;</code> pela string de conexão do seu banco de dados PostgreSQL.</p>
 <p>Finalmente, podemos executar nossas migrações Alembic. Usaremos a CLI do Fly.io para executar o comando dentro de um contêiner do nosso aplicativo:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>fly<span class="w"> </span>ssh<span class="w"> </span>console<span class="w"> </span>--app<span class="w"> </span>&lt;your-app-name&gt;<span class="w"> </span><span class="s1">'poetry run alembic upgrade head'</span>
 </code></pre></div>
-<p>Substitua <code>&lt;your-app-name&gt;</code> pelo nome do seu aplicativo no Fly.io. </p>
+<p>Substitua <code>&lt;your-app-name&gt;</code> pelo nome do seu aplicativo no Fly.io.</p>
 <h2 id="configurando-o-deploy-continuo-no-github-actions">Configurando o deploy contínuo no Github Actions</h2>
 <p>Agora que temos nosso aplicativo funcionando no Fly.io, podemos configurar o Github Actions para fazer o deploy automático sempre que fizermos um push no nosso repositório. Para isso, precisaremos adicionar alguns passos ao nosso arquivo de pipeline do Github Actions:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and push Docker image to Fly.io</span>
@@ -690,7 +690,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 16, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2023</span>
       
     
   </small>

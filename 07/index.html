@@ -766,7 +766,7 @@
 <p>Essa lacuna em nossos testes representa um risco potencial, pois não estamos verificando como nosso sistema se comporta quando alguém tenta, por exemplo, alterar os detalhes de um usuário sem ter permissões adequadas. Embora possamos assumir que nosso sistema se comportará corretamente, a falta de testes nos deixa sem uma confirmação concreta.</p>
 <h3 id="testando-a-alteracao-de-um-usuario-nao-autorizado">Testando a alteração de um usuário não autorizado</h3>
 <p>Agora, vamos começar a escrever alguns testes para esses casos. Vamos começar com um cenário simples: o que acontece quando um usuário tenta alterar as informações de outro usuário?</p>
-<p>Para testar isso, vamos criar um novo teste chamado test_update_user_with_wrong_user. </p>
+<p>Para testar isso, vamos criar um novo teste chamado test_update_user_with_wrong_user.</p>
 <p></p><div class="highlight"><span class="filename">tests/test_users.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">test_update_user_with_wrong_user</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="sa">f</span><span class="s1">'/users/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
@@ -1008,7 +1008,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </code></pre></div>
 <p>Com esses testes, podemos ter certeza de que cobrimos alguns casos importantes relacionados à autenticação de usuários em nossa API.</p>
 <h2 id="commit">Commit</h2>
-<p>Agora, vamos fazer um commit com as alterações que fizemos. </p>
+<p>Agora, vamos fazer um commit com as alterações que fizemos.</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Implement refresh token and add relevant tests"</span>
 </code></pre></div>
@@ -1025,7 +1025,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2023</span>
       
     
   </small>

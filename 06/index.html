@@ -1017,7 +1017,7 @@
 <p>Por termos criados as tags, isso reflete na organização do swagger</p>
 <p><a class="glightbox" href="../assets/06_swagger_tags.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Swagger com tags" class="center shadow" src="../assets/06_swagger_tags.png"></a></p>
 <h3 id="criando-um-router-para-auth">Criando um router para Auth</h3>
-<p>No momento, temos rotas para <code>/</code> e <code>/token</code> ainda no arquivo <code>fast_zero/app.py</code>. Vamos dar um passo adiante e criar um router separado para lidar com a autenticação. Desta forma, conseguiremos manter nosso arquivo principal (<code>app.py</code>) mais limpo e focado em sua responsabilidade principal que é iniciar nossa aplicação. </p>
+<p>No momento, temos rotas para <code>/</code> e <code>/token</code> ainda no arquivo <code>fast_zero/app.py</code>. Vamos dar um passo adiante e criar um router separado para lidar com a autenticação. Desta forma, conseguiremos manter nosso arquivo principal (<code>app.py</code>) mais limpo e focado em sua responsabilidade principal que é iniciar nossa aplicação.</p>
 <p>O router para autenticação será criado no arquivo <code>fast_zero/routers/auth.py</code>. Veja como fazer:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/routers/auth.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
@@ -1085,7 +1085,7 @@
 <a id="__codelineno-3-32" name="__codelineno-3-32"></a>
 <a id="__codelineno-3-33" name="__codelineno-3-33"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'access_token'</span><span class="p">:</span> <span class="n">access_token</span><span class="p">,</span> <span class="s1">'token_type'</span><span class="p">:</span> <span class="s1">'bearer'</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>Neste bloco de código, nós criamos um novo router que lidará exclusivamente com a rota de obtenção de token (<code>/token</code>). O endpoint <code>login_for_access_token</code> é definido exatamente da mesma maneira que antes, mas agora como parte deste router de autenticação. </p>
+<p>Neste bloco de código, nós criamos um novo router que lidará exclusivamente com a rota de obtenção de token (<code>/token</code>). O endpoint <code>login_for_access_token</code> é definido exatamente da mesma maneira que antes, mas agora como parte deste router de autenticação.</p>
 <p>Essa estrutura oferece algumas vantagens. Em primeiro lugar, nosso código se torna mais organizado e mais fácil de manter. Em segundo lugar, a separação de responsabilidades (o chamado princípio <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">SoC</a>) torna o código mais fácil de entender e testar. Por fim, nos permite escalar nosso aplicativo de maneira mais eficaz, pois podemos facilmente adicionar mais routers conforme o projeto cresce.</p>
 <h3 id="plugando-as-rotas-em-app">Plugando as rotas em app</h3>
 <p>O FastAPI oferece uma maneira fácil e direta de incluir routers em nossa aplicação principal. Isso nos permite organizar nossos endpoints de maneira eficiente e manter nosso arquivo <code>app.py</code> focado apenas em suas responsabilidades principais.</p>
@@ -1135,7 +1135,7 @@
 <p>Como você pode ver, todos os testes passaram. Isso significa que as alterações que fizemos no nosso código não afetaram o funcionamento do nosso aplicativo. O router manteve todos os endpoints nas mesmas rotas, garantindo a continuidade do comportamento esperado.</p>
 <p>Agora, para melhor alinhar nossos testes com a nova estrutura do nosso código, devemos reorganizar os arquivos de teste de acordo. Ou seja, também devemos criar arquivos de teste específicos para cada router, em vez de manter todos os testes no arquivo <code>tests/test_app.py</code>. Essa estrutura facilitará a manutenção e compreensão dos testes à medida que nossa aplicação cresce.</p>
 <h2 id="reestruturando-os-arquivos-de-testes">Reestruturando os arquivos de testes</h2>
-<p>Agora que o nosso projeto foi reestruturado, é importante manter a organização nos arquivos de teste também. Agora, temos 3 arquivos de teste diferentes: </p>
+<p>Agora que o nosso projeto foi reestruturado, é importante manter a organização nos arquivos de teste também. Agora, temos 3 arquivos de teste diferentes:</p>
 <ul>
 <li><code>/tests/test_app.py</code>: Para testes relacionados ao aplicativo em geral</li>
 <li><code>/tests/test_auth.py</code>: Para testes relacionados à autenticação e token</li>
@@ -1438,7 +1438,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 27, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2023</span>
       
     
   </small>
