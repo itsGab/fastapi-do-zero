@@ -1043,7 +1043,8 @@
 <span class="normal"><a href="#__codelineno-16-43">43</a></span>
 <span class="normal"><a href="#__codelineno-16-44">44</a></span>
 <span class="normal"><a href="#__codelineno-16-45">45</a></span>
-<span class="normal"><a href="#__codelineno-16-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">[tool.poetry]</span>
+<span class="normal"><a href="#__codelineno-16-46">46</a></span>
+<span class="normal"><a href="#__codelineno-16-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">[tool.poetry]</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"fast-zero"</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"0.1.0"</span>
 <a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span>
@@ -1063,32 +1064,33 @@
 <a id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="n">blue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.9.1"</span>
 <a id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="n">ruff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.0.278"</span>
 <a id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="n">httpx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.24.1"</span>
-<a id="__codelineno-16-21" name="__codelineno-16-21"></a>
-<a id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="k">[tool.ruff]</span>
-<a id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
-<a id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'.venv'</span><span class="p">,</span><span class="w"> </span><span class="s">'migrations'</span><span class="p">]</span>
-<a id="__codelineno-16-25" name="__codelineno-16-25"></a>
-<a id="__codelineno-16-26" name="__codelineno-16-26"></a><span class="k">[tool.isort]</span>
-<a id="__codelineno-16-27" name="__codelineno-16-27"></a><span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"black"</span>
-<a id="__codelineno-16-28" name="__codelineno-16-28"></a><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
-<a id="__codelineno-16-29" name="__codelineno-16-29"></a>
-<a id="__codelineno-16-30" name="__codelineno-16-30"></a><span class="k">[tool.pytest.ini_options]</span>
-<a id="__codelineno-16-31" name="__codelineno-16-31"></a><span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"."</span>
-<a id="__codelineno-16-32" name="__codelineno-16-32"></a>
-<a id="__codelineno-16-33" name="__codelineno-16-33"></a><span class="k">[tool.blue]</span>
-<a id="__codelineno-16-34" name="__codelineno-16-34"></a><span class="n">extend-exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'(migrations/)'</span>
-<a id="__codelineno-16-35" name="__codelineno-16-35"></a>
-<a id="__codelineno-16-36" name="__codelineno-16-36"></a><span class="k">[tool.taskipy.tasks]</span>
-<a id="__codelineno-16-37" name="__codelineno-16-37"></a><span class="n">lint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'ruff . &amp;&amp; blue --check . --diff'</span>
-<a id="__codelineno-16-38" name="__codelineno-16-38"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'blue .  &amp;&amp; isort .'</span>
-<a id="__codelineno-16-39" name="__codelineno-16-39"></a><span class="n">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'uvicorn fast_zero.app:app --reload'</span>
-<a id="__codelineno-16-40" name="__codelineno-16-40"></a><span class="n">pre_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'task lint'</span>
-<a id="__codelineno-16-41" name="__codelineno-16-41"></a><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'pytest -s -x --cov=fast_zero -vv'</span>
-<a id="__codelineno-16-42" name="__codelineno-16-42"></a><span class="n">post_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'coverage html'</span>
-<a id="__codelineno-16-43" name="__codelineno-16-43"></a>
-<a id="__codelineno-16-44" name="__codelineno-16-44"></a><span class="k">[build-system]</span>
-<a id="__codelineno-16-45" name="__codelineno-16-45"></a><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"poetry-core"</span><span class="p">]</span>
-<a id="__codelineno-16-46" name="__codelineno-16-46"></a><span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"poetry.core.masonry.api"</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21"></a><span class="n">isort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^5.12.0"</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22"></a>
+<a id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="k">[tool.ruff]</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'.venv'</span><span class="p">,</span><span class="w"> </span><span class="s">'migrations'</span><span class="p">]</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26"></a>
+<a id="__codelineno-16-27" name="__codelineno-16-27"></a><span class="k">[tool.isort]</span>
+<a id="__codelineno-16-28" name="__codelineno-16-28"></a><span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"black"</span>
+<a id="__codelineno-16-29" name="__codelineno-16-29"></a><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
+<a id="__codelineno-16-30" name="__codelineno-16-30"></a>
+<a id="__codelineno-16-31" name="__codelineno-16-31"></a><span class="k">[tool.pytest.ini_options]</span>
+<a id="__codelineno-16-32" name="__codelineno-16-32"></a><span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"."</span>
+<a id="__codelineno-16-33" name="__codelineno-16-33"></a>
+<a id="__codelineno-16-34" name="__codelineno-16-34"></a><span class="k">[tool.blue]</span>
+<a id="__codelineno-16-35" name="__codelineno-16-35"></a><span class="n">extend-exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'(migrations/)'</span>
+<a id="__codelineno-16-36" name="__codelineno-16-36"></a>
+<a id="__codelineno-16-37" name="__codelineno-16-37"></a><span class="k">[tool.taskipy.tasks]</span>
+<a id="__codelineno-16-38" name="__codelineno-16-38"></a><span class="n">lint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'ruff . &amp;&amp; blue --check . --diff'</span>
+<a id="__codelineno-16-39" name="__codelineno-16-39"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'blue .  &amp;&amp; isort .'</span>
+<a id="__codelineno-16-40" name="__codelineno-16-40"></a><span class="n">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'uvicorn fast_zero.app:app --reload'</span>
+<a id="__codelineno-16-41" name="__codelineno-16-41"></a><span class="n">pre_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'task lint'</span>
+<a id="__codelineno-16-42" name="__codelineno-16-42"></a><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'pytest -s -x --cov=fast_zero -vv'</span>
+<a id="__codelineno-16-43" name="__codelineno-16-43"></a><span class="n">post_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'coverage html'</span>
+<a id="__codelineno-16-44" name="__codelineno-16-44"></a>
+<a id="__codelineno-16-45" name="__codelineno-16-45"></a><span class="k">[build-system]</span>
+<a id="__codelineno-16-46" name="__codelineno-16-46"></a><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"poetry-core"</span><span class="p">]</span>
+<a id="__codelineno-16-47" name="__codelineno-16-47"></a><span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"poetry.core.masonry.api"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <h2 id="os-efeitos-dessas-configuracoes-de-desenvolvimento">Os efeitos dessas configurações de desenvolvimento</h2>
