@@ -854,12 +854,15 @@
 <p>Navegue até o diretório onde fará os exercícios e executará os códigos de exemplo no seu terminal e digite os seguintes comandos:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pyenv<span class="w"> </span>update
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.11:latest
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.11.4<span class="w">  </span><span class="c1"># Essa era a maior versão do 3.11 quando escrevi</span>
 </code></pre></div>
-<p>Certifique que o python rodando no seu ambiente é mesmo o 3.11:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>--version
+<p>Certifique que a versão do python 3.11 esteja instalada:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pyenv<span class="w"> </span>versions
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>*<span class="w"> </span>system<span class="w"> </span><span class="o">(</span><span class="nb">set</span><span class="w"> </span>by<span class="w"> </span>/home/dunossauro/.pyenv/version<span class="o">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="m">3</span>.10.12
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="hll"><span class="w">  </span><span class="m">3</span>.11.4
+</span><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="m">3</span>.12.0b1
 </code></pre></div>
-<p>A resposta esperada é <code>Python 3.11.4</code>.</p>
+<p>A resposta esperada é que o <code>Python 3.11.4</code> (a maior versão do python 3.11 enquanto escrevia esse material) esteja nessa lista.</p>
 <h2 id="gerenciamento-de-dependencias-com-poetry">Gerenciamento de Dependências com Poetry</h2>
 <p>Após instalar o Python, o próximo passo é instalar o Poetry, um gerenciador de pacotes e dependências para Python. O Poetry facilita a criação, o gerenciamento e a distribuição de pacotes Python.</p>
 <details class="info">
@@ -868,7 +871,7 @@
 <p><a class="glightbox" href="https://www.youtube.com/embed/ZOSWdktsKf0" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/ZOSWdktsKf0" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 <p><a class="md-button" href="https://youtu.be/ZOSWdktsKf0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
 </details>
-<p>Para instalar o Poetry, você pode seguir as instruções presentes na documentação oficial do Poetry para o seu sistema operacional. Alternativamente, se você optou por usar o pipx, pode instalar o Poetry com o seguinte comando:</p>
+<p>Para instalar o Poetry, você pode seguir as instruções presentes na <a href="https://python-poetry.org/docs/#installation" target="_blank">documentação oficial</a> do Poetry para o seu sistema operacional. Alternativamente, se você optou por usar o pipx, pode instalar o Poetry com o seguinte comando:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pipx<span class="w"> </span>install<span class="w"> </span>poetry
 </code></pre></div>
 <h2 id="criacao-do-projeto-fastapi-e-instalacao-das-dependencias">Criação do Projeto FastAPI e Instalação das Dependências</h2>
@@ -886,29 +889,38 @@
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>└── tests
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>   └── __init__.py
 </code></pre></div>
+<p>Para que a versão que instalamos com pyenv seja usada em nosso criado projeto com poetry, devemos dizer ao pyenv qual versão do python será usada nesse diretório:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pyenv local 3.11.4  # Essa era a maior versão do 3.11 quando escrevi
+</code></pre></div>
+<p>Em conjunto com essa instrução, devemos dizer ao poetry que usaremos essa versão em nosso projeto:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="k">[tool.poetry.dependencies]</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"3.11.*"</span><span class="w">  </span><span class="c1"># .* quer dizer qualquer versão da 3.11</span>
+</code></pre></div></td></tr></table></div>
+<p>Desta forma, temos uma versão do python selecionada para esse projeto e uma garantia que o poetry usará essa versão para a criação do nosso ambiente virtual.</p>
 <p>Em seguida, inicializaremos um novo projeto Python com Poetry e instalaremos as dependências necessárias - FastAPI e Uvicorn:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>poetry<span class="w"> </span>install
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>poetry<span class="w"> </span>add<span class="w"> </span>fastapi<span class="w"> </span>uvicorn
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>poetry<span class="w"> </span>install
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>poetry<span class="w"> </span>add<span class="w"> </span>fastapi<span class="w"> </span>uvicorn
 </code></pre></div>
 <h2 id="primeira-execucao-de-um-hello-world">Primeira Execução de um "Hello, World!"</h2>
 <p>Para garantir que tudo está configurado corretamente, vamos criar um pequeno programa "Hello, World!" com FastAPI. Em um novo arquivo chamado <code>app.py</code> no diretório <code>fast_zero</code> adicione o seguinte código:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span>
-<span class="normal"><a href="#__codelineno-6-5">5</a></span>
-<span class="normal"><a href="#__codelineno-6-6">6</a></span>
-<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">def</span> <span class="nf">read_root</span><span class="p">():</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="k">def</span> <span class="nf">read_root</span><span class="p">():</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Agora, podemos iniciar nosso servidor FastAPI com o seguinte comando:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>poetry<span class="w"> </span>shell<span class="w">  </span><span class="c1"># Para ativar o ambiente virtual</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>uvicorn<span class="w"> </span>fast_zero.app:app<span class="w"> </span>--reload
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>poetry<span class="w"> </span>shell<span class="w">  </span><span class="c1"># Para ativar o ambiente virtual</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>uvicorn<span class="w"> </span>fast_zero.app:app<span class="w"> </span>--reload
 </code></pre></div>
 <p>Acesse http://localhost:8000 no seu navegador, e você deve ver a mensagem "Hello, World!" em formato JSON.</p>
 <p><a class="glightbox" href="../assets/02_nagevador_com_localhost.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_nagevador_com_localhost.png"></a></p>
@@ -922,7 +934,7 @@
 <li>pytest: Ferramenta para executar testes</li>
 </ul>
 <p>Para instalar as dependências, podemos usar um grupo do poetry focado nelas, para não serem usadas em produção:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>--group<span class="w"> </span>dev<span class="w"> </span>pytest<span class="w"> </span>pytest-cov<span class="w"> </span>taskipy<span class="w"> </span>blue<span class="w"> </span>ruff<span class="w"> </span>httpx<span class="w"> </span>isort
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>--group<span class="w"> </span>dev<span class="w"> </span>pytest<span class="w"> </span>pytest-cov<span class="w"> </span>taskipy<span class="w"> </span>blue<span class="w"> </span>ruff<span class="w"> </span>httpx<span class="w"> </span>isort
 </code></pre></div>
 <blockquote>
 <p>O <code>HTTPX</code> foi incluído, pois ele é uma dependência do cliente de testes do FastAPI.</p>
@@ -931,47 +943,47 @@
 <p>Após a instalação das dependências, vamos precisar configurar todas as ferramentas de desenvolvimento no arquivo <code>pyproject.toml</code>.</p>
 <h3 id="ruff">Ruff</h3>
 <p>Vamos usar o ruff na configuração padrão. As únicas alterações que faremos serão para que ele siga a PEP-8, usando 80 caracteres por linha e ignorando o ambiente virtual e pasta de migrações do banco de dados:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-23">23</a></span>
-<span class="normal"><a href="#__codelineno-9-24">24</a></span>
-<span class="normal"><a href="#__codelineno-9-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-23" name="__codelineno-9-23"></a><span class="k">[tool.ruff]</span>
-<a id="__codelineno-9-24" name="__codelineno-9-24"></a><span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
-<a id="__codelineno-9-25" name="__codelineno-9-25"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'.venv'</span><span class="p">,</span><span class="w"> </span><span class="s">'migrations'</span><span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-23">23</a></span>
+<span class="normal"><a href="#__codelineno-11-24">24</a></span>
+<span class="normal"><a href="#__codelineno-11-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-23" name="__codelineno-11-23"></a><span class="k">[tool.ruff]</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24"></a><span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'.venv'</span><span class="p">,</span><span class="w"> </span><span class="s">'migrations'</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="isort">isort</h3>
 <p>Vamos configurar o isort para o formato do Black, que coloca uma instrução <code>import</code> por linha para evitar conflitos no git e também usar a base da PEP-8 para 80 caracteres:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-27">27</a></span>
-<span class="normal"><a href="#__codelineno-10-28">28</a></span>
-<span class="normal"><a href="#__codelineno-10-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="k">[tool.isort]</span>
-<a id="__codelineno-10-28" name="__codelineno-10-28"></a><span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"black"</span>
-<a id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-27">27</a></span>
+<span class="normal"><a href="#__codelineno-12-28">28</a></span>
+<span class="normal"><a href="#__codelineno-12-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-27" name="__codelineno-12-27"></a><span class="k">[tool.isort]</span>
+<a id="__codelineno-12-28" name="__codelineno-12-28"></a><span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"black"</span>
+<a id="__codelineno-12-29" name="__codelineno-12-29"></a><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="pytest">pytest</h3>
 <p>Configuraremos o pytest para reconhecer o caminho base para execução dos testes na raiz do projeto <code>.</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-31">31</a></span>
-<span class="normal"><a href="#__codelineno-11-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-31" name="__codelineno-11-31"></a><span class="k">[tool.pytest.ini_options]</span>
-<a id="__codelineno-11-32" name="__codelineno-11-32"></a><span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"."</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-31">31</a></span>
+<span class="normal"><a href="#__codelineno-13-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-31" name="__codelineno-13-31"></a><span class="k">[tool.pytest.ini_options]</span>
+<a id="__codelineno-13-32" name="__codelineno-13-32"></a><span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"."</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="blue">blue</h3>
 <p>Configuraremos o blue para excluir o caminho das migrações quando essas forem utilizadas:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-34">34</a></span>
-<span class="normal"><a href="#__codelineno-12-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-34" name="__codelineno-12-34"></a><span class="k">[tool.blue]</span>
-<a id="__codelineno-12-35" name="__codelineno-12-35"></a><span class="n">extend-exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'(migrations/)'</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-34">34</a></span>
+<span class="normal"><a href="#__codelineno-14-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-34" name="__codelineno-14-34"></a><span class="k">[tool.blue]</span>
+<a id="__codelineno-14-35" name="__codelineno-14-35"></a><span class="n">extend-exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'(migrations/)'</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="taskipy">Taskipy</h3>
 <p>Para simplificar a execução de certos comandos, vamos criar algumas tarefas com o Taskipy.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-37">37</a></span>
-<span class="normal"><a href="#__codelineno-13-38">38</a></span>
-<span class="normal"><a href="#__codelineno-13-39">39</a></span>
-<span class="normal"><a href="#__codelineno-13-40">40</a></span>
-<span class="normal"><a href="#__codelineno-13-41">41</a></span>
-<span class="normal"><a href="#__codelineno-13-42">42</a></span>
-<span class="normal"><a href="#__codelineno-13-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-37" name="__codelineno-13-37"></a><span class="k">[tool.taskipy.tasks]</span>
-<a id="__codelineno-13-38" name="__codelineno-13-38"></a><span class="n">lint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'ruff . &amp;&amp; blue --check . --diff'</span>
-<a id="__codelineno-13-39" name="__codelineno-13-39"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'blue .  &amp;&amp; isort .'</span>
-<a id="__codelineno-13-40" name="__codelineno-13-40"></a><span class="n">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'uvicorn fast_zero.app:app --reload'</span>
-<a id="__codelineno-13-41" name="__codelineno-13-41"></a><span class="n">pre_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'task lint'</span>
-<a id="__codelineno-13-42" name="__codelineno-13-42"></a><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'pytest -s -x --cov=fast_zero -vv'</span>
-<a id="__codelineno-13-43" name="__codelineno-13-43"></a><span class="n">post_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'coverage html'</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-37">37</a></span>
+<span class="normal"><a href="#__codelineno-15-38">38</a></span>
+<span class="normal"><a href="#__codelineno-15-39">39</a></span>
+<span class="normal"><a href="#__codelineno-15-40">40</a></span>
+<span class="normal"><a href="#__codelineno-15-41">41</a></span>
+<span class="normal"><a href="#__codelineno-15-42">42</a></span>
+<span class="normal"><a href="#__codelineno-15-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-37" name="__codelineno-15-37"></a><span class="k">[tool.taskipy.tasks]</span>
+<a id="__codelineno-15-38" name="__codelineno-15-38"></a><span class="n">lint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'ruff . &amp;&amp; blue --check . --diff'</span>
+<a id="__codelineno-15-39" name="__codelineno-15-39"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'blue .  &amp;&amp; isort .'</span>
+<a id="__codelineno-15-40" name="__codelineno-15-40"></a><span class="n">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'uvicorn fast_zero.app:app --reload'</span>
+<a id="__codelineno-15-41" name="__codelineno-15-41"></a><span class="n">pre_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'task lint'</span>
+<a id="__codelineno-15-42" name="__codelineno-15-42"></a><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'pytest -s -x --cov=fast_zero -vv'</span>
+<a id="__codelineno-15-43" name="__codelineno-15-43"></a><span class="n">post_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'coverage html'</span>
 </code></pre></div></td></tr></table></div>
 <p>Os comandos definidos fazem o seguinte:</p>
 <ul>
@@ -986,181 +998,181 @@
 <details class="warning">
 <summary>Caso precise ver o arquivo todo</summary>
 <p>O meu está exatamente assim:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-14-10">10</a></span>
-<span class="normal"><a href="#__codelineno-14-11">11</a></span>
-<span class="normal"><a href="#__codelineno-14-12">12</a></span>
-<span class="normal"><a href="#__codelineno-14-13">13</a></span>
-<span class="normal"><a href="#__codelineno-14-14">14</a></span>
-<span class="normal"><a href="#__codelineno-14-15">15</a></span>
-<span class="normal"><a href="#__codelineno-14-16">16</a></span>
-<span class="normal"><a href="#__codelineno-14-17">17</a></span>
-<span class="normal"><a href="#__codelineno-14-18">18</a></span>
-<span class="normal"><a href="#__codelineno-14-19">19</a></span>
-<span class="normal"><a href="#__codelineno-14-20">20</a></span>
-<span class="normal"><a href="#__codelineno-14-21">21</a></span>
-<span class="normal"><a href="#__codelineno-14-22">22</a></span>
-<span class="normal"><a href="#__codelineno-14-23">23</a></span>
-<span class="normal"><a href="#__codelineno-14-24">24</a></span>
-<span class="normal"><a href="#__codelineno-14-25">25</a></span>
-<span class="normal"><a href="#__codelineno-14-26">26</a></span>
-<span class="normal"><a href="#__codelineno-14-27">27</a></span>
-<span class="normal"><a href="#__codelineno-14-28">28</a></span>
-<span class="normal"><a href="#__codelineno-14-29">29</a></span>
-<span class="normal"><a href="#__codelineno-14-30">30</a></span>
-<span class="normal"><a href="#__codelineno-14-31">31</a></span>
-<span class="normal"><a href="#__codelineno-14-32">32</a></span>
-<span class="normal"><a href="#__codelineno-14-33">33</a></span>
-<span class="normal"><a href="#__codelineno-14-34">34</a></span>
-<span class="normal"><a href="#__codelineno-14-35">35</a></span>
-<span class="normal"><a href="#__codelineno-14-36">36</a></span>
-<span class="normal"><a href="#__codelineno-14-37">37</a></span>
-<span class="normal"><a href="#__codelineno-14-38">38</a></span>
-<span class="normal"><a href="#__codelineno-14-39">39</a></span>
-<span class="normal"><a href="#__codelineno-14-40">40</a></span>
-<span class="normal"><a href="#__codelineno-14-41">41</a></span>
-<span class="normal"><a href="#__codelineno-14-42">42</a></span>
-<span class="normal"><a href="#__codelineno-14-43">43</a></span>
-<span class="normal"><a href="#__codelineno-14-44">44</a></span>
-<span class="normal"><a href="#__codelineno-14-45">45</a></span>
-<span class="normal"><a href="#__codelineno-14-46">46</a></span>
-<span class="normal"><a href="#__codelineno-14-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">[tool.poetry]</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"fast-zero"</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"0.1.0"</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"dunossauro &lt;mendesxeduardo@gmail.com&gt;"</span><span class="p">]</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"README.md"</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">packages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"fast_zero"</span><span class="p">}]</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8"></a>
-<a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="k">[tool.poetry.dependencies]</span>
-<a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^3.11"</span>
-<a id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="n">fastapi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.100.0"</span>
-<a id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="n">uvicorn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.22.0"</span>
-<a id="__codelineno-14-13" name="__codelineno-14-13"></a>
-<a id="__codelineno-14-14" name="__codelineno-14-14"></a>
-<a id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="k">[tool.poetry.group.dev.dependencies]</span>
-<a id="__codelineno-14-16" name="__codelineno-14-16"></a><span class="n">pytest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^7.4.0"</span>
-<a id="__codelineno-14-17" name="__codelineno-14-17"></a><span class="n">pytest-cov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^4.1.0"</span>
-<a id="__codelineno-14-18" name="__codelineno-14-18"></a><span class="n">taskipy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^1.11.0"</span>
-<a id="__codelineno-14-19" name="__codelineno-14-19"></a><span class="n">blue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.9.1"</span>
-<a id="__codelineno-14-20" name="__codelineno-14-20"></a><span class="n">ruff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.0.278"</span>
-<a id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="n">httpx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.24.1"</span>
-<a id="__codelineno-14-22" name="__codelineno-14-22"></a>
-<a id="__codelineno-14-23" name="__codelineno-14-23"></a><span class="k">[tool.ruff]</span>
-<a id="__codelineno-14-24" name="__codelineno-14-24"></a><span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
-<a id="__codelineno-14-25" name="__codelineno-14-25"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'.venv'</span><span class="p">,</span><span class="w"> </span><span class="s">'migrations'</span><span class="p">]</span>
-<a id="__codelineno-14-26" name="__codelineno-14-26"></a>
-<a id="__codelineno-14-27" name="__codelineno-14-27"></a><span class="k">[tool.isort]</span>
-<a id="__codelineno-14-28" name="__codelineno-14-28"></a><span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"black"</span>
-<a id="__codelineno-14-29" name="__codelineno-14-29"></a><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
-<a id="__codelineno-14-30" name="__codelineno-14-30"></a>
-<a id="__codelineno-14-31" name="__codelineno-14-31"></a><span class="k">[tool.pytest.ini_options]</span>
-<a id="__codelineno-14-32" name="__codelineno-14-32"></a><span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"."</span>
-<a id="__codelineno-14-33" name="__codelineno-14-33"></a>
-<a id="__codelineno-14-34" name="__codelineno-14-34"></a><span class="k">[tool.blue]</span>
-<a id="__codelineno-14-35" name="__codelineno-14-35"></a><span class="n">extend-exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'(migrations/)'</span>
-<a id="__codelineno-14-36" name="__codelineno-14-36"></a>
-<a id="__codelineno-14-37" name="__codelineno-14-37"></a><span class="k">[tool.taskipy.tasks]</span>
-<a id="__codelineno-14-38" name="__codelineno-14-38"></a><span class="n">lint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'ruff . &amp;&amp; blue --check . --diff'</span>
-<a id="__codelineno-14-39" name="__codelineno-14-39"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'blue .  &amp;&amp; isort .'</span>
-<a id="__codelineno-14-40" name="__codelineno-14-40"></a><span class="n">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'uvicorn fast_zero.app:app --reload'</span>
-<a id="__codelineno-14-41" name="__codelineno-14-41"></a><span class="n">pre_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'task lint'</span>
-<a id="__codelineno-14-42" name="__codelineno-14-42"></a><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'pytest -s -x --cov=fast_zero -vv'</span>
-<a id="__codelineno-14-43" name="__codelineno-14-43"></a><span class="n">post_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'coverage html'</span>
-<a id="__codelineno-14-44" name="__codelineno-14-44"></a>
-<a id="__codelineno-14-45" name="__codelineno-14-45"></a><span class="k">[build-system]</span>
-<a id="__codelineno-14-46" name="__codelineno-14-46"></a><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"poetry-core"</span><span class="p">]</span>
-<a id="__codelineno-14-47" name="__codelineno-14-47"></a><span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"poetry.core.masonry.api"</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span>
+<span class="normal"><a href="#__codelineno-16-16">16</a></span>
+<span class="normal"><a href="#__codelineno-16-17">17</a></span>
+<span class="normal"><a href="#__codelineno-16-18">18</a></span>
+<span class="normal"><a href="#__codelineno-16-19">19</a></span>
+<span class="normal"><a href="#__codelineno-16-20">20</a></span>
+<span class="normal"><a href="#__codelineno-16-21">21</a></span>
+<span class="normal"><a href="#__codelineno-16-22">22</a></span>
+<span class="normal"><a href="#__codelineno-16-23">23</a></span>
+<span class="normal"><a href="#__codelineno-16-24">24</a></span>
+<span class="normal"><a href="#__codelineno-16-25">25</a></span>
+<span class="normal"><a href="#__codelineno-16-26">26</a></span>
+<span class="normal"><a href="#__codelineno-16-27">27</a></span>
+<span class="normal"><a href="#__codelineno-16-28">28</a></span>
+<span class="normal"><a href="#__codelineno-16-29">29</a></span>
+<span class="normal"><a href="#__codelineno-16-30">30</a></span>
+<span class="normal"><a href="#__codelineno-16-31">31</a></span>
+<span class="normal"><a href="#__codelineno-16-32">32</a></span>
+<span class="normal"><a href="#__codelineno-16-33">33</a></span>
+<span class="normal"><a href="#__codelineno-16-34">34</a></span>
+<span class="normal"><a href="#__codelineno-16-35">35</a></span>
+<span class="normal"><a href="#__codelineno-16-36">36</a></span>
+<span class="normal"><a href="#__codelineno-16-37">37</a></span>
+<span class="normal"><a href="#__codelineno-16-38">38</a></span>
+<span class="normal"><a href="#__codelineno-16-39">39</a></span>
+<span class="normal"><a href="#__codelineno-16-40">40</a></span>
+<span class="normal"><a href="#__codelineno-16-41">41</a></span>
+<span class="normal"><a href="#__codelineno-16-42">42</a></span>
+<span class="normal"><a href="#__codelineno-16-43">43</a></span>
+<span class="normal"><a href="#__codelineno-16-44">44</a></span>
+<span class="normal"><a href="#__codelineno-16-45">45</a></span>
+<span class="normal"><a href="#__codelineno-16-46">46</a></span>
+<span class="normal"><a href="#__codelineno-16-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">[tool.poetry]</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"fast-zero"</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"0.1.0"</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="n">authors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"dunossauro &lt;mendesxeduardo@gmail.com&gt;"</span><span class="p">]</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="n">readme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"README.md"</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">packages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"fast_zero"</span><span class="p">}]</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="k">[tool.poetry.dependencies]</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^3.11"</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="n">fastapi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.100.0"</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="n">uvicorn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.22.0"</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a>
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="k">[tool.poetry.group.dev.dependencies]</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="n">pytest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^7.4.0"</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="n">pytest-cov</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^4.1.0"</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="n">taskipy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^1.11.0"</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="n">blue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.9.1"</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="n">ruff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.0.278"</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21"></a><span class="n">httpx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"^0.24.1"</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22"></a>
+<a id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="k">[tool.ruff]</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'.venv'</span><span class="p">,</span><span class="w"> </span><span class="s">'migrations'</span><span class="p">]</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26"></a>
+<a id="__codelineno-16-27" name="__codelineno-16-27"></a><span class="k">[tool.isort]</span>
+<a id="__codelineno-16-28" name="__codelineno-16-28"></a><span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"black"</span>
+<a id="__codelineno-16-29" name="__codelineno-16-29"></a><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
+<a id="__codelineno-16-30" name="__codelineno-16-30"></a>
+<a id="__codelineno-16-31" name="__codelineno-16-31"></a><span class="k">[tool.pytest.ini_options]</span>
+<a id="__codelineno-16-32" name="__codelineno-16-32"></a><span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"."</span>
+<a id="__codelineno-16-33" name="__codelineno-16-33"></a>
+<a id="__codelineno-16-34" name="__codelineno-16-34"></a><span class="k">[tool.blue]</span>
+<a id="__codelineno-16-35" name="__codelineno-16-35"></a><span class="n">extend-exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'(migrations/)'</span>
+<a id="__codelineno-16-36" name="__codelineno-16-36"></a>
+<a id="__codelineno-16-37" name="__codelineno-16-37"></a><span class="k">[tool.taskipy.tasks]</span>
+<a id="__codelineno-16-38" name="__codelineno-16-38"></a><span class="n">lint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'ruff . &amp;&amp; blue --check . --diff'</span>
+<a id="__codelineno-16-39" name="__codelineno-16-39"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'blue .  &amp;&amp; isort .'</span>
+<a id="__codelineno-16-40" name="__codelineno-16-40"></a><span class="n">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'uvicorn fast_zero.app:app --reload'</span>
+<a id="__codelineno-16-41" name="__codelineno-16-41"></a><span class="n">pre_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'task lint'</span>
+<a id="__codelineno-16-42" name="__codelineno-16-42"></a><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'pytest -s -x --cov=fast_zero -vv'</span>
+<a id="__codelineno-16-43" name="__codelineno-16-43"></a><span class="n">post_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'coverage html'</span>
+<a id="__codelineno-16-44" name="__codelineno-16-44"></a>
+<a id="__codelineno-16-45" name="__codelineno-16-45"></a><span class="k">[build-system]</span>
+<a id="__codelineno-16-46" name="__codelineno-16-46"></a><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"poetry-core"</span><span class="p">]</span>
+<a id="__codelineno-16-47" name="__codelineno-16-47"></a><span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"poetry.core.masonry.api"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <h2 id="os-efeitos-dessas-configuracoes-de-desenvolvimento">Os efeitos dessas configurações de desenvolvimento</h2>
 <p>Caso você tenha copiado o código que usamos para definir <code>fast_zero/app.py</code>, pode testar os comandos que criamos para o <code>taskipy</code>:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>task<span class="w"> </span>lint
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>task<span class="w"> </span>lint
 </code></pre></div>
 <p>Dessa forma, veremos que cometemos algumas infrações na formatação da PEP-8. O blue nos informará que deveríamos ter adicionado duas linhas antes de uma definição de função:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>task lint
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="gd">--- fast_zero/app.py    2023-07-12 21:40:14.590616 +0000</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="gi">+++ fast_zero/app.py    2023-07-12 21:48:17.017190 +0000</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="gu">@@ -1,7 +1,8 @@</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w"> </span>from fastapi import FastAPI
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w"> </span>app = FastAPI()
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
-<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="gi">+</span>
-<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w"> </span>@app.get('/')
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w"> </span>def read_root():
-<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w"> </span>    return {'message': 'Olá Mundo!'}
-<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>would reformat fast_zero/app.py
-<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>
-<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>Oh no! 💥 💔 💥
-<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>1 file would be reformatted, 2 files would be left unchanged.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>task lint
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="gd">--- fast_zero/app.py    2023-07-12 21:40:14.590616 +0000</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="gi">+++ fast_zero/app.py    2023-07-12 21:48:17.017190 +0000</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="gu">@@ -1,7 +1,8 @@</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w"> </span>from fastapi import FastAPI
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w"> </span>app = FastAPI()
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="gi">+</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w"> </span>@app.get('/')
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w"> </span>def read_root():
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w"> </span>    return {'message': 'Olá Mundo!'}
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>would reformat fast_zero/app.py
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>Oh no! 💥 💔 💥
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>1 file would be reformatted, 2 files would be left unchanged.
 </code></pre></div>
 <p>Para corrigir isso, podemos usar o nosso comando de formatação de código:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Comando</label><label for="__tabbed_1_2">Resultado</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>task<span class="w"> </span>format
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>reformatted<span class="w"> </span>fast_zero/app.py
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>reformatted,<span class="w"> </span><span class="m">2</span><span class="w"> </span>files<span class="w"> </span>left<span class="w"> </span>unchanged.
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>Skipped<span class="w"> </span><span class="m">2</span><span class="w"> </span>files
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>task<span class="w"> </span>format
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>reformatted<span class="w"> </span>fast_zero/app.py
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>reformatted,<span class="w"> </span><span class="m">2</span><span class="w"> </span>files<span class="w"> </span>left<span class="w"> </span>unchanged.
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>Skipped<span class="w"> </span><span class="m">2</span><span class="w"> </span>files
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
-<span class="normal"><a href="#__codelineno-18-2">2</a></span>
-<span class="normal"><a href="#__codelineno-18-3">3</a></span>
-<span class="normal"><a href="#__codelineno-18-4">4</a></span>
-<span class="normal"><a href="#__codelineno-18-5">5</a></span>
-<span class="normal"><a href="#__codelineno-18-6">6</a></span>
-<span class="normal"><a href="#__codelineno-18-7">7</a></span>
-<span class="normal"><a href="#__codelineno-18-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a>
-<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4"></a>
-<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="hll">
-</span><a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
-<a id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="k">def</span> <span class="nf">read_root</span><span class="p">():</span>
-<a id="__codelineno-18-8" name="__codelineno-18-8"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span>
+<span class="normal"><a href="#__codelineno-20-7">7</a></span>
+<span class="normal"><a href="#__codelineno-20-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="hll">
+</span><a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="k">def</span> <span class="nf">read_root</span><span class="p">():</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
 </div>
 <h2 id="introducao-ao-pytest-testando-o-hello-world">Introdução ao Pytest: Testando o "Hello, World!"</h2>
 <p>Antes de entendermos a dinâmica dos testes, precisamos entender o efeito que eles têm no nosso código. Um bom lugar para começar isso é analisando a cobertura. Vamos executar os testes.</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>task<span class="w"> </span><span class="nb">test</span>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>task<span class="w"> </span><span class="nb">test</span>
 </code></pre></div>
 <p>Teremos uma resposta como essa:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="m">3</span><span class="w"> </span>files<span class="w"> </span>would<span class="w"> </span>be<span class="w"> </span>left<span class="w"> </span>unchanged.
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="o">===========================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>platform<span class="w"> </span>linux<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.3,<span class="w"> </span>pytest-7.4.0,<span class="w"> </span>pluggy-1.2.
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>cachedir:<span class="w"> </span>.pytest_cache
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>rootdir:<span class="w"> </span>/home/dunossauro/git/fast_zero
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>configfile:<span class="w"> </span>pyproject.toml
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-3.7.1
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>collected<span class="w"> </span><span class="m">0</span><span class="w"> </span>items
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>/&lt;path&gt;/site-packages/coverage/control.py:860:
-<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">  </span>CoverageWarning:<span class="w"> </span>No<span class="w"> </span>data<span class="w"> </span>was<span class="w"> </span>collected.<span class="w"> </span><span class="o">(</span>no-data-collected<span class="o">)</span>
-<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">    </span>self._warn<span class="o">(</span><span class="s2">"No data was collected."</span>,<span class="w"> </span><span class="nv">slug</span><span class="o">=</span><span class="s2">"no-data-collected"</span><span class="o">)</span>
-<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>
-<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
-<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
-<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>-------------------------------------------
-<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>fast_zero/app.py<span class="w">            </span><span class="m">5</span><span class="w">      </span><span class="m">5</span><span class="w">     </span><span class="m">0</span>%
-<a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>-------------------------------------------
-<a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>TOTAL<span class="w">                       </span><span class="m">5</span><span class="w">      </span><span class="m">5</span><span class="w">     </span><span class="m">0</span>%
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="m">3</span><span class="w"> </span>files<span class="w"> </span>would<span class="w"> </span>be<span class="w"> </span>left<span class="w"> </span>unchanged.
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="o">===========================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">===========================</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>platform<span class="w"> </span>linux<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.3,<span class="w"> </span>pytest-7.4.0,<span class="w"> </span>pluggy-1.2.
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>cachedir:<span class="w"> </span>.pytest_cache
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>rootdir:<span class="w"> </span>/home/dunossauro/git/fast_zero
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>configfile:<span class="w"> </span>pyproject.toml
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-3.7.1
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>collected<span class="w"> </span><span class="m">0</span><span class="w"> </span>items
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>/&lt;path&gt;/site-packages/coverage/control.py:860:
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="w">  </span>CoverageWarning:<span class="w"> </span>No<span class="w"> </span>data<span class="w"> </span>was<span class="w"> </span>collected.<span class="w"> </span><span class="o">(</span>no-data-collected<span class="o">)</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="w">    </span>self._warn<span class="o">(</span><span class="s2">"No data was collected."</span>,<span class="w"> </span><span class="nv">slug</span><span class="o">=</span><span class="s2">"no-data-collected"</span><span class="o">)</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>-------------------------------------------
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>fast_zero/app.py<span class="w">            </span><span class="m">5</span><span class="w">      </span><span class="m">5</span><span class="w">     </span><span class="m">0</span>%
+<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>-------------------------------------------
+<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>TOTAL<span class="w">                       </span><span class="m">5</span><span class="w">      </span><span class="m">5</span><span class="w">     </span><span class="m">0</span>%
 </code></pre></div>
 <p>As primeiras duas linhas são referentes ao comando do <code>taskipy</code> <code>pre_test</code> que executa o <code>blue</code> e o <code>ruff</code> antes de cada teste. As linhas seguintes são referentes ao pytest, que disse que coletou 0 itens. Nenhum teste foi executado.</p>
 <details class="info">
@@ -1171,8 +1183,8 @@
 </details>
 <p>A parte importante dessa Mensagem está na tabela gerada pelo <code>coverage</code>. Que diz que temos 5 linhas de código (Stmts) no arquivo <code>fast_zero/app.py</code> e nenhuma delas está coberta pelos nossos testes. Como podemos ver na coluna <code>Miss</code>.</p>
 <p>Por não ter encontrado nenhum teste, o pytest retornou um "erro". Isso significa que nossa tarefa <code>post_test</code> não foi executada. Podemos executá-la manualmente:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>task<span class="w"> </span>post_test
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>task<span class="w"> </span>post_test
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
 </code></pre></div>
 <p>Isso gera um relatório de cobertura de testes em formato HTML. Podemos abrir esse arquivo em nosso navegador e entender exatamente quais linhas do código não estão sendo testadas.</p>
 <p><a class="glightbox" href="/assets/02_navegador_com_pagina_inicial_do_coverage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="navegador" class="center shadow" src="/assets/02_navegador_com_pagina_inicial_do_coverage.png"></a></p>
@@ -1182,81 +1194,81 @@
 <h3 id="escrevendo-o-teste">Escrevendo o teste</h3>
 <p>Agora, vamos escrever nosso primeiro teste com Pytest.</p>
 <p>Para testar o FastAPI, precisamos de um cliente de teste. Isso pode ser obtido no módulo <code>fastapi.testclient</code> com o objeto <code>TestClient</code>, que precisa receber nosso app como parâmetro:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
-<span class="normal"><a href="#__codelineno-22-2">2</a></span>
-<span class="normal"><a href="#__codelineno-22-3">3</a></span>
-<span class="normal"><a href="#__codelineno-22-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3"></a>
-<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span>
+<span class="normal"><a href="#__codelineno-24-3">3</a></span>
+<span class="normal"><a href="#__codelineno-24-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Só o fato de termos definido um cliente, já nos mostra uma cobertura bastante diferente:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>task<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="c1"># parte da mensagem foi omitida</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="hll">collected<span class="w"> </span><span class="m">0</span><span class="w"> </span>items
-</span><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
-<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>-------------------------------------------
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="hll">fast_zero/app.py<span class="w">            </span><span class="m">5</span><span class="w">      </span><span class="m">1</span><span class="w">    </span><span class="m">80</span>%
-</span><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>-------------------------------------------
-<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>TOTAL<span class="w">                       </span><span class="m">5</span><span class="w">      </span><span class="m">1</span><span class="w">    </span><span class="m">80</span>%
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>task<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="c1"># parte da mensagem foi omitida</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="hll">collected<span class="w"> </span><span class="m">0</span><span class="w"> </span>items
+</span><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>-------------------------------------------
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="hll">fast_zero/app.py<span class="w">            </span><span class="m">5</span><span class="w">      </span><span class="m">1</span><span class="w">    </span><span class="m">80</span>%
+</span><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>-------------------------------------------
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>TOTAL<span class="w">                       </span><span class="m">5</span><span class="w">      </span><span class="m">1</span><span class="w">    </span><span class="m">80</span>%
 </code></pre></div>
 <p>Devido ao fato de não ter coletado nenhum teste, o pytest ainda retornou um "erro". Para ver a cobertura, precisaremos executar novamente o <code>post_test</code> manualmente:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>task<span class="w"> </span>post_test
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>task<span class="w"> </span>post_test
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
 </code></pre></div>
 <p>No navegador, podemos ver que a única linha não "testada" é aquela onde temos a lógica do endpoint:</p>
 <p><a class="glightbox" href="../assets/02_navegador_com_pagina_de_cobertura_com_estrutuda_de_testes.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="browser" class="center shadow" src="../assets/02_navegador_com_pagina_de_cobertura_com_estrutuda_de_testes.png"></a></p>
 <p>No verde vemos o que foi executado quando chamamos o teste, no vermelho o que não foi.</p>
 <p>Para resolver isso, temos que criar um teste de fato, fazendo uma chamada para nossa API usando o cliente de teste que definimos:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-25-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-25-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-25-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-25-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-25-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-25-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-25-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3"></a>
-<a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5"></a>
-<a id="__codelineno-25-6" name="__codelineno-25-6"></a>
-<a id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="k">def</span> <span class="nf">test_root_deve_retornar_200_e_ola_mundo</span><span class="p">():</span>
-<a id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="hll">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
-</span><a id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="hll">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-</span><a id="__codelineno-25-10" name="__codelineno-25-10"></a><span class="hll">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-27-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-27-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-27-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-27-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-27-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-27-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-27-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-27-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="k">def</span> <span class="nf">test_root_deve_retornar_200_e_ola_mundo</span><span class="p">():</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="hll">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+</span><a id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="hll">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span><a id="__codelineno-27-10" name="__codelineno-27-10"></a><span class="hll">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Esse teste faz uma requisição GET no endpoint <code>/</code> e verifica se o código de status da resposta é 200 e se o conteúdo da resposta é <code>{'message': 'Olá Mundo!'}</code>.</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>task<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="c1"># parte da mensagem foi omitida</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="hll">collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item
-</span><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
-<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="hll">tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
-</span><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>
-<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
-<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
-<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>-------------------------------------------
-<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="hll">fast_zero/app.py<span class="w">            </span><span class="m">5</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-</span><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>-------------------------------------------
-<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>TOTAL<span class="w">                       </span><span class="m">5</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>
-<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="o">================</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span>.39s<span class="w"> </span><span class="o">================</span>
-<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="hll">Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>task<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="c1"># parte da mensagem foi omitida</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="hll">collected<span class="w"> </span><span class="m">1</span><span class="w"> </span>item
+</span><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="hll">tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
+</span><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>-------------------------------------------
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="hll">fast_zero/app.py<span class="w">            </span><span class="m">5</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+</span><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>-------------------------------------------
+<a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>TOTAL<span class="w">                       </span><span class="m">5</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>
+<a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="o">================</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span>.39s<span class="w"> </span><span class="o">================</span>
+<a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="hll">Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
 </span></code></pre></div>
 <p>Dessa forma, temos um teste que coletou 1 item (1 teste). Esse teste foi aprovado e a cobertura não deixou de abranger nenhuma linha de código.</p>
 <p>Como conseguimos coletar um item, o <code>post_test</code> foi executado e também gerou um HTML com a cobertura atualizada.</p>
 <p><a class="glightbox" href="../assets/02_navegador_com_pagina_de_cobertura_com_teste.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_navegador_com_pagina_de_cobertura_com_teste.png"></a></p>
 <h2 id="criando-nosso-repositorio-no-git">Criando nosso repositório no git</h2>
 <p>Antes de concluirmos a aula, precisamos criar nosso repositório no git e criar nosso arquivo <code>.gitignore</code>:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>ignr<span class="w"> </span>-p<span class="w"> </span>python<span class="w"> </span>&gt;<span class="w"> </span>.gitignore
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>git<span class="w"> </span>init<span class="w"> </span>.
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>gh<span class="w"> </span>repo<span class="w"> </span>create
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>ignr<span class="w"> </span>-p<span class="w"> </span>python<span class="w"> </span>&gt;<span class="w"> </span>.gitignore
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>git<span class="w"> </span>init<span class="w"> </span>.
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>gh<span class="w"> </span>repo<span class="w"> </span>create
 </code></pre></div>
 <h2 id="conclusao">Conclusão</h2>
 <p>Pronto! Agora temos um ambiente de desenvolvimento totalmente configurado para começar a trabalhar com FastAPI e já fizemos nossa primeira imersão no Desenvolvimento Orientado por Testes. Na próxima aula, vamos aprofundar na estruturação da nossa aplicação FastAPI. Até lá!</p></div>
@@ -1266,7 +1278,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 1, 2023</span>
       
     
   </small>
