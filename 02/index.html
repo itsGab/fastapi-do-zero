@@ -114,7 +114,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rev-estruturando-o-projeto-e-criando-rotas-crud" class="md-skip">
+        <a href="#estruturando-o-projeto-e-criando-rotas-crud" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -927,12 +927,7 @@
   
 
 
-<div><h1 id="rev-estruturando-o-projeto-e-criando-rotas-crud">[REV] Estruturando o Projeto e Criando Rotas CRUD</h1>
-<p><strong>Revisões</strong></p>
-<ul>
-<li>Remover dumps dos schemas, eles não são necessários</li>
-<li>Usar a tag correta de bloco nos commits</li>
-</ul>
+<div><h1 id="estruturando-o-projeto-e-criando-rotas-crud">Estruturando o Projeto e Criando Rotas CRUD</h1>
 <hr>
 <p>Objetivos dessa aula:</p>
 <ul>
@@ -1116,8 +1111,9 @@
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
 </span><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="hll">    <span class="k">return</span> <span class="n">UserPublic</span><span class="p">(</span><span class="o">**</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump</span><span class="p">())</span>
-</span></code></pre></div>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="k">return</span> <span class="n">user</span>
+</code></pre></div>
+<p>Note que somente adicionando o <code>response_model</code>, o FastAPI já faz a conversão de <code>UserSchema</code> em <code>UserPublic</code></p>
 <p>Agora, se fizermos de novo a chamada no Swagger, receberemos o mesmo objeto, mas sem expor a senha.</p>
 <p><a class="glightbox" href="../assets/02_swagger_sem_senha.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_swagger_sem_senha.png"></a></p>
 <details class="tip">
@@ -1141,7 +1137,7 @@
 </span><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="hll">
 </span><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="hll">    <span class="n">database</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user_with_id</span><span class="p">)</span>
 </span><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="hll">
-</span><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="hll">    <span class="k">return</span> <span class="n">UserPublic</span><span class="p">(</span><span class="o">**</span><span class="n">user_with_id</span><span class="o">.</span><span class="n">model_dump</span><span class="p">())</span>
+</span><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="hll">    <span class="k">return</span> <span class="n">user_with_id</span>
 </span></code></pre></div>
 <p>Se queremos uma simulação de banco de dados, precisamos ter um <code>ID</code> para cada usuário registrado no nosso "banco". Sendo assim, vamos alterar nosso modelo de resposta pública (<code>UserPublic</code>) para que ele forneça o ID de criação do usuário. Vamos também criar um novo modelo que represente o usuário com sua senha e identificador, que chamaremos de <code>UserDB</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-10">10</a></span>
@@ -1326,16 +1322,16 @@
 <h2 id="commit">Commit</h2>
 <p>Após toda essa jornada de aprendizado, construção e teste de rotas, chegou a hora de registrar nosso progresso utilizando o git. Fazer commits regulares é uma boa prática, pois mantém um histórico detalhado das alterações e facilita a volta a uma versão anterior do código, se necessário.</p>
 <p>Primeiramente, vamos verificar as alterações feitas no projeto com o comando <code>git status</code>. Este comando nos mostrará todos os arquivos modificados que ainda não foram incluídos em um commit.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>$<span class="w"> </span>git<span class="w"> </span>status
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>git<span class="w"> </span>status
 </code></pre></div>
 <p>Em seguida, vamos adicionar todas as alterações para o próximo commit. O comando <code>git add .</code> adiciona todas as alterações feitas em todos os arquivos do projeto.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
 </code></pre></div>
 <p>Agora, estamos prontos para fazer o commit. Com o comando <code>git commit</code>, criamos uma nova entrada no histórico do nosso projeto. É importante adicionar uma mensagem descritiva ao commit, para que outras pessoas (ou nós mesmos, no futuro) possam entender o que foi alterado. Nesse caso, a mensagem do commit poderia ser "Implementando rotas CRUD".</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Implementando rotas CRUD"</span>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Implementando rotas CRUD"</span>
 </code></pre></div>
 <p>Por fim, enviamos nossas alterações para o repositório remoto com <code>git push</code>. Se você tiver várias branches, certifique-se de estar na branch correta antes de executar este comando.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>$<span class="w"> </span>git<span class="w"> </span>push
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>git<span class="w"> </span>push
 </code></pre></div>
 <p>E pronto! As alterações estão seguras no histórico do git, e podemos continuar com o próximo passo do projeto.</p>
 <h2 id="conclusao">Conclusão</h2>
@@ -1349,7 +1345,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 1, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 2, 2023</span>
       
     
   </small>
