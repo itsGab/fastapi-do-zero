@@ -518,6 +518,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#checando-tudo-antes-do-commit" class="md-nav__link">
+    Checando tudo antes do commit
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -898,6 +905,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#checando-tudo-antes-do-commit" class="md-nav__link">
+    Checando tudo antes do commit
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1014,9 +1028,9 @@
 <p>Este diagrama representa a sequência básica de uma comunicação cliente-servidor usando HTTP e JSON:</p>
 <ul>
 <li>O cliente, geralmente um navegador web ou uma aplicação, faz uma requisição HTTP para o servidor. Essa requisição pode ser de diferentes tipos, como GET (para recuperar dados), POST ou PUT (para enviar dados), ou DELETE (para excluir dados).</li>
-<li>O servidor recebe a requisição, processa-a e, em seguida, prepara a resposta. A resposta inclui um código de status que indica se a requisição foi bem-sucedida ou não.</li>
-<li>O cliente recebe a resposta do servidor e processa-a. Se os dados foram solicitados, eles são exibidos ao usuário. Se foi uma operação de envio de dados, a resposta do servidor indicará se a operação foi bem-sucedida.</li>
-<li>Para operações que envolvem o envio de dados (como POST e PUT), o cliente inclui os dados na forma de um objeto JSON na requisição. O JSON é um formato de dados leve e fácil de usar que permite a representação de estruturas de dados complexas.</li>
+<li>O servidor recebe uma requisição, a processa e, em seguida, prepara a resposta. A resposta inclui um código de status que indica se a requisição foi bem-sucedida ou não.</li>
+<li>O cliente recebe a resposta do servidor e a processa. Se os dados foram solicitados, eles são exibidos ao usuário. Se foi uma operação de envio de dados, a resposta do servidor indicará se a operação foi bem-sucedida.</li>
+<li>Para operações que envolvem o envio de dados, como POST e PUT, o cliente inclui os dados na forma de um objeto JSON na requisição. O JSON é um formato de dados leve e fácil de usar que permite a representação de estruturas de dados complexas.</li>
 <li>O servidor recebe a requisição com os dados JSON, processa a requisição e os dados, e envia uma resposta ao cliente. Esta resposta também pode incluir dados no formato JSON.</li>
 <li>Finalmente, o cliente processa a resposta do servidor e quaisquer dados JSON incluídos nela.</li>
 </ul>
@@ -1029,11 +1043,11 @@
 <p><a class="glightbox" href="https://www.youtube.com/embed/UdfLu1G47BU" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/UdfLu1G47BU" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 <p><a class="md-button" href="https://www.youtube.com/watch?v=UdfLu1G47BU"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
 </details>
-<p>O Pydantic é uma biblioteca Python que oferece validação de dados e configurações usando anotações de tipos Python. Ela é utilizada extensivamente em FastAPI para lidar com a validação e serialização/desserialização de dados. O Pydantic tem um papel crucial ao trabalhar com JSON, pois permite a validação dos dados recebidos neste formato, assim como sua conversão para formatos nativos do Python e vice-versa.</p>
+<p>O Pydantic é uma biblioteca Python que oferece validação de dados e configurações usando anotações de tipos Python. Ela é utilizada extensivamente com o FastAPI para lidar com a validação e serialização/desserialização de dados. O Pydantic tem um papel crucial ao trabalhar com JSON, pois permite a validação dos dados recebidos neste formato, assim como sua conversão para formatos nativos do Python e vice-versa.</p>
 <p><strong>Esquemas</strong>: No contexto da programação, um esquema é uma representação estrutural de um objeto ou entidade. Por exemplo, no nosso caso, um usuário pode ser representado por um esquema que contém campos para nome de usuário, e-mail e senha. Esquemas são úteis porque permitem definir a estrutura de um objeto de uma maneira clara e reutilizável.</p>
 <p><strong>Validação de dados</strong>: Este é o processo de verificar se os dados recebidos estão em conformidade com as regras e restrições definidas. Por exemplo, se esperamos que o campo "email" contenha um endereço de e-mail válido, a validação de dados garantirá que os dados inseridos nesse campo de fato correspondam a um formato de e-mail válido.</p>
 <p>Agora, vamos falar sobre a biblioteca Pydantic.</p>
-<p>O Pydantic é uma biblioteca Python que oferece validação de dados e configurações usando anotações de tipos Python. Ela é utilizada extensivamente em FastAPI para lidar com a validação e serialização/desserialização de dados.</p>
+<p>O Pydantic é uma biblioteca Python que oferece validação de dados e configurações usando anotações de tipos Python. Ela é utilizada extensivamente com o FastAPI para lidar com a validação e serialização/desserialização de dados.</p>
 <p>O uso do Pydantic nos permite definir modelos de dados, ou "esquemas", com campos anotados com tipos de dados. O Pydantic garante que as instâncias desses modelos sempre estejam em conformidade com o esquema definido.</p>
 <p>Vamos considerar um exemplo onde recebemos o seguinte objeto JSON, representando um novo usuário que quer se registrar em nosso serviço:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
@@ -1055,6 +1069,8 @@
 <p>Ao usar este esquema, qualquer tentativa de criar um usuário com dados que não correspondam a este formato (por exemplo, um email que não é válido, ou um campo de nome de usuário que não é uma string) resultará em um erro de validação.</p>
 <h3 id="suporte-a-emails">Suporte a emails</h3>
 <p>Para que o Pydantic suporte a validação de emails, é necessário instalar o <code>pydantic[email]</code></p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>poetry<span class="w"> </span>add<span class="w"> </span><span class="s2">"pydantic[email]"</span>
+</code></pre></div>
 <p>Ademais, se tentarmos criar um usuário com um email inválido, o Pydantic irá automaticamente validar o campo e retornar um erro útil. Isso nos poupa muito trabalho de validação manual e ajuda a manter nossa API robusta e confiável.</p>
 <h2 id="implementando-as-rotas-crud">Implementando as Rotas CRUD</h2>
 <p>CRUD é um acrônimo que representa as quatro operações básicas que você pode realizar em qualquer banco de dados persistente:</p>
@@ -1071,39 +1087,39 @@
 <h3 id="implementando-a-rota-post">Implementando a Rota POST</h3>
 <p>A rota POST é usada para criar um novo usuário em nosso sistema. Lembrando, o verbo HTTP POST está relacionado à operação "Create" do CRUD. Se tudo ocorrer como esperado e um novo usuário for criado com sucesso, a rota deve retornar o status HTTP 201 (Criado).</p>
 <p>Para a criação dessa rota, vamos usar de base o JSON que criamos anteriormente. Para que a pessoa se cadastre na nossa plataforma, ela precisa enviar os dados de nome de usuário, email e senha:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joao123"</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joao123@email.com"</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"segredo123"</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joao123"</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joao123@email.com"</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"segredo123"</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
 </code></pre></div>
 <p>Para isso, vamos criar um esquema Pydantic equivalente em um arquivo de esquemas: <code>fast_zero/schemas.py</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span>
-<span class="normal"><a href="#__codelineno-3-5">5</a></span>
-<span class="normal"><a href="#__codelineno-3-6">6</a></span>
-<span class="normal"><a href="#__codelineno-3-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">EmailStr</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="k">class</span> <span class="nc">UserSchema</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">EmailStr</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">class</span> <span class="nc">UserSchema</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div></td></tr></table></div>
 <p>Agora vamos criar nosso endpoint que esperará receber esse esquema Pydantic e retornará 201, caso o JSON enviado seja válido:</p>
-<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Código da nossa rota de olá mundo omitido</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="k">return</span> <span class="n">user</span>
+<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Código da nossa rota de olá mundo omitido</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="k">return</span> <span class="n">user</span>
 </code></pre></div>
 <p>Com esse endpoint criado, podemos executar a nossa aplicação:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>task<span class="w"> </span>run
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>task<span class="w"> </span>run
 </code></pre></div>
 <p>E acessar a página <a href="http://localhost:8000/docs">http://localhost:8000/docs</a>. Isso nos mostrará as definições do nosso endpoint usando o Swagger.</p>
 <p><a class="glightbox" href="../assets/02_swagger.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_swagger.png"></a></p>
@@ -1112,20 +1128,20 @@
 <p>Entretanto, precisamos prestar atenção a um detalhe: nosso modelo retorna a senha do usuário, o que é uma péssima prática de segurança.</p>
 <p><a class="glightbox" href="../assets/02_respsota_do_swagger.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_respsota_do_swagger.png"></a></p>
 <p>Para evitar isso, podemos criar um novo modelo que será usado somente para resposta. Dessa forma, não expomos os dados que não queremos na API:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-10">10</a></span>
-<span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="k">class</span> <span class="nc">UserPublic</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="k">class</span> <span class="nc">UserPublic</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
 </code></pre></div></td></tr></table></div>
 <p>Precisamos também dizer ao FastAPI que esse será o modelo de resposta, e converter nosso <code>user</code> em <code>UserPublic</code>:</p>
-<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># código omitido</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
-</span><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="k">return</span> <span class="n">user</span>
+<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># código omitido</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
+</span><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="k">return</span> <span class="n">user</span>
 </code></pre></div>
 <p>Note que somente adicionando o <code>response_model</code>, o FastAPI já faz a conversão de <code>UserSchema</code> em <code>UserPublic</code></p>
 <p>Agora, se fizermos de novo a chamada no Swagger, receberemos o mesmo objeto, mas sem expor a senha.</p>
@@ -1138,95 +1154,95 @@
 </details>
 <h4 id="criando-um-banco-de-dados-falso">Criando um banco de dados falso</h4>
 <p>Finalmente, para brincar com essas rotas, podemos criar uma lista provisória para simular um banco de dados. Assim, podemos adicionar nossos dados e entender como o FastAPI funciona. Para isso, adicionamos uma lista provisória para o "banco" e alteramos nosso endpoint para inserir nossos modelos do Pydantic nessa lista:</p>
-<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span><span class="p">,</span> <span class="n">UserDB</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># código omitido</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="hll"><span class="n">database</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># provisório para estudo!</span>
-</span><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="hll">    <span class="n">user_with_id</span> <span class="o">=</span> <span class="n">UserDB</span><span class="p">(</span><span class="o">**</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump</span><span class="p">(),</span> <span class="nb">id</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</span><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="hll">
-</span><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="hll">    <span class="n">database</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user_with_id</span><span class="p">)</span>
-</span><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="hll">
-</span><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="hll">    <span class="k">return</span> <span class="n">user_with_id</span>
+<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span><span class="p">,</span> <span class="n">UserDB</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># código omitido</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="hll"><span class="n">database</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># provisório para estudo!</span>
+</span><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="hll">    <span class="n">user_with_id</span> <span class="o">=</span> <span class="n">UserDB</span><span class="p">(</span><span class="o">**</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump</span><span class="p">(),</span> <span class="nb">id</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="hll">
+</span><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="hll">    <span class="n">database</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user_with_id</span><span class="p">)</span>
+</span><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="hll">
+</span><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="hll">    <span class="k">return</span> <span class="n">user_with_id</span>
 </span></code></pre></div>
 <p>Se queremos uma simulação de banco de dados, precisamos ter um <code>ID</code> para cada usuário registrado no nosso "banco". Sendo assim, vamos alterar nosso modelo de resposta pública (<code>UserPublic</code>) para que ele forneça o ID de criação do usuário. Vamos também criar um novo modelo que represente o usuário com sua senha e identificador, que chamaremos de <code>UserDB</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-10">10</a></span>
-<span class="normal"><a href="#__codelineno-9-11">11</a></span>
-<span class="normal"><a href="#__codelineno-9-12">12</a></span>
-<span class="normal"><a href="#__codelineno-9-13">13</a></span>
-<span class="normal"><a href="#__codelineno-9-14">14</a></span>
-<span class="normal"><a href="#__codelineno-9-15">15</a></span>
-<span class="normal"><a href="#__codelineno-9-16">16</a></span>
-<span class="normal"><a href="#__codelineno-9-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="k">class</span> <span class="nc">UserPublic</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13"></a>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14"></a>
-<a id="__codelineno-9-15" name="__codelineno-9-15"></a>
-<a id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="k">class</span> <span class="nc">UserDB</span><span class="p">(</span><span class="n">UserSchema</span><span class="p">):</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="k">class</span> <span class="nc">UserPublic</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="k">class</span> <span class="nc">UserDB</span><span class="p">(</span><span class="n">UserSchema</span><span class="p">):</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
 </code></pre></div></td></tr></table></div>
 <p>Dessa forma, nada muda. No entanto, podemos prosseguir com a construção dos outros endpoints. E lembre-se, é importante testar esse endpoint para garantir que tudo esteja funcionando corretamente.</p>
 <h4 id="implementando-o-teste-da-rota-post">Implementando o teste da rota POST</h4>
 <p>Antes de criar o teste de fato, vamos executá-los para ver como anda a nossa cobertura:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>task<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># parte da resposta foi omitida</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>-------------------------------------------
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>fast_zero/app.py<span class="w">           </span><span class="m">12</span><span class="w">      </span><span class="m">3</span><span class="w">    </span><span class="m">75</span>%
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>fast_zero/schemas.py<span class="w">       </span><span class="m">11</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>-------------------------------------------
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>TOTAL<span class="w">                      </span><span class="m">23</span><span class="w">      </span><span class="m">3</span><span class="w">    </span><span class="m">87</span>%
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="c1"># parte da resposta foi omitida</span>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>task<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># parte da resposta foi omitida</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>-------------------------------------------
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>fast_zero/app.py<span class="w">           </span><span class="m">12</span><span class="w">      </span><span class="m">3</span><span class="w">    </span><span class="m">75</span>%
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>fast_zero/schemas.py<span class="w">       </span><span class="m">11</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>-------------------------------------------
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>TOTAL<span class="w">                      </span><span class="m">23</span><span class="w">      </span><span class="m">3</span><span class="w">    </span><span class="m">87</span>%
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="c1"># parte da resposta foi omitida</span>
 </code></pre></div>
 <p>Vemos que temos 3 Miss. Possivelmente das linhas que acabamos de escrever.</p>
 <p><a class="glightbox" href="../assets/02_cobertura_get_sem_testes.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_cobertura_get_sem_testes.png"></a></p>
 <p>Então, vamos escrever nosso teste. Esse teste para a rota POST precisa verificar se a criação de um novo usuário funciona corretamente. Nós enviamos uma solicitação POST com um novo usuário para a rota /users/. Em seguida, verificamos se a resposta tem o status HTTP 201 (Criado) e se a resposta contém o novo usuário criado.</p>
-<div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">():</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        <span class="s1">'/users/'</span><span class="p">,</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>            <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'secret'</span><span class="p">,</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>        <span class="p">},</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    <span class="p">)</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>        <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>        <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>        <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>    <span class="p">}</span>
+<div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">():</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>        <span class="s1">'/users/'</span><span class="p">,</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>            <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'secret'</span><span class="p">,</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        <span class="p">},</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>    <span class="p">)</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>        <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>        <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>        <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>    <span class="p">}</span>
 </code></pre></div>
 <p>Ao executar o teste:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>task<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># parte da resposta foi omitida</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>-------------------------------------------
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>fast_zero/app.py<span class="w">           </span><span class="m">12</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>fast_zero/schemas.py<span class="w">       </span><span class="m">11</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>-------------------------------------------
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>TOTAL<span class="w">                      </span><span class="m">23</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="c1"># parte da resposta foi omitida</span>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>task<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># parte da resposta foi omitida</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>-------------------------------------------
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>fast_zero/app.py<span class="w">           </span><span class="m">12</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>fast_zero/schemas.py<span class="w">       </span><span class="m">11</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>-------------------------------------------
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>TOTAL<span class="w">                      </span><span class="m">23</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="c1"># parte da resposta foi omitida</span>
 </code></pre></div>
 <h4 id="nao-se-repita-dry">Não se repita (DRY)</h4>
 <p>Você deve ter notado que a linha <code>client = TestClient(app)</code> está repetida na primeira linha dos dois testes que fizemos. Repetir código pode tornar o gerenciamento de testes mais complexo à medida que cresce, e é aqui que o princípio de "Não se repita" (<a href="https://pt.wikipedia.org/wiki/Don't_repeat_yourself" target="_blank">DRY</a>) entra em jogo. DRY incentiva a redução da repetição, criando um código mais limpo e manutenível.</p>
@@ -1238,31 +1254,31 @@
 <p><a class="md-button" href="https://youtu.be/sidi9Z_IkLU"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto </a></p>
 </details>
 <p>Neste caso, vamos criar uma fixture que retorna nosso <code>client</code>. Para fazer isso, precisamos criar o arquivo <code>tests/conftest.py</code>. O arquivo <code>conftest.py</code> é um arquivo especial reconhecido pelo pytest que permite definir fixtures que podem ser reutilizadas em diferentes módulos de teste dentro de um projeto. É uma forma de centralizar recursos comuns de teste.</p>
-<div class="highlight"><span class="filename">tests/conftest.py</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">import</span> <span class="nn">pytest</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="k">return</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<div class="highlight"><span class="filename">tests/conftest.py</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">pytest</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="k">return</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 </code></pre></div>
 <p>Agora, em vez de repetir a criação do <code>client</code> em cada teste, podemos simplesmente passar a fixture como um argumento nos nossos testes:</p>
-<div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># ...</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="k">def</span> <span class="nf">test_root_deve_retornar_200_e_ola_mundo</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="c1"># ...</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>        <span class="s1">'/users/'</span><span class="p">,</span>
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>            <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
-<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
-<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'secret'</span><span class="p">,</span>
-<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>        <span class="p">},</span>
-<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>    <span class="p">)</span>
-<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>    <span class="c1"># ...</span>
+<div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># ...</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">def</span> <span class="nf">test_root_deve_retornar_200_e_ola_mundo</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="c1"># ...</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>        <span class="s1">'/users/'</span><span class="p">,</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>            <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'secret'</span><span class="p">,</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>        <span class="p">},</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>    <span class="p">)</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>    <span class="c1"># ...</span>
 </code></pre></div>
 <p>Com essa simples mudança, conseguimos tornar nosso código mais limpo e fácil de manter, seguindo o princípio DRY.</p>
 <hr>
@@ -1270,125 +1286,157 @@
 <h3 id="implementando-a-rota-get">Implementando a Rota GET</h3>
 <p>A rota GET é usada para recuperar informações de um ou mais usuários do nosso sistema. No contexto do CRUD, o verbo HTTP GET está associado à operação "Read". Se a solicitação for bem-sucedida, a rota deve retornar o status HTTP 200 (OK).</p>
 <p>Para estruturar a resposta dessa rota, podemos criar um novo modelo chamado <code>UserList</code>. Este modelo representará uma lista de usuários e contém apenas um campo chamado <code>users</code>, que é uma lista de <code>UserPublic</code>. Isso nos permite retornar múltiplos usuários de uma vez.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-20">20</a></span>
-<span class="normal"><a href="#__codelineno-15-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-20" name="__codelineno-15-20"></a><span class="k">class</span> <span class="nc">UserList</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<a id="__codelineno-15-21" name="__codelineno-15-21"></a>    <span class="n">users</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">UserPublic</span><span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-20">20</a></span>
+<span class="normal"><a href="#__codelineno-16-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="k">class</span> <span class="nc">UserList</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21"></a>    <span class="n">users</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">UserPublic</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <p>Com esse modelo definido, podemos criar nosso endpoint GET. Este endpoint retornará uma instância de <code>UserList</code>, que por sua vez contém uma lista de <code>UserPublic</code>. Cada <code>UserPublic</code> é criado a partir dos dados de um usuário em nosso banco de dados fictício.</p>
-<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span><span class="p">,</span> <span class="n">UserDB</span><span class="p">,</span> <span class="n">UserList</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># código omitido</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserList</span><span class="p">)</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="k">def</span> <span class="nf">read_users</span><span class="p">():</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'users'</span><span class="p">:</span> <span class="n">database</span><span class="p">}</span>
+<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span><span class="p">,</span> <span class="n">UserDB</span><span class="p">,</span> <span class="n">UserList</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># código omitido</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserList</span><span class="p">)</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="k">def</span> <span class="nf">read_users</span><span class="p">():</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'users'</span><span class="p">:</span> <span class="n">database</span><span class="p">}</span>
 </code></pre></div>
 <p>Com essa implementação, nossa API agora pode retornar uma lista de usuários. No entanto, nosso trabalho ainda não acabou. A próxima etapa é escrever testes para garantir que nossa rota GET está funcionando corretamente. Isso nos ajudará a identificar e corrigir quaisquer problemas antes de prosseguirmos com a implementação de outras rotas.</p>
 <h4 id="implementando-o-teste-da-rota-de-get">Implementando o teste da rota de GET</h4>
 <p>Nosso teste da rota GET tem que verificar se a recuperação dos usuários está funcionando corretamente. Nós enviamos uma solicitação GET para a rota /users/. Em seguida, verificamos se a resposta tem o status HTTP 200 (OK) e se a resposta contém a lista de usuários.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-30">30</a></span>
-<span class="normal"><a href="#__codelineno-17-31">31</a></span>
-<span class="normal"><a href="#__codelineno-17-32">32</a></span>
-<span class="normal"><a href="#__codelineno-17-33">33</a></span>
-<span class="normal"><a href="#__codelineno-17-34">34</a></span>
-<span class="normal"><a href="#__codelineno-17-35">35</a></span>
-<span class="normal"><a href="#__codelineno-17-36">36</a></span>
-<span class="normal"><a href="#__codelineno-17-37">37</a></span>
-<span class="normal"><a href="#__codelineno-17-38">38</a></span>
-<span class="normal"><a href="#__codelineno-17-39">39</a></span>
-<span class="normal"><a href="#__codelineno-17-40">40</a></span>
-<span class="normal"><a href="#__codelineno-17-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-30" name="__codelineno-17-30"></a><span class="k">def</span> <span class="nf">test_read_users</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-<a id="__codelineno-17-31" name="__codelineno-17-31"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">)</span>
-<a id="__codelineno-17-32" name="__codelineno-17-32"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-<a id="__codelineno-17-33" name="__codelineno-17-33"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
-<a id="__codelineno-17-34" name="__codelineno-17-34"></a>        <span class="s1">'users'</span><span class="p">:</span> <span class="p">[</span>
-<a id="__codelineno-17-35" name="__codelineno-17-35"></a>            <span class="p">{</span>
-<a id="__codelineno-17-36" name="__codelineno-17-36"></a>                <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
-<a id="__codelineno-17-37" name="__codelineno-17-37"></a>                <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
-<a id="__codelineno-17-38" name="__codelineno-17-38"></a>                <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-17-39" name="__codelineno-17-39"></a>            <span class="p">}</span>
-<a id="__codelineno-17-40" name="__codelineno-17-40"></a>        <span class="p">]</span>
-<a id="__codelineno-17-41" name="__codelineno-17-41"></a>    <span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-30">30</a></span>
+<span class="normal"><a href="#__codelineno-18-31">31</a></span>
+<span class="normal"><a href="#__codelineno-18-32">32</a></span>
+<span class="normal"><a href="#__codelineno-18-33">33</a></span>
+<span class="normal"><a href="#__codelineno-18-34">34</a></span>
+<span class="normal"><a href="#__codelineno-18-35">35</a></span>
+<span class="normal"><a href="#__codelineno-18-36">36</a></span>
+<span class="normal"><a href="#__codelineno-18-37">37</a></span>
+<span class="normal"><a href="#__codelineno-18-38">38</a></span>
+<span class="normal"><a href="#__codelineno-18-39">39</a></span>
+<span class="normal"><a href="#__codelineno-18-40">40</a></span>
+<span class="normal"><a href="#__codelineno-18-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-30" name="__codelineno-18-30"></a><span class="k">def</span> <span class="nf">test_read_users</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+<a id="__codelineno-18-31" name="__codelineno-18-31"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">)</span>
+<a id="__codelineno-18-32" name="__codelineno-18-32"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+<a id="__codelineno-18-33" name="__codelineno-18-33"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
+<a id="__codelineno-18-34" name="__codelineno-18-34"></a>        <span class="s1">'users'</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-18-35" name="__codelineno-18-35"></a>            <span class="p">{</span>
+<a id="__codelineno-18-36" name="__codelineno-18-36"></a>                <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
+<a id="__codelineno-18-37" name="__codelineno-18-37"></a>                <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
+<a id="__codelineno-18-38" name="__codelineno-18-38"></a>                <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-18-39" name="__codelineno-18-39"></a>            <span class="p">}</span>
+<a id="__codelineno-18-40" name="__codelineno-18-40"></a>        <span class="p">]</span>
+<a id="__codelineno-18-41" name="__codelineno-18-41"></a>    <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Com as rotas POST e GET implementadas, agora podemos criar e recuperar usuários. Vamos implementar a próxima operação CRUD: Update.</p>
 <h3 id="implementando-a-rota-put">Implementando a Rota PUT</h3>
 <p>A rota PUT é usada para atualizar as informações de um usuário existente. No contexto do CRUD, o verbo HTTP PUT está associado à operação "Update". Se a solicitação for bem-sucedida, a rota deve retornar o status HTTP 200 (OK). No entanto, se o usuário solicitado não for encontrado, deveríamos retornar o status HTTP 404 (Não Encontrado).</p>
-<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="c1"># ...</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>    <span class="k">if</span> <span class="n">user_id</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span> <span class="ow">or</span> <span class="n">user_id</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'User not found'</span><span class="p">)</span>
-<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
-<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>    <span class="n">user_with_id</span> <span class="o">=</span> <span class="n">UserDB</span><span class="p">(</span><span class="o">**</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump</span><span class="p">(),</span> <span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
-<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>    <span class="n">database</span><span class="p">[</span><span class="n">user_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_with_id</span>
-<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>
-<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>    <span class="k">return</span> <span class="n">user_with_id</span>
+<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="c1"># ...</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    <span class="k">if</span> <span class="n">user_id</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span> <span class="ow">or</span> <span class="n">user_id</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'User not found'</span><span class="p">)</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    <span class="n">user_with_id</span> <span class="o">=</span> <span class="n">UserDB</span><span class="p">(</span><span class="o">**</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump</span><span class="p">(),</span> <span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    <span class="n">database</span><span class="p">[</span><span class="n">user_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_with_id</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>    <span class="k">return</span> <span class="n">user_with_id</span>
 </code></pre></div>
 <h4 id="implementando-o-teste-da-rota-de-put">Implementando o teste da rota de PUT</h4>
 <p>Nosso teste da rota PUT precisa verificar se a atualização de um usuário existente funciona corretamente. Nós enviamos uma solicitação PUT com as novas informações do usuário para a rota <code>/users/{user_id}</code>. Em seguida, verificamos se a resposta tem o status HTTP 200 (OK) e se a resposta contém o usuário atualizado.</p>
-<div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">def</span> <span class="nf">test_update_user</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>        <span class="s1">'/users/1'</span><span class="p">,</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>            <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'bob'</span><span class="p">,</span>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bob@example.com'</span><span class="p">,</span>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'mynewpassword'</span><span class="p">,</span>
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>        <span class="p">},</span>
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>    <span class="p">)</span>
-<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
-<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>        <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'bob'</span><span class="p">,</span>
-<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>        <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bob@example.com'</span><span class="p">,</span>
-<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>        <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>    <span class="p">}</span>
+<div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">def</span> <span class="nf">test_update_user</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>        <span class="s1">'/users/1'</span><span class="p">,</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>            <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'bob'</span><span class="p">,</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bob@example.com'</span><span class="p">,</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'mynewpassword'</span><span class="p">,</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>        <span class="p">},</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>    <span class="p">)</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>        <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'bob'</span><span class="p">,</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>        <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bob@example.com'</span><span class="p">,</span>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>        <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>    <span class="p">}</span>
 </code></pre></div>
 <p>Com as rotas POST, GET e PUT implementadas, agora podemos criar, recuperar e atualizar usuários. A última operação CRUD que precisamos implementar é Delete.</p>
 <h3 id="implementando-a-rota-delete">Implementando a Rota DELETE</h3>
 <p>A rota DELETE é usada para excluir um usuário do nosso sistema. No contexto do CRUD, o verbo HTTP DELETE está associado à operação "Delete". Se a solicitação for bem-sucedida, a rota deve retornar o status HTTP 200 (OK). No entanto, se o usuário solicitado não for encontrado, deveríamos retornar o status HTTP 404 (Não Encontrado).</p>
 <p>Para transmitir uma mensagem de sucesso ou falha na operação de exclusão, podemos criar um modelo chamado <code>Message</code>. Esse modelo será responsável por embalar uma mensagem que será retornada na nossa API.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-20">20</a></span>
-<span class="normal"><a href="#__codelineno-20-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-20" name="__codelineno-20-20"></a><span class="k">class</span> <span class="nc">Message</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<a id="__codelineno-20-21" name="__codelineno-20-21"></a>    <span class="n">detail</span><span class="p">:</span> <span class="nb">str</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-20">20</a></span>
+<span class="normal"><a href="#__codelineno-21-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="k">class</span> <span class="nc">Message</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-21-21" name="__codelineno-21-21"></a>    <span class="n">detail</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div></td></tr></table></div>
 <p>Agora podemos criar nosso endpoint DELETE. Este endpoint receberá o ID do usuário que queremos excluir. Note que, estamos lançando uma exceção HTTP quando o ID do usuário está fora do range da nossa lista (simulação do nosso banco de dados). Quando conseguimos excluir o usuário com sucesso, retornamos a mensagem de sucesso em um modelo do tipo <code>Message</code>.</p>
-<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span><span class="p">,</span> <span class="n">UserDB</span><span class="p">,</span> <span class="n">UserList</span><span class="p">,</span> <span class="n">Message</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="c1"># ...</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Message</span><span class="p">)</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="k">def</span> <span class="nf">delete_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    <span class="k">if</span> <span class="n">user_id</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span> <span class="ow">or</span> <span class="n">user_id</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'User not found'</span><span class="p">)</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>
-<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>    <span class="k">del</span> <span class="n">database</span><span class="p">[</span><span class="n">user_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>
-<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'User deleted'</span><span class="p">}</span>
+<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span><span class="p">,</span> <span class="n">UserDB</span><span class="p">,</span> <span class="n">UserList</span><span class="p">,</span> <span class="n">Message</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1"># ...</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Message</span><span class="p">)</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="k">def</span> <span class="nf">delete_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>    <span class="k">if</span> <span class="n">user_id</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span> <span class="ow">or</span> <span class="n">user_id</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'User not found'</span><span class="p">)</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>    <span class="k">del</span> <span class="n">database</span><span class="p">[</span><span class="n">user_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'User deleted'</span><span class="p">}</span>
 </code></pre></div>
 <p>Com a implementação da rota DELETE concluída, é fundamental garantirmos que essa rota está funcionando conforme o esperado. Para isso, precisamos escrever testes para essa rota.</p>
 <h4 id="implementando-o-teste-da-rota-de-delete">Implementando o teste da rota de DELETE</h4>
 <p>Nosso teste da rota DELETE precisa verificar se a exclusão de um usuário existente funciona corretamente. Nós enviamos uma solicitação DELETE para a rota /users/{user_id}. Em seguida, verificamos se a resposta tem o status HTTP 200 (OK) e se a resposta contém uma mensagem informando que o usuário foi excluído.</p>
-<div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">def</span> <span class="nf">test_delete_user</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'/users/1'</span><span class="p">)</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'User deleted'</span><span class="p">}</span>
+<div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">def</span> <span class="nf">test_delete_user</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'/users/1'</span><span class="p">)</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'User deleted'</span><span class="p">}</span>
+</code></pre></div>
+<h4 id="checando-tudo-antes-do-commit">Checando tudo antes do commit</h4>
+<p>Antes de fazermos o commit, é uma boa prática checarmos todo o código, e podemos fazer isso com as ações que criamos com o taskipy.</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>$<span class="w"> </span>task<span class="w"> </span>lint
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="m">5</span><span class="w"> </span>files<span class="w"> </span>would<span class="w"> </span>be<span class="w"> </span>left<span class="w"> </span>unchanged.
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>$<span class="w"> </span>task<span class="w"> </span>format
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="m">5</span><span class="w"> </span>files<span class="w"> </span>left<span class="w"> </span>unchanged.
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>Skipped<span class="w"> </span><span class="m">1</span><span class="w"> </span>files
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>$<span class="w"> </span>task<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>...
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
+<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>tests/test_app.py::test_read_users<span class="w"> </span>PASSED
+<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>tests/test_app.py::test_update_user<span class="w"> </span>PASSED
+<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>tests/test_app.py::test_delete_user<span class="w"> </span>PASSED
+<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>
+<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.4-final-0<span class="w"> </span>-----------
+<a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>Name<span class="w">                   </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
+<a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>------------------------------------------
+<a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>fastzero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>fastzero/app.py<span class="w">           </span><span class="m">28</span><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">93</span>%
+<a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>fastzero/schemas.py<span class="w">       </span><span class="m">15</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>------------------------------------------
+<a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>TOTAL<span class="w">                     </span><span class="m">43</span><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">95</span>%
+<a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>
+<a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a>
+<a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a><span class="o">============================================</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span>.48s<span class="w"> </span><span class="o">=============================================</span>
+<a id="__codelineno-24-29" name="__codelineno-24-29" href="#__codelineno-24-29"></a>Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
 </code></pre></div>
 <h2 id="commit">Commit</h2>
 <p>Após toda essa jornada de aprendizado, construção e teste de rotas, chegou a hora de registrar nosso progresso utilizando o git. Fazer commits regulares é uma boa prática, pois mantém um histórico detalhado das alterações e facilita a volta a uma versão anterior do código, se necessário.</p>
 <p>Primeiramente, vamos verificar as alterações feitas no projeto com o comando <code>git status</code>. Este comando nos mostrará todos os arquivos modificados que ainda não foram incluídos em um commit.</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git<span class="w"> </span>status
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>git<span class="w"> </span>status
 </code></pre></div>
 <p>Em seguida, vamos adicionar todas as alterações para o próximo commit. O comando <code>git add .</code> adiciona todas as alterações feitas em todos os arquivos do projeto.</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
 </code></pre></div>
 <p>Agora, estamos prontos para fazer o commit. Com o comando <code>git commit</code>, criamos uma nova entrada no histórico do nosso projeto. É importante adicionar uma mensagem descritiva ao commit, para que outras pessoas (ou nós mesmos, no futuro) possam entender o que foi alterado. Nesse caso, a mensagem do commit poderia ser "Implementando rotas CRUD".</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Implementando rotas CRUD"</span>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Implementando rotas CRUD"</span>
 </code></pre></div>
 <p>Por fim, enviamos nossas alterações para o repositório remoto com <code>git push</code>. Se você tiver várias branches, certifique-se de estar na branch correta antes de executar este comando.</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>git<span class="w"> </span>push
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>push
 </code></pre></div>
 <p>E pronto! As alterações estão seguras no histórico do git, e podemos continuar com o próximo passo do projeto.</p>
 <h2 id="conclusao">Conclusão</h2>
@@ -1512,7 +1560,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
       <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
