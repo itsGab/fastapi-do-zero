@@ -926,7 +926,7 @@
 <p>Isso ocorre porque a rota POST era a única que estava utilizando UserDB, e agora que modificamos esta rota, podemos remover UserDB dos nossos imports.</p>
 <h3 id="testando-o-endpoint-post-users-com-pytest-e-fixtures">Testando o Endpoint POST /users com Pytest e Fixtures</h3>
 <p>Agora que nossa rota de POST está funcionando com o banco de dados real, precisamos atualizar nossos testes para refletir essa mudança. Como estamos usando a injeção de dependências, precisamos também usar essa funcionalidade nos nossos testes para que possamos injetar a sessão de banco de dados de teste.</p>
-<p>Vamos criar a nossa fixture <code>client</code> para substituir a função <code>get_session</code> que estamos injetando no endpoint pela sessão do banco em memória que já tínhamos definido para banco de dados.</p>
+<p>Vamos alterar a nossa fixture <code>client</code> para substituir a função <code>get_session</code> que estamos injetando no endpoint pela sessão do banco em memória que já tínhamos definido para banco de dados.</p>
 <div class="highlight"><span class="filename">tests/conftest.py</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
@@ -973,7 +973,7 @@
 </code></pre></div>
 <p>Depois de realizar essas mudanças, podemos executar nossos testes e verificar se estão passando. Porém, embora o teste <code>test_create_user</code> tenha passado, precisamos agora ajustar os outros endpoints para que eles também utilizem a nossa sessão de banco de dados. Nos próximos passos, vamos realizar essas modificações para garantir que todo o nosso aplicativo esteja usando o banco de dados real.</p>
 <h2 id="modificando-o-endpoint-get-users">Modificando o Endpoint GET /users</h2>
-<p>{dizer que agora vamos atualizar o nosso endpoint de GET para funcionar no modelo real do banco de dados}</p>
+<p>Agora que temos o nosso banco de dados configurado e funcionando, é o momento de atualizar o nosso endpoint de GET para interagir com o banco de dados real. Em vez de trabalhar com uma lista fictícia de usuários, queremos buscar os usuários diretamente do nosso banco de dados, permitindo uma interação dinâmica e real com os dados.</p>
 <div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserList</span><span class="p">)</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">)</span>
@@ -981,7 +981,12 @@
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="n">users</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalars</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">offset</span><span class="p">(</span><span class="n">skip</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">limit</span><span class="p">))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'users'</span><span class="p">:</span> <span class="n">users</span><span class="p">}</span>
 </code></pre></div>
-<p>{explicar o que são as coisas que adicionamos como <code>offset</code> e <code>limit</code> e porque elas são importantes agora nesses casos}</p>
+<p>Neste código, adicionamos algumas funcionalidades essenciais para a busca de dados. Os parâmetros <code>offset</code> e <code>limit</code> são utilizados para paginar os resultados, o que é especialmente útil quando se tem um grande volume de dados. </p>
+<ul>
+<li><code>offset</code> permite pular um número específico de registros antes de começar a buscar, o que é útil para implementar a navegação por páginas.</li>
+<li><code>limit</code> define o número máximo de registros a serem retornados, permitindo que você controle a quantidade de dados enviados em cada resposta.</li>
+</ul>
+<p>Essas adições tornam o nosso endpoint mais flexível e otimizado para lidar com diferentes cenários de uso.</p>
 <h3 id="testando-o-endpoint-get-users">Testando o Endpoint GET /users</h3>
 <p>Com a mudança para o banco de dados real, nosso banco de dados de teste será sempre resetado para cada teste. Portanto, não podemos mais executar o teste que tínhamos antes, pois não haverão usuários no banco. Para verificar se o nosso endpoint está funcionando corretamente, vamos criar um novo teste que solicita uma lista de usuários de um banco vazio:</p>
 <div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">test_read_users</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
@@ -1037,7 +1042,8 @@
 </code></pre></div>
 <p>No entanto, mesmo que nosso código pareça correto, podemos encontrar um problema: o Pydantic não consegue converter diretamente nosso modelo SQLAlchemy para um modelo Pydantic. Vamos resolver isso agora.</p>
 <h3 id="integrando-o-schema-ao-model">Integrando o Schema ao Model</h3>
-<p>{dizer que precisamos alterar o <code>UserPublic</code> que usamos no teste para que ele reconheça o ORM}</p>
+<p>A integração direta do ORM com o nosso esquema Pydantic não é imediata e exige algumas modificações. O Pydantic, por padrão, não sabe como lidar com os modelos do SQLAlchemy, o que nos leva ao erro observado nos testes.</p>
+<p>A solução para esse problema passa por fazer uma alteração no esquema <code>UserPublic</code> que utilizamos, para que ele possa reconhecer e trabalhar com os modelos do SQLAlchemy. Isso permite que os objetos do SQLAlchemy sejam convertidos corretamente para os esquemas Pydantic.</p>
 <p>Para resolver o problema de conversão entre SQLAlchemy e Pydantic, precisamos atualizar o nosso esquema <code>UserPublic</code> para que ele possa reconhecer os modelos do SQLAlchemy. Para isso, vamos adicionar a <code>linha model_config = ConfigDict(from_attributes=True)</code> ao nosso esquema:</p>
 <div class="highlight"><span class="filename">fast_zero/schemas.py</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">EmailStr</span><span class="p">,</span> <span class="n">ConfigDict</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
@@ -1144,7 +1150,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
       
     
   </small>
