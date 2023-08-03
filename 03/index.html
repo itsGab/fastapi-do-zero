@@ -425,8 +425,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#criando-uma-fixture-para-o-banco-de-dados" class="md-nav__link">
-    Criando uma Fixture para o Banco de Dados
+  <a href="#criando-uma-fixture-para-interacoes-com-o-banco-de-dados" class="md-nav__link">
+    Criando uma Fixture para interações com o Banco de Dados
   </a>
   
 </li>
@@ -731,8 +731,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#criando-uma-fixture-para-o-banco-de-dados" class="md-nav__link">
-    Criando uma Fixture para o Banco de Dados
+  <a href="#criando-uma-fixture-para-interacoes-com-o-banco-de-dados" class="md-nav__link">
+    Criando uma Fixture para interações com o Banco de Dados
   </a>
   
 </li>
@@ -824,8 +824,6 @@
 
 
 <div><h1 id="configurando-o-banco-de-dados-e-gerenciando-migracoes-com-alembic">Configurando o Banco de Dados e Gerenciando Migrações com Alembic</h1>
-<p><strong>Revisão</strong>
-- Remover a explicação da fixture e do conftest.py</p>
 <hr>
 <p>Objetivos dessa aula:</p>
 <ul>
@@ -936,19 +934,8 @@
 </code></pre></div></td></tr></table></div>
 <p>Aqui, <code>Mapped</code> refere-se a um atributo Python que é associado (ou mapeado) a uma coluna específica em uma tabela de banco de dados. Por exemplo, <code>Mapped[int]</code> indica que este atributo é um inteiro que será mapeado para uma coluna correspondente em uma tabela de banco de dados. Da mesma forma, <code>Mapped[str]</code> se referiria a um atributo de string que seria mapeado para uma coluna de string correspondente. Esta abordagem permite ao SQLAlchemy realizar a conversão entre os tipos de dados Python e os tipos de dados do banco de dados, além de oferecer uma interface Pythonica para a interação com o banco de dados.</p>
 <h2 id="testando-as-tabelas">Testando as Tabelas</h2>
-<p>Ao desenvolver software, é uma boa prática criar testes para cada nova funcionalidade implementada. Após a criação do nosso modelo de usuário, precisamos garantir seu funcionamento conforme esperado. Para isso, vamos criar dois arquivos de teste: <code>conftest.py</code> e <code>test_db.py</code>.</p>
-<p>O arquivo <code>conftest.py</code> é utilizado pelo pytest para definir preparativos necessários antes da execução dos testes ou configurações comuns a diversos testes. Ele centraliza as chamadas para as fixtures.</p>
-<details class="info">
-<summary>Se fixtures são uma novidade para você</summary>
-<p>Existe uma live de Python onde discutimos especificamente sobre fixtures
-<a class="glightbox" href="https://www.youtube.com/embed/sidi9Z_IkLU" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/sidi9Z_IkLU" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
-<p><a class="md-button" href="https://youtu.be/sidi9Z_IkLU"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto </a></p>
-</details>
-<p>Por sua vez, o arquivo <code>test_db.py</code> será onde escreveremos os testes para nosso modelo de usuário. Isso ajudará a garantir que nossas tabelas estejam sendo criadas corretamente e que possam armazenar e recuperar informações conforme esperado.</p>
-<p>Para criar esses arquivos, execute o seguinte comando:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>touch<span class="w"> </span>tests/test_db.py
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>touch<span class="w"> </span>tests/conftest.py
-</code></pre></div>
+<p>Antes de prosseguirmos, uma boa prática seria criar um teste para validar se toda a estrutura do banco de dados funciona. Vamos criar um arquivo para validar isso: <code>test_db.py</code>.</p>
+<p>A partir daqui, você pode prosseguir com a estruturação do conteúdo desse arquivo para definir os testes necessários para validar o seu modelo de usuário e sua interação com o banco de dados.</p>
 <h3 id="antes-de-escrever-os-testes">Antes de Escrever os Testes</h3>
 <p>A essa altura, se estivéssemos buscando apenas cobertura, poderíamos simplesmente testar utilizando o modelo, e isso seria suficiente. No entanto, queremos verificar se toda a nossa interação com o banco de dados ocorrerá com sucesso. Isso inclui saber se os tipos de dados na tabela foram mapeados corretamente, se é possível interagir com o banco de dados, se o ORM está estruturado adequadamente com a classe base. Precisamos garantir que todo esse esquema funcione.</p>
 <pre class="mermaid"><code>graph
@@ -960,57 +947,36 @@
   E -- conecta-se com --&gt; F[Banco de Dados]
   C -- associa-se a --&gt; H[Metadata]
   H -- mantém informações de --&gt; G[Tabelas no Banco de Dados]</code></pre>
+<p>Neste diagrama, vemos a relação completa entre o aplicativo Python e o banco de dados. A conexão é estabelecida através do SQLAlchemy ORM, que fornece uma Session para interagir com os Modelos. Esses modelos são mapeados para as tabelas no banco de dados, enquanto a Engine se conecta com o banco de dados e depende de Metadata para manter as informações das tabelas.</p>
 <p>Portanto, criaremos uma fixture para que possamos usar todo esse esquema sempre que necessário.</p>
-<h3 id="criando-uma-fixture-para-o-banco-de-dados">Criando uma Fixture para o Banco de Dados</h3>
-<p>No arquivo <code>conftest.py</code>, vamos introduzir uma fixture chamada "session" aos nossos testes pytest. Uma fixture é uma função que permite definir e reutilizar configurações de preparação para testes ou outras funções. Elas são úteis quando se tem partes do código que precisam ser reutilizadas em vários testes.</p>
-<p>As fixtures são declaradas com a anotação <code>@pytest.fixture</code>. Uma vez declarada, a fixture pode ser injetada em funções de teste, métodos de classe de teste, outras fixtures ou até mesmo módulos, passando-as como parâmetros.</p>
+<h3 id="criando-uma-fixture-para-interacoes-com-o-banco-de-dados">Criando uma Fixture para interações com o Banco de Dados</h3>
+<p>Para testar o banco, temos que fazer diversos passos, e isso pode tornar nosso teste bastante grande. Uma fixture pode ajudar a isolar toda essa configuração do banco de dados fora do teste. Assim, evitamos repetir o mesmo código em todos os testes e ainda garantimos que cada teste tenha sua própria versão limpa do banco de dados.</p>
 <p>Vamos criar uma fixture para a conexão com o banco de dados chamada <code>session</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/conftest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-5-10">10</a></span>
-<span class="normal"><a href="#__codelineno-5-11">11</a></span>
-<span class="normal"><a href="#__codelineno-5-12">12</a></span>
-<span class="normal"><a href="#__codelineno-5-13">13</a></span>
-<span class="normal"><a href="#__codelineno-5-14">14</a></span>
-<span class="normal"><a href="#__codelineno-5-15">15</a></span>
-<span class="normal"><a href="#__codelineno-5-16">16</a></span>
-<span class="normal"><a href="#__codelineno-5-17">17</a></span>
-<span class="normal"><a href="#__codelineno-5-18">18</a></span>
-<span class="normal"><a href="#__codelineno-5-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">pytest</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span> <span class="n">select</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="kn">from</span> <span class="nn">sqlalchemy.pool</span> <span class="kn">import</span> <span class="n">StaticPool</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">Base</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="k">def</span> <span class="nf">session</span><span class="p">():</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a>        <span class="s1">'sqlite:///:memory:'</span><span class="p">,</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a>        <span class="n">connect_args</span><span class="o">=</span><span class="p">{</span><span class="s1">'check_same_thread'</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a>        <span class="n">poolclass</span><span class="o">=</span><span class="n">StaticPool</span><span class="p">,</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15"></a>    <span class="p">)</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a>    <span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">autocommit</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">autoflush</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17"></a>    <span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18"></a>    <span class="k">yield</span> <span class="n">Session</span><span class="p">()</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19"></a>    <span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><span class="filename">tests/conftest.py</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># ...</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span><span class="p">,</span> <span class="n">select</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">sessionmaker</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">Base</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># ...</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="k">def</span> <span class="nf">session</span><span class="p">():</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">'sqlite:///:memory:'</span><span class="p">)</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="n">Session</span> <span class="o">=</span> <span class="n">sessionmaker</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="k">yield</span> <span class="n">Session</span><span class="p">()</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="n">Base</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</code></pre></div>
 <p>Aqui, estamos utilizando o SQLite como o banco de dados em memória para os testes. Essa é uma prática comum em testes unitários, pois a utilização de um banco de dados em memória é mais rápida do que um banco de dados persistido em disco. Com o SQLite em memória, podemos criar e destruir bancos de dados facilmente, o que é útil para isolar os testes e garantir que os dados de um teste não afetem outros testes. Além disso, não precisamos nos preocupar com a limpeza dos dados após a execução dos testes, já que o banco de dados em memória é descartado quando o programa é encerrado.</p>
 <p>O que cada linha da fixture faz?</p>
 <ol>
 <li>
-<p><code>create_engine('sqlite:///:memory:', connect_args={'check_same_thread': False}, poolclass=StaticPool)</code>: cria um mecanismo de banco de dados SQLite em memória usando SQLAlchemy. Este mecanismo será usado para criar uma sessão de banco de dados para nossos testes. Usamos <code>connect_args={'check_same_thread': False}</code> devido a algumas limitações do SQLite quando usado em threads diferentes. E <code>poolclass=StaticPool</code> para que a mesma conexão seja reutilizada durante todo o teste.</p>
+<p><code>create_engine('sqlite:///:memory:')</code>: cria um mecanismo de banco de dados SQLite em memória usando SQLAlchemy. Este mecanismo será usado para criar uma sessão de banco de dados para nossos testes.</p>
 </li>
 <li>
-<p><code>Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)</code>: cria uma fábrica de sessões para criar sessões de banco de dados para nossos testes. Definimos <code>autocommit=False</code> para controlar quando as transações são commitadas e <code>autoflush=False</code> para que SQLAlchemy não tente automaticamente sincronizar o estado da sessão com o banco de dados a cada operação.</p>
+<p><code>Session = sessionmaker(bind=engine)</code>: cria uma fábrica de sessões para criar sessões de banco de dados para nossos testes.</p>
 </li>
 <li>
 <p><code>Base.metadata.create_all(engine)</code>: cria todas as tabelas no banco de dados de teste antes de cada teste que usa a fixture <code>session</code>.</p>
@@ -1025,77 +991,77 @@
 <p>Resumindo, essa fixture está configurando e limpando um banco de dados de teste para cada teste que o solicita, assegurando que cada teste seja isolado e tenha seu próprio ambiente limpo para trabalhar. Isso é uma boa prática em testes de unidade, já que queremos que cada teste seja independente e não afete os demais.</p>
 <h3 id="criando-um-teste-para-a-nossa-tabela">Criando um Teste para a Nossa Tabela</h3>
 <p>Agora, no arquivo <code>test_db.py</code>, vamos escrever um teste para a criação de um usuário. Este teste adiciona um novo usuário ao banco de dados, faz commit das mudanças, e depois verifica se o usuário foi devidamente criado consultando-o pelo nome de usuário. Se o usuário foi criado corretamente, o teste passa. Caso contrário, o teste falha, indicando que há algo errado com nossa função de criação de usuário.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_db.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-6-10">10</a></span>
-<span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">select</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">User</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a>    <span class="n">new_user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">'alice'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'secret'</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">'teste@test'</span><span class="p">)</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_user</span><span class="p">)</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span><span class="p">))</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a>    <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_db.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">select</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">User</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="n">new_user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">'alice'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'secret'</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">'teste@test'</span><span class="p">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_user</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span><span class="p">))</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="executando-o-teste">Executando o teste</h3>
 <p>A execução de testes é uma parte vital do desenvolvimento de qualquer aplicação. Os testes nos ajudam a identificar e corrigir problemas antes que eles se tornem mais sérios. Eles também fornecem a confiança de que nossas mudanças não quebraram nenhuma funcionalidade existente. No nosso caso, vamos executar os testes para validar nossos modelos de usuário e garantir que eles estejam funcionando como esperado.</p>
 <p>Para executar os testes, digite o seguinte comando:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>task<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># ...</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>tests/test_app.py::test_read_users<span class="w"> </span>PASSED
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>tests/test_app.py::test_update_user<span class="w"> </span>PASSED
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>tests/test_app.py::test_delete_user<span class="w"> </span>PASSED
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>tests/test_db.py::test_create_user<span class="w"> </span>PASSED
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>-------------------------------------------
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>fast_zero/app.py<span class="w">           </span><span class="m">28</span><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">93</span>%
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>fast_zero/models.py<span class="w">        </span><span class="m">11</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>fast_zero/schemas.py<span class="w">       </span><span class="m">15</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>-------------------------------------------
-<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>TOTAL<span class="w">                      </span><span class="m">54</span><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">96</span>%
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>task<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># ...</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>tests/test_app.py::test_read_users<span class="w"> </span>PASSED
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>tests/test_app.py::test_update_user<span class="w"> </span>PASSED
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>tests/test_app.py::test_delete_user<span class="w"> </span>PASSED
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>tests/test_db.py::test_create_user<span class="w"> </span>PASSED
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>-------------------------------------------
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>fast_zero/app.py<span class="w">           </span><span class="m">28</span><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">93</span>%
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>fast_zero/models.py<span class="w">        </span><span class="m">11</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>fast_zero/schemas.py<span class="w">       </span><span class="m">15</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>-------------------------------------------
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>TOTAL<span class="w">                      </span><span class="m">54</span><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">96</span>%
 </code></pre></div>
 <p>Neste caso, podemos ver que todos os nossos testes passaram com sucesso. Isso significa que nossa funcionalidade de criação de usuário está funcionando corretamente e que nosso modelo de usuário está sendo corretamente persistido no banco de dados.</p>
 <p>Com nossos modelos e testes de banco de dados agora em ordem, estamos prontos para avançar para a próxima fase de configuração de nosso banco de dados e gerenciamento de migrações.</p>
 <h2 id="configuracao-do-ambiente-do-banco-de-dados">Configuração do ambiente do banco de dados</h2>
 <p>Por fim, vamos configurar nosso banco de dados. Primeiro, vamos criar um novo arquivo chamado <code>settings.py</code> dentro do diretório <code>fast_zero</code>. Aqui, usaremos o Pydantic para criar uma classe <code>Settings</code> que irá pegar as configurações do nosso arquivo <code>.env</code>.</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>touch<span class="w"> </span>fast_zero/settings.py
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>touch<span class="w"> </span>fast_zero/settings.py
 </code></pre></div>
 <p>No arquivo <code>settings.py</code>, a classe <code>Settings</code> é definida como:</p>
-<div class="highlight"><span class="filename">fast_zero/settings.py</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">pydantic_settings</span> <span class="kn">import</span> <span class="n">BaseSettings</span><span class="p">,</span> <span class="n">SettingsConfigDict</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">model_config</span> <span class="o">=</span> <span class="n">SettingsConfigDict</span><span class="p">(</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>        <span class="n">env_file</span><span class="o">=</span><span class="s1">'.env'</span><span class="p">,</span> <span class="n">env_file_encoding</span><span class="o">=</span><span class="s1">'utf-8'</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="p">)</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="n">DATABASE_URL</span><span class="p">:</span> <span class="nb">str</span>
+<div class="highlight"><span class="filename">fast_zero/settings.py</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">pydantic_settings</span> <span class="kn">import</span> <span class="n">BaseSettings</span><span class="p">,</span> <span class="n">SettingsConfigDict</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">model_config</span> <span class="o">=</span> <span class="n">SettingsConfigDict</span><span class="p">(</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        <span class="n">env_file</span><span class="o">=</span><span class="s1">'.env'</span><span class="p">,</span> <span class="n">env_file_encoding</span><span class="o">=</span><span class="s1">'utf-8'</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="p">)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="n">DATABASE_URL</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
 <p>Agora, vamos definir o <code>DATABASE_URL</code> no nosso arquivo de ambiente <code>.env</code>. Crie o arquivo na raiz do projeto e adicione a seguinte linha:</p>
-<div class="highlight"><span class="filename">.env</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="s2">"sqlite:///database.db"</span>
+<div class="highlight"><span class="filename">.env</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="s2">"sqlite:///database.db"</span>
 </code></pre></div>
 <p>Com isso, quando a classe <code>Settings</code> for instanciada, ela irá automaticamente carregar as configurações do arquivo <code>.env</code>.</p>
 <p>Finalmente, adicione o arquivo de banco de dados, <code>database.db</code>, ao <code>.gitignore</code> para garantir que não seja incluído no controle de versão. Adicionar informações sensíveis ou arquivos binários ao controle de versão é geralmente considerado uma prática ruim.</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'database.db'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">'database.db'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>.gitignore
 </code></pre></div>
 <h2 id="instalando-o-alembic-e-criando-a-primeira-migracao">Instalando o Alembic e Criando a Primeira Migração</h2>
 <p>Antes de avançarmos, é importante entender o que são migrações de banco de dados e por que são úteis. As migrações são uma maneira de fazer alterações ou atualizações no banco de dados, como adicionar uma tabela ou uma coluna a uma tabela, ou alterar o tipo de dados de uma coluna. Elas são extremamente úteis, pois nos permitem manter o controle de todas as alterações feitas no esquema do banco de dados ao longo do tempo. Elas também nos permitem reverter para uma versão anterior do esquema do banco de dados, se necessário.</p>
@@ -1106,33 +1072,33 @@
 <p><a class="md-button" href="https://youtu.be/yQtqkq9UkDA"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
 </details>
 <p>Agora, vamos começar instalando o Alembic, que é uma ferramenta de migração de banco de dados para SQLAlchemy. Usaremos o Poetry para adicionar o Alembic ao nosso projeto:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>alembic
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>alembic
 </code></pre></div>
 <p>Após a instalação do Alembic, precisamos iniciá-lo em nosso projeto. O comando de inicialização criará um diretório <code>migrations</code> e um arquivo de configuração <code>alembic.ini</code>:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>alembic<span class="w"> </span>init<span class="w"> </span>migrations
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>alembic<span class="w"> </span>init<span class="w"> </span>migrations
 </code></pre></div>
 <p>Com isso, a estrutura do nosso projeto sofre algumas alterações e novos arquivos são criados:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>.
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>├── .env
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="hll">├── alembic.ini
-</span><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>├── fast_zero
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>│  ├── __init__.py
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>│  ├── app.py
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>│  ├── models.py
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>│  └── schemas.py
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="hll">├── migrations
-</span><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="hll">│  ├── env.py
-</span><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="hll">│  ├── README
-</span><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="hll">│  ├── script.py.mako
-</span><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="hll">│  └── versions
-</span><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>├── poetry.lock
-<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>├── pyproject.toml
-<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>├── README.md
-<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>└── tests
-<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>   ├── __init__.py
-<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>   ├── conftest.py
-<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>   ├── test_app.py
-<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>   └── test_db.py
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>.
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>├── .env
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="hll">├── alembic.ini
+</span><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>├── fast_zero
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>│  ├── __init__.py
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>│  ├── app.py
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>│  ├── models.py
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>│  └── schemas.py
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="hll">├── migrations
+</span><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="hll">│  ├── env.py
+</span><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="hll">│  ├── README
+</span><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="hll">│  ├── script.py.mako
+</span><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="hll">│  └── versions
+</span><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>├── poetry.lock
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>├── pyproject.toml
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>├── README.md
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>└── tests
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>   ├── __init__.py
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>   ├── conftest.py
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>   ├── test_app.py
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>   └── test_db.py
 </code></pre></div>
 <p>No arquivo <code>alembic.ini</code>: ficam as configurações gerais das nossas migrações. Na pasta <code>migrations</code> foram criados um arquivo chamado <code>env.py</code>, esse arquivo é responsável por como as migrações serão feitas e o arquivo <code>script.py.mako</code> é um template para as novas migrações.</p>
 <h3 id="criando-uma-migracao-automatica">Criando uma migração automática</h3>
@@ -1145,111 +1111,111 @@
 <li>Definir os metadados de destino como <code>Base.metadata</code>, que é o que o Alembic utilizará para gerar automaticamente as migrações.</li>
 </ol>
 <p>O arquivo <code>migrations/env.py</code> modificado ficará assim:</p>
-<div class="highlight"><span class="filename">migrations/env.py</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">from</span> <span class="nn">alembic</span> <span class="kn">import</span> <span class="n">context</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kn">from</span> <span class="nn">fast_zero.settings</span> <span class="kn">import</span> <span class="n">Settings</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">Base</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">config</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">config</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="n">config</span><span class="o">.</span><span class="n">set_main_option</span><span class="p">(</span><span class="s1">'sqlalchemy.url'</span><span class="p">,</span> <span class="n">Settings</span><span class="p">()</span><span class="o">.</span><span class="n">DATABASE_URL</span><span class="p">)</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">config_file_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    <span class="n">fileConfig</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">config_file_name</span><span class="p">)</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="n">target_metadata</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">metadata</span>
+<div class="highlight"><span class="filename">migrations/env.py</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">alembic</span> <span class="kn">import</span> <span class="n">context</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kn">from</span> <span class="nn">fast_zero.settings</span> <span class="kn">import</span> <span class="n">Settings</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">Base</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">config</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">config</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="n">config</span><span class="o">.</span><span class="n">set_main_option</span><span class="p">(</span><span class="s1">'sqlalchemy.url'</span><span class="p">,</span> <span class="n">Settings</span><span class="p">()</span><span class="o">.</span><span class="n">DATABASE_URL</span><span class="p">)</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">config_file_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    <span class="n">fileConfig</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">config_file_name</span><span class="p">)</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="n">target_metadata</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">metadata</span>
 </code></pre></div>
 <p>Feitas essas alterações, estamos prontos para gerar nossa primeira migração automática. O Alembic é capaz de gerar migrações a partir das mudanças detectadas nos nossos modelos do SQLAlchemy.</p>
 <p>Para criar a migração, utilizamos o seguinte comando:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>alembic<span class="w"> </span>revision<span class="w"> </span>--autogenerate<span class="w"> </span>-m<span class="w"> </span><span class="s2">"create users table"</span>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>alembic<span class="w"> </span>revision<span class="w"> </span>--autogenerate<span class="w"> </span>-m<span class="w"> </span><span class="s2">"create users table"</span>
 </code></pre></div>
 <p>Este comando instrui o Alembic a criar uma nova revisão de migração no diretório <code>migrations/versions</code>. A revisão gerada conterá os comandos SQL necessários para aplicar a migração (criar a tabela de usuários) e para reverter essa migração, caso seja necessário.</p>
 <h2 id="analisando-a-migracao-automatica">Analisando a migração automática</h2>
 <p>Ao criar uma migração automática com o Alembic, um arquivo é gerado dentro da pasta <code>migrations/versions</code>. O nome deste arquivo começa com um ID de revisão (um hash único gerado pelo Alembic), seguido por uma breve descrição que fornecemos no momento da criação da migração, neste caso, <code>create_users_table</code>.</p>
 <p>Vamos analisar o arquivo de migração:</p>
-<div class="highlight"><span class="filename">migrations/versions/e018397cecf4_create_users_table.py</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="sd">"""create users table</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="sd">Revision ID: e018397cecf4</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="sd">Revises:</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="sd">Create Date: 2023-07-13 03:43:03.730534</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="sd">"""</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="kn">from</span> <span class="nn">alembic</span> <span class="kn">import</span> <span class="n">op</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="nn">sa</span>
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>
-<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="c1"># revision identifiers, used by Alembic.</span>
-<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="n">revision</span> <span class="o">=</span> <span class="s1">'e018397cecf4'</span>
-<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="n">down_revision</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="n">branch_labels</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="n">depends_on</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
-<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>
-<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="k">def</span> <span class="nf">upgrade</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>    <span class="c1"># ### commands auto generated by Alembic - please adjust! ###</span>
-<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>    <span class="n">op</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="s1">'users'</span><span class="p">,</span>
-<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>    <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Integer</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>    <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">'username'</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>    <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">'password'</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>    <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">'email'</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a>    <span class="n">sa</span><span class="o">.</span><span class="n">PrimaryKeyConstraint</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span>
-<a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a>    <span class="p">)</span>
-<a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>    <span class="c1"># ### end Alembic commands ###</span>
-<a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>
-<a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a>
-<a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="k">def</span> <span class="nf">downgrade</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a>    <span class="c1"># ### commands auto generated by Alembic - please adjust! ###</span>
-<a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a>    <span class="n">op</span><span class="o">.</span><span class="n">drop_table</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
-<a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a>    <span class="c1"># ### end Alembic commands ###</span>
+<div class="highlight"><span class="filename">migrations/versions/e018397cecf4_create_users_table.py</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="sd">"""create users table</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="sd">Revision ID: e018397cecf4</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="sd">Revises:</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="sd">Create Date: 2023-07-13 03:43:03.730534</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="sd">"""</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="kn">from</span> <span class="nn">alembic</span> <span class="kn">import</span> <span class="n">op</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="kn">import</span> <span class="nn">sqlalchemy</span> <span class="k">as</span> <span class="nn">sa</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="c1"># revision identifiers, used by Alembic.</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="n">revision</span> <span class="o">=</span> <span class="s1">'e018397cecf4'</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="n">down_revision</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="n">branch_labels</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="n">depends_on</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="k">def</span> <span class="nf">upgrade</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>    <span class="c1"># ### commands auto generated by Alembic - please adjust! ###</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>    <span class="n">op</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="s1">'users'</span><span class="p">,</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>    <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Integer</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>    <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">'username'</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>    <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">'password'</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>    <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">'email'</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">String</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a>    <span class="n">sa</span><span class="o">.</span><span class="n">PrimaryKeyConstraint</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a>    <span class="p">)</span>
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a>    <span class="c1"># ### end Alembic commands ###</span>
+<a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>
+<a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a>
+<a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a><span class="k">def</span> <span class="nf">downgrade</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>    <span class="c1"># ### commands auto generated by Alembic - please adjust! ###</span>
+<a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a>    <span class="n">op</span><span class="o">.</span><span class="n">drop_table</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span>
+<a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a>    <span class="c1"># ### end Alembic commands ###</span>
 </code></pre></div>
 <p>Esse arquivo descreve as mudanças a serem feitas no banco de dados. Ele usa a linguagem core do SQLAlchemy, que é mais baixo nível que o ORM. As funções <code>upgrade</code> e <code>downgrade</code> definem, respectivamente, o que fazer para aplicar e para desfazer a migração. No nosso caso, a função <code>upgrade</code> cria a tabela 'users' com os campos que definimos em <code>fast_zero/models.py</code>e a função <code>downgrade</code> a remove.</p>
 <p>Apesar desta migração ter sido criada, ela ainda não foi aplicada ao nosso banco de dados. No entanto, o Alembic já criou um arquivo <code>database.db</code>, conforme especificamos no arquivo <code>.env</code> e que foi lido pela classe <code>Settings</code> do Pydantic. Além disso, ele criou uma tabela <code>alembic_version</code> no banco de dados para controlar as versões das migrações que foram aplicadas.</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">sqlite3</span><span class="w"> </span><span class="k">database</span><span class="p">.</span><span class="n">db</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">SQLite</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="mi">2023</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">16</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mi">15</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">Enter</span><span class="w"> </span><span class="ss">".help"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">usage</span><span class="w"> </span><span class="n">hints</span><span class="p">.</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="k">schema</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">alembic_version</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="n">version_num</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">alembic_version_pkc</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">version_num</span><span class="p">)</span>
-<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="p">);</span>
-<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="n">exit</span>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">sqlite3</span><span class="w"> </span><span class="k">database</span><span class="p">.</span><span class="n">db</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">SQLite</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="mi">2023</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">16</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mi">15</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="n">Enter</span><span class="w"> </span><span class="ss">".help"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">usage</span><span class="w"> </span><span class="n">hints</span><span class="p">.</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="k">schema</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">alembic_version</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="n">version_num</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">alembic_version_pkc</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">version_num</span><span class="p">)</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="p">);</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="n">exit</span>
 </code></pre></div>
 <p>Para aplicar as migrações, usamos o comando <code>upgrade</code> do CLI Alembic. O argumento <code>head</code> indica que queremos aplicar todas as migrações que ainda não foram aplicadas:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Context<span class="w"> </span>impl<span class="w"> </span>SQLiteImpl.
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Will<span class="w"> </span>assume<span class="w"> </span>non-transactional<span class="w"> </span>DDL.
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span>upgrade<span class="w">  </span>-&gt;<span class="w"> </span>e018397cecf4,<span class="w"> </span>create<span class="w"> </span>users<span class="w"> </span>table
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Context<span class="w"> </span>impl<span class="w"> </span>SQLiteImpl.
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Will<span class="w"> </span>assume<span class="w"> </span>non-transactional<span class="w"> </span>DDL.
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span>upgrade<span class="w">  </span>-&gt;<span class="w"> </span>e018397cecf4,<span class="w"> </span>create<span class="w"> </span>users<span class="w"> </span>table
 </code></pre></div>
 <p>Agora, se examinarmos nosso banco de dados novamente, veremos que a tabela users foi criada:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">sqlite3</span><span class="w"> </span><span class="k">database</span><span class="p">.</span><span class="n">db</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">SQLite</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="mi">2023</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">16</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mi">15</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">Enter</span><span class="w"> </span><span class="ss">".help"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">usage</span><span class="w"> </span><span class="n">hints</span><span class="p">.</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="k">schema</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">alembic_version</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="n">version_num</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">alembic_version_pkc</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">version_num</span><span class="p">)</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="p">);</span>
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">    </span><span class="n">password</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
-<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="p">);</span>
-<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="n">exit</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">sqlite3</span><span class="w"> </span><span class="k">database</span><span class="p">.</span><span class="n">db</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">SQLite</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="mi">42</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="mi">2023</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">16</span><span class="w"> </span><span class="mi">12</span><span class="p">:</span><span class="mi">36</span><span class="p">:</span><span class="mi">15</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">Enter</span><span class="w"> </span><span class="ss">".help"</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">usage</span><span class="w"> </span><span class="n">hints</span><span class="p">.</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="k">schema</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">alembic_version</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="n">version_num</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">alembic_version_pkc</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">version_num</span><span class="p">)</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="p">);</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">    </span><span class="n">password</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="p">);</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="n">sqlite</span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="n">exit</span>
 </code></pre></div>
 <p>Finalmente, lembre-se de que todas essas mudanças que fizemos só existem localmente no seu ambiente de trabalho até agora. Para que sejam compartilhadas com outras pessas, precisamos fazer commit dessas mudanças no nosso sistema de controle de versão.</p>
 <h2 id="commit">Commit</h2>
 <p>Primeiro, vamos verificar o status do nosso repositório para ver as mudanças que fizemos:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>git<span class="w"> </span>status
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>git<span class="w"> </span>status
 </code></pre></div>
 <p>Você verá uma lista de arquivos que foram modificados ou adicionados. As alterações devem incluir os arquivos de migração que criamos, bem como quaisquer alterações que fizemos em nossos arquivos de modelo e configuração.</p>
 <p>Em seguida, vamos adicionar todas as mudanças ao próximo commit:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
 </code></pre></div>
 <p>Agora, estamos prontos para fazer o commit das nossas alterações. Vamos fornecer uma mensagem de commit que descreve as mudanças que fizemos:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Adicionada a primeira migração com Alembic. Criada tabela de usuários."</span>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Adicionada a primeira migração com Alembic. Criada tabela de usuários."</span>
 </code></pre></div>
 <p>Finalmente, vamos enviar as mudanças para o repositório remoto:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>git<span class="w"> </span>push
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git<span class="w"> </span>push
 </code></pre></div>
 <p>E pronto! As mudanças que fizemos foram salvas no histórico do Git e agora estão disponíveis no git.</p>
 <h2 id="conclusao">Conclusão</h2>
@@ -1263,7 +1229,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
       
     
   </small>
@@ -1278,7 +1244,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, Not Committed Yet</span>
+          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga</span>
       </small>
     </div>
   
