@@ -449,6 +449,40 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#estrutura-de-um-teste" class="md-nav__link">
+    Estrutura de um teste
+  </a>
+  
+    <nav class="md-nav" aria-label="Estrutura de um teste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-1-organizar-arrange" class="md-nav__link">
+    Fase 1 - Organizar (Arrange)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-2-agir-act" class="md-nav__link">
+    Fase 2 - Agir (Act)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-3-afirmar-assert" class="md-nav__link">
+    Fase 3 - Afirmar (Assert)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#criando-nosso-repositorio-no-git" class="md-nav__link">
     Criando nosso repositório no git
   </a>
@@ -769,6 +803,40 @@
           <li class="md-nav__item">
   <a href="#escrevendo-o-teste" class="md-nav__link">
     Escrevendo o teste
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrutura-de-um-teste" class="md-nav__link">
+    Estrutura de um teste
+  </a>
+  
+    <nav class="md-nav" aria-label="Estrutura de um teste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-1-organizar-arrange" class="md-nav__link">
+    Fase 1 - Organizar (Arrange)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-2-agir-act" class="md-nav__link">
+    Fase 2 - Agir (Act)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-3-afirmar-assert" class="md-nav__link">
+    Fase 3 - Afirmar (Assert)
   </a>
   
 </li>
@@ -1235,14 +1303,14 @@
 <span class="normal"><a href="#__codelineno-27-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
 <a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
 <a id="__codelineno-27-3" name="__codelineno-27-3"></a>
-<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-<a id="__codelineno-27-5" name="__codelineno-27-5"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="k">def</span> <span class="nf">test_root_deve_retornar_200_e_ola_mundo</span><span class="p">():</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 <a id="__codelineno-27-6" name="__codelineno-27-6"></a>
-<a id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="k">def</span> <span class="nf">test_root_deve_retornar_200_e_ola_mundo</span><span class="p">():</span>
-<a id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="hll">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
-</span><a id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="hll">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-</span><a id="__codelineno-27-10" name="__codelineno-27-10"></a><span class="hll">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>
-</span></code></pre></div></td></tr></table></div>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a>
+<a id="__codelineno-27-9" name="__codelineno-27-9"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
 <p>Esse teste faz uma requisição GET no endpoint <code>/</code> e verifica se o código de status da resposta é 200 e se o conteúdo da resposta é <code>{'message': 'Olá Mundo!'}</code>.</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>task<span class="w"> </span><span class="nb">test</span>
 <a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="c1"># parte da mensagem foi omitida</span>
@@ -1264,14 +1332,52 @@
 <p>Dessa forma, temos um teste que coletou 1 item (1 teste). Esse teste foi aprovado e a cobertura não deixou de abranger nenhuma linha de código.</p>
 <p>Como conseguimos coletar um item, o <code>post_test</code> foi executado e também gerou um HTML com a cobertura atualizada.</p>
 <p><a class="glightbox" href="../assets/02_navegador_com_pagina_de_cobertura_com_teste.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_navegador_com_pagina_de_cobertura_com_teste.png"></a></p>
+<h2 id="estrutura-de-um-teste">Estrutura de um teste</h2>
+<p>Agora que escrevemos nosso teste de forma intuitiva, podemos entender o que cada passo do teste faz. Essa compreensão é vital, pois pode nos ajudar a escrever testes no futuro com mais confiança e eficácia. Para desvendar o método por trás da nossa abordagem, vamos explorar a estratégia conhecida como <a href="https://xp123.com/articles/3a-arrange-act-assert/" target="_blank">AAA</a>, que divide o teste em três fases distintas: Arrange, Act, Assert.</p>
+<details class="info">
+<summary>Caso fazer testes ainda seja complicado para você</summary>
+<p>Temos uma live de python focada em ensinar os primeiros passos no mundo dos testes.
+<a class="glightbox" href="https://www.youtube.com/embed/-8H2Pyxnoek" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/-8H2Pyxnoek" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+<p><a class="md-button" href="https://youtu.be/-8H2Pyxnoek"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
+</details>
+<p>Vamos pegar esse teste que fizemos e entender os passos que fizemos para conseguir testar esse endpoint:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-29-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-29-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-29-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-29-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-29-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-29-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-29-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="k">def</span> <span class="nf">test_root_deve_retornar_200_e_ola_mundo</span><span class="p">():</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>  <span class="c1"># Arrange</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>  <span class="c1"># Act</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a>
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>  <span class="c1"># Assert</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>  <span class="c1"># Assert</span>
+</code></pre></div></td></tr></table></div>
+<p>Com base nesse código, podemos observar as três fases:</p>
+<h3 id="fase-1-organizar-arrange">Fase 1 - Organizar (Arrange)</h3>
+<p>Nesta primeira etapa, estamos preparando o ambiente para o teste. No exemplo, a linha com o comentário <code>Arrange</code> não é o teste em si, ela monta o ambiente para que o teste possa ser executado. Estamos configurando um <code>client</code> de testes para fazer a requisição ao <code>app</code>.</p>
+<h3 id="fase-2-agir-act">Fase 2 - Agir (Act)</h3>
+<p>Aqui é a etapa onde acontece a ação principal do teste, que consiste em chamar o Sistema Sob Teste (<a href="http://xunitpatterns.com/SUT.html" target="_blank">SUT</a>). No nosso caso, o SUT é a rota <code>/</code>, e a ação é representada pela linha <code>response = client.get('/')</code>. Estamos exercitando a rota e armazenando sua resposta na variável <code>response</code>. É a fase em que o código de testes executa o código de produção que está sendo testado. Agir aqui significa interagir diretamente com a parte do sistema que queremos avaliar, para ver como ela se comporta.</p>
+<h3 id="fase-3-afirmar-assert">Fase 3 - <em>Afirmar</em> (Assert)</h3>
+<p>Esta é a etapa de verificar se tudo correu como esperado. É fácil notar onde estamos fazendo a verificação, pois essa linha sempre tem a palavra reservada <code>assert</code>. A verificação é booleana, ou está correta ou não está. Por isso, um teste deve sempre incluir um <code>assert</code> para verificar se o comportamento esperado está correto.</p>
+<hr>
+<p>Agora que compreendemos o que cada linha de teste faz em específico, podemos nos orientar de forma clara nos testes que escreveremos no futuro. Cada uma das linhas usadas tem uma razão de estar no teste, e conhecer essa estrutura não só nos dá uma compreensão mais profunda do que estamos fazendo, mas também nos dá confiança para explorar e escrever testes mais complexos.</p>
 <h2 id="criando-nosso-repositorio-no-git">Criando nosso repositório no git</h2>
 <p>Antes de concluirmos a aula, precisamos criar nosso repositório no git e criar nosso arquivo <code>.gitignore</code>:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>ignr<span class="w"> </span>-p<span class="w"> </span>python<span class="w"> </span>&gt;<span class="w"> </span>.gitignore
-<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>git<span class="w"> </span>init<span class="w"> </span>.
-<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>gh<span class="w"> </span>repo<span class="w"> </span>create
-<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>git<span class="w"> </span>add<span class="w"> </span>.
-<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Configuração inicial do projeto"</span>
-<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>git<span class="w"> </span>push
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>ignr<span class="w"> </span>-p<span class="w"> </span>python<span class="w"> </span>&gt;<span class="w"> </span>.gitignore
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>git<span class="w"> </span>init<span class="w"> </span>.
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>gh<span class="w"> </span>repo<span class="w"> </span>create
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Configuração inicial do projeto"</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>git<span class="w"> </span>push
 </code></pre></div>
 <h2 id="conclusao">Conclusão</h2>
 <p>Pronto! Agora temos um ambiente de desenvolvimento totalmente configurado para começar a trabalhar com FastAPI e já fizemos nossa primeira imersão no Desenvolvimento Orientado por Testes. Na próxima aula, vamos aprofundar na estruturação da nossa aplicação FastAPI. Até lá!</p></div>
@@ -1281,7 +1387,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 1, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
       
     
   </small>
