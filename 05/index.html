@@ -908,7 +908,7 @@
 <p>Nos próximos tópicos, vamos detalhar como podemos gerar e verificar tokens JWT em nossa aplicação FastAPI, bem como adicionar autenticação e autorização aos nossos endpoints.</p>
 <h2 id="gerando-tokens-jwt">Gerando tokens JWT</h2>
 <p>Para gerar tokens JWT, precisamos de duas bibliotecas extras: <code>python-jose</code> e <code>passlib</code>. A primeira será usada para a geração do token, enquanto a segunda será usada para criptografar as senhas dos usuários. Para instalá-las, execute o seguinte comando no terminal:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>python-jose<span class="o">[</span>cryptography<span class="o">]</span><span class="w"> </span>passlib<span class="o">[</span>bcrypt<span class="o">]</span>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>poetry<span class="w"> </span>add<span class="w"> </span><span class="s2">"python-jose[cryptography]"</span><span class="w"> </span><span class="s2">"passlib[bcrypt]"</span>
 </code></pre></div>
 <p>Agora, vamos criar uma função para gerar nossos tokens JWT. Criaremos um novo arquivo para gerenciar a segurança: <code>security.py</code>. Nesse arquivo vamos iniciar a geração dos tokens:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/security.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
@@ -1409,7 +1409,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 10, 2023</span>
       
     
   </small>

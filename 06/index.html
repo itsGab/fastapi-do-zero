@@ -827,9 +827,9 @@
 <ul>
 <li><strong>Reestruturar o projeto para facilitar sua manutenção</strong></li>
 <li>Mover coisas de autenticação para um arquivo chamado <code>fast_zero/auth.py</code></li>
-<li>Deixando em <code>fast_zero/secutiry.py</code> somente as validações de senha</li>
-<li>Remover constantes usados em código (<code>SECRET_KEY</code>, <code>ALGORITHM</code> e <code>ACCESS_TOKEN_EXPIRE_MINUTES</code>) usando a classe Settings do arquivo <code>fast_zero/settings/py</code> que já temos e movendo para variáveis de ambiente no arquivo <code>.env</code></li>
-<li>Criar routers específicos para rotas que tratam das funcionalidades de usuários e para as de autenticação</li>
+<li>Deixando em <code>fast_zero/security.py</code> somente as validações de senha</li>
+<li>Remover constantes usados em código (<code>SECRET_KEY</code>, <code>ALGORITHM</code> e <code>ACCESS_TOKEN_EXPIRE_MINUTES</code>) usando a classe Settings do arquivo <code>fast_zero/settings.py</code> que já temos e movendo para variáveis de ambiente no arquivo <code>.env</code></li>
+<li>Criar routers específicos para rotas que tratam das funcionalidades de usuários e para as rotas de autenticação</li>
 </ul>
 <details class="tip">
 <summary>Caso prefira ver a aula em vídeo</summary>
@@ -953,7 +953,7 @@
 <a id="__codelineno-2-10" name="__codelineno-2-10"></a>    <span class="n">get_password_hash</span><span class="p">,</span>
 <a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="p">)</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12"></a>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">'/users'</span><span class="p">)</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">'/users'</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">'users'</span><span class="p">])</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14"></a>
 <a id="__codelineno-2-15" name="__codelineno-2-15"></a>
 <a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="nd">@router</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
@@ -1441,7 +1441,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 10, 2023</span>
       
     
   </small>
