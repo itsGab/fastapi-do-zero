@@ -696,7 +696,7 @@
 <p>Este comando lista todas as imagens Docker disponíveis no seu sistema.</p>
 <h2 id="rodando-o-container">Rodando o container</h2>
 <p>Para rodar o contêiner, usamos o comando <code>docker run</code>, indicando o nome da imagem que queremos executar e a tag que queremos usar <code>&lt;nome_da_imagem&gt;:&lt;tag&gt;</code> e utilizamos a flag <code>-p</code> para mapear a porta do host para a porta do contêiner <code>&lt;porta_do_host&gt;:&lt;porta_do_contêiner&gt;</code>. Portanto, teremos o seguinte comando:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>fast_zero:latest<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>fast_zero:latest
 </code></pre></div>
 <p>Este comando iniciará nossa aplicação dentro de um contêiner Docker, que estará escutando na porta 8000.</p>
 <h2 id="commit">Commit</h2>
@@ -714,7 +714,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 12, 2023</span>
       
     
   </small>
@@ -729,7 +729,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>dunossauro, Victor Wildner</span>
+          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, Victor Wildner</span>
       </small>
     </div>
   

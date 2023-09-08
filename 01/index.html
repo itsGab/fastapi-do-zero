@@ -907,6 +907,7 @@
 <li>A versão 3.11 do Python instalada.<ul>
 <li>Caso não tenha essa versão você pode baixar do <a href="https://www.python.org/downloads/" target="_blank">site oficial</a></li>
 <li>Ou instalar via <a href="https://github.com/pyenv/pyenv" target="_blank">pyenv</a></li>
+<li>Embora a versão 3.7 seja suficiente para executar o FastAPI em si, neste curso usaremos recursos de Python que estão presentes apenas a partir da versão 3.11. Portanto, essa é a versão mínima obrigatória para o curso.</li>
 </ul>
 </li>
 <li>O <a href="https://python-poetry.org/" target="_blank">Poetry</a> para gerenciar os pacotes e seu ambiente virtual (caso não conheça o poetry temos uma <a href="https://youtu.be/ZOSWdktsKf0" target="_blank">live de python sobre ele</a>)</li>
@@ -1011,7 +1012,7 @@
 <h2 id="configurando-as-ferramentas-de-desenvolvimento">Configurando as ferramentas de desenvolvimento</h2>
 <p>Após a instalação das dependências, vamos precisar configurar todas as ferramentas de desenvolvimento no arquivo <code>pyproject.toml</code>.</p>
 <h3 id="ruff">Ruff</h3>
-<p>Vamos usar o ruff na configuração padrão. As únicas alterações que faremos serão para que ele siga a PEP-8, usando 80 caracteres por linha e ignorando o ambiente virtual e pasta de migrações do banco de dados:</p>
+<p>Começando pelo ruff, vamos definir o comprimento de linha para 79 caracteres (conforme sugerido na PEP 8) e em seguida, informaremos que o diretório de ambiente virtual e o de migrações de banco de dados deverão ser ignorados:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-23">23</a></span>
 <span class="normal"><a href="#__codelineno-11-24">24</a></span>
 <span class="normal"><a href="#__codelineno-11-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-23" name="__codelineno-11-23"></a><span class="k">[tool.ruff]</span>
@@ -1019,12 +1020,15 @@
 <a id="__codelineno-11-25" name="__codelineno-11-25"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'.venv'</span><span class="p">,</span><span class="w"> </span><span class="s">'migrations'</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="isort">isort</h3>
-<p>Vamos configurar o isort para o formato do Black, que coloca uma instrução <code>import</code> por linha para evitar conflitos no git e também usar a base da PEP-8 para 80 caracteres:</p>
+<p>Para evitar conflitos de formatação entre o isort e o blue, definiremos o black como perfil de formatação a ser seguido, já que o blue é um fork dele.
+Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o padrão que o blue segue e que também estamos seguindo:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-27">27</a></span>
 <span class="normal"><a href="#__codelineno-12-28">28</a></span>
-<span class="normal"><a href="#__codelineno-12-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-27" name="__codelineno-12-27"></a><span class="k">[tool.isort]</span>
+<span class="normal"><a href="#__codelineno-12-29">29</a></span>
+<span class="normal"><a href="#__codelineno-12-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-27" name="__codelineno-12-27"></a><span class="k">[tool.isort]</span>
 <a id="__codelineno-12-28" name="__codelineno-12-28"></a><span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"black"</span>
 <a id="__codelineno-12-29" name="__codelineno-12-29"></a><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
+<a id="__codelineno-12-30" name="__codelineno-12-30"></a><span class="n">extend_skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'migrations'</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="pytest">pytest</h3>
 <p>Configuraremos o pytest para reconhecer o caminho base para execução dos testes na raiz do projeto <code>.</code>:</p>
@@ -1113,7 +1117,8 @@
 <span class="normal"><a href="#__codelineno-16-44">44</a></span>
 <span class="normal"><a href="#__codelineno-16-45">45</a></span>
 <span class="normal"><a href="#__codelineno-16-46">46</a></span>
-<span class="normal"><a href="#__codelineno-16-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">[tool.poetry]</span>
+<span class="normal"><a href="#__codelineno-16-47">47</a></span>
+<span class="normal"><a href="#__codelineno-16-48">48</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">[tool.poetry]</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"fast-zero"</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"0.1.0"</span>
 <a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span>
@@ -1142,24 +1147,25 @@
 <a id="__codelineno-16-27" name="__codelineno-16-27"></a><span class="k">[tool.isort]</span>
 <a id="__codelineno-16-28" name="__codelineno-16-28"></a><span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"black"</span>
 <a id="__codelineno-16-29" name="__codelineno-16-29"></a><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
-<a id="__codelineno-16-30" name="__codelineno-16-30"></a>
-<a id="__codelineno-16-31" name="__codelineno-16-31"></a><span class="k">[tool.pytest.ini_options]</span>
-<a id="__codelineno-16-32" name="__codelineno-16-32"></a><span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"."</span>
-<a id="__codelineno-16-33" name="__codelineno-16-33"></a>
-<a id="__codelineno-16-34" name="__codelineno-16-34"></a><span class="k">[tool.blue]</span>
-<a id="__codelineno-16-35" name="__codelineno-16-35"></a><span class="n">extend-exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'(migrations/)'</span>
-<a id="__codelineno-16-36" name="__codelineno-16-36"></a>
-<a id="__codelineno-16-37" name="__codelineno-16-37"></a><span class="k">[tool.taskipy.tasks]</span>
-<a id="__codelineno-16-38" name="__codelineno-16-38"></a><span class="n">lint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'ruff . &amp;&amp; blue --check . --diff'</span>
-<a id="__codelineno-16-39" name="__codelineno-16-39"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'blue .  &amp;&amp; isort .'</span>
-<a id="__codelineno-16-40" name="__codelineno-16-40"></a><span class="n">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'uvicorn fast_zero.app:app --reload'</span>
-<a id="__codelineno-16-41" name="__codelineno-16-41"></a><span class="n">pre_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'task lint'</span>
-<a id="__codelineno-16-42" name="__codelineno-16-42"></a><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'pytest -s -x --cov=fast_zero -vv'</span>
-<a id="__codelineno-16-43" name="__codelineno-16-43"></a><span class="n">post_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'coverage html'</span>
-<a id="__codelineno-16-44" name="__codelineno-16-44"></a>
-<a id="__codelineno-16-45" name="__codelineno-16-45"></a><span class="k">[build-system]</span>
-<a id="__codelineno-16-46" name="__codelineno-16-46"></a><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"poetry-core"</span><span class="p">]</span>
-<a id="__codelineno-16-47" name="__codelineno-16-47"></a><span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"poetry.core.masonry.api"</span>
+<a id="__codelineno-16-30" name="__codelineno-16-30"></a><span class="n">extend_skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">'migrations'</span><span class="p">]</span>
+<a id="__codelineno-16-31" name="__codelineno-16-31"></a>
+<a id="__codelineno-16-32" name="__codelineno-16-32"></a><span class="k">[tool.pytest.ini_options]</span>
+<a id="__codelineno-16-33" name="__codelineno-16-33"></a><span class="n">pythonpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"."</span>
+<a id="__codelineno-16-34" name="__codelineno-16-34"></a>
+<a id="__codelineno-16-35" name="__codelineno-16-35"></a><span class="k">[tool.blue]</span>
+<a id="__codelineno-16-36" name="__codelineno-16-36"></a><span class="n">extend-exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'(migrations/)'</span>
+<a id="__codelineno-16-37" name="__codelineno-16-37"></a>
+<a id="__codelineno-16-38" name="__codelineno-16-38"></a><span class="k">[tool.taskipy.tasks]</span>
+<a id="__codelineno-16-39" name="__codelineno-16-39"></a><span class="n">lint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'ruff . &amp;&amp; blue --check . --diff'</span>
+<a id="__codelineno-16-40" name="__codelineno-16-40"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'blue .  &amp;&amp; isort .'</span>
+<a id="__codelineno-16-41" name="__codelineno-16-41"></a><span class="n">run</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'uvicorn fast_zero.app:app --reload'</span>
+<a id="__codelineno-16-42" name="__codelineno-16-42"></a><span class="n">pre_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'task lint'</span>
+<a id="__codelineno-16-43" name="__codelineno-16-43"></a><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'pytest -s -x --cov=fast_zero -vv'</span>
+<a id="__codelineno-16-44" name="__codelineno-16-44"></a><span class="n">post_test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">'coverage html'</span>
+<a id="__codelineno-16-45" name="__codelineno-16-45"></a>
+<a id="__codelineno-16-46" name="__codelineno-16-46"></a><span class="k">[build-system]</span>
+<a id="__codelineno-16-47" name="__codelineno-16-47"></a><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">"poetry-core"</span><span class="p">]</span>
+<a id="__codelineno-16-48" name="__codelineno-16-48"></a><span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"poetry.core.masonry.api"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <h2 id="os-efeitos-dessas-configuracoes-de-desenvolvimento">Os efeitos dessas configurações de desenvolvimento</h2>
@@ -1387,7 +1393,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 25, 2023</span>
       
     
   </small>
@@ -1402,7 +1408,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga</span>
+          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, Igor Ferreira, Adorilson Bezerra</span>
       </small>
     </div>
   

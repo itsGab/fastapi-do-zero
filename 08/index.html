@@ -988,7 +988,7 @@
 <p>Neste código, chamamos o método <code>include_router</code> do FastAPI para cada roteador que definimos. Este método adiciona todas as rotas do roteador à nossa aplicação. Com isso, nossa aplicação agora terá todas as rotas definidas nos roteadores <code>users</code>, <code>auth</code> e <code>todos</code>.</p>
 <h2 id="implementacao-da-tabela-no-banco-de-dados">Implementação da tabela no Banco de dados</h2>
 <p>Agora, iremos implementar a tabela 'Todos' no nosso banco de dados. Esta tabela estará diretamente relacionada à tabela 'User', pois toda tarefa pertence a um usuário. Esta relação é crucial para garantir que só o usuário dono da tarefa possa acessar e modificar suas tarefas.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<div class="highlight"><span class="filename">fast_zero/models.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">ForeignKey</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">DeclarativeBase</span><span class="p">,</span> <span class="n">Mapped</span><span class="p">,</span> <span class="n">mapped_column</span><span class="p">,</span> <span class="n">relationship</span>
@@ -1078,11 +1078,14 @@
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span>
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="n">state</span><span class="p">:</span> <span class="n">TodoState</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="k">class</span> <span class="nc">TodoList</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    <span class="n">todos</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TodoPublic</span><span class="p">]</span>
 </code></pre></div>
 <p><code>TodoSchema</code> será usado para validar os dados de entrada quando uma nova tarefa é criada e <code>TodoPublic</code> será usado para validar os dados de saída quando uma tarefa é retornada em um endpoint.</p>
 <h2 id="endpoint-de-criacao">Endpoint de criação</h2>
 <p>Criamos o primeiro endpoint para a criação de tarefas. Este é um endpoint POST na rota '/todos'. É importante destacar que, para criar uma tarefa, um usuário precisa estar autenticado e só esse usuário autenticado será o proprietário da tarefa.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Annotated</span>
+<div class="highlight"><span class="filename">fast_zero/routes/todos.py</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Annotated</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">APIRouter</span><span class="p">,</span> <span class="n">Depends</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
@@ -1196,14 +1199,14 @@
 <p>Finalmente, agora que temos a tabela de tarefas em nosso banco de dados, podemos testar nosso endpoint de criação de tarefas no Swagger. Para fazer isso, execute nosso servidor FastAPI e abra o Swagger no seu navegador.</p>
 <h2 id="endpoint-de-listagem">Endpoint de listagem</h2>
 <p>Agora que criamos a nossa migração e temos o endpoint de criação de Todos, temos que criar nosso endpoint de listagem de tarefas. Ele deve listar todas as tarefas de acordo com o <code>CurrentUser</code>.</p>
-<p>Algumas coisas adicionais e que podem ser importantes na hora de recuperar as tarrefas é fazer um filtro de busca. Em alguns momentos queremos buscar uma tarefa por título, em outro momento por descrição, às vezes só pelo estado. Por exemplo, somente tarefas concluídas.</p>
+<p>Algumas coisas adicionais e que podem ser importantes na hora de recuperar as tarefas é fazer um filtro de busca. Em alguns momentos queremos buscar uma tarefa por título, em outro momento por descrição, às vezes só pelo estado. Por exemplo, somente tarefas concluídas.</p>
 <p>Para fazer isso, podemos contar com um recurso do FastAPI chamado <code>Query</code>. A <code>Query</code> permite que definamos parâmetros específicos na URL, que podem ser utilizados para filtrar os resultados retornados pelo endpoint. Isso é feito através da inclusão de parâmetros como query strings na URL, que são interpretados pelo FastAPI para ajustar a consulta ao banco de dados.</p>
 <p>Por exemplo, uma query string simples pode ser: <code>todos/?title="batatinha"</code>.</p>
 <p>Uma característica importante das queries do FastAPI é que podemos juntar mais de um atributo em uma busca. Por exemplo, podemos buscar somente as tarefas a fazer que contenham no título "trabalho". Dessa forma, temos um endpoint mais eficiente, já que podemos realizar buscas complexas e refinadas com uma única chamada.</p>
 <p>A combinação poderia ser algo como: <code>todos/?title="batatinha"&amp;status=todo</code>.</p>
 <p>A combinação de diferentes parâmetros de query não só torna o endpoint mais flexível, mas também permite que os usuários obtenham os dados de que precisam de maneira mais rápida e conveniente. Isso contribui para uma melhor experiência do usuário e otimiza a interação com o banco de dados.</p>
 <p>O código a seguir ilustra como o endpoint de listagem é definido utilizando a <code>Query</code>:</p>
-<div class="highlight"><span class="filename">fast_zero/routes/todos.py</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@router</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ListTodos</span><span class="p">)</span>
+<div class="highlight"><span class="filename">fast_zero/routes/todos.py</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@router</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">TodoList</span><span class="p">)</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">def</span> <span class="nf">list_todos</span><span class="p">(</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    <span class="n">session</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="n">user</span><span class="p">:</span> <span class="n">CurrentUser</span><span class="p">,</span>
@@ -1532,7 +1535,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 8, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 24, 2023</span>
       
     
   </small>
@@ -1547,7 +1550,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga</span>
+          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, Henrique Sebastião</span>
       </small>
     </div>
   

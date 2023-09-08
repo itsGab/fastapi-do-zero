@@ -1002,18 +1002,20 @@
 <span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-5-10">10</a></span>
 <span class="normal"><a href="#__codelineno-5-11">11</a></span>
-<span class="normal"><a href="#__codelineno-5-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">select</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">User</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">select</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">User</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="n">new_user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">'alice'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'secret'</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">'teste@test'</span><span class="p">)</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_user</span><span class="p">)</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span><span class="p">))</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a>
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="n">new_user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">'alice'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'secret'</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">'teste@test'</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_user</span><span class="p">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span><span class="p">))</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>    <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="executando-o-teste">Executando o teste</h3>
 <p>A execução de testes é uma parte vital do desenvolvimento de qualquer aplicação. Os testes nos ajudam a identificar e corrigir problemas antes que eles se tornem mais sérios. Eles também fornecem a confiança de que nossas mudanças não quebraram nenhuma funcionalidade existente. No nosso caso, vamos executar os testes para validar nossos modelos de usuário e garantir que eles estejam funcionando como esperado.</p>
@@ -1085,20 +1087,21 @@
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>│  ├── __init__.py
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>│  ├── app.py
 <a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>│  ├── models.py
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>│  └── schemas.py
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="hll">├── migrations
-</span><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="hll">│  ├── env.py
-</span><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="hll">│  ├── README
-</span><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="hll">│  ├── script.py.mako
-</span><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="hll">│  └── versions
-</span><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>├── poetry.lock
-<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>├── pyproject.toml
-<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>├── README.md
-<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>└── tests
-<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>   ├── __init__.py
-<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>   ├── conftest.py
-<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>   ├── test_app.py
-<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>   └── test_db.py
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>│  ├── schemas.py
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="hll">│  └── settings.py
+</span><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="hll">├── migrations
+</span><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="hll">│  ├── env.py
+</span><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="hll">│  ├── README
+</span><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="hll">│  ├── script.py.mako
+</span><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>│  └── versions
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>├── poetry.lock
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>├── pyproject.toml
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>├── README.md
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>└── tests
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>   ├── __init__.py
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>   ├── conftest.py
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>   ├── test_app.py
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>   └── test_db.py
 </code></pre></div>
 <p>No arquivo <code>alembic.ini</code>: ficam as configurações gerais das nossas migrações. Na pasta <code>migrations</code> foram criados um arquivo chamado <code>env.py</code>, esse arquivo é responsável por como as migrações serão feitas e o arquivo <code>script.py.mako</code> é um template para as novas migrações.</p>
 <h3 id="criando-uma-migracao-automatica">Criando uma migração automática</h3>
@@ -1247,7 +1250,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 27, 2023</span>
       
     
   </small>
@@ -1262,7 +1265,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga</span>
+          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, MatheusAlmeida28</span>
       </small>
     </div>
   
