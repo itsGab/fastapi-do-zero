@@ -1044,11 +1044,9 @@
 <p><a class="md-button" href="https://www.youtube.com/watch?v=UdfLu1G47BU"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
 </details>
 <p>O Pydantic é uma biblioteca Python que oferece validação de dados e configurações usando anotações de tipos Python. Ela é utilizada extensivamente com o FastAPI para lidar com a validação e serialização/desserialização de dados. O Pydantic tem um papel crucial ao trabalhar com JSON, pois permite a validação dos dados recebidos neste formato, assim como sua conversão para formatos nativos do Python e vice-versa.</p>
+<p>O uso do Pydantic nos permite definir modelos de dados, ou "esquemas", com campos anotados com tipos de dados. O Pydantic garante que as instâncias desses modelos sempre estejam em conformidade com o esquema definido.</p>
 <p><strong>Esquemas</strong>: No contexto da programação, um esquema é uma representação estrutural de um objeto ou entidade. Por exemplo, no nosso caso, um usuário pode ser representado por um esquema que contém campos para nome de usuário, e-mail e senha. Esquemas são úteis porque permitem definir a estrutura de um objeto de uma maneira clara e reutilizável.</p>
 <p><strong>Validação de dados</strong>: Este é o processo de verificar se os dados recebidos estão em conformidade com as regras e restrições definidas. Por exemplo, se esperamos que o campo "email" contenha um endereço de e-mail válido, a validação de dados garantirá que os dados inseridos nesse campo de fato correspondam a um formato de e-mail válido.</p>
-<p>Agora, vamos falar sobre a biblioteca Pydantic.</p>
-<p>O Pydantic é uma biblioteca Python que oferece validação de dados e configurações usando anotações de tipos Python. Ela é utilizada extensivamente com o FastAPI para lidar com a validação e serialização/desserialização de dados.</p>
-<p>O uso do Pydantic nos permite definir modelos de dados, ou "esquemas", com campos anotados com tipos de dados. O Pydantic garante que as instâncias desses modelos sempre estejam em conformidade com o esquema definido.</p>
 <p>Vamos considerar um exemplo onde recebemos o seguinte objeto JSON, representando um novo usuário que quer se registrar em nosso serviço:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joao123"</span><span class="p">,</span>
@@ -1147,8 +1145,8 @@
 <p>Agora, se fizermos de novo a chamada no Swagger, receberemos o mesmo objeto, mas sem expor a senha.</p>
 <p><a class="glightbox" href="../assets/02_swagger_sem_senha.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_swagger_sem_senha.png"></a></p>
 <details class="tip">
-<summary>Caso nunca tenha usado o swagger</summary>
-<p>Temos uma live focada em OpenAPI que são as especificações do swagger
+<summary>Caso nunca tenha usado o Swagger</summary>
+<p>Temos uma live focada em OpenAPI, que são as especificações do Swagger
 <a class="glightbox" href="https://www.youtube.com/embed/TfGHNBaK9a0" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/TfGHNBaK9a0" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 <p><a class="md-button" href="https://youtu.be/TfGHNBaK9a0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
 </details>
@@ -1450,7 +1448,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 12, 2023</span>
       
     
   </small>
@@ -1465,7 +1463,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, Ricardo Emanuel, Bruna Ferreira</span>
+          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, Rodrigo Vieira, Ricardo Emanuel, Bruna Ferreira</span>
       </small>
     </div>
   
