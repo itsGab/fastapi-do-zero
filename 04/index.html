@@ -996,7 +996,7 @@
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>FAILED
 </code></pre></div>
-<p>O nosso teste ainda não consegue ser executado, mais existe um motivo para isso</p>
+<p>O nosso teste ainda não consegue ser executado, mas existe um motivo para isso.</p>
 <h4 id="threads-e-conexoes">Threads e conexões</h4>
 <p>No ambiente de testes do FastAPI, a aplicação e os testes podem rodar em threads diferentes. Isso pode levar a um erro com o SQLite, pois os objetos SQLite criados em uma thread só podem ser usados na mesma thread.</p>
 <p>Para contornar isso, adicionaremos os seguintes parâmetros na criação da <code>engine</code>:</p>
@@ -1108,7 +1108,7 @@
 <h3 id="integrando-o-schema-ao-model">Integrando o Schema ao Model</h3>
 <p>A integração direta do ORM com o nosso esquema Pydantic não é imediata e exige algumas modificações. O Pydantic, por padrão, não sabe como lidar com os modelos do SQLAlchemy, o que nos leva ao erro observado nos testes.</p>
 <p>A solução para esse problema passa por fazer uma alteração no esquema <code>UserPublic</code> que utilizamos, para que ele possa reconhecer e trabalhar com os modelos do SQLAlchemy. Isso permite que os objetos do SQLAlchemy sejam convertidos corretamente para os esquemas Pydantic.</p>
-<p>Para resolver o problema de conversão entre SQLAlchemy e Pydantic, precisamos atualizar o nosso esquema <code>UserPublic</code> para que ele possa reconhecer os modelos do SQLAlchemy. Para isso, vamos adicionar a <code>linha model_config = ConfigDict(from_attributes=True)</code> ao nosso esquema:</p>
+<p>Para resolver o problema de conversão entre SQLAlchemy e Pydantic, precisamos atualizar o nosso esquema <code>UserPublic</code> para que ele possa reconhecer os modelos do SQLAlchemy. Para isso, vamos adicionar a linha <code>model_config = ConfigDict(from_attributes=True)</code> ao nosso esquema:</p>
 <div class="highlight"><span class="filename">fast_zero/schemas.py</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">EmailStr</span><span class="p">,</span> <span class="n">ConfigDict</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># ...</span>
@@ -1214,7 +1214,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 8, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 13, 2023</span>
       
     
   </small>
@@ -1229,7 +1229,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga</span>
+          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, Rodrigo Vieira</span>
       </small>
     </div>
   

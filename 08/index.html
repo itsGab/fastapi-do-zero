@@ -1419,7 +1419,7 @@
 <p>A linha <code>for key, value in todo.model_dump(exclude_unset=True).items():</code> está iterando através de todos os campos definidos na instância <code>todo</code> do modelo de atualização. A função <code>model_dump</code> é um método que vem do modelo <code>BaseModel</code> do Pydantic e permite exportar o modelo para um dicionário.</p>
 <p>O parâmetro <code>exclude_unset=True</code> é importante aqui, pois significa que apenas os campos que foram explicitamente definidos (ou seja, aqueles que foram incluídos na solicitação PATCH) serão incluídos no dicionário resultante. Isso permite que você atualize apenas os campos que foram fornecidos na solicitação, deixando os outros inalterados.</p>
 <p>Depois de obter a chave e o valor de cada campo definido, a linha <code>setattr(db_todo, key, value)</code> é usada para atualizar o objeto <code>db_todo</code> que representa a tarefa no banco de dados. A função <code>setattr</code> é uma função embutida do Python que permite definir o valor de um atributo em um objeto. Neste caso, ele está definindo o atributo com o nome igual à chave (ou seja, o nome do campo) no objeto <code>db_todo</code> com o valor correspondente.</p>
-<p>Desa forma, garantimos que somente os campos enviados ao schema sejam atualizados no objeto.</p>
+<p>Dessa forma, garantimos que somente os campos enviados ao schema sejam atualizados no objeto.</p>
 <h3 id="testes-para-o-endpoint-de-alteracao">Testes para o Endpoint de Alteração</h3>
 <p>Os testes aqui incluem o caso de atualização bem-sucedida e o caso de erro quando a tarefa não é encontrada:</p>
 <div class="highlight"><span class="filename">fast_zero/tests/test_todos.py</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">def</span> <span class="nf">test_patch_todo_error</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
@@ -1535,7 +1535,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 24, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 13, 2023</span>
       
     
   </small>
@@ -1550,7 +1550,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, Henrique Sebastião</span>
+          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, Rodrigo Vieira, Henrique Sebastião</span>
       </small>
     </div>
   
