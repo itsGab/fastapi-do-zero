@@ -899,31 +899,37 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 <p>Agora que terminamos de testar a autorização, vamos passar para o próximo desafio: testar tokens expirados. Lembre-se, em um sistema de autenticação robusto, um token deve expirar após um certo período de tempo por motivos de segurança. Portanto, é importante que testemos o que acontece quando tentamos usar um token expirado. Vamos ver isso na próxima seção.</p>
 <h2 id="testando-a-expiracao-do-token">Testando a expiração do token</h2>
 <p>Continuando com nossos testes de autenticação, a próxima coisa que precisamos testar é a expiração do token. Tokens de autenticação são normalmente projetados para expirar após um certo período de tempo por motivos de segurança. Isso evita que alguém que tenha obtido um token possa usá-lo indefinidamente se ele for roubado ou perdido. Portanto, é importante que verifiquemos que nosso sistema esteja tratando corretamente a expiração dos tokens.</p>
-<p>Para realizar esse teste, vamos usar uma biblioteca chamada <code>freezegun</code>. <code>freezegun</code> é uma biblioteca Python que nos permite controlar o tempo durante nossos testes, o que é perfeito para testar a expiração do token. {aqui você deve expandir esse tópico explicando um pouco mais sobre o freezegun}</p>
+<p>Para realizar esse teste, vamos usar uma biblioteca chamada <code>freezegun</code>. <code>freezegun</code>é uma biblioteca Python que nos permite "congelar" o tempo em um ponto específico ou avançá-lo conforme necessário durante os testes. Isso é especialmente útil para testar funcionalidades sensíveis ao tempo, como a expiração de tokens, sem ter que esperar em tempo real.</p>
 <p>Primeiro, vamos precisar instalar a biblioteca:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>--group<span class="w"> </span>dev<span class="w"> </span>freezegun
 </code></pre></div>
 <p>Agora vamos criar nosso teste. Vamos começar pegando um token para um usuário, congelando o tempo, esperando pelo tempo de expiração do token e, em seguida, tentando usar o token para acessar um endpoint que requer autenticação.</p>
+<p>Ao elaborarmos o teste, usaremos a funcionalidade de congelamento de tempo do <code>freezegun</code>. O objetivo é simular a criação de um token às 12:00 e, em seguida, verificar sua expiração às 12:31. Neste cenário, estamos utilizando o conceito de "viajar no tempo" para além do período de validade do token, garantindo que a tentativa subsequente de utilizá-lo resultará em um erro de autenticação.</p>
 <div class="highlight"><span class="filename">tests/test_auth.py</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">freezegun</span> <span class="kn">import</span> <span class="n">freeze_time</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># ...</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">def</span> <span class="nf">test_token_expiry</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">def</span> <span class="nf">test_token_expired_after_time</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="k">with</span> <span class="n">freeze_time</span><span class="p">(</span><span class="s1">'2023-07-14 12:00:00'</span><span class="p">):</span>
 <a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>            <span class="s1">'/auth/token'</span><span class="p">,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>            <span class="s1">'/token'</span><span class="p">,</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>            <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'username'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">clean_password</span><span class="p">},</span>
 <a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>        <span class="p">)</span>
 <a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
 <a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>        <span class="n">token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">'access_token'</span><span class="p">]</span>
 <a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    <span class="k">with</span> <span class="n">freeze_time</span><span class="p">(</span><span class="s1">'2023-07-14 13:00:00'</span><span class="p">):</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>            <span class="s1">'/auth/refresh_token'</span><span class="p">,</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    <span class="k">with</span> <span class="n">freeze_time</span><span class="p">(</span><span class="s1">'2023-07-14 12:31:00'</span><span class="p">):</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>            <span class="sa">f</span><span class="s1">'/users/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
 <a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span><span class="p">},</span>
-<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>        <span class="p">)</span>
-<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span>
-<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'Could not validate credentials'</span><span class="p">}</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>            <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>                <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'wrongwrong'</span><span class="p">,</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>                <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'wrong@wrong.com'</span><span class="p">,</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>                <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'wrong'</span><span class="p">,</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>            <span class="p">},</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>        <span class="p">)</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'Could not validate credentials'</span><span class="p">}</span>
 </code></pre></div>
 <p>Lembre-se de que configuramos nosso token para expirar após 30 minutos. Portanto, nós avançamos o tempo em 31 minutos para garantir que o token tenha expirado.</p>
 <p>Agora, vamos executar nosso teste e ver o que acontece:</p>
@@ -931,7 +937,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># ...</span>
 <a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>tests/test_users.py::test_token_expiry<span class="w"> </span>PASSED
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>tests/test_users.py::test_token_expired_after_time<span class="w"> </span>PASSED
 </code></pre></div>
 <p>Ótimo, nosso teste passou! Isso confirma que nosso sistema está lidando corretamente com a expiração dos tokens.</p>
 <p>No entanto, ainda há uma coisa que precisamos implementar: a atualização de tokens. Atualmente, quando um token expira, o usuário teria que fazer login novamente para obter um novo token. Isso não é uma ótima experiência para o usuário. Em vez disso, gostaríamos de oferecer a possibilidade de o usuário atualizar seu token quando ele estiver prestes a expirar. Vamos ver como fazer isso na próxima seção.</p>
@@ -990,10 +996,10 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 <a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
 <a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="k">assert</span> <span class="s1">'access_token'</span> <span class="ow">in</span> <span class="n">data</span>
 <a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    <span class="k">assert</span> <span class="s1">'token_type'</span> <span class="ow">in</span> <span class="n">data</span>
-<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">'token_type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'bearer'</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s1">'token_type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'bearer'</span>
 </code></pre></div>
 <p>Ainda é importante garantir que nosso sistema trate corretamente os tokens expirados. Para isso, vamos adicionar um teste que verifica se um token expirado não pode ser usado para renovar um token.</p>
-<div class="highlight"><span class="filename">tests/test_auth.py</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span> <span class="nf">test_token_expiry</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+<div class="highlight"><span class="filename">tests/test_auth.py</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span> <span class="nf">test_token_expired_dont_refresh</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="k">with</span> <span class="n">freeze_time</span><span class="p">(</span><span class="s1">'2023-07-14 12:00:00'</span><span class="p">):</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
 <a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>            <span class="s1">'/token'</span><span class="p">,</span>
@@ -1002,7 +1008,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 <a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
 <a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        <span class="n">token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">'access_token'</span><span class="p">]</span>
 <a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>    <span class="k">with</span> <span class="n">freeze_time</span><span class="p">(</span><span class="s1">'2023-07-14 13:00:00'</span><span class="p">):</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>    <span class="k">with</span> <span class="n">freeze_time</span><span class="p">(</span><span class="s1">'2023-07-14 12:31:00'</span><span class="p">):</span>
 <a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>        <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
 <a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>            <span class="s1">'/refresh_token'</span><span class="p">,</span>
 <a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span><span class="p">},</span>
@@ -1020,7 +1026,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 <a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>tests/test_auth.py::test_token_inexistent_user<span class="w"> </span>PASSED
 <a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>tests/test_auth.py::test_token_wrong_password<span class="w"> </span>PASSED
 <a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>tests/test_auth.py::test_refresh_token<span class="w"> </span>PASSED
-<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>tests/test_auth.py::test_token_expiry<span class="w"> </span>PASSED
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>tests/test_auth.py::test_token_expired_after_time<span class="w"> </span>PASSED
 <a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>tests/test_db.py::test_create_user<span class="w"> </span>PASSED
 <a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>tests/test_users.py::test_create_user<span class="w"> </span>PASSED
 <a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>tests/test_users.py::test_read_users<span class="w"> </span>PASSED
@@ -1029,7 +1035,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 <a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>tests/test_users.py::test_update_user_with_wrong_user<span class="w"> </span>PASSED
 <a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>tests/test_users.py::test_delete_user<span class="w"> </span>PASSED
 <a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>tests/test_users.py::test_delete_user_wrong_user<span class="w"> </span>PASSED
-<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>tests/test_users.py::test_token_expiry<span class="w"> </span>PASSED
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>tests/test_users.py::test_token_expired_dont_refresh<span class="w"> </span>PASSED
 </code></pre></div>
 <p>Com esses testes, podemos ter certeza de que cobrimos alguns casos importantes relacionados à autenticação de usuários em nossa API.</p>
 <h2 id="commit">Commit</h2>
@@ -1050,7 +1056,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2023</span>
       
     
   </small>
