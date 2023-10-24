@@ -659,6 +659,7 @@
 </code></pre></div>
 <p>A opção <code>--local-only</code> diz para o <code>flyctl</code> construir a imagem Docker localmente e depois fazer o upload dela para o Fly.io.</p>
 <h2 id="configurando-a-instancia-do-postgresql-no-flyio">Configurando a instância do PostgreSQL no Fly.io</h2>
+<p>Antes de avançarmos, é importante mencionar uma especificidade do Fly.io: para criar uma instância do PostgreSQL, a plataforma requer que um cartão de crédito seja fornecido. Esta é uma medida de segurança adotada para evitar o uso indevido de seus serviços, como a execução de ferramentas de mineração. Apesar dessa exigência, o serviço de PostgreSQL é oferecido de forma gratuita. Mais detalhes podem ser encontrados <a href="https://fly.io/blog/free-postgres/">neste artigo</a>.</p>
 <p>Agora, vamos criar uma instância do PostgreSQL. O Fly.io fornece um serviço PostgreSQL que podemos usar para criar uma nova instância do PostgreSQL com apenas alguns comandos.</p>
 <h2 id="configurando-as-variaveis-de-ambiente-e-rodando-as-migracoes-do-alembic">Configurando as variáveis de ambiente e rodando as migrações do Alembic</h2>
 <p>Com a instância criada, algumas variáveis de ambiente serão automaticamente definidas para nós. Para que o Alembic possa executar as migrações, precisamos configurar a variável <code>DATABASE_URL</code> no nosso aplicativo para apontar para a instância do PostgreSQL do Fly.io.</p>
@@ -691,7 +692,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">July 30, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2023</span>
       
     
   </small>
