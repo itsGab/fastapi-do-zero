@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Criando um sistema de login baseado em usuários">
+      
       
       
         <link rel="canonical" href="https://fastapidozero.dunossauro.com/05/">
@@ -21,7 +23,7 @@
     
     
       
-        <title>[WIP] Autenticação e Autorização com JWT - FastAPI do Zero</title>
+        <title>Autenticação e Autorização com JWT - FastAPI do Zero</title>
       
     
     
@@ -55,9 +57,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="[WIP] Autenticação e Autorização com JWT - FastAPI do Zero" >
+        <meta  property="og:title"  content="Autenticação e Autorização com JWT - FastAPI do Zero" >
       
-        <meta  property="og:description"  content="None" >
+        <meta  property="og:description"  content="Criando um sistema de login baseado em usuários" >
       
         <meta  property="og:image"  content="https://fastapidozero.dunossauro.com/assets/images/social/05.png" >
       
@@ -71,9 +73,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="[WIP] Autenticação e Autorização com JWT - FastAPI do Zero" >
+        <meta  name="twitter:title"  content="Autenticação e Autorização com JWT - FastAPI do Zero" >
       
-        <meta  name="twitter:description"  content="None" >
+        <meta  name="twitter:description"  content="Criando um sistema de login baseado em usuários" >
       
         <meta  name="twitter:image"  content="https://fastapidozero.dunossauro.com/assets/images/social/05.png" >
       
@@ -112,7 +114,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wip-autenticacao-e-autorizacao-com-jwt" class="md-skip">
+        <a href="#autenticacao-e-autorizacao-com-jwt" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -146,7 +148,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              [WIP] Autenticação e Autorização com JWT
+              Autenticação e Autorização com JWT
             
           </span>
         </div>
@@ -366,12 +368,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          [WIP] Autenticação e Autorização com JWT
+          Autenticação e Autorização com JWT
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        [WIP] Autenticação e Autorização com JWT
+        Autenticação e Autorização com JWT
       </a>
       
         
@@ -448,6 +450,26 @@
           <li class="md-nav__item">
   <a href="#sobre-o-teste-da-post-users" class="md-nav__link">
     Sobre o teste da POST /users/
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modificando-o-endpoint-de-atualizacao-de-usuarios" class="md-nav__link">
+    Modificando o endpoint de atualização de usuários
+  </a>
+  
+    <nav class="md-nav" aria-label="Modificando o endpoint de atualização de usuários">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sobre-os-testes-da-put-usersuser_id" class="md-nav__link">
+    Sobre os testes da PUT /users/{user_id}
   </a>
   
 </li>
@@ -740,6 +762,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#modificando-o-endpoint-de-atualizacao-de-usuarios" class="md-nav__link">
+    Modificando o endpoint de atualização de usuários
+  </a>
+  
+    <nav class="md-nav" aria-label="Modificando o endpoint de atualização de usuários">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sobre-os-testes-da-put-usersuser_id" class="md-nav__link">
+    Sobre os testes da PUT /users/{user_id}
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#criando-um-endpoint-de-geracao-do-token" class="md-nav__link">
     Criando um endpoint de geração do token
   </a>
@@ -833,8 +875,7 @@
   
 
 
-<div><h1 id="wip-autenticacao-e-autorizacao-com-jwt">[WIP] Autenticação e Autorização com JWT</h1>
-<p>Tópico de manutenção: https://github.com/dunossauro/fastapi-do-zero/issues/30</p>
+<div><h1 id="autenticacao-e-autorizacao-com-jwt">Autenticação e Autorização com JWT</h1>
 <hr>
 <p>Objetivos da Aula:</p>
 <ul>
@@ -862,26 +903,28 @@
 <li>
 <p>Header: O cabeçalho do JWT tipicamente consiste em dois componentes: o tipo de token, que é JWT neste caso, e o algoritmo de assinatura, como HMAC SHA256 ou RSA. Essas informações são codificadas em Base64Url e formam a primeira parte do JWT.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HS256"</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">"typ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT"</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">   </span><span class="nt">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HS256"</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">   </span><span class="nt">"typ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT"</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
 </code></pre></div>
 </li>
 <li>
-<p>Payload: O payload de um JWT é onde as reivindicações (ou declarações) são armazenadas. As reivindicações são informações que queremos transmitir e que são relevantes para a interação entre o cliente e o servidor. As reivindicações são codificadas em Base64Url e formam a segunda parte do JWT.
-   </p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste@test.com"</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">"exp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1690258153</span>
+<p>Payload: O payload de um JWT é onde as reivindicações (ou declarações) são armazenadas. As reivindicações são informações que queremos transmitir e que são relevantes para a interação entre o cliente e o servidor. As reivindicações são codificadas em Base64Url e formam a segunda parte do JWT.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teste@test.com"</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">"exp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1690258153</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
 </code></pre></div>
 </li>
-<li>Signature: A assinatura é utilizada para verificar que o remetente do JWT é quem afirma ser e para garantir que a mensagem não foi alterada ao longo do caminho. Para criar a assinatura, você precisa codificar o cabeçalho, o payload, e um segredo utilizando o algoritmo especificado no cabeçalho. A assinatura é a terceira parte do JWT. Uma assinatura de JWT pode ser criada como se segue:
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HMACSHA256(
+<li>
+<p>Signature: A assinatura é utilizada para verificar que o remetente do JWT é quem afirma ser e para garantir que a mensagem não foi alterada ao longo do caminho. Para criar a assinatura, você precisa codificar o cabeçalho, o payload, e um segredo utilizando o algoritmo especificado no cabeçalho. A assinatura é a terceira parte do JWT. Uma assinatura de JWT pode ser criada como se segue:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>HMACSHA256(
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    base64UrlEncode(header) + "." +
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    base64UrlEncode(payload),
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    nosso-segredo
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a> nosso-segredo
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>)
-</code></pre></div></li>
+</code></pre></div>
+</li>
 </ol>
 <p>Essas três partes são separadas por pontos (.) e juntas formam um token JWT.</p>
 <p>Formando a estrutura: <code>HEADER.PAYLOAD.SIGNATURE</code> que formam um token parecido com</p>
@@ -1029,228 +1072,263 @@
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># ...</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
 <a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="hll">tests/test_app.py::test_create_user<span class="w"> </span>PASSED
+</span></code></pre></div>
+<h2 id="modificando-o-endpoint-de-atualizacao-de-usuarios">Modificando o endpoint de atualização de usuários</h2>
+<p>É igualmente importante modificar a função <code>update_user</code> para também criar um hash da senha antes de atualizar o usuário no banco de dados. Caso contrário, a senha em texto puro seria armazenada no banco de dados no momento da atualização.</p>
+<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="n">get_password_hash</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># ...</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">,</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">),</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">),</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="p">):</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="n">user_id</span><span class="p">:</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'Not enough permissions'</span><span class="p">)</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="n">current_user</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="hll">    <span class="n">current_user</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">get_password_hash</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+</span><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>    <span class="n">current_user</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    <span class="n">session</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>    <span class="k">return</span> <span class="n">current_user</span>
 </code></pre></div>
+<h3 id="sobre-os-testes-da-put-usersuser_id">Sobre os testes da PUT /users/{user_id}</h3>
+<p>Assim como no teste da rota de criação, os testes também passam normalmente por não validarem o campo password.</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>task<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># ...</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>tests/test_app.py::test_read_users<span class="w"> </span>PASSED
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>tests/test_app.py::test_read_users_with_users<span class="w"> </span>PASSED
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="hll">tests/test_app.py::test_update_user<span class="w"> </span>PASSED
+</span></code></pre></div>
 <h2 id="criando-um-endpoint-de-geracao-do-token">Criando um endpoint de geração do token</h2>
 <p>Antes de criar o endpoint, precisamos criar um schema para o nosso token. Em um contexto JWT, <code>access_token</code> é o próprio token que representa a sessão do usuário e contém informações sobre o usuário, enquanto <code>token_type</code> é um tipo de autenticação que será incluído no cabeçalho de autorização de cada solicitação. Em geral, o <code>token_type</code> para JWT é "bearer".</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-25">25</a></span>
-<span class="normal"><a href="#__codelineno-10-26">26</a></span>
-<span class="normal"><a href="#__codelineno-10-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-25" name="__codelineno-10-25"></a><span class="k">class</span> <span class="nc">Token</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<a id="__codelineno-10-26" name="__codelineno-10-26"></a>    <span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span>
-<a id="__codelineno-10-27" name="__codelineno-10-27"></a>    <span class="n">token_type</span><span class="p">:</span> <span class="nb">str</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-25">25</a></span>
+<span class="normal"><a href="#__codelineno-12-26">26</a></span>
+<span class="normal"><a href="#__codelineno-12-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-25" name="__codelineno-12-25"></a><span class="k">class</span> <span class="nc">Token</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-12-26" name="__codelineno-12-26"></a>    <span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span>
+<a id="__codelineno-12-27" name="__codelineno-12-27"></a>    <span class="n">token_type</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="utilizando-oauth2passwordrequestform">Utilizando OAuth2PasswordRequestForm</h3>
 <p>A classe <code>OAuth2PasswordRequestForm</code> é uma classe especial do FastAPI que gera automaticamente um formulário para solicitar o username (email neste caso) e a senha. Este formulário será apresentado automaticamente no Swagger UI e Redoc, o que facilita a realização de testes de autenticação.</p>
 <p>Para usar os formulários no FastAPI, precisamos instalar o <code>python-multipart</code>:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>python-multipart
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>python-multipart
 </code></pre></div>
 <h3 id="criando-um-endpoint-de-geracao-do-token_1">Criando um endpoint de geração do token</h3>
 <p>Agora vamos criar o endpoint que irá autenticar o usuário e fornecer um token de acesso JWT. Este endpoint irá receber as informações de login do usuário, verificar se as credenciais são válidas e, em caso afirmativo, retornar um token de acesso JWT.</p>
-<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordRequestForm</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">Message</span><span class="p">,</span> <span class="n">Token</span><span class="p">,</span> <span class="n">UserList</span><span class="p">,</span> <span class="n">UserPublic</span><span class="p">,</span> <span class="n">UserSchema</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="p">(</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="n">create_access_token</span><span class="p">,</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="n">get_password_hash</span><span class="p">,</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="n">verify_password</span><span class="p">,</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">)</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># ...</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/token'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Token</span><span class="p">)</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="k">def</span> <span class="nf">login_for_access_token</span><span class="p">(</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>    <span class="n">form_data</span><span class="p">:</span> <span class="n">OAuth2PasswordRequestForm</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(),</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>    <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">),</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="p">):</span>
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">email</span> <span class="o">==</span> <span class="n">form_data</span><span class="o">.</span><span class="n">username</span><span class="p">))</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>
-<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
-<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
-<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>            <span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'Incorrect email or password'</span>
-<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>        <span class="p">)</span>
-<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>
-<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">verify_password</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">password</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">password</span><span class="p">):</span>
-<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
-<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>            <span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'Incorrect email or password'</span>
-<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>        <span class="p">)</span>
-<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>
-<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a>    <span class="n">access_token</span> <span class="o">=</span> <span class="n">create_access_token</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'sub'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">})</span>
-<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a>
-<a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'access_token'</span><span class="p">:</span> <span class="n">access_token</span><span class="p">,</span> <span class="s1">'token_type'</span><span class="p">:</span> <span class="s1">'bearer'</span><span class="p">}</span>
+<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordRequestForm</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">Message</span><span class="p">,</span> <span class="n">Token</span><span class="p">,</span> <span class="n">UserList</span><span class="p">,</span> <span class="n">UserPublic</span><span class="p">,</span> <span class="n">UserSchema</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="n">create_access_token</span><span class="p">,</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="n">get_password_hash</span><span class="p">,</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="n">verify_password</span><span class="p">,</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">)</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c1"># ...</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/token'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Token</span><span class="p">)</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="k">def</span> <span class="nf">login_for_access_token</span><span class="p">(</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    <span class="n">form_data</span><span class="p">:</span> <span class="n">OAuth2PasswordRequestForm</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(),</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>    <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">),</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="p">):</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">email</span> <span class="o">==</span> <span class="n">form_data</span><span class="o">.</span><span class="n">username</span><span class="p">))</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>            <span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'Incorrect email or password'</span>
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>        <span class="p">)</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">verify_password</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">password</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">password</span><span class="p">):</span>
+<a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+<a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>            <span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'Incorrect email or password'</span>
+<a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>        <span class="p">)</span>
+<a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>
+<a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>    <span class="n">access_token</span> <span class="o">=</span> <span class="n">create_access_token</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'sub'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">})</span>
+<a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>
+<a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'access_token'</span><span class="p">:</span> <span class="n">access_token</span><span class="p">,</span> <span class="s1">'token_type'</span><span class="p">:</span> <span class="s1">'bearer'</span><span class="p">}</span>
 </code></pre></div>
 <p>Esse endpoint recebe os dados do formulário através do <code>form_data</code> (que são injetados automaticamente graças ao <code>Depends()</code>) e tenta recuperar um usuário com o email fornecido. Se o usuário não for encontrado ou a senha não corresponder ao hash armazenado no banco de dados, uma exceção é lançada. Caso contrário, um token de acesso é criado usando o <code>create_access_token()</code> que criamos anteriormente e retornado como uma resposta.</p>
 <h3 id="testando-token">Testando /token</h3>
 <p>Agora vamos escrever um teste para verificar se o nosso novo endpoint está funcionando corretamente.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-67">67</a></span>
-<span class="normal"><a href="#__codelineno-13-68">68</a></span>
-<span class="normal"><a href="#__codelineno-13-69">69</a></span>
-<span class="normal"><a href="#__codelineno-13-70">70</a></span>
-<span class="normal"><a href="#__codelineno-13-71">71</a></span>
-<span class="normal"><a href="#__codelineno-13-72">72</a></span>
-<span class="normal"><a href="#__codelineno-13-73">73</a></span>
-<span class="normal"><a href="#__codelineno-13-74">74</a></span>
-<span class="normal"><a href="#__codelineno-13-75">75</a></span>
-<span class="normal"><a href="#__codelineno-13-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-67" name="__codelineno-13-67"></a><span class="k">def</span> <span class="nf">test_get_token</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
-<a id="__codelineno-13-68" name="__codelineno-13-68"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-<a id="__codelineno-13-69" name="__codelineno-13-69"></a>        <span class="s1">'/token'</span><span class="p">,</span>
-<a id="__codelineno-13-70" name="__codelineno-13-70"></a>        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'username'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">password</span><span class="p">},</span>
-<a id="__codelineno-13-71" name="__codelineno-13-71"></a>    <span class="p">)</span>
-<a id="__codelineno-13-72" name="__codelineno-13-72"></a>    <span class="n">token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<a id="__codelineno-13-73" name="__codelineno-13-73"></a>
-<a id="__codelineno-13-74" name="__codelineno-13-74"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-<a id="__codelineno-13-75" name="__codelineno-13-75"></a>    <span class="k">assert</span> <span class="s1">'access_token'</span> <span class="ow">in</span> <span class="n">token</span>
-<a id="__codelineno-13-76" name="__codelineno-13-76"></a>    <span class="k">assert</span> <span class="s1">'token_type'</span> <span class="ow">in</span> <span class="n">token</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-67">67</a></span>
+<span class="normal"><a href="#__codelineno-15-68">68</a></span>
+<span class="normal"><a href="#__codelineno-15-69">69</a></span>
+<span class="normal"><a href="#__codelineno-15-70">70</a></span>
+<span class="normal"><a href="#__codelineno-15-71">71</a></span>
+<span class="normal"><a href="#__codelineno-15-72">72</a></span>
+<span class="normal"><a href="#__codelineno-15-73">73</a></span>
+<span class="normal"><a href="#__codelineno-15-74">74</a></span>
+<span class="normal"><a href="#__codelineno-15-75">75</a></span>
+<span class="normal"><a href="#__codelineno-15-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-67" name="__codelineno-15-67"></a><span class="k">def</span> <span class="nf">test_get_token</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+<a id="__codelineno-15-68" name="__codelineno-15-68"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+<a id="__codelineno-15-69" name="__codelineno-15-69"></a>        <span class="s1">'/token'</span><span class="p">,</span>
+<a id="__codelineno-15-70" name="__codelineno-15-70"></a>        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'username'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">password</span><span class="p">},</span>
+<a id="__codelineno-15-71" name="__codelineno-15-71"></a>    <span class="p">)</span>
+<a id="__codelineno-15-72" name="__codelineno-15-72"></a>    <span class="n">token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<a id="__codelineno-15-73" name="__codelineno-15-73"></a>
+<a id="__codelineno-15-74" name="__codelineno-15-74"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+<a id="__codelineno-15-75" name="__codelineno-15-75"></a>    <span class="k">assert</span> <span class="s1">'access_token'</span> <span class="ow">in</span> <span class="n">token</span>
+<a id="__codelineno-15-76" name="__codelineno-15-76"></a>    <span class="k">assert</span> <span class="s1">'token_type'</span> <span class="ow">in</span> <span class="n">token</span>
 </code></pre></div></td></tr></table></div>
 <p>Nesse teste, nós enviamos uma requisição POST para o endpoint "/token" com um username e uma senha válidos. Então, nós verificamos que a resposta contém um "access_token" e um "token_type", que são os campos que esperamos de um JWT válido.</p>
 <p>No entanto, há um problema. Agora que a senha está sendo criptografada, nosso teste falhará:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>task<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="c1"># ...</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>tests/test_app.py::test_get_token<span class="w"> </span>FAILED
-</code></pre></div>
-<p>Para corrigir isso, precisamos garantir que a senha esteja sendo criptografada na fixture antes de ser salva:</p>
-<div class="highlight"><span class="filename">tests/confitest.py</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="hll"><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="n">get_password_hash</span>
-</span><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1"># ...</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        <span class="n">username</span><span class="o">=</span><span class="s1">'Teste'</span><span class="p">,</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>        <span class="n">email</span><span class="o">=</span><span class="s1">'teste@test.com'</span><span class="p">,</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="hll">        <span class="n">password</span><span class="o">=</span><span class="n">get_password_hash</span><span class="p">(</span><span class="s1">'testtest'</span><span class="p">),</span>
-</span><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>    <span class="p">)</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>    <span class="n">session</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
-<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
-<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>    <span class="k">return</span> <span class="n">user</span>
-</code></pre></div>
-<p>Vamos rodar o teste novamente. No entanto, ainda teremos um problema. Agora só temos a versão criptografada da senha, que não é útil para fazer o login, já que o login exige a senha em texto puro:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>task<span class="w"> </span><span class="nb">test</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># ...</span>
 <a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>tests/test_app.py::test_get_token<span class="w"> </span>FAILED
 </code></pre></div>
+<p>Para corrigir isso, precisamos garantir que a senha esteja sendo criptografada na fixture antes de ser salva:</p>
+<div class="highlight"><span class="filename">tests/confitest.py</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="hll"><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="n">get_password_hash</span>
+</span><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># ...</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>        <span class="n">username</span><span class="o">=</span><span class="s1">'Teste'</span><span class="p">,</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>        <span class="n">email</span><span class="o">=</span><span class="s1">'teste@test.com'</span><span class="p">,</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="hll">        <span class="n">password</span><span class="o">=</span><span class="n">get_password_hash</span><span class="p">(</span><span class="s1">'testtest'</span><span class="p">),</span>
+</span><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>    <span class="p">)</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>    <span class="n">session</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>    <span class="k">return</span> <span class="n">user</span>
+</code></pre></div>
+<p>Vamos rodar o teste novamente. No entanto, ainda teremos um problema. Agora só temos a versão criptografada da senha, que não é útil para fazer o login, já que o login exige a senha em texto puro:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>task<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="c1"># ...</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>tests/test_app.py::test_get_token<span class="w"> </span>FAILED
+</code></pre></div>
 <p>Para resolver isso, faremos uma modificação no objeto user (um monkey patch) para adicionar a senha em texto puro:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/confitest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-17-10">10</a></span>
-<span class="normal"><a href="#__codelineno-17-11">11</a></span>
-<span class="normal"><a href="#__codelineno-17-12">12</a></span>
-<span class="normal"><a href="#__codelineno-17-13">13</a></span>
-<span class="normal"><a href="#__codelineno-17-14">14</a></span>
-<span class="normal"><a href="#__codelineno-17-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3"></a>    <span class="n">password</span> <span class="o">=</span> <span class="s1">'testtest'</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5"></a>        <span class="n">username</span><span class="o">=</span><span class="s1">'Teste'</span><span class="p">,</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6"></a>        <span class="n">email</span><span class="o">=</span><span class="s1">'teste@test.com'</span><span class="p">,</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7"></a>        <span class="n">password</span><span class="o">=</span><span class="n">get_password_hash</span><span class="p">(</span><span class="n">password</span><span class="p">),</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8"></a>    <span class="p">)</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9"></a>    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
-<a id="__codelineno-17-10" name="__codelineno-17-10"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-<a id="__codelineno-17-11" name="__codelineno-17-11"></a>    <span class="n">session</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
-<a id="__codelineno-17-12" name="__codelineno-17-12"></a>
-<a id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="hll">    <span class="n">user</span><span class="o">.</span><span class="n">clean_password</span> <span class="o">=</span> <span class="s1">'testtest'</span>
-</span><a id="__codelineno-17-14" name="__codelineno-17-14"></a>
-<a id="__codelineno-17-15" name="__codelineno-17-15"></a>    <span class="k">return</span> <span class="n">user</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/confitest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-19-10">10</a></span>
+<span class="normal"><a href="#__codelineno-19-11">11</a></span>
+<span class="normal"><a href="#__codelineno-19-12">12</a></span>
+<span class="normal"><a href="#__codelineno-19-13">13</a></span>
+<span class="normal"><a href="#__codelineno-19-14">14</a></span>
+<span class="normal"><a href="#__codelineno-19-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>    <span class="n">password</span> <span class="o">=</span> <span class="s1">'testtest'</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a>        <span class="n">username</span><span class="o">=</span><span class="s1">'Teste'</span><span class="p">,</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a>        <span class="n">email</span><span class="o">=</span><span class="s1">'teste@test.com'</span><span class="p">,</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a>        <span class="n">password</span><span class="o">=</span><span class="n">get_password_hash</span><span class="p">(</span><span class="n">password</span><span class="p">),</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a>    <span class="p">)</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a>    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11"></a>    <span class="n">session</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12"></a>
+<a id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="hll">    <span class="n">user</span><span class="o">.</span><span class="n">clean_password</span> <span class="o">=</span> <span class="s1">'testtest'</span>
+</span><a id="__codelineno-19-14" name="__codelineno-19-14"></a>
+<a id="__codelineno-19-15" name="__codelineno-19-15"></a>    <span class="k">return</span> <span class="n">user</span>
 </code></pre></div></td></tr></table></div>
 <p>Monkey patching é uma técnica em que modificamos ou estendemos o código em tempo de execução. Neste caso, estamos adicionando um novo atributo <code>clean_password</code> ao objeto user para armazenar a senha em texto puro.</p>
 <p>Agora, podemos alterar o teste para usar <code>clean_password</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-67">67</a></span>
-<span class="normal"><a href="#__codelineno-18-68">68</a></span>
-<span class="normal"><a href="#__codelineno-18-69">69</a></span>
-<span class="normal"><a href="#__codelineno-18-70">70</a></span>
-<span class="normal"><a href="#__codelineno-18-71">71</a></span>
-<span class="normal"><a href="#__codelineno-18-72">72</a></span>
-<span class="normal"><a href="#__codelineno-18-73">73</a></span>
-<span class="normal"><a href="#__codelineno-18-74">74</a></span>
-<span class="normal"><a href="#__codelineno-18-75">75</a></span>
-<span class="normal"><a href="#__codelineno-18-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-67" name="__codelineno-18-67"></a><span class="k">def</span> <span class="nf">test_get_token</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
-<a id="__codelineno-18-68" name="__codelineno-18-68"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-<a id="__codelineno-18-69" name="__codelineno-18-69"></a>        <span class="s1">'/token'</span><span class="p">,</span>
-<a id="__codelineno-18-70" name="__codelineno-18-70"></a><span class="hll">        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'username'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">clean_password</span><span class="p">},</span>
-</span><a id="__codelineno-18-71" name="__codelineno-18-71"></a>    <span class="p">)</span>
-<a id="__codelineno-18-72" name="__codelineno-18-72"></a>    <span class="n">token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<a id="__codelineno-18-73" name="__codelineno-18-73"></a>
-<a id="__codelineno-18-74" name="__codelineno-18-74"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-<a id="__codelineno-18-75" name="__codelineno-18-75"></a>    <span class="k">assert</span> <span class="s1">'access_token'</span> <span class="ow">in</span> <span class="n">token</span>
-<a id="__codelineno-18-76" name="__codelineno-18-76"></a>    <span class="k">assert</span> <span class="s1">'token_type'</span> <span class="ow">in</span> <span class="n">token</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-67">67</a></span>
+<span class="normal"><a href="#__codelineno-20-68">68</a></span>
+<span class="normal"><a href="#__codelineno-20-69">69</a></span>
+<span class="normal"><a href="#__codelineno-20-70">70</a></span>
+<span class="normal"><a href="#__codelineno-20-71">71</a></span>
+<span class="normal"><a href="#__codelineno-20-72">72</a></span>
+<span class="normal"><a href="#__codelineno-20-73">73</a></span>
+<span class="normal"><a href="#__codelineno-20-74">74</a></span>
+<span class="normal"><a href="#__codelineno-20-75">75</a></span>
+<span class="normal"><a href="#__codelineno-20-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-67" name="__codelineno-20-67"></a><span class="k">def</span> <span class="nf">test_get_token</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+<a id="__codelineno-20-68" name="__codelineno-20-68"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+<a id="__codelineno-20-69" name="__codelineno-20-69"></a>        <span class="s1">'/token'</span><span class="p">,</span>
+<a id="__codelineno-20-70" name="__codelineno-20-70"></a><span class="hll">        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'username'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">clean_password</span><span class="p">},</span>
+</span><a id="__codelineno-20-71" name="__codelineno-20-71"></a>    <span class="p">)</span>
+<a id="__codelineno-20-72" name="__codelineno-20-72"></a>    <span class="n">token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<a id="__codelineno-20-73" name="__codelineno-20-73"></a>
+<a id="__codelineno-20-74" name="__codelineno-20-74"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+<a id="__codelineno-20-75" name="__codelineno-20-75"></a>    <span class="k">assert</span> <span class="s1">'access_token'</span> <span class="ow">in</span> <span class="n">token</span>
+<a id="__codelineno-20-76" name="__codelineno-20-76"></a>    <span class="k">assert</span> <span class="s1">'token_type'</span> <span class="ow">in</span> <span class="n">token</span>
 </code></pre></div></td></tr></table></div>
 <p>E agora todos os testes devem passar normalmente:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>task<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="c1"># ...</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>tests/test_app.py::test_read_users<span class="w"> </span>PASSED
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>tests/test_app.py::test_read_users_with_users<span class="w"> </span>PASSED
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>tests/test_app.py::test_update_user<span class="w"> </span>PASSED
-<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>tests/test_app.py::test_delete_user<span class="w"> </span>PASSED
-<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>tests/test_app.py::test_get_token<span class="w"> </span>PASSED
-<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>tests/test_db.py::test_create_user<span class="w"> </span>PASSED
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>task<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="c1"># ...</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>tests/test_app.py::test_read_users<span class="w"> </span>PASSED
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>tests/test_app.py::test_read_users_with_users<span class="w"> </span>PASSED
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>tests/test_app.py::test_update_user<span class="w"> </span>PASSED
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>tests/test_app.py::test_delete_user<span class="w"> </span>PASSED
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>tests/test_app.py::test_get_token<span class="w"> </span>PASSED
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>tests/test_db.py::test_create_user<span class="w"> </span>PASSED
 </code></pre></div>
 <p>Isso conclui a parte de autenticação de nossa API. No próximo passo, iremos implementar a autorização nos endpoints.</p>
 <h2 id="protegendo-os-endpoints">Protegendo os Endpoints</h2>
 <p>Agora que temos uma forma de autenticar nossos usuários e emitir tokens JWT, é hora de usar essa infraestrutura para proteger nossos endpoints. Neste passo, vamos adicionar autenticação aos endpoints PUT e DELETE.</p>
 <p>Para garantir que as informações do usuário sejam extraídas corretamente do token JWT, precisamos de um schema especial, o <code>TokenData</code>. Esse schema será utilizado para tipificar os dados extraídos do token JWT e garantir que temos um campo <code>username</code> que será usado para identificar o usuário.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-30">30</a></span>
-<span class="normal"><a href="#__codelineno-20-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-30" name="__codelineno-20-30"></a><span class="k">class</span> <span class="nc">TokenData</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<a id="__codelineno-20-31" name="__codelineno-20-31"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-30">30</a></span>
+<span class="normal"><a href="#__codelineno-22-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-30" name="__codelineno-22-30"></a><span class="k">class</span> <span class="nc">TokenData</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<a id="__codelineno-22-31" name="__codelineno-22-31"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 </code></pre></div></td></tr></table></div>
 <p>Nesse ponto, criaremos uma a função <code>get_current_user</code> que será responsável por extrair o token JWT do header <code>Authorization</code> da requisição, decodificar esse token, extrair as informações do usuário e finalmente obter o usuário do banco de dados. Se qualquer um desses passos falhar, uma exceção será lançada e a requisição será negada. Vamos cria-lá no arquivo <code>security.py</code>:</p>
-<div class="highlight"><span class="filename">fast_zero/security.py</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="kn">from</span> <span class="nn">jose</span> <span class="kn">import</span> <span class="n">JWTError</span><span class="p">,</span> <span class="n">jwt</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="kn">from</span> <span class="nn">passlib.context</span> <span class="kn">import</span> <span class="n">CryptContext</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">select</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>
-<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="kn">from</span> <span class="nn">fast_zero.database</span> <span class="kn">import</span> <span class="n">get_session</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">User</span>
-<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">TokenData</span>
-<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
-<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="c1"># ...</span>
-<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a>
-<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">"token"</span><span class="p">)</span>
-<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>
-<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span>
-<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>    <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">),</span>
-<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>    <span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">),</span>
-<a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="p">):</span>
-<a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>    <span class="n">credentials_exception</span> <span class="o">=</span> <span class="n">HTTPException</span><span class="p">(</span>
-<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a>        <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
-<a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>        <span class="n">detail</span><span class="o">=</span><span class="s1">'Could not validate credentials'</span><span class="p">,</span>
-<a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'WWW-Authenticate'</span><span class="p">:</span> <span class="s1">'Bearer'</span><span class="p">},</span>
-<a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>    <span class="p">)</span>
-<a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>
-<a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a>        <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="n">ALGORITHM</span><span class="p">])</span>
-<a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a>        <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'sub'</span><span class="p">)</span>
-<a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span><span class="p">:</span>
-<a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a>            <span class="k">raise</span> <span class="n">credentials_exception</span>
-<a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a>        <span class="n">token_data</span> <span class="o">=</span> <span class="n">TokenData</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
-<a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a>    <span class="k">except</span> <span class="n">JWTError</span><span class="p">:</span>
-<a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a>        <span class="k">raise</span> <span class="n">credentials_exception</span>
-<a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a>
-<a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span>
-<a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a>        <span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">email</span> <span class="o">==</span> <span class="n">token_data</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
-<a id="__codelineno-21-39" name="__codelineno-21-39" href="#__codelineno-21-39"></a>    <span class="p">)</span>
-<a id="__codelineno-21-40" name="__codelineno-21-40" href="#__codelineno-21-40"></a>
-<a id="__codelineno-21-41" name="__codelineno-21-41" href="#__codelineno-21-41"></a>    <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-21-42" name="__codelineno-21-42" href="#__codelineno-21-42"></a>        <span class="k">raise</span> <span class="n">credentials_exception</span>
-<a id="__codelineno-21-43" name="__codelineno-21-43" href="#__codelineno-21-43"></a>
-<a id="__codelineno-21-44" name="__codelineno-21-44" href="#__codelineno-21-44"></a>    <span class="k">return</span> <span class="n">user</span>
+<div class="highlight"><span class="filename">fast_zero/security.py</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="kn">from</span> <span class="nn">jose</span> <span class="kn">import</span> <span class="n">JWTError</span><span class="p">,</span> <span class="n">jwt</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="kn">from</span> <span class="nn">passlib.context</span> <span class="kn">import</span> <span class="n">CryptContext</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">select</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="kn">from</span> <span class="nn">fast_zero.database</span> <span class="kn">import</span> <span class="n">get_session</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">User</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">TokenData</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="c1"># ...</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">"token"</span><span class="p">)</span>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span>
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>    <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">),</span>
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a>    <span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">),</span>
+<a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a><span class="p">):</span>
+<a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a>    <span class="n">credentials_exception</span> <span class="o">=</span> <span class="n">HTTPException</span><span class="p">(</span>
+<a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a>        <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+<a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a>        <span class="n">detail</span><span class="o">=</span><span class="s1">'Could not validate credentials'</span><span class="p">,</span>
+<a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a>        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'WWW-Authenticate'</span><span class="p">:</span> <span class="s1">'Bearer'</span><span class="p">},</span>
+<a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a>    <span class="p">)</span>
+<a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a>
+<a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a>        <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="n">ALGORITHM</span><span class="p">])</span>
+<a id="__codelineno-23-30" name="__codelineno-23-30" href="#__codelineno-23-30"></a>        <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'sub'</span><span class="p">)</span>
+<a id="__codelineno-23-31" name="__codelineno-23-31" href="#__codelineno-23-31"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span><span class="p">:</span>
+<a id="__codelineno-23-32" name="__codelineno-23-32" href="#__codelineno-23-32"></a>            <span class="k">raise</span> <span class="n">credentials_exception</span>
+<a id="__codelineno-23-33" name="__codelineno-23-33" href="#__codelineno-23-33"></a>        <span class="n">token_data</span> <span class="o">=</span> <span class="n">TokenData</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+<a id="__codelineno-23-34" name="__codelineno-23-34" href="#__codelineno-23-34"></a>    <span class="k">except</span> <span class="n">JWTError</span><span class="p">:</span>
+<a id="__codelineno-23-35" name="__codelineno-23-35" href="#__codelineno-23-35"></a>        <span class="k">raise</span> <span class="n">credentials_exception</span>
+<a id="__codelineno-23-36" name="__codelineno-23-36" href="#__codelineno-23-36"></a>
+<a id="__codelineno-23-37" name="__codelineno-23-37" href="#__codelineno-23-37"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span>
+<a id="__codelineno-23-38" name="__codelineno-23-38" href="#__codelineno-23-38"></a>        <span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">email</span> <span class="o">==</span> <span class="n">token_data</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+<a id="__codelineno-23-39" name="__codelineno-23-39" href="#__codelineno-23-39"></a>    <span class="p">)</span>
+<a id="__codelineno-23-40" name="__codelineno-23-40" href="#__codelineno-23-40"></a>
+<a id="__codelineno-23-41" name="__codelineno-23-41" href="#__codelineno-23-41"></a>    <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-23-42" name="__codelineno-23-42" href="#__codelineno-23-42"></a>        <span class="k">raise</span> <span class="n">credentials_exception</span>
+<a id="__codelineno-23-43" name="__codelineno-23-43" href="#__codelineno-23-43"></a>
+<a id="__codelineno-23-44" name="__codelineno-23-44" href="#__codelineno-23-44"></a>    <span class="k">return</span> <span class="n">user</span>
 </code></pre></div>
 <p>Aqui, a função <code>get_current_user</code> é definida como assíncrona, indicando que ela pode realizar operações de IO (como consultar um banco de dados) de forma não bloqueante. Esta função aceita dois argumentos: <code>session</code> e <code>token</code>. O <code>session</code> é obtido através da função <code>get_session</code> (não mostrada aqui), que deve retornar uma sessão de banco de dados ativa. O <code>token</code> é obtido do header de autorização da requisição, que é esperado ser do tipo Bearer (indicado pelo esquema OAuth2).</p>
 <p>A variável <code>credentials_exception</code> é definida como uma exceção HTTP que será lançada sempre que houver um problema com as credenciais fornecidas pelo usuário. O status 401 indica que a autenticação falhou e a mensagem "Could not validate credentials" é retornada ao cliente. Além disso, um cabeçalho 'WWW-Authenticate' é incluído na resposta, indicando que o cliente deve fornecer autenticação.</p>
@@ -1258,149 +1336,149 @@
 <p>Por fim, realizamos uma consulta ao banco de dados para encontrar o usuário com o e-mail correspondente ao username contido no token. <code>session.scalar</code> é usado para retornar a primeira coluna do primeiro resultado da consulta. Se nenhum usuário for encontrado, lançamos a exceção <code>credentials_exception</code>. Se um usuário for encontrado, retornamos esse usuário.</p>
 <h3 id="aplicacao-da-protecao-ao-endpoint">Aplicação da proteção ao endpoint</h3>
 <p>Primeiro, vamos aplicar a autenticação no endpoint PUT. Se o <code>user_id</code> da rota não corresponder ao <code>id</code> do usuário autenticado, retornaremos um erro 400. Se tudo estiver correto, o usuário será atualizado normalmente.</p>
-<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="p">(</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="n">create_access_token</span><span class="p">,</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="n">get_current_user</span><span class="p">,</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="n">get_password_hash</span><span class="p">,</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    <span class="n">verify_password</span><span class="p">,</span>
-<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="p">)</span>
-<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
-<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="c1"># ...</span>
-<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
-<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
-<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span>
-<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>    <span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">,</span>
-<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>    <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">),</span>
-<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a><span class="hll">    <span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">),</span>
-</span><a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a><span class="p">):</span>
-<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a><span class="hll">    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="n">user_id</span><span class="p">:</span>
-</span><a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a><span class="hll">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'Not enough permissions'</span><span class="p">)</span>
-</span><a id="__codelineno-22-19" name="__codelineno-22-19" href="#__codelineno-22-19"></a>
-<a id="__codelineno-22-20" name="__codelineno-22-20" href="#__codelineno-22-20"></a>    <span class="n">current_user</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span>
-<a id="__codelineno-22-21" name="__codelineno-22-21" href="#__codelineno-22-21"></a>    <span class="n">current_user</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">password</span>
-<a id="__codelineno-22-22" name="__codelineno-22-22" href="#__codelineno-22-22"></a>    <span class="n">current_user</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span>
-<a id="__codelineno-22-23" name="__codelineno-22-23" href="#__codelineno-22-23"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-<a id="__codelineno-22-24" name="__codelineno-22-24" href="#__codelineno-22-24"></a>    <span class="n">session</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
-<a id="__codelineno-22-25" name="__codelineno-22-25" href="#__codelineno-22-25"></a>
-<a id="__codelineno-22-26" name="__codelineno-22-26" href="#__codelineno-22-26"></a>    <span class="k">return</span> <span class="n">current_user</span>
+<div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="n">create_access_token</span><span class="p">,</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>    <span class="n">get_current_user</span><span class="p">,</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    <span class="n">get_password_hash</span><span class="p">,</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="n">verify_password</span><span class="p">,</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="p">)</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="c1"># ...</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>    <span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">,</span>
+<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>    <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">),</span>
+<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="hll">    <span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">),</span>
+</span><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="p">):</span>
+<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="hll">    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="n">user_id</span><span class="p">:</span>
+</span><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a><span class="hll">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'Not enough permissions'</span><span class="p">)</span>
+</span><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>
+<a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>    <span class="n">current_user</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span>
+<a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>    <span class="n">current_user</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">password</span>
+<a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>    <span class="n">current_user</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span>
+<a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>    <span class="n">session</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
+<a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>
+<a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>    <span class="k">return</span> <span class="n">current_user</span>
 </code></pre></div>
 <p>Com isso, podemos remover a query feita no endpoint para encontrar o User, pois ela já está sendo feita no <code>get_current_user</code>, simplificando ainda mais nosso endpoint.</p>
 <p>Agora, vamos aplicar a autenticação no endpoint DELETE. Semelhante ao PUT, se o <code>user_id</code> da rota não corresponder ao <code>id</code> do usuário autenticado, retornaremos um erro 400. Se tudo estiver correto, o usuário será deletado.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-75">75</a></span>
-<span class="normal"><a href="#__codelineno-23-76">76</a></span>
-<span class="normal"><a href="#__codelineno-23-77">77</a></span>
-<span class="normal"><a href="#__codelineno-23-78">78</a></span>
-<span class="normal"><a href="#__codelineno-23-79">79</a></span>
-<span class="normal"><a href="#__codelineno-23-80">80</a></span>
-<span class="normal"><a href="#__codelineno-23-81">81</a></span>
-<span class="normal"><a href="#__codelineno-23-82">82</a></span>
-<span class="normal"><a href="#__codelineno-23-83">83</a></span>
-<span class="normal"><a href="#__codelineno-23-84">84</a></span>
-<span class="normal"><a href="#__codelineno-23-85">85</a></span>
-<span class="normal"><a href="#__codelineno-23-86">86</a></span>
-<span class="normal"><a href="#__codelineno-23-87">87</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-75" name="__codelineno-23-75"></a><span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Message</span><span class="p">)</span>
-<a id="__codelineno-23-76" name="__codelineno-23-76"></a><span class="k">def</span> <span class="nf">delete_user</span><span class="p">(</span>
-<a id="__codelineno-23-77" name="__codelineno-23-77"></a>    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-23-78" name="__codelineno-23-78"></a>    <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">),</span>
-<a id="__codelineno-23-79" name="__codelineno-23-79"></a><span class="hll">    <span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">),</span>
-</span><a id="__codelineno-23-80" name="__codelineno-23-80"></a><span class="p">):</span>
-<a id="__codelineno-23-81" name="__codelineno-23-81"></a><span class="hll">    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="n">user_id</span><span class="p">:</span>
-</span><a id="__codelineno-23-82" name="__codelineno-23-82"></a><span class="hll">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'Not enough permissions'</span><span class="p">)</span>
-</span><a id="__codelineno-23-83" name="__codelineno-23-83"></a>
-<a id="__codelineno-23-84" name="__codelineno-23-84"></a>    <span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
-<a id="__codelineno-23-85" name="__codelineno-23-85"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-<a id="__codelineno-23-86" name="__codelineno-23-86"></a>
-<a id="__codelineno-23-87" name="__codelineno-23-87"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'User deleted'</span><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-75">75</a></span>
+<span class="normal"><a href="#__codelineno-25-76">76</a></span>
+<span class="normal"><a href="#__codelineno-25-77">77</a></span>
+<span class="normal"><a href="#__codelineno-25-78">78</a></span>
+<span class="normal"><a href="#__codelineno-25-79">79</a></span>
+<span class="normal"><a href="#__codelineno-25-80">80</a></span>
+<span class="normal"><a href="#__codelineno-25-81">81</a></span>
+<span class="normal"><a href="#__codelineno-25-82">82</a></span>
+<span class="normal"><a href="#__codelineno-25-83">83</a></span>
+<span class="normal"><a href="#__codelineno-25-84">84</a></span>
+<span class="normal"><a href="#__codelineno-25-85">85</a></span>
+<span class="normal"><a href="#__codelineno-25-86">86</a></span>
+<span class="normal"><a href="#__codelineno-25-87">87</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-75" name="__codelineno-25-75"></a><span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Message</span><span class="p">)</span>
+<a id="__codelineno-25-76" name="__codelineno-25-76"></a><span class="k">def</span> <span class="nf">delete_user</span><span class="p">(</span>
+<a id="__codelineno-25-77" name="__codelineno-25-77"></a>    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-25-78" name="__codelineno-25-78"></a>    <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">),</span>
+<a id="__codelineno-25-79" name="__codelineno-25-79"></a><span class="hll">    <span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">),</span>
+</span><a id="__codelineno-25-80" name="__codelineno-25-80"></a><span class="p">):</span>
+<a id="__codelineno-25-81" name="__codelineno-25-81"></a><span class="hll">    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="o">!=</span> <span class="n">user_id</span><span class="p">:</span>
+</span><a id="__codelineno-25-82" name="__codelineno-25-82"></a><span class="hll">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'Not enough permissions'</span><span class="p">)</span>
+</span><a id="__codelineno-25-83" name="__codelineno-25-83"></a>
+<a id="__codelineno-25-84" name="__codelineno-25-84"></a>    <span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
+<a id="__codelineno-25-85" name="__codelineno-25-85"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<a id="__codelineno-25-86" name="__codelineno-25-86"></a>
+<a id="__codelineno-25-87" name="__codelineno-25-87"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'User deleted'</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Com essa nova dependência, o FastAPI automaticamente garantirá que um token de autenticação válido seja fornecido antes de permitir o acesso a esses endpoints. Se o token não for válido, ou se o usuário tentar modificar ou deletar um usuário diferente, um erro será retornado.</p>
 <h3 id="atualizando-os-testes">Atualizando os Testes</h3>
 <p>Os testes precisam ser atualizados para refletir essas mudanças. Primeiro, precisamos criar uma nova fixture que gere um token para um usuário de teste.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/conftest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-55">55</a></span>
-<span class="normal"><a href="#__codelineno-24-56">56</a></span>
-<span class="normal"><a href="#__codelineno-24-57">57</a></span>
-<span class="normal"><a href="#__codelineno-24-58">58</a></span>
-<span class="normal"><a href="#__codelineno-24-59">59</a></span>
-<span class="normal"><a href="#__codelineno-24-60">60</a></span>
-<span class="normal"><a href="#__codelineno-24-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-55" name="__codelineno-24-55"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-<a id="__codelineno-24-56" name="__codelineno-24-56"></a><span class="k">def</span> <span class="nf">token</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
-<a id="__codelineno-24-57" name="__codelineno-24-57"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-<a id="__codelineno-24-58" name="__codelineno-24-58"></a>        <span class="s1">'/token'</span><span class="p">,</span>
-<a id="__codelineno-24-59" name="__codelineno-24-59"></a>        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'username'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">clean_password</span><span class="p">},</span>
-<a id="__codelineno-24-60" name="__codelineno-24-60"></a>    <span class="p">)</span>
-<a id="__codelineno-24-61" name="__codelineno-24-61"></a>    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">'access_token'</span><span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/conftest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-55">55</a></span>
+<span class="normal"><a href="#__codelineno-26-56">56</a></span>
+<span class="normal"><a href="#__codelineno-26-57">57</a></span>
+<span class="normal"><a href="#__codelineno-26-58">58</a></span>
+<span class="normal"><a href="#__codelineno-26-59">59</a></span>
+<span class="normal"><a href="#__codelineno-26-60">60</a></span>
+<span class="normal"><a href="#__codelineno-26-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-55" name="__codelineno-26-55"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<a id="__codelineno-26-56" name="__codelineno-26-56"></a><span class="k">def</span> <span class="nf">token</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+<a id="__codelineno-26-57" name="__codelineno-26-57"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+<a id="__codelineno-26-58" name="__codelineno-26-58"></a>        <span class="s1">'/token'</span><span class="p">,</span>
+<a id="__codelineno-26-59" name="__codelineno-26-59"></a>        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'username'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">clean_password</span><span class="p">},</span>
+<a id="__codelineno-26-60" name="__codelineno-26-60"></a>    <span class="p">)</span>
+<a id="__codelineno-26-61" name="__codelineno-26-61"></a>    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">'access_token'</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <p>Agora, podemos atualizar os testes para o endpoint PUT e DELETE para incluir a autenticação.</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-44">44</a></span>
-<span class="normal"><a href="#__codelineno-25-45">45</a></span>
-<span class="normal"><a href="#__codelineno-25-46">46</a></span>
-<span class="normal"><a href="#__codelineno-25-47">47</a></span>
-<span class="normal"><a href="#__codelineno-25-48">48</a></span>
-<span class="normal"><a href="#__codelineno-25-49">49</a></span>
-<span class="normal"><a href="#__codelineno-25-50">50</a></span>
-<span class="normal"><a href="#__codelineno-25-51">51</a></span>
-<span class="normal"><a href="#__codelineno-25-52">52</a></span>
-<span class="normal"><a href="#__codelineno-25-53">53</a></span>
-<span class="normal"><a href="#__codelineno-25-54">54</a></span>
-<span class="normal"><a href="#__codelineno-25-55">55</a></span>
-<span class="normal"><a href="#__codelineno-25-56">56</a></span>
-<span class="normal"><a href="#__codelineno-25-57">57</a></span>
-<span class="normal"><a href="#__codelineno-25-58">58</a></span>
-<span class="normal"><a href="#__codelineno-25-59">59</a></span>
-<span class="normal"><a href="#__codelineno-25-60">60</a></span>
-<span class="normal"><a href="#__codelineno-25-61">61</a></span>
-<span class="normal"><a href="#__codelineno-25-62">62</a></span>
-<span class="normal"><a href="#__codelineno-25-63">63</a></span>
-<span class="normal"><a href="#__codelineno-25-64">64</a></span>
-<span class="normal"><a href="#__codelineno-25-65">65</a></span>
-<span class="normal"><a href="#__codelineno-25-66">66</a></span>
-<span class="normal"><a href="#__codelineno-25-67">67</a></span>
-<span class="normal"><a href="#__codelineno-25-68">68</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-44" name="__codelineno-25-44"></a><span class="k">def</span> <span class="nf">test_update_user</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
-<a id="__codelineno-25-45" name="__codelineno-25-45"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
-<a id="__codelineno-25-46" name="__codelineno-25-46"></a><span class="hll">        <span class="sa">f</span><span class="s1">'/users/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
-</span><a id="__codelineno-25-47" name="__codelineno-25-47"></a><span class="hll">        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span><span class="p">},</span>
-</span><a id="__codelineno-25-48" name="__codelineno-25-48"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-<a id="__codelineno-25-49" name="__codelineno-25-49"></a>            <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'bob'</span><span class="p">,</span>
-<a id="__codelineno-25-50" name="__codelineno-25-50"></a>            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bob@example.com'</span><span class="p">,</span>
-<a id="__codelineno-25-51" name="__codelineno-25-51"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'mynewpassword'</span><span class="p">,</span>
-<a id="__codelineno-25-52" name="__codelineno-25-52"></a>        <span class="p">},</span>
-<a id="__codelineno-25-53" name="__codelineno-25-53"></a>    <span class="p">)</span>
-<a id="__codelineno-25-54" name="__codelineno-25-54"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-<a id="__codelineno-25-55" name="__codelineno-25-55"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
-<a id="__codelineno-25-56" name="__codelineno-25-56"></a>        <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'bob'</span><span class="p">,</span>
-<a id="__codelineno-25-57" name="__codelineno-25-57"></a>        <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bob@example.com'</span><span class="p">,</span>
-<a id="__codelineno-25-58" name="__codelineno-25-58"></a>        <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-25-59" name="__codelineno-25-59"></a>    <span class="p">}</span>
-<a id="__codelineno-25-60" name="__codelineno-25-60"></a>
-<a id="__codelineno-25-61" name="__codelineno-25-61"></a>
-<a id="__codelineno-25-62" name="__codelineno-25-62"></a><span class="k">def</span> <span class="nf">test_delete_user</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
-<a id="__codelineno-25-63" name="__codelineno-25-63"></a><span class="hll">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span>
-</span><a id="__codelineno-25-64" name="__codelineno-25-64"></a><span class="hll">        <span class="sa">f</span><span class="s1">'/users/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
-</span><a id="__codelineno-25-65" name="__codelineno-25-65"></a><span class="hll">        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span><span class="p">},</span>
-</span><a id="__codelineno-25-66" name="__codelineno-25-66"></a><span class="hll">    <span class="p">)</span>
-</span><a id="__codelineno-25-67" name="__codelineno-25-67"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-<a id="__codelineno-25-68" name="__codelineno-25-68"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'User deleted'</span><span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-44">44</a></span>
+<span class="normal"><a href="#__codelineno-27-45">45</a></span>
+<span class="normal"><a href="#__codelineno-27-46">46</a></span>
+<span class="normal"><a href="#__codelineno-27-47">47</a></span>
+<span class="normal"><a href="#__codelineno-27-48">48</a></span>
+<span class="normal"><a href="#__codelineno-27-49">49</a></span>
+<span class="normal"><a href="#__codelineno-27-50">50</a></span>
+<span class="normal"><a href="#__codelineno-27-51">51</a></span>
+<span class="normal"><a href="#__codelineno-27-52">52</a></span>
+<span class="normal"><a href="#__codelineno-27-53">53</a></span>
+<span class="normal"><a href="#__codelineno-27-54">54</a></span>
+<span class="normal"><a href="#__codelineno-27-55">55</a></span>
+<span class="normal"><a href="#__codelineno-27-56">56</a></span>
+<span class="normal"><a href="#__codelineno-27-57">57</a></span>
+<span class="normal"><a href="#__codelineno-27-58">58</a></span>
+<span class="normal"><a href="#__codelineno-27-59">59</a></span>
+<span class="normal"><a href="#__codelineno-27-60">60</a></span>
+<span class="normal"><a href="#__codelineno-27-61">61</a></span>
+<span class="normal"><a href="#__codelineno-27-62">62</a></span>
+<span class="normal"><a href="#__codelineno-27-63">63</a></span>
+<span class="normal"><a href="#__codelineno-27-64">64</a></span>
+<span class="normal"><a href="#__codelineno-27-65">65</a></span>
+<span class="normal"><a href="#__codelineno-27-66">66</a></span>
+<span class="normal"><a href="#__codelineno-27-67">67</a></span>
+<span class="normal"><a href="#__codelineno-27-68">68</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-44" name="__codelineno-27-44"></a><span class="k">def</span> <span class="nf">test_update_user</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+<a id="__codelineno-27-45" name="__codelineno-27-45"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+<a id="__codelineno-27-46" name="__codelineno-27-46"></a><span class="hll">        <span class="sa">f</span><span class="s1">'/users/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+</span><a id="__codelineno-27-47" name="__codelineno-27-47"></a><span class="hll">        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span><span class="p">},</span>
+</span><a id="__codelineno-27-48" name="__codelineno-27-48"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-27-49" name="__codelineno-27-49"></a>            <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'bob'</span><span class="p">,</span>
+<a id="__codelineno-27-50" name="__codelineno-27-50"></a>            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bob@example.com'</span><span class="p">,</span>
+<a id="__codelineno-27-51" name="__codelineno-27-51"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'mynewpassword'</span><span class="p">,</span>
+<a id="__codelineno-27-52" name="__codelineno-27-52"></a>        <span class="p">},</span>
+<a id="__codelineno-27-53" name="__codelineno-27-53"></a>    <span class="p">)</span>
+<a id="__codelineno-27-54" name="__codelineno-27-54"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+<a id="__codelineno-27-55" name="__codelineno-27-55"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
+<a id="__codelineno-27-56" name="__codelineno-27-56"></a>        <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'bob'</span><span class="p">,</span>
+<a id="__codelineno-27-57" name="__codelineno-27-57"></a>        <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bob@example.com'</span><span class="p">,</span>
+<a id="__codelineno-27-58" name="__codelineno-27-58"></a>        <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-27-59" name="__codelineno-27-59"></a>    <span class="p">}</span>
+<a id="__codelineno-27-60" name="__codelineno-27-60"></a>
+<a id="__codelineno-27-61" name="__codelineno-27-61"></a>
+<a id="__codelineno-27-62" name="__codelineno-27-62"></a><span class="k">def</span> <span class="nf">test_delete_user</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+<a id="__codelineno-27-63" name="__codelineno-27-63"></a><span class="hll">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span>
+</span><a id="__codelineno-27-64" name="__codelineno-27-64"></a><span class="hll">        <span class="sa">f</span><span class="s1">'/users/</span><span class="si">{</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
+</span><a id="__codelineno-27-65" name="__codelineno-27-65"></a><span class="hll">        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span><span class="p">},</span>
+</span><a id="__codelineno-27-66" name="__codelineno-27-66"></a><span class="hll">    <span class="p">)</span>
+</span><a id="__codelineno-27-67" name="__codelineno-27-67"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+<a id="__codelineno-27-68" name="__codelineno-27-68"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'User deleted'</span><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Finalmente, podemos rodar todos os testes para garantir que tudo esteja funcionando corretamente.</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>task<span class="w"> </span><span class="nb">test</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="c1"># ...</span>
-<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
-<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
-<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
-<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>tests/test_app.py::test_read_users<span class="w"> </span>PASSED
-<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>tests/test_app.py::test_read_users_with_users<span class="w"> </span>PASSED
-<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>tests/test_app.py::test_update_user<span class="w"> </span>PASSED
-<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>tests/test_app.py::test_delete_user<span class="w"> </span>PASSED
-<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>tests/test_app.py::test_get_token<span class="w"> </span>PASSED
-<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>tests/test_db.py::test_create_user<span class="w"> </span>PASSED
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>task<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="c1"># ...</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>tests/test_app.py::test_read_users<span class="w"> </span>PASSED
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>tests/test_app.py::test_read_users_with_users<span class="w"> </span>PASSED
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>tests/test_app.py::test_update_user<span class="w"> </span>PASSED
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>tests/test_app.py::test_delete_user<span class="w"> </span>PASSED
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>tests/test_app.py::test_get_token<span class="w"> </span>PASSED
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>tests/test_db.py::test_create_user<span class="w"> </span>PASSED
 </code></pre></div>
 <p>Com essas alterações, nossos endpoints agora estão seguramente protegidos pela autenticação. Apenas os usuários autenticados podem alterar ou deletar seus próprios dados. Isso traz uma camada adicional de segurança e integridade para o nosso aplicativo.</p>
 <h2 id="commit">Commit</h2>
 <p>Depois de finalizar a proteção dos endpoints e atualizar os testes, é hora de fazer commit das alterações. Não se esqueça de revisar as alterações antes de fazer o commit.</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>git<span class="w"> </span>status
-<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
-<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Protege os endpoints PUT e DELETE com autenticação"</span>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>status
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Protege os endpoints PUT e DELETE com autenticação"</span>
 </code></pre></div>
 <h2 id="conclusao">Conclusão</h2>
 <p>Nesta aula, demos um passo importante para aumentar a segurança da nossa API. Implementamos a autenticação e a autorização para os endpoints PUT e DELETE, garantindo que apenas usuários autenticados possam alterar ou excluir seus próprios dados. Também atualizamos os testes para incluir a autenticação. Na próxima aula, continuaremos a expandir a funcionalidade da nossa API. Até lá!</p></div>
@@ -1410,7 +1488,7 @@
   <small>
     
       Última atualização:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 25, 2023</span>
       
     
   </small>
@@ -1425,7 +1503,7 @@
   
     <div class="md-source-date">
       <small>
-          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, Ricardo Emanuel</span>
+          Authors: <span class='git-page-authors git-authors'>dunossauro, Julio Formiga, ivansantiagojr, Ricardo Emanuel</span>
       </small>
     </div>
   
