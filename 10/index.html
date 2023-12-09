@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Criação de rotinas de CI com Github Actions">
+      
       
       
         <link rel="canonical" href="https://fastapidozero.dunossauro.com/10/">
@@ -22,7 +24,7 @@
     
     
       
-        <title>[WIP] Automatizando os testes com Integração Contínua - FastAPI do Zero</title>
+        <title>Automatizando os testes com Integração Contínua - FastAPI do Zero</title>
       
     
     
@@ -59,9 +61,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="[WIP] Automatizando os testes com Integração Contínua - FastAPI do Zero" >
+        <meta  property="og:title"  content="Automatizando os testes com Integração Contínua - FastAPI do Zero" >
       
-        <meta  property="og:description"  content="None" >
+        <meta  property="og:description"  content="Criação de rotinas de CI com Github Actions" >
       
         <meta  property="og:image"  content="https://fastapidozero.dunossauro.com/assets/images/social/10.png" >
       
@@ -75,9 +77,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="[WIP] Automatizando os testes com Integração Contínua - FastAPI do Zero" >
+        <meta  name="twitter:title"  content="Automatizando os testes com Integração Contínua - FastAPI do Zero" >
       
-        <meta  name="twitter:description"  content="None" >
+        <meta  name="twitter:description"  content="Criação de rotinas de CI com Github Actions" >
       
         <meta  name="twitter:image"  content="https://fastapidozero.dunossauro.com/assets/images/social/10.png" >
       
@@ -113,7 +115,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wip-automatizando-os-testes-com-integracao-continua" class="md-skip">
+        <a href="#automatizando-os-testes-com-integracao-continua-ci" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -148,7 +150,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              [WIP] Automatizando os testes com Integração Contínua
+              Automatizando os testes com Integração Contínua
             
           </span>
         </div>
@@ -510,7 +512,7 @@
           
   
   <span class="md-ellipsis">
-    [WIP] Automatizando os testes com Integração Contínua
+    Automatizando os testes com Integração Contínua
   </span>
   
 
@@ -521,7 +523,7 @@
         
   
   <span class="md-ellipsis">
-    [WIP] Automatizando os testes com Integração Contínua
+    Automatizando os testes com Integração Contínua
   </span>
   
 
@@ -549,14 +551,29 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Integração Contínua (CI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#github-actions" class="md-nav__link">
     <span class="md-ellipsis">
       GitHub Actions
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-de-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -567,14 +584,86 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Configurando o workflow de CI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#construcao-do-nosso-ambiente-de-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Construção do nosso ambiente de CI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracao-de-variaveis-de-ambiente-no-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuração de variáveis de ambiente no Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuração de variáveis de ambiente no Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definindo-secrets-no-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definindo Secrets no Repositório
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacao-no-arquivo-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementação no Arquivo YAML
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizando-o-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atualizando o Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#commit" class="md-nav__link">
+  <a href="#adicionando-servicos-ao-github-actions" class="md-nav__link">
     <span class="md-ellipsis">
-      Commit
+      Adicionando serviços ao Github Actions
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Adicionando serviços ao Github Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-suporte-ao-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adicionando suporte ao PostgreSQL
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -668,14 +757,29 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Integração Contínua (CI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#github-actions" class="md-nav__link">
     <span class="md-ellipsis">
       GitHub Actions
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-de-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exemplo de workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -686,14 +790,86 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Configurando o workflow de CI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#construcao-do-nosso-ambiente-de-ci" class="md-nav__link">
+    <span class="md-ellipsis">
+      Construção do nosso ambiente de CI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuracao-de-variaveis-de-ambiente-no-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuração de variáveis de ambiente no Actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuração de variáveis de ambiente no Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definindo-secrets-no-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definindo Secrets no Repositório
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacao-no-arquivo-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementação no Arquivo YAML
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizando-o-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atualizando o Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#commit" class="md-nav__link">
+  <a href="#adicionando-servicos-ao-github-actions" class="md-nav__link">
     <span class="md-ellipsis">
-      Commit
+      Adicionando serviços ao Github Actions
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Adicionando serviços ao Github Actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adicionando-suporte-ao-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adicionando suporte ao PostgreSQL
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -724,79 +900,426 @@
   
 
 
-<div><h1 id="wip-automatizando-os-testes-com-integracao-continua">[WIP] Automatizando os testes com Integração Contínua</h1>
-<p>Tópico de manutenção: https://github.com/dunossauro/fastapi-do-zero/issues/34</p>
+<div><h1 id="automatizando-os-testes-com-integracao-continua-ci">Automatizando os testes com Integração Contínua (CI)</h1>
 <hr>
 <p>Objetivos da aula:</p>
 <ul>
-<li>Compreender o conceito de Integração Contínua (CI)</li>
-<li>Familiarizar-se com a ferramenta GitHub Actions</li>
-<li>Aprender a configurar um pipeline de CI para testar a aplicação automaticamente</li>
-<li>Entender a importância de uma cobertura de testes abrangente</li>
-<li>Conhecer a plataforma Codecov para monitoramento da cobertura de testes</li>
+<li>Compreender a prática de Integração Contínua (CI) e sua importância no processo de desenvolvimento de software.</li>
+<li>Aprender a usar o GitHub Actions para criar workflows de CI que automatizem a execução de testes a cada commit.</li>
+<li>Configurar um pipeline de CI para nossa aplicação FastAPI que execute testes automaticamente.</li>
+<li>Reconhecer a importância de manter uma cobertura de testes abrangente e consistente.</li>
 </ul>
+<details class="tip">
+<summary>Caso prefira ver a aula em vídeo</summary>
+<p><a class="glightbox" href="https://www.youtube.com/embed/u31qwQUeGuM" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/u31qwQUeGuM" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+</details>
+<p><a class="md-button" href="#">Aula <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span></a>
+<a class="md-button" href="#">Slides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM136 240h68c42 0 76 34 76 76s-34 76-76 76h-44v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V264c0-13.3 10.7-24 24-24zm68 104c15.5 0 28-12.5 28-28s-12.5-28-28-28h-44v56h44z"></path></svg></span></a>
+<a class="md-button" href="https://github.com/dunossauro/fastapi-do-zero/tree/main/codigo_das_aulas/10/">Código <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span></a></p>
 <hr>
-<p>Na aula passada, preparamos nossa aplicação para execução em containers Docker. Nesta aula, focaremos em garantir que nossa aplicação continue funcionando conforme o esperado a cada atualização de código. Para isso, introduziremos o conceito de Integração Contínua (CI).</p>
+<p>Na aula anterior, preparamos nossa aplicação para execução em containers Docker, um passo fundamental para replicar o ambiente de produção. Agora, vamos garantir que nossa aplicação mantenha sua integridade a cada mudança, implementando Integração Contínua.</p>
 <h2 id="integracao-continua-ci">Integração Contínua (CI)</h2>
-<p>Integração Contínua (CI) é uma prática de desenvolvimento que envolve a integração frequente de código ao projeto principal. Com cada integração - geralmente um commit - é disparado um processo automatizado que constrói e testa o código. Isso permite detectar e corrigir problemas rapidamente, contribuindo para a manutenção da qualidade do software.</p>
-<h2 id="github-actions">GitHub Actions</h2>
-<p>GitHub Actions é um serviço fornecido pelo GitHub que permite a automatização de workflows, incluindo a execução de testes e implantação de software, diretamente em seu repositório GitHub. Cada tarefa é definida como uma "ação", e ações podem ser combinadas para criar um "workflow" que atende a necessidades específicas de desenvolvimento.</p>
+<p>Integração Contínua (CI) é uma prática de desenvolvimento que envolve a integração regular do código-fonte ao repositório principal, acompanhada de testes automatizados para garantir a qualidade. O objetivo dessa prática é identificar e corrigir erros de forma precoce, facilitando o desenvolvimento contínuo e colaborativo. Pois, caso alguém esqueça de rodar os testes ou exista algum problema na integração entre dois commits, ou em algum merge, isso seja detectado no momento em que a integração contínua é executada.</p>
+<h3 id="github-actions">GitHub Actions</h3>
+<p>Entre as ferramentas disponíveis para CI, o <a href="https://github.com/features/actions" target="_blank">GitHub Actions</a> é um serviço do GitHub que automatiza workflows dentro do seu repositório. Você pode configurar o GitHub Actions para executar ações específicas — como testes automatizados — cada vez que um novo código é commitado no repositório.</p>
+<h3 id="exemplo-de-workflow">Exemplo de workflow</h3>
+<p>Workflows no GitHub Actions começam com a construção de um ambiente (escolher um sistema operacional e instalar suas dependências) e criar diversos passos (<em>steps</em> em inglês) para executar todas as etapas que fazemos no nosso computador durante o desenvolvimento. É uma forma de garantir que o sistema funciona em um ambiente controlado. Dessa forma, todas às vezes que subimos o código para o repositório (damos push) esse ambiente e a sequência de passos será executada.</p>
+<p>Por exemplo, como nosso sistema usará um sistema operacional GNU/Linux, podemos selecionar uma distribuição como <a href="https://ubuntu.com/" target="_blank">Ubuntu</a> para executar todos os passos da execução dos nossos testes. Isso inclui diversas etapas como preparar o banco de dados, ler as variáveis de ambiente, instalar o python e o poetry, etc.</p>
+<p>Antes de mergulharmos na configuração do YAML, vamos visualizar o processo de construção do nosso ambiente de CI com um fluxograma. Este diagrama mostra os passos essenciais, desde a instalação do Python até a execução dos testes, ajudando a entender a sequência de operações no GitHub Actions.</p>
+<pre class="mermaid"><code>flowchart LR
+    Push -- Inicia --&gt; Ubuntu
+    Ubuntu -- Execute os --&gt; Passos
+    Ubuntu --&gt; Z[Configure as variáveis de ambiente]
+    subgraph Passos
+      A[Instale a versão 3.11 do Python] --&gt; B[Copie os arquivos do repositório para o ambiente]
+      B --&gt; C[Instale o Poetry]
+      C --&gt; D[Instale as dependência do projeto com Poetry]
+      D --&gt; E[Poetry execute os testes do projeto]
+    end
+    Ubuntu -- Inicie o banco de dados --&gt; Postgres</code></pre>
+<p>Com o fluxograma em mente, nosso objetivo de aula é traduzir esses passos para a configuração prática no GitHub Actions. Agora que temos uma visão clara do que nosso workflow envolve, vamos nos aprofundar em como transformar essa teoria em prática. </p>
 <h2 id="configurando-o-workflow-de-ci">Configurando o workflow de CI</h2>
-<p>Vamos configurar um workflow de CI para nossa aplicação utilizando o GitHub Actions. Crie um novo arquivo em seu repositório, sob o diretório <code>.github/workflows/</code>, e copie o seguinte código:</p>
-<div class="highlight"><span class="filename">.github/workflows/pipeline.yaml</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pipeline</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pull_request</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">jobs</span><span class="p">:</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copia os arquivos do repo</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar o python</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.11.1'</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar Poetry</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip install poetry</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar dependências do projeto</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poetry install</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Rodar os testes</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poetry run task test --cov-report=xml</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Subir cobertura para o codecov</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codecov/codecov-action@v3</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">          </span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.CODECOV_TOKEN }}</span>
-</code></pre></div>
-<p>Vamos analisar este arquivo:</p>
+<p>As configurações dos workflows no GitHub Actions são definidas em um arquivo <a href="https://yaml.org/" target="_blank">YAML</a> localizado em um path especificado pelo github no repositório <code>.github/workflows/</code>. Dentro desse diretório podemos criar quantos workflows quisermos. Iniciaremos nossa configuração com um único arquivo que chamaremos de <code>pipeline.yaml</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.github/workflows/pipeline.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pipeline</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pull_request</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar o python</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.11.1'</span>
+</code></pre></div></td></tr></table></div>
+<p>Basicamente um arquivo de workflow precisa de três componentes essenciais para serem definidos:</p>
 <ul>
-<li><code>name</code>: Define o nome do workflow.</li>
-<li><code>on</code>: Define os eventos que acionarão o workflow (neste caso, push e pull requests).</li>
-<li><code>jobs</code>: Define os jobs que serão executados. Nesse caso, temos um job chamado "test".</li>
-<li><code>runs-on</code>: Define o ambiente em que o job será executado (neste caso, a última versão do Ubuntu).</li>
-<li><code>steps</code>: Define os passos do job:</li>
-<li><code>actions/checkout@v3</code>: Faz o checkout do repositório.</li>
-<li><code>actions/setup-python@v4</code>: Instala a versão especificada do Python.</li>
-<li><code>pip install poetry</code>: Instala a ferramenta Poetry.</li>
-<li><code>poetry install</code>: Instala as dependências do projeto.</li>
-<li><code>poetry run task test --cov-report=xml</code>: Executa os testes e gera um relatório de cobertura em formato xml.</li>
-<li><code>codecov/codecov-action@v3</code>: Faz o upload do relatório de cobertura para o Codecov. O token é fornecido através de uma variável de ambiente segura definida nas configurações do repositório.</li>
+<li>Um nome para o workflow (<code>name</code>);</li>
+<li>Uma condição de execução (a chave <code>on</code>) para sabermos o que iniciará o processo de workflow; e</li>
+<li>Um <code>job</code>: Onde escolheremos um sistema e descreveremos a lista de passos para serem executados.</li>
 </ul>
-<h2 id="commit">Commit</h2>
-<p>Após adicionar e configurar o arquivo do workflow, você deve commitar as mudanças em seu repositório. Siga os passos:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>add<span class="w"> </span>.github/workflows/pipeline.yaml
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add CI pipeline"</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>git<span class="w"> </span>push
+<p>Nesse bloco de código definimos que toda vez em que um <code>push</code> ou um <code>pull_request</code> ocorrer no nosso repositório o <code>Pipeline</code> será executado. Esse workflow tem um job chamado <code>test</code> que roda na última versão do Ubuntu <code>runs-on: ubuntu-latest</code>. Nesse job chamado <code>test</code> temos uma lista de passos para serem executados, os <code>steps</code>.</p>
+<p>O único step que definimos é a instalação do Python na versão "3.11.1":</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar o python</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.11.1'</span>
+</code></pre></div></td></tr></table></div>
+<p>Nesse momento, se executarmos um commit do arquivo <code>.github/workflows/pipeline.yaml</code> e um push em nosso repositório, um workflow será iniciado.</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Instalação do Python"</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git<span class="w"> </span>push
 </code></pre></div>
+<p>Nisso, podemos ir até a página do nosso repositório no github e clicar na aba <code>Actions</code>, isso exibirá todas às vezes que um workflow for executado. Se clicarmos no wokflow seremos levados a página dos jobs executados e se clicarmos nos jobs, temos uma descrição dos steps executados:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Guia Actions -&gt;</label><label for="__tabbed_1_2">Jobs executados -&gt;</label><label for="__tabbed_1_3">Steps executados</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="glightbox" href="../assets/10_print_da_aba_actions_go_reposit%C3%B3rio.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt='Captura de tela da aba Actions do repositório exibindo o workflow "instalação do python" e mostrando que foi executado com sucesso' class="center shadow" src="../assets/10_print_da_aba_actions_go_reposit%C3%B3rio.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../assets/10_print_do_status_geral_do_workflow_no_actions.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/10_print_do_status_geral_do_workflow_no_actions.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" href="../assets/10_print_dos_passos_executados_no_workflow_parte_1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/10_print_dos_passos_executados_no_workflow_parte_1.png"></a></p>
+</div>
+</div>
+</div>
+<p>Isso nos mostra que tudo que configuramos no arquivo <code>pipelines.yaml</code> foi executado pelo actions no momento que em executamos um <code>push</code> no git.</p>
+<p>Agora que temos essa visão geral de como o Actions monta e executa workflows, podemos nos concentrar em construir o nosso ambiente.</p>
+<h3 id="construcao-do-nosso-ambiente-de-ci">Construção do nosso ambiente de CI</h3>
+<p>Para executar nossos testes no workflow, precisamos seguir alguns passos essenciais:</p>
+<ol>
+<li><strong>Instalar o Python</strong>: fundamental para executar nosso código e testes, por ser a linguagem base da nossa aplicação.</li>
+<li><strong>Instalar o Poetry</strong>: pois toda a nossa aplicação e dependências foram construídas com ele.</li>
+<li><strong>Instalar as dependências do projeto</strong>: farante que todas as bibliotecas necessárias estão disponíveis para a execução dos testes.</li>
+<li><strong>Executar os testes</strong>: passo crucial para validar a integridade e funcionalidade do código antes de integrá-lo ao repositório principal.</li>
+</ol>
+<pre class="mermaid"><code>flowchart LR
+   Python["1: Python instalado"] --&gt; Poetry["2: Poetry instalado"]
+   Poetry --&gt; Deps["3: Instalar as dependências via Poetry"]
+   Deps --&gt; Testes["4: Executar os testes via Poetry"]</code></pre>
+<p>Cada um desses passos contribui para estabelecer um ambiente de CI robusto e confiável, assegurando que cada mudança no código seja validada automaticamente, mantendo a qualidade e a estabilidade da nossa aplicação.</p>
+<p>Para isso, devemos criar um <code>step</code> para cada uma dessas ações no nosso job <code>test</code>. Desta:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.github/workflows/pipeline.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar o python</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.11.1'</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar o poetry</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pipx install poetry</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar dependências</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poetry install</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Executar testes</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poetry run task test</span>
+</code></pre></div></td></tr></table></div>
+<p>Para testar essa implementação no Actions, temos que fazer um commit<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, para executar o trigger do CI:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Adicionando passos para executar os testes no CI"</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>git<span class="w"> </span>push
+</code></pre></div>
+<p>Assim, podemos avaliar o impacto desses passos no nosso workflow:</p>
+<p><a class="glightbox" href="../assets/10_print_do_pipeline_quebrado_ao_executar_os_testes.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/10_print_do_pipeline_quebrado_ao_executar_os_testes.png"></a></p>
+<p>Se analisarmos com calma o resultado, veremos que a execução do nosso workflow apesenta um erro de execução. O erro está descrito na linha <code class="highlight"><span class="mi">12</span></code>: <code>Poetry could not find a pyproject.toml file in &lt;path&gt; or its parents</code>. Se traduzirmos de maneira literal, a linha nos disse <code>Poetry não encontrou o arquivo pyproject.toml no &lt;path&gt; ou em seus parentes</code>.</p>
+<p>Para solucionar esse problema, adicionaremos um passo antes da execução dos testes para copiar o código do nosso repositório para o ambiente do workflow. O GitHub Actions oferece uma ação específica para isso, chamada actions/checkout. Vamos incluí-la como o primeiro passo:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.github/workflows/pipeline.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="hll"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copia os arquivos do repositório</span>
+</span><a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="hll"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+</span><a id="__codelineno-5-11" name="__codelineno-5-11"></a>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar o python</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.11.1'</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">      </span><span class="c1"># continua com os passos anteriormente definidos</span>
+</code></pre></div></td></tr></table></div>
+<p>Para testar a execução desse passo iremos fazer um novo commit para triggar o Actions:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Adicionando o checkout ao pipeline"</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>git<span class="w"> </span>push
+</code></pre></div>
+<p>Com isso, o erro anterior deve ser resolvido e teremos os testes sendo executados no workflow:</p>
+<p><a class="glightbox" href="../assets/10_execucao_dos_testes_com_erro_de_ambiente.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/10_execucao_dos_testes_com_erro_de_ambiente.png"></a></p>
+<p>Após resolver este problema, nos deparamos com outro desafio. Evidenciado no bloco a seguir:</p>
+<div class="highlight"><span class="filename">Erro do CI!</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="ne">ImportError</span> <span class="k">while</span> <span class="n">loading</span> <span class="n">conftest</span> <span class="s1">'/home/runner/work/&lt;path&gt;/tests/conftest.py'</span><span class="o">.</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">tests</span><span class="o">/</span><span class="n">conftest</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">fast_zero</span><span class="o">/</span><span class="n">app</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="kn">from</span> <span class="nn">fast_zero.routes</span> <span class="kn">import</span> <span class="n">auth</span><span class="p">,</span> <span class="n">todos</span><span class="p">,</span> <span class="n">users</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">fast_zero</span><span class="o">/</span><span class="n">routes</span><span class="o">/</span><span class="n">auth</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="kn">from</span> <span class="nn">fast_zero.database</span> <span class="kn">import</span> <span class="n">get_session</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">fast_zero</span><span class="o">/</span><span class="n">database</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="hll">    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">Settings</span><span class="p">()</span><span class="o">.</span><span class="n">DATABASE_URL</span><span class="p">)</span>
+</span><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="hll"><span class="o">../../../.</span><span class="n">cache</span><span class="o">/</span><span class="n">pypoetry</span><span class="o">/</span><span class="n">virtualenvs</span><span class="o">/</span><span class="n">fast</span><span class="o">-</span><span class="n">zero</span><span class="o">-</span><span class="n">IubsqyUK</span><span class="o">-</span><span class="n">py3</span><span class="mf">.11</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.11</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pydantic_settings</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">61</span><span class="p">:</span> <span class="ow">in</span> <span class="fm">__init__</span>
+</span><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="hll">    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+</span><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="hll"><span class="n">E</span>   <span class="n">pydantic_core</span><span class="o">.</span><span class="n">_pydantic_core</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">:</span> <span class="mi">4</span> <span class="n">validation</span> <span class="n">errors</span> <span class="k">for</span> <span class="n">Settings</span>
+</span><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="hll"><span class="n">E</span>   <span class="n">DATABASE_URL</span>
+</span><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="hll"><span class="n">E</span>     <span class="n">Field</span> <span class="n">required</span> <span class="p">[</span><span class="nb">type</span><span class="o">=</span><span class="n">missing</span><span class="p">,</span> <span class="n">input_value</span><span class="o">=</span><span class="p">{},</span> <span class="n">input_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">]</span>
+</span><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="hll"><span class="n">E</span>       <span class="n">For</span> <span class="n">further</span> <span class="n">information</span> <span class="n">visit</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">errors</span><span class="o">.</span><span class="n">pydantic</span><span class="o">.</span><span class="n">dev</span><span class="o">/</span><span class="mf">2.1.2</span><span class="o">/</span><span class="n">v</span><span class="o">/</span><span class="n">missing</span>
+</span></code></pre></div>
+<details class="tip">
+<summary>Erro completo no CI</summary>
+<p><a class="glightbox" href="../assets/10_print_do_erro_completo_por_variaveis_de_ambiente.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Captura de tela da messangem de erro completo no Actions" class="center shadow" src="../assets/10_print_do_erro_completo_por_variaveis_de_ambiente.png"></a></p>
+</details>
+<p>Ao iniciar a execução dos testes, encontramos um erro relacionado à nossa classe <code>settings.Settings</code>. Isso ocorreu porque as variáveis de ambiente necessárias, como <code>DATABASE_URL</code>, não estavam definidas no workflow do CI. Este problema é comum quando as variáveis do arquivo <code>.env</code>, que utilizamos localmente, não são transferidas para o ambiente de CI.</p>
+<h3 id="configuracao-de-variaveis-de-ambiente-no-actions">Configuração de variáveis de ambiente no Actions</h3>
+<p>Como vimos anteriormente, nossa configuração de CI encontrou um problema devido à ausência de variáveis de ambiente. Para resolver isso, utilizaremos uma funcionalidade dos repositórios do GitHub chamada 'Secrets'. Os 'Secrets' são uma maneira segura de armazenar informações confidenciais, como variáveis de ambiente, de forma criptografada. Eles são acessíveis dentro do nosso workflow, permitindo que o GitHub Actions utilize esses valores sem expô-los publicamente.</p>
+<h4 id="definindo-secrets-no-repositorio">Definindo Secrets no Repositório</h4>
+<p>Para definirmos as variáveis de ambiente como 'Secrets', temos duas alternativas. A primeira é acessar a aba <code>Settings -&gt; Secrets and variables</code> do nosso repositório no GitHub. Neste local, podemos inserir manualmente cada 'Secret', como URLs de banco de dados e chaves secretas.</p>
+<p>A segunda alternativa é utilizar o CLI do GitHub (<code>gh</code>) para adicionar todas as variáveis de ambiente que temos no nosso arquivo <code>.env</code>. Isso pode ser feito com o seguinte comando:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>gh<span class="w"> </span>secret<span class="w"> </span><span class="nb">set</span><span class="w"> </span>-f<span class="w"> </span>.env
+</code></pre></div>
+<p>Este comando pega todas as variáveis de ambiente do arquivo <code>.env</code> e as configura como 'Secrets' no seu repositório GitHub.</p>
+<details class="info">
+<summary>Configurando Secrets pela Interface Web</summary>
+<p>Se preferir configurar 'Secrets' pela interface web do GitHub, siga estes passos:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">1 - Acesse Settings no seu repositório</label><label for="__tabbed_2_2">2 - Adicione um novo segredo</label><label for="__tabbed_2_3">3 - Visualização dos segredos</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Acesse Settings no seu repositório GitHub. Em seguida clique na guia "Secrets and variables". Após isso clique em "New Repository secret":</p>
+<p><a class="glightbox" href="../assets/10_passo_1_secrets.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/10_passo_1_secrets.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p>Para adicionar um novo scregredo no campo <code>Name</code> colocamos o nome de um de nossas variáveis de ambientes. No campo <code>Secret</code> adicione o valor de uma variável. Como, por exemplo:
+<a class="glightbox" href="../assets/10_passo_2_secrets.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/10_passo_2_secrets.png"></a></p>
+<p>Em seguida clique em <code>Add secret</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>Após adicionar todos os segredos, sua página de segredos deve se parecer com isso:
+<a class="glightbox" href="../assets/10_passo_3_com_todas_as_variaveis_adicionadas.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/10_passo_3_com_todas_as_variaveis_adicionadas.png"></a></p>
+</div>
+</div>
+</div>
+</details>
+<h4 id="implementacao-no-arquivo-yaml">Implementação no Arquivo YAML</h4>
+<p>Após definir as 'Secrets', o próximo passo é integrá-las ao nosso arquivo de workflow (<code>.github/workflows/pipeline.yaml</code>). Aqui, utilizamos uma sintaxe especial para acessar os valores armazenados como 'Secrets'. Cada 'Secret' é mapeado para uma variável de ambiente no job do nosso workflow, tornando esses valores seguros e acessíveis durante a execução do workflow. Vejamos como isso é feito:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.github/workflows/pipeline.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="hll"><span class="w">    </span><span class="nt">env</span><span class="p">:</span>
+</span><a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="hll"><span class="w">      </span><span class="nt">DATABASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DATABASE_URL }}</span>
+</span><a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="hll"><span class="w">      </span><span class="nt">SECRET_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.SECRET_KEY }}</span>
+</span><a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="hll"><span class="w">      </span><span class="nt">ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.ALGORITHM }}</span>
+</span><a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="hll"><span class="w">      </span><span class="nt">ACCESS_TOKEN_EXPIRE_MINUTES</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.ACCESS_TOKEN_EXPIRE_MINUTES }}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Neste trecho de código, a sintaxe <code>${{ secrets.NOME_DA_VARIAVEL }}</code> é usada para referenciar os 'Secrets' que definimos no repositório. Por exemplo, <code>secrets.DATABASE_URL</code> buscará o valor da 'Secret' chamada <code>DATABASE_URL</code> que definimos. Assim que o workflow é acionado, esses valores são injetados no ambiente do job, permitindo que nosso código os acesse como variáveis de ambiente normais.</p>
+<p>Essa abordagem não só mantém nossos dados confidenciais seguros, mas também nos permite gerenciar configurações sensíveis de forma centralizada, facilitando atualizações e manutenção.</p>
+<h4 id="atualizando-o-workflow">Atualizando o Workflow</h4>
+<p>Com as 'Secrets' agora configuradas, precisamos atualizar o nosso workflow para incorporar essas mudanças. Isso é feito por meio de um novo commit e push para o repositório, que acionará o workflow com as novas configurações.</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Adicionando as variáveis de ambiente para o CI"</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>git<span class="w"> </span>push
+</code></pre></div>
+<p>A execução do workflow com as novas 'Secrets' nos permitirá verificar se os problemas anteriores foram resolvidos.</p>
+<p><a class="glightbox" href="../assets/10_print_erro_no_ci_por_nao_econtrar_o_db.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/10_print_erro_no_ci_por_nao_econtrar_o_db.png"></a></p>
+<p>Como podemos ver, agora os testes começam a ser executados, porém, eles falham por não encontrar o banco de dados disponível.</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">=======================</span><span class="w"> </span>short<span class="w"> </span><span class="nb">test</span><span class="w"> </span>summary<span class="w"> </span><span class="nv">info</span><span class="w"> </span><span class="o">========================</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>ERROR<span class="w"> </span>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>-<span class="w"> </span>sqlalchemy.exc.OperationalError:<span class="w"> </span><span class="o">(</span>psycopg2.OperationalError<span class="o">)</span><span class="w"> </span>connection<span class="w"> </span>to<span class="w"> </span>server<span class="w"> </span>at<span class="w"> </span><span class="s2">"localhost"</span><span class="w"> </span><span class="o">(</span>::1<span class="o">)</span>,<span class="w"> </span>port<span class="w"> </span><span class="m">5432</span><span class="w"> </span>failed:<span class="w"> </span>Connection<span class="w"> </span>refused
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span>Is<span class="w"> </span>the<span class="w"> </span>server<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>that<span class="w"> </span>host<span class="w"> </span>and<span class="w"> </span>accepting<span class="w"> </span>TCP/IP<span class="w"> </span>connections?
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>connection<span class="w"> </span>to<span class="w"> </span>server<span class="w"> </span>at<span class="w"> </span><span class="s2">"localhost"</span><span class="w"> </span><span class="o">(</span><span class="m">127</span>.0.0.1<span class="o">)</span>,<span class="w"> </span>port<span class="w"> </span><span class="m">5432</span><span class="w"> </span>failed:<span class="w"> </span>Connection<span class="w"> </span>refused
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span>Is<span class="w"> </span>the<span class="w"> </span>server<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>that<span class="w"> </span>host<span class="w"> </span>and<span class="w"> </span>accepting<span class="w"> </span>TCP/IP<span class="w"> </span>connections?
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="o">(</span>Background<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>error<span class="w"> </span>at:<span class="w"> </span>https://sqlalche.me/e/20/e3q8<span class="o">)</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>!!!!!!!!!!!!!!!!!!!!!!!!!!<span class="w"> </span>stopping<span class="w"> </span>after<span class="w"> </span><span class="m">1</span><span class="w"> </span>failures<span class="w"> </span>!!!!!!!!!!!!!!!!!!!!!!!!!!!
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="o">=====================</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>warning,<span class="w"> </span><span class="m">1</span><span class="w"> </span>error<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span>.98s<span class="w"> </span><span class="o">======================</span>
+</code></pre></div>
+<p>A mensagem <code>Is the server running on that host and accepting TCP/IP connections?</code> traduzida de forma literal quer dizer "O servidor rodando está aceitando conexões TCP/IP?". Isso quer dizer que ouve uma tentativa de comunicação com <code>localhost:5432</code>, porém, não ouve resposta. Para corrigir esse comportamento teremos que partir para a configuração do postgres no workflow.</p>
+<h2 id="adicionando-servicos-ao-github-actions">Adicionando serviços ao Github Actions</h2>
+<p>Um 'serviço' no contexto do GitHub Actions é tipicamente um contêiner Docker que é iniciado junto com o nosso workflow. Esses serviços podem incluir bancos de dados, caches, ou qualquer outra dependência externa que nosso aplicativo possa precisar durante a execução do CI.</p>
+<p>Na <a href="../09/#introduzindo-o-postgresql" target="_blank">aula passada (09)</a>, realizamos uma importante atualização nos nossos testes: a transição para o uso do PostgreSQL. Para que nossos testes no ambiente de CI reflitam esta mudança, precisamos incluir o PostgreSQL como um serviço no nosso workflow do GitHub Actions.</p>
+<h4 id="adicionando-suporte-ao-postgresql">Adicionando suporte ao PostgreSQL</h4>
+<p>Para adicionar o serviço PostgreSQL ao CI, temos que criar uma seção chamada <code>services</code> em nosso arquivo <code>.github/workflows/pipeline.yaml</code>. Aqui, utilizamos a imagem Docker oficial do PostgreSQL e a configuramos como uma dependência essencial do nosso CI. A configuração define as variáveis de ambiente necessárias para o banco de dados e expõe a porta padrão do PostgreSQL:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.github/workflows/pipeline.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span>
+<span class="normal"><a href="#__codelineno-12-17">17</a></span>
+<span class="normal"><a href="#__codelineno-12-18">18</a></span>
+<span class="normal"><a href="#__codelineno-12-19">19</a></span>
+<span class="normal"><a href="#__codelineno-12-20">20</a></span>
+<span class="normal"><a href="#__codelineno-12-21">21</a></span>
+<span class="normal"><a href="#__codelineno-12-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-8" name="__codelineno-12-8"></a>    <span class="n">env</span><span class="p">:</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>      <span class="n">DATABASE_URL</span><span class="p">:</span> <span class="err">$</span><span class="p">{{</span> <span class="n">secrets</span><span class="o">.</span><span class="n">DATABASE_URL</span> <span class="p">}}</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>      <span class="n">SECRET_KEY</span><span class="p">:</span> <span class="err">$</span><span class="p">{{</span> <span class="n">secrets</span><span class="o">.</span><span class="n">SECRET_KEY</span> <span class="p">}}</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>      <span class="n">ALGORITHM</span><span class="p">:</span> <span class="err">$</span><span class="p">{{</span> <span class="n">secrets</span><span class="o">.</span><span class="n">ALGORITHM</span> <span class="p">}}</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>      <span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span><span class="p">:</span> <span class="err">$</span><span class="p">{{</span> <span class="n">secrets</span><span class="o">.</span><span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span> <span class="p">}}</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="hll">    <span class="n">services</span><span class="p">:</span>
+</span><a id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="hll">      <span class="n">postgres</span><span class="p">:</span>
+</span><a id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="hll">        <span class="n">image</span><span class="p">:</span> <span class="n">postgres</span>
+</span><a id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="hll">        <span class="n">env</span><span class="p">:</span>
+</span><a id="__codelineno-12-18" name="__codelineno-12-18"></a><span class="hll">          <span class="n">POSTGRES_DB</span><span class="p">:</span> <span class="n">app_db</span>
+</span><a id="__codelineno-12-19" name="__codelineno-12-19"></a><span class="hll">          <span class="n">POSTGRES_PASSWORD</span><span class="p">:</span> <span class="n">app_password</span>
+</span><a id="__codelineno-12-20" name="__codelineno-12-20"></a><span class="hll">          <span class="n">POSTGRES_USER</span><span class="p">:</span> <span class="n">app_user</span>
+</span><a id="__codelineno-12-21" name="__codelineno-12-21"></a><span class="hll">        <span class="n">ports</span><span class="p">:</span>
+</span><a id="__codelineno-12-22" name="__codelineno-12-22"></a><span class="hll">          <span class="o">-</span> <span class="mi">5432</span><span class="p">:</span><span class="mi">5432</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Dessa forma, no momento em que o CI for executado, ele iniciará um serviço postgres que pode ser usado durante o período de execução dos nossos testes. Como eles já estão configurados para isso e já temos as variáveis de ambiente apontando para o caminho do postgres, em nosso próximo commit já podemos ver os testes em ação:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Adicionando o serviço do postgres no CI"</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>git<span class="w"> </span>push
+</code></pre></div>
+<p><a class="glightbox" href="../assets/10_print_ci_rodando_com_sucesso.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/10_print_ci_rodando_com_sucesso.png"></a></p>
+<p>Este sucesso indica que nosso pipeline agora está corretamente configurado com o PostgreSQL, preparando o terreno para que cada push ou pull request no nosso repositório seja validado em um ambiente que espelha de perto nossa configuração de produção.</p>
+<details class="tip">
+<summary>Caso queira ver o arquivo completo</summary>
+<p>Como o arquivo foi apresentado em pedaços até esse momento, é sempre importante ter uma visualização do arquivo completo para podermos validar se escrevemos tudo corretamente:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">.github/workflows/pipeline.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span>
+<span class="normal"><a href="#__codelineno-14-12">12</a></span>
+<span class="normal"><a href="#__codelineno-14-13">13</a></span>
+<span class="normal"><a href="#__codelineno-14-14">14</a></span>
+<span class="normal"><a href="#__codelineno-14-15">15</a></span>
+<span class="normal"><a href="#__codelineno-14-16">16</a></span>
+<span class="normal"><a href="#__codelineno-14-17">17</a></span>
+<span class="normal"><a href="#__codelineno-14-18">18</a></span>
+<span class="normal"><a href="#__codelineno-14-19">19</a></span>
+<span class="normal"><a href="#__codelineno-14-20">20</a></span>
+<span class="normal"><a href="#__codelineno-14-21">21</a></span>
+<span class="normal"><a href="#__codelineno-14-22">22</a></span>
+<span class="normal"><a href="#__codelineno-14-23">23</a></span>
+<span class="normal"><a href="#__codelineno-14-24">24</a></span>
+<span class="normal"><a href="#__codelineno-14-25">25</a></span>
+<span class="normal"><a href="#__codelineno-14-26">26</a></span>
+<span class="normal"><a href="#__codelineno-14-27">27</a></span>
+<span class="normal"><a href="#__codelineno-14-28">28</a></span>
+<span class="normal"><a href="#__codelineno-14-29">29</a></span>
+<span class="normal"><a href="#__codelineno-14-30">30</a></span>
+<span class="normal"><a href="#__codelineno-14-31">31</a></span>
+<span class="normal"><a href="#__codelineno-14-32">32</a></span>
+<span class="normal"><a href="#__codelineno-14-33">33</a></span>
+<span class="normal"><a href="#__codelineno-14-34">34</a></span>
+<span class="normal"><a href="#__codelineno-14-35">35</a></span>
+<span class="normal"><a href="#__codelineno-14-36">36</a></span>
+<span class="normal"><a href="#__codelineno-14-37">37</a></span>
+<span class="normal"><a href="#__codelineno-14-38">38</a></span>
+<span class="normal"><a href="#__codelineno-14-39">39</a></span>
+<span class="normal"><a href="#__codelineno-14-40">40</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pipeline</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="nt">on</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">push</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">pull_request</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="w">    </span><span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">      </span><span class="nt">DATABASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DATABASE_URL }}</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="w">      </span><span class="nt">SECRET_KEY</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.SECRET_KEY }}</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">      </span><span class="nt">ALGORITHM</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.ALGORITHM }}</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="w">      </span><span class="nt">ACCESS_TOKEN_EXPIRE_MINUTES</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.ACCESS_TOKEN_EXPIRE_MINUTES }}</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13"></a>
+<a id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="w">    </span><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="w">      </span><span class="nt">postgres</span><span class="p">:</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16"></a><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17"></a><span class="w">        </span><span class="nt">env</span><span class="p">:</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18"></a><span class="w">          </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_db</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19"></a><span class="w">          </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_password</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20"></a><span class="w">          </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_user</span>
+<a id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="w">        </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5432:5432</span>
+<a id="__codelineno-14-23" name="__codelineno-14-23"></a>
+<a id="__codelineno-14-24" name="__codelineno-14-24"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-14-25" name="__codelineno-14-25"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Copia os arquivos do repositório</span>
+<a id="__codelineno-14-26" name="__codelineno-14-26"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+<a id="__codelineno-14-27" name="__codelineno-14-27"></a>
+<a id="__codelineno-14-28" name="__codelineno-14-28"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar o python</span>
+<a id="__codelineno-14-29" name="__codelineno-14-29"></a><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<a id="__codelineno-14-30" name="__codelineno-14-30"></a><span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-14-31" name="__codelineno-14-31"></a><span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">'3.11.1'</span>
+<a id="__codelineno-14-32" name="__codelineno-14-32"></a>
+<a id="__codelineno-14-33" name="__codelineno-14-33"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar o poetry</span>
+<a id="__codelineno-14-34" name="__codelineno-14-34"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pipx install poetry</span>
+<a id="__codelineno-14-35" name="__codelineno-14-35"></a>
+<a id="__codelineno-14-36" name="__codelineno-14-36"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Instalar dependências</span>
+<a id="__codelineno-14-37" name="__codelineno-14-37"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poetry install</span>
+<a id="__codelineno-14-38" name="__codelineno-14-38"></a>
+<a id="__codelineno-14-39" name="__codelineno-14-39"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Executar testes</span>
+<a id="__codelineno-14-40" name="__codelineno-14-40"></a><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poetry run task test</span>
+</code></pre></div></td></tr></table></div>
+</details>
 <h2 id="conclusao">Conclusão</h2>
-<p>A Integração Contínua é uma prática fundamental no desenvolvimento moderno de software, e o GitHub Actions é uma ferramenta poderosa para implementar essa prática. Ele não apenas ajuda a manter a qualidade do código ao garantir que todos os testes sejam executados a cada commit, mas também permite detectar e corrigir problemas mais cedo no ciclo de desenvolvimento.</p>
-<p>Além disso, monitorar a cobertura de testes com o Codecov nos permite manter um alto padrão de qualidade, garantindo que todas as partes do nosso código sejam testadas.</p>
-<p>Na próxima aula, vamos levar nossa aplicação ao próximo nível, preparando-a para o deployment em produção!</p></div>
+<p>Através deste módulo sobre Integração Contínua com GitHub Actions, ganhamos uma compreensão sólida de como a CI é vital no desenvolvimento moderno de software. Vimos como o GitHub Actions, uma ferramenta poderosa e versátil, pode ser utilizada para automatizar nossos testes e garantir a qualidade e estabilidade do código a cada commit. Esta prática não apenas otimiza nosso fluxo de trabalho, mas também nos ajuda a identificar e resolver problemas precocemente.</p>
+<p>Com a habilidade de integrar serviços como o PostgreSQL, nosso workflow de CI agora reflete mais precisamente o ambiente de produção. Isso nos dá a confiança de que nosso código funcionará conforme esperado quando for lançado.</p>
+<p>No próximo módulo, o foco será na preparação da nossa aplicação FastAPI para o deployment em produção. Exploraremos as etapas necessárias e as melhores práticas para tornar nossa aplicação pronta para o uso no mundo real, abordando desde configurações até estratégias de deployment eficazes.</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Há alternativas para testar o workflow de CI sem fazer um commit, como a ferramenta <a href="https://github.com/nektos/act" target="_blank">Act</a> que simula a execução do workflow localmente usando Docker. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div></div>
 
 
 
@@ -817,7 +1340,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 9, 2023</span>
   </span>
 
     
