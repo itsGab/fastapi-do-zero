@@ -1067,13 +1067,13 @@
 <a class="md-button" href="https://github.com/dunossauro/fastapi-do-zero/blob/main/slides/pdf/aula_01.pdf">Slides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM136 240h68c42 0 76 34 76 76s-34 76-76 76h-44v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V264c0-13.3 10.7-24 24-24zm68 104c15.5 0 28-12.5 28-28s-12.5-28-28-28h-44v56h44z"></path></svg></span></a>
 <a class="md-button" href="https://github.com/dunossauro/fast_zero/tree/01">Código <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span></a></p>
 <hr>
-<p>Nesta aula prática, vamos começar nossa jornada na construção de uma API com FastAPI. Esse é um moderno e rápido (altamente performático) framework web para construção de APIs com Python 3.7+ baseado em Python type hints.</p>
+<p>Nesta aula começaremos nossa jornada na construção de uma API com FastAPI. FastAPI é um framework web python moderno, altamente performático e baseado em anotações de tipos.</p>
 <p>Partiremos do básico, configurando nosso ambiente de desenvolvimento. Discutiremos desde a escolha e instalação da versão correta do Python até a instalação e configuração do Poetry, um gerenciador de pacotes e dependências para Python. Além disso, instalaremos e configuraremos uma série de ferramentas de desenvolvimento úteis, como Ruff, Blue, Isort, pytest e Taskipy.</p>
-<p>Depois de configurado o nosso ambiente, criaremos nosso primeiro programa "Hello, World!" com FastAPI. Isso nos permitirá confirmar que tudo está funcionando corretamente. E, finalmente, exploraremos uma parte crucial do Desenvolvimento Orientado por Testes (TDD), escrevendo nosso primeiro teste com Pytest.</p>
+<p>Após configurado o nosso ambiente, criaremos nosso primeiro programa "Hello, World!" com FastAPI. Isso nos permitirá confirmar que tudo está funcionando corretamente. E, finalmente, exploraremos uma parte crucial do Desenvolvimento Orientado por Testes (TDD), escrevendo nosso primeiro teste com Pytest.</p>
 <h2 id="ambiente-de-desenvolvimento">Ambiente de Desenvolvimento</h2>
-<p>Para iniciar essa aula você vai precisar de algumas ferramentas.</p>
+<p>Para iniciar essa aula você precisa de algumas ferramentas.</p>
 <ol>
-<li>Um editor de texto a sua escolha (Eu vou usar o <a href="https://www.gnu.org/software/emacs/" target="_blank">GNU/Emacs</a>)</li>
+<li>Um editor de texto a sua escolha (Eu usarei o <a href="https://www.gnu.org/software/emacs/" target="_blank">GNU/Emacs</a>)</li>
 <li>Um terminal a sua escolha (Usarei o <a href="https://gnome-terminator.org/" target="_blank">Terminator</a>)</li>
 <li>A versão 3.11 do Python instalada.<ul>
 <li>Caso não tenha essa versão você pode baixar do <a href="https://www.python.org/downloads/" target="_blank">site oficial</a></li>
@@ -1083,7 +1083,7 @@
 </li>
 <li>O <a href="https://python-poetry.org/" target="_blank">Poetry</a> para gerenciar os pacotes e seu ambiente virtual (caso não conheça o poetry temos uma <a href="https://youtu.be/ZOSWdktsKf0" target="_blank">live de python sobre ele</a>)</li>
 <li><a href="https://git-scm.com/" target="_blank">Git</a>: Para gerenciar versões</li>
-<li><a href="https://www.docker.com/" target="_blank">Docker</a>: Para criar um container da nossa aplicação (caso não tenha nenhum experiência com docker a <a href="https://www.youtube.com/playlist?list=PLf-O3X2-mxDn1VpyU2q3fuI6YYeIWp5rR" target="_blank">Linuxtips</a> tem uma playlist completa e grátis sobre docker no canal deles no Youtube)</li>
+<li><a href="https://www.docker.com/" target="_blank">Docker</a>: Para criar um container da nossa aplicação (caso não tenha nenhum experiência com docker a <a href="https://www.youtube.com/playlist?list=PLf-O3X2-mxDn1VpyU2q3fuI6YYeIWp5rR" target="_blank">Linuxtips</a> tem uma playlist completa e grátis sobre docker no canal deles no YouTube)</li>
 <li><strong>OPCIONAL</strong>: O <a href="https://github.com/pypa/pipx" target="_blank">pipx</a> pode te
  ajudar bastante nesses momentos de instalações</li>
 <li><strong>OPCIONAL</strong>: O <a href="https://github.com/Antrikshy/ignr.py" target="_blank">ignr</a> para criar nosso gitignore</li>
@@ -1100,15 +1100,15 @@
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pyenv<span class="w"> </span>versions
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>*<span class="w"> </span>system<span class="w"> </span><span class="o">(</span><span class="nb">set</span><span class="w"> </span>by<span class="w"> </span>/home/dunossauro/.pyenv/version<span class="o">)</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="m">3</span>.10.12
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="hll"><span class="w">  </span><span class="m">3</span>.11.4
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="hll"><span class="w">  </span><span class="m">3</span>.11.6
 </span><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="m">3</span>.12.0b1
 </code></pre></div>
-<p>A resposta esperada é que o <code>Python 3.11.4</code> (a maior versão do python 3.11 enquanto escrevia esse material) esteja nessa lista.</p>
+<p>A resposta esperada é que o <code>Python 3.11.6</code> (a maior versão do python 3.11 enquanto escrevia esse material) esteja nessa lista.</p>
 <h2 id="gerenciamento-de-dependencias-com-poetry">Gerenciamento de Dependências com Poetry</h2>
 <p>Após instalar o Python, o próximo passo é instalar o Poetry, um gerenciador de pacotes e dependências para Python. O Poetry facilita a criação, o gerenciamento e a distribuição de pacotes Python.</p>
 <details class="info">
 <summary>Caso esse seja seu primeiro contato com o Poetry</summary>
-<p>Temos uma live de python explicando somente ele</p>
+<p>Temos uma live de python explicando somente ele:</p>
 <p><a class="glightbox" href="https://www.youtube.com/embed/ZOSWdktsKf0" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/ZOSWdktsKf0" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 <p><a class="md-button" href="https://youtu.be/ZOSWdktsKf0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
 </details>
@@ -1133,7 +1133,7 @@
 <p>Para que a versão que instalamos com pyenv seja usada em nosso projeto criado com poetry, devemos dizer ao pyenv qual versão do python será usada nesse diretório:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.11.4<span class="w">  </span><span class="c1"># Essa era a maior versão do 3.11 quando escrevi</span>
 </code></pre></div>
-<p>Em conjunto com essa instrução, devemos dizer ao poetry que usaremos essa versão em nosso projeto. Para isso vamos alterar o arquivo de configuração do projeto o <code>pyproject.toml</code> na raiz do projeto:</p>
+<p>Em conjunto com essa instrução, devemos dizer ao poetry que usaremos essa versão em nosso projeto. Para isso alteraremos o arquivo de configuração do projeto o <code>pyproject.toml</code> na raiz do projeto:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-6-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="k">[tool.poetry.dependencies]</span>
 <a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="n">python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"3.11.*"</span><span class="w">  </span><span class="c1"># .* quer dizer qualquer versão da 3.11</span>
@@ -1144,7 +1144,7 @@
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>poetry<span class="w"> </span>add<span class="w"> </span>fastapi<span class="w"> </span>uvicorn
 </code></pre></div>
 <h2 id="primeira-execucao-de-um-hello-world">Primeira Execução de um "Hello, World!"</h2>
-<p>Para garantir que tudo está configurado corretamente, vamos criar um pequeno programa "Hello, World!" com FastAPI. Em um novo arquivo chamado <code>app.py</code> no diretório <code>fast_zero</code> adicione o seguinte código:</p>
+<p>Para garantir que tudo está configurado corretamente, criaremos um pequeno programa "Hello, World!" com FastAPI. Em um novo arquivo chamado <code>app.py</code> no diretório <code>fast_zero</code> adicione o seguinte código:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span>
@@ -1163,10 +1163,10 @@
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>poetry<span class="w"> </span>shell<span class="w">  </span><span class="c1"># Para ativar o ambiente virtual</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>uvicorn<span class="w"> </span>fast_zero.app:app<span class="w"> </span>--reload
 </code></pre></div>
-<p>Acesse http://localhost:8000 no seu navegador, e você deve ver a mensagem "Hello, World!" em formato JSON.</p>
+<p>Acesse http://localhost:8000 no seu navegador, e você deve ver a mensagem "Olá Mundo!" em formato JSON.</p>
 <p><a class="glightbox" href="../assets/02_nagevador_com_localhost.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_nagevador_com_localhost.png"></a></p>
 <h2 id="instalando-as-ferramentas-de-desenvolvimento">Instalando as ferramentas de desenvolvimento</h2>
-<p>As ferramentas de desenvolvimento escolhidas podem variar de acordo com a preferência pessoal. Nesta aula, utilizaremos algumas que são particularmente úteis para demonstrar certos conceitos:</p>
+<p>As ferramentas de desenvolvimento escolhidas podem variar conforme a preferência pessoal. Nesta aula, utilizaremos algumas que são particularmente úteis para demonstrar certos conceitos:</p>
 <ul>
 <li><a href="https://github.com/taskipy/taskipy" target="_blank">taskipy</a>: Ferramenta para automatizar alguns comandos e simplificar o fluxo</li>
 <li><a href="https://beta.ruff.rs/docs/" target="_blank">ruff</a>: Um linter, para dizer se não estamos fazendo nada esquisito no código</li>
@@ -1181,9 +1181,9 @@
 <p>O <a href="https://www.python-httpx.org/" target="_blank">HTTPX</a> foi incluído, pois ele é uma dependência do cliente de testes do FastAPI.</p>
 </blockquote>
 <h2 id="configurando-as-ferramentas-de-desenvolvimento">Configurando as ferramentas de desenvolvimento</h2>
-<p>Após a instalação das dependências, vamos precisar configurar todas as ferramentas de desenvolvimento no arquivo <code>pyproject.toml</code>.</p>
+<p>Após a instalação das dependências, precisamos configurar todas as ferramentas de desenvolvimento no arquivo <code>pyproject.toml</code>.</p>
 <h3 id="ruff">Ruff</h3>
-<p>Começando pelo ruff, vamos definir o comprimento de linha para 79 caracteres (conforme sugerido na PEP 8) e em seguida, informaremos que o diretório de ambiente virtual e o de migrações de banco de dados deverão ser ignorados:</p>
+<p>Começando pelo ruff, definiremos o comprimento de linha para 79 caracteres (conforme sugerido na PEP 8) e em seguida, informaremos que o diretório de ambiente virtual e o de migrações de banco de dados deverão ser ignorados:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-23">23</a></span>
 <span class="normal"><a href="#__codelineno-11-24">24</a></span>
 <span class="normal"><a href="#__codelineno-11-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-23" name="__codelineno-11-23"></a><span class="k">[tool.ruff]</span>
@@ -1214,7 +1214,7 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
 <a id="__codelineno-14-35" name="__codelineno-14-35"></a><span class="n">extend-exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'(migrations/)'</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="taskipy">Taskipy</h3>
-<p>Para simplificar a execução de certos comandos, vamos criar algumas tarefas com o Taskipy.</p>
+<p>Para simplificar a execução de certos comandos, criaremos algumas tarefas com o Taskipy.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-37">37</a></span>
 <span class="normal"><a href="#__codelineno-15-38">38</a></span>
 <span class="normal"><a href="#__codelineno-15-39">39</a></span>
@@ -1437,7 +1437,7 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
 <p><a class="glightbox" href="../assets/02_navegador_com_pagina_de_cobertura_sem_testes.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="navegador" class="center shadow" src="../assets/02_navegador_com_pagina_de_cobertura_sem_testes.png"></a></p>
 <p>Isto significa que precisamos testar todo esse arquivo.</p>
 <h3 id="escrevendo-o-teste">Escrevendo o teste</h3>
-<p>Agora, vamos escrever nosso primeiro teste com Pytest.</p>
+<p>Agora, escreveremos nosso primeiro teste com Pytest.</p>
 <p>Para testar o FastAPI, precisamos de um cliente de teste. Isso pode ser obtido no módulo <code>fastapi.testclient</code> com o objeto <code>TestClient</code>, que precisa receber nosso app como parâmetro:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
 <span class="normal"><a href="#__codelineno-24-2">2</a></span>
@@ -1557,7 +1557,7 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
 <a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>git<span class="w"> </span>push
 </code></pre></div>
 <h2 id="conclusao">Conclusão</h2>
-<p>Pronto! Agora temos um ambiente de desenvolvimento totalmente configurado para começar a trabalhar com FastAPI e já fizemos nossa primeira imersão no Desenvolvimento Orientado por Testes. Na próxima aula, vamos aprofundar na estruturação da nossa aplicação FastAPI. Até lá!</p></div>
+<p>Pronto! Agora temos um ambiente de desenvolvimento totalmente configurado para começar a trabalhar com FastAPI e já fizemos nossa primeira imersão no Desenvolvimento Orientado por Testes. Na próxima aula nos aprofundaremos na estruturação da nossa aplicação FastAPI. Até lá!</p></div>
 
 
 
@@ -1578,7 +1578,7 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 8, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 11, 2023</span>
   </span>
 
     
