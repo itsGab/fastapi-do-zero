@@ -1073,7 +1073,7 @@
 <h2 id="ambiente-de-desenvolvimento">Ambiente de Desenvolvimento</h2>
 <p>Para iniciar essa aula você precisa de algumas ferramentas.</p>
 <ol>
-<li>Um editor de texto a sua escolha (Eu usarei o <a href="https://www.gnu.org/software/emacs/" target="_blank">GNU/Emacs</a>)</li>
+<li>Um editor de texto a sua escolha (Usarei o <a href="https://www.gnu.org/software/emacs/" target="_blank">GNU/Emacs</a>)</li>
 <li>Um terminal a sua escolha (Usarei o <a href="https://gnome-terminator.org/" target="_blank">Terminator</a>)</li>
 <li>A versão 3.11 do Python instalada.<ul>
 <li>Caso não tenha essa versão você pode baixar do <a href="https://www.python.org/downloads/" target="_blank">site oficial</a></li>
@@ -1091,7 +1091,7 @@
 </ol>
 <h2 id="instalacao-do-python-311">Instalação do Python 3.11</h2>
 <p>Se você precisar reconstruir o ambiente usado nesse curso, é recomendado que você use o <a href="https://github.com/pyenv/pyenv" target="_blank">pyenv</a>.</p>
-<p>Caso tenha problemas durante a instalação. O pyenv conta com dois assistentes simplificados para sua configuração. Para windows, use o <a href="https://pyenv-win.github.io/pyenv-win/" target="_blank">pyenv-windows</a>. Para GNU/Linux e MacOS, use o <a href="https://github.com/pyenv/pyenv-installer" target="_blank">pyenv-installer</a>.</p>
+<p>Caso encontre problemas durante a instalação, o pyenv conta com dois assistentes simplificados para sua configuração. Para windows, use o <a href="https://pyenv-win.github.io/pyenv-win/" target="_blank">pyenv-windows</a>. Para GNU/Linux e MacOS, use o <a href="https://github.com/pyenv/pyenv-installer" target="_blank">pyenv-installer</a>.</p>
 <p>Navegue até o diretório onde fará os exercícios e executará os códigos de exemplo no seu terminal e digite os seguintes comandos:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pyenv<span class="w"> </span>update
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.11:latest
@@ -1117,7 +1117,7 @@
 </code></pre></div>
 <h2 id="criacao-do-projeto-fastapi-e-instalacao-das-dependencias">Criação do Projeto FastAPI e Instalação das Dependências</h2>
 <p>Agora que temos o Python e o Poetry prontos, podemos começar a criar nosso projeto FastAPI.</p>
-<p>Vamos inicialmente criar um novo diretório para nosso projeto e navegar para ele:</p>
+<p>Inicialmente criaremos um novo diretório para nosso projeto e navegar para ele:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>poetry<span class="w"> </span>new<span class="w"> </span>fast_zero
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>fast_zero
 </code></pre></div>
@@ -1191,8 +1191,7 @@
 <a id="__codelineno-11-25" name="__codelineno-11-25"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">'.venv'</span><span class="p">,</span><span class="w"> </span><span class="s1">'migrations'</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="isort">isort</h3>
-<p>Para evitar conflitos de formatação entre o isort e o blue, definiremos o black como perfil de formatação a ser seguido, já que o blue é um fork dele.
-Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o padrão que o blue segue e que também estamos seguindo:</p>
+<p>Para evitar conflitos de formatação entre o isort e o blue, definiremos o perfil de formatação como <code>black</code>, pois o blue é um <em>fork</em> dele. Por padrão, a formatação do <code>black</code> utiliza 88 caracteres por linha, alteraremos para 79 que é a quantidade de caracteres permitidas por linha pelo blue e que também segue as recomendações da PEP-8:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-27">27</a></span>
 <span class="normal"><a href="#__codelineno-12-28">28</a></span>
 <span class="normal"><a href="#__codelineno-12-29">29</a></span>
@@ -1201,6 +1200,9 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
 <a id="__codelineno-12-29" name="__codelineno-12-29"></a><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">79</span>
 <a id="__codelineno-12-30" name="__codelineno-12-30"></a><span class="n">extend_skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">'migrations'</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
+<blockquote>
+<p>A configuração para <code>extend_skip</code> é usada para que o isort não formate os códigos autogerados pela migração do banco de dados!</p>
+</blockquote>
 <h3 id="pytest">pytest</h3>
 <p>Configuraremos o pytest para reconhecer o caminho base para execução dos testes na raiz do projeto <code>.</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-31">31</a></span>
@@ -1231,7 +1233,7 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
 </code></pre></div></td></tr></table></div>
 <p>Os comandos definidos fazem o seguinte:</p>
 <ul>
-<li>lint: executa o ruff para ver se não temos nenhum problema com o código e checa se estamos de acordo com a PEP-8</li>
+<li>lint: executa o ruff para ver se não temos nenhum problema com o código e checa se estamos em conformidade com a PEP-8</li>
 <li>format: formata o código usando blue e isort</li>
 <li>run: executa o servidor de desenvolvimento do FastAPI</li>
 <li>pre_test: executa a camada de lint antes de executar os teste</li>
@@ -1393,7 +1395,7 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
 </div>
 </div>
 <h2 id="introducao-ao-pytest-testando-o-hello-world">Introdução ao Pytest: Testando o "Hello, World!"</h2>
-<p>Antes de entendermos a dinâmica dos testes, precisamos entender o efeito que eles têm no nosso código. Um bom lugar para começar isso é analisando a cobertura. Vamos executar os testes.</p>
+<p>Antes de entendermos a dinâmica dos testes, precisamos entender o efeito que eles têm no nosso código. Podemos começar analisando a cobertura. Vamos executar os testes:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>task<span class="w"> </span><span class="nb">test</span>
 </code></pre></div>
 <p>Teremos uma resposta como essa:</p>
@@ -1427,13 +1429,13 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
 <p><a class="md-button" href="https://youtu.be/MjQCvJmc31A"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
 </details>
 <p>A parte importante dessa Mensagem está na tabela gerada pelo <code>coverage</code>. Que diz que temos 5 linhas de código (Stmts) no arquivo <code>fast_zero/app.py</code> e nenhuma delas está coberta pelos nossos testes. Como podemos ver na coluna <code>Miss</code>.</p>
-<p>Por não ter encontrado nenhum teste, o pytest retornou um "erro". Isso significa que nossa tarefa <code>post_test</code> não foi executada. Podemos executá-la manualmente:</p>
+<p>Por não encontrar nenhum teste, o pytest retornou um "erro". Isso significa que nossa tarefa <code>post_test</code> não foi executada. Podemos executá-la manualmente:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>task<span class="w"> </span>post_test
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
 </code></pre></div>
 <p>Isso gera um relatório de cobertura de testes em formato HTML. Podemos abrir esse arquivo em nosso navegador e entender exatamente quais linhas do código não estão sendo testadas.</p>
 <p><a class="glightbox" href="../assets/02_navegador_com_pagina_inicial_do_coverage.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="navegador" class="center shadow" src="../assets/02_navegador_com_pagina_inicial_do_coverage.png"></a></p>
-<p>Se clicarmos no arquivo <code>fast_zero/app.py</code> podemos ver em vermelho as linhas que não estão sendo testadas</p>
+<p>Se clicarmos no arquivo <code>fast_zero/app.py</code> podemos ver em vermelho as linhas que não estão sendo testadas:</p>
 <p><a class="glightbox" href="../assets/02_navegador_com_pagina_de_cobertura_sem_testes.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="navegador" class="center shadow" src="../assets/02_navegador_com_pagina_de_cobertura_sem_testes.png"></a></p>
 <p>Isto significa que precisamos testar todo esse arquivo.</p>
 <h3 id="escrevendo-o-teste">Escrevendo o teste</h3>
@@ -1460,7 +1462,7 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
 </span><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>-------------------------------------------
 <a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>TOTAL<span class="w">                       </span><span class="m">5</span><span class="w">      </span><span class="m">1</span><span class="w">    </span><span class="m">80</span>%
 </code></pre></div>
-<p>Devido ao fato de não ter coletado nenhum teste, o pytest ainda retornou um "erro". Para ver a cobertura, precisaremos executar novamente o <code>post_test</code> manualmente:</p>
+<p>Por não ter coletado nenhum teste, o pytest ainda retornou um "erro". Para ver a cobertura, precisaremos executar novamente o <code>post_test</code> manualmente:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>task<span class="w"> </span>post_test
 <a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
 </code></pre></div>
@@ -1510,14 +1512,14 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
 <p>Como conseguimos coletar um item, o <code>post_test</code> foi executado e também gerou um HTML com a cobertura atualizada.</p>
 <p><a class="glightbox" href="../assets/02_navegador_com_pagina_de_cobertura_com_teste.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_navegador_com_pagina_de_cobertura_com_teste.png"></a></p>
 <h2 id="estrutura-de-um-teste">Estrutura de um teste</h2>
-<p>Agora que escrevemos nosso teste de forma intuitiva, podemos entender o que cada passo do teste faz. Essa compreensão é vital, pois pode nos ajudar a escrever testes no futuro com mais confiança e eficácia. Para desvendar o método por trás da nossa abordagem, vamos explorar a estratégia conhecida como <a href="https://xp123.com/articles/3a-arrange-act-assert/" target="_blank">AAA</a>, que divide o teste em três fases distintas: Arrange, Act, Assert.</p>
+<p>Agora que escrevemos nosso primeiro teste de forma intuitiva, podemos entender o que cada passo do teste faz. Essa compreensão é vital, pois nos ajudará a escrever testes com mais confiança e eficácia. Para desvendar o método por trás da nossa abordagem, exploraremos uma estratégia conhecida como <a href="https://xp123.com/articles/3a-arrange-act-assert/" target="_blank">AAA</a>, que divide o teste em três fases distintas: Arrange, Act, Assert.</p>
 <details class="info">
 <summary>Caso fazer testes ainda seja complicado para você</summary>
 <p>Temos uma live de python focada em ensinar os primeiros passos no mundo dos testes.
 <a class="glightbox" href="https://www.youtube.com/embed/-8H2Pyxnoek" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/-8H2Pyxnoek" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 <p><a class="md-button" href="https://youtu.be/-8H2Pyxnoek"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
 </details>
-<p>Vamos pegar esse teste que fizemos e entender os passos que fizemos para conseguir testar esse endpoint:</p>
+<p>Para analisar todas as etapas de um teste, usaremos como exemplo este primeiro teste que escrevemos:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
@@ -1544,7 +1546,7 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
 <h3 id="fase-2-agir-act">Fase 2 - Agir (Act)</h3>
 <p>Aqui é a etapa onde acontece a ação principal do teste, que consiste em chamar o Sistema Sob Teste (<a href="http://xunitpatterns.com/SUT.html" target="_blank">SUT</a>). No nosso caso, o SUT é a rota <code>/</code>, e a ação é representada pela linha <code>response = client.get('/')</code>. Estamos exercitando a rota e armazenando sua resposta na variável <code>response</code>. É a fase em que o código de testes executa o código de produção que está sendo testado. Agir aqui significa interagir diretamente com a parte do sistema que queremos avaliar, para ver como ela se comporta.</p>
 <h3 id="fase-3-afirmar-assert">Fase 3 - <em>Afirmar</em> (Assert)</h3>
-<p>Esta é a etapa de verificar se tudo correu como esperado. É fácil notar onde estamos fazendo a verificação, pois essa linha sempre tem a palavra reservada <code>assert</code>. A verificação é booleana, ou está correta ou não está. Por isso, um teste deve sempre incluir um <code>assert</code> para verificar se o comportamento esperado está correto.</p>
+<p>Esta é a etapa de verificar se tudo correu como esperado. É fácil notar onde estamos fazendo a verificação, pois essa linha sempre tem a palavra reservada <code>assert</code>. A verificação é booleana, ou está correta, ou não está. Por isso, um teste deve sempre incluir um <code>assert</code> para verificar se o comportamento esperado está correto.</p>
 <hr>
 <p>Agora que compreendemos o que cada linha de teste faz em específico, podemos nos orientar de forma clara nos testes que escreveremos no futuro. Cada uma das linhas usadas tem uma razão de estar no teste, e conhecer essa estrutura não só nos dá uma compreensão mais profunda do que estamos fazendo, mas também nos dá confiança para explorar e escrever testes mais complexos.</p>
 <h2 id="criando-nosso-repositorio-no-git">Criando nosso repositório no git</h2>
@@ -1578,7 +1580,7 @@ Como o black utiliza 88 caracteres por linha, vamos alterar para 79 que é o pad
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 11, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2023</span>
   </span>
 
     

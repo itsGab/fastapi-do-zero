@@ -1056,7 +1056,7 @@
 <a class="md-button" href="https://github.com/dunossauro/fastapi-do-zero/blob/main/slides/pdf/aula_06.pdf">Slides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM136 240h68c42 0 76 34 76 76s-34 76-76 76h-44v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V264c0-13.3 10.7-24 24-24zm68 104c15.5 0 28-12.5 28-28s-12.5-28-28-28h-44v56h44z"></path></svg></span></a>
 <a class="md-button" href="https://github.com/dunossauro/fastapi-do-zero/tree/main/codigo_das_aulas/06/">Código <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span></a></p>
 <hr>
-<p>Ao longo da evolução de um projeto, é natural que sua estrutura inicial necessite de ajustes para manter a legibilidade, a facilidade de manutenção e a organização do código. Nesta aula, faremos exatamente isso em nosso projeto FastAPI: vamos refatorar partes dele para melhorar sua estrutura e, em seguida, ampliar a cobertura de nossos testes para garantir que todos os cenários possíveis sejam tratados corretamente. Vamos começar!</p>
+<p>Ao longo da evolução de um projeto, é natural que sua estrutura inicial necessite de ajustes para manter a legibilidade, a facilidade de manutenção e a organização do código. Nesta aula, faremos exatamente isso em nosso projeto FastAPI: refatoraremos partes dele para melhorar sua estrutura e, em seguida, ampliar a cobertura de nossos testes para garantir que todos os cenários possíveis sejam tratados corretamente. Vamos começar!</p>
 <h2 id="criando-routers">Criando Routers</h2>
 <p>O FastAPI oferece uma ferramenta poderosa conhecida como routers, que facilita a organização e agrupamento de diferentes rotas em uma aplicação. Pense em um router como um "subaplicativo" do FastAPI que pode ser integrado em uma aplicação principal. Isso não só mantém o código organizado e legível, mas também se mostra especialmente útil à medida que a aplicação se expande e novas rotas são adicionadas.</p>
 <p>Esse tipo de organização nos oferece diversos benefícios:</p>
@@ -1066,7 +1066,7 @@
 <li><strong>Escalabilidade:</strong> A estruturação com routers permite adicionar novas rotas e funcionalidades de maneira eficiente conforme o projeto cresce.</li>
 </ol>
 <h3 id="estruturacao-inicial">Estruturação Inicial</h3>
-<p>Vamos iniciar criando uma nova estrutura de diretórios chamada <code>routes</code> dentro do seu projeto <code>fast_zero</code>. Aqui, teremos subaplicativos dedicados a funções específicas, como gerenciamento de usuários e autenticação.</p>
+<p>Criaremos inicialmente uma nova estrutura de diretórios chamada <code>routes</code> dentro do seu projeto <code>fast_zero</code>. Aqui, teremos subaplicativos dedicados a funções específicas, como gerenciamento de usuários e autenticação.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>├──<span class="w"> </span>fast_zero
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│<span class="w">  </span>├──<span class="w"> </span>app.py
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>│<span class="w">  </span>├──<span class="w"> </span>database.py
@@ -1077,13 +1077,13 @@
 </code></pre></div>
 <p>Esta organização facilita a expansão do seu projeto e a manutenção de uma estrutura clara.</p>
 <h3 id="implementando-um-router-para-usuarios">Implementando um Router para Usuários</h3>
-<p>No arquivo <code>fast_zero/routes/users.py</code>, vamos importar <code>APIRouter</code> do FastAPI, a ferramenta chave para criar nosso subaplicativo. O parâmetro <code>prefix</code> que passamos ajuda a agrupar todos os endpoints relacionados aos usuários sob um mesmo teto.</p>
+<p>No arquivo <code>fast_zero/routes/users.py</code>, implementaremos o recurso <code>APIRouter</code> do FastAPI, a ferramenta chave para criar nosso subaplicativo. O parâmetro <code>prefix</code> que passamos ajuda a agrupar todos os endpoints relacionados aos usuários sob um mesmo teto.</p>
 <div class="highlight"><span class="filename">fast_zero/routes/users.py</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">APIRouter</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">'/users'</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">'users'</span><span class="p">])</span>
 </code></pre></div>
 <p>Com essa simples configuração, estamos prontos para definir rotas específicas para usuários neste router, em vez de sobrecarregar o aplicativo principal. Utilizamos <code>@router</code> ao invés de <code>@app</code> para definir estas rotas. O uso da tag 'users' contribui para a organização e documentação automática no swagger.</p>
-<p>Desta forma podemos migrar todos os nossos imports e nossas funções de endpoints para o arquivo <code>fast_zero/routes/users.py</code> e os removendo de <code>fast_zero/app.py</code>. Fazendo com que todos esse endpoints estejam no mesmo contexto e isolados da aplicação principal:</p>
+<p>Desta forma podemos migrar todos os nossos imports e nossas funções de endpoints para o arquivo <code>fast_zero/routes/users.py</code> e os removendo de <code>fast_zero/app.py</code>. Fazendo com que todos esses endpoints estejam no mesmo contexto e isolados da aplicação principal:</p>
 <div class="highlight"><span class="filename">fast_zero/routes/users.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">APIRouter</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">HTTPException</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">select</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
@@ -1262,7 +1262,7 @@
 <p>Por termos criados as tags, isso reflete na organização do swagger</p>
 <p><a class="glightbox" href="../assets/06_swagger_tags.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Swagger com tags" class="center shadow" src="../assets/06_swagger_tags.png"></a></p>
 <h3 id="criando-um-router-para-auth">Criando um router para Auth</h3>
-<p>No momento, temos rotas para <code>/</code> e <code>/token</code> ainda no arquivo <code>fast_zero/app.py</code>. Vamos dar um passo adiante e criar um router separado para lidar com a autenticação. Desta forma, conseguiremos manter nosso arquivo principal (<code>app.py</code>) mais limpo e focado em sua responsabilidade principal que é iniciar nossa aplicação.</p>
+<p>No momento, temos rotas para <code>/</code> e <code>/token</code> ainda no arquivo <code>fast_zero/app.py</code>. Daremos um passo adiante e criar um router separado para lidar com a autenticação. Desta forma, conseguiremos manter nosso arquivo principal (<code>app.py</code>) mais limpo e focado em sua responsabilidade principal que é iniciar nossa aplicação.</p>
 <p>O router para autenticação será criado no arquivo <code>fast_zero/routers/auth.py</code>. Veja como fazer:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/routers/auth.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
@@ -1378,7 +1378,7 @@
 </code></pre></div></td></tr></table></div>
 <p>Como você pode ver, nosso arquivo <code>app.py</code> é muito mais simples agora. Ele agora delega as rotas para os respectivos routers, mantendo o foco em iniciar nossa aplicação FastAPI.</p>
 <h4 id="executando-os-testes">Executando os testes</h4>
-<p>Depois de refatorar nosso código, é crucial verificar se tudo ainda está funcionando como esperado. Para isso, executamos nossos testes novamente.</p>
+<p>Após refatorar nosso código, é crucial verificar se tudo continua funcionando como esperado. Para isso, executamos nossos testes novamente.</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>task<span class="w"> </span><span class="nb">test</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># ...</span>
@@ -1403,7 +1403,7 @@
 </ul>
 <p>Vamos adaptar os testes para se encaixarem nessa nova estrutura.</p>
 <h3 id="ajustando-os-testes-para-auth">Ajustando os testes para Auth</h3>
-<p>Vamos começar criando o arquivo <code>/tests/test_auth.py</code>. Esse arquivo será responsável por testar todas as funcionalidades relacionadas à autenticação do usuário.</p>
+<p>Começaremos criando o arquivo <code>/tests/test_auth.py</code>. Esse arquivo será responsável por testar todas as funcionalidades relacionadas à autenticação do usuário.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">/tests/test_auth.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
@@ -1426,7 +1426,7 @@
 </code></pre></div></td></tr></table></div>
 <p>É importante notar que com a criação do router usando <code>prefix='/auth'</code> devemos alterar o endpoint onde o request é feito de <code>'/token'</code> para <code>'/auth/token'</code>. Fazendo com que a requisição seja encaminhada para o lugar certo.</p>
 <h3 id="ajustando-os-testes-para-user">Ajustando os testes para User</h3>
-<p>Em seguida, vamos mover os testes relacionados ao domínio do usuário para o arquivo <code>/tests/test_users.py</code>.</p>
+<p>Em seguida, moveremos os testes relacionados ao domínio do usuário para o arquivo <code>/tests/test_users.py</code>.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">/tests/test_users.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
@@ -1560,7 +1560,7 @@
 </code></pre></div></td></tr></table></div>
 <p>Fazendo assim com que os testes que dependem dessa fixture passem a funcionar.</p>
 <h3 id="executando-os-testes_1">Executando os testes</h3>
-<p>Após essa reestruturação, é importante garantir que tudo ainda está funcionando corretamente. Vamos executar os testes novamente para confirmar isso.</p>
+<p>Após essa reestruturação, é importante garantir que tudo continua funcionando corretamente. Executaremos os testes novamente para confirmar isso.</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>task<span class="w"> </span><span class="nb">test</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># ...</span>
@@ -1631,7 +1631,7 @@
 </code></pre></div>
 <p>Estes valores não devem estar diretamente no código-fonte, então vamos movê-los para nossas variáveis de ambiente e representá-los na nossa classe <code>Settings</code>.</p>
 <h3 id="adicionando-as-constantes-a-settings">Adicionando as constantes a Settings</h3>
-<p>Já temos uma classe ideal para fazer isso em <code>fast_zero/settings.py</code>. Vamos alterar essa classe para incluir estas constantes.</p>
+<p>Já temos uma classe ideal para fazer isso em <code>fast_zero/settings.py</code>. Alteraremos essa classe para incluir estas constantes.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/settings.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
@@ -1667,12 +1667,12 @@
 </code></pre></div></td></tr></table></div>
 <p>Com isso, podemos alterar o nosso código em <code>fast_zero/security.py</code> para ler as constantes a partir da classe <code>Settings</code>.</p>
 <h3 id="removendo-as-constantes-do-codigo">Removendo as constantes do código</h3>
-<p>Primeiramente, vamos carregar as configurações da classe <code>Settings</code> no início do módulo <code>security.py</code>.</p>
+<p>Primeiramente, carregaremos as configurações da classe <code>Settings</code> no início do módulo <code>security.py</code>.</p>
 <div class="highlight"><span class="filename">fast_zero/security.py</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kn">from</span> <span class="nn">fast_zero.settings</span> <span class="kn">import</span> <span class="n">Settings</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
 <a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">settings</span> <span class="o">=</span> <span class="n">Settings</span><span class="p">()</span>
 </code></pre></div>
-<p>Com isso, todos os lugares onde as constantes eram usadas devem ser substituídos por <code>settings.CONSTANTE</code>. Por exemplo, na função <code>create_access_token</code>, vamos alterar para usar as constantes da classe <code>Settings</code>:</p>
+<p>Com isso, todos os lugares onde as constantes eram usadas devem ser substituídos por <code>settings.CONSTANTE</code>. Por exemplo, na função <code>create_access_token</code>, alteraremos para usar as constantes da classe <code>Settings</code>:</p>
 <div class="highlight"><span class="filename">fast_zero/security.py</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">def</span> <span class="nf">create_access_token</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    <span class="n">to_encode</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    <span class="n">expire</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span>
@@ -1686,7 +1686,7 @@
 </code></pre></div>
 <p>Desta forma, eliminamos todas as constantes do código-fonte e passamos a usar as configurações a partir da classe <code>Settings</code>. Isso torna nosso código mais seguro, pois as constantes sensíveis, como a chave secreta, estão agora seguras em nosso arquivo <code>.env</code>, e nosso código fica mais modular, pois podemos facilmente alterar estas constantes simplesmente mudando os valores no arquivo <code>.env</code>. Além disso, essa abordagem facilita o gerenciamento de diferentes ambientes (como desenvolvimento, teste e produção) pois cada ambiente pode ter seu próprio arquivo <code>.env</code> com suas configurações específicas.</p>
 <h3 id="testando-se-tudo-funciona">Testando se tudo funciona</h3>
-<p>Depois de todas essas mudanças, é muito importante garantir que tudo ainda está funcionando corretamente. Para isso, vamos rodar todos os testes que temos até agora.</p>
+<p>Depois de todas essas mudanças, é muito importante garantir que tudo ainda está funcionando corretamente. Para isso, executaremos todos os testes que temos até agora.</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>task<span class="w"> </span><span class="nb">test</span>
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1"># ...</span>
@@ -1702,7 +1702,7 @@
 </code></pre></div>
 <p>Se tudo estiver certo, todos os testes devem passar. Lembre-se de que a refatoração não deve alterar a funcionalidade do nosso código - apenas torná-lo mais fácil de ler e manter.</p>
 <h2 id="commit">Commit</h2>
-<p>Para finalizar, vamos criar um commit para registrar todas as alterações que fizemos na nossa aplicação. Como essa é uma grande mudança que envolve reestruturar a forma como lidamos com as rotas e mover as constantes para variáveis de ambiente, podemos usar uma mensagem de commit descritiva que explique todas as principais alterações:</p>
+<p>Para finalizar, criaremos um commit para registrar todas as alterações que fizemos na nossa aplicação. Como essa é uma grande mudança que envolve reestruturar a forma como lidamos com as rotas e mover as constantes para variáveis de ambiente, podemos usar uma mensagem de commit descritiva que explique todas as principais alterações:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Refatorando estrutura do projeto: Criado routers para Users e Auth; movido constantes para variáveis de ambiente."</span>
 </code></pre></div>
@@ -1730,7 +1730,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 11, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2023</span>
   </span>
 
     

@@ -1140,7 +1140,7 @@
 <hr>
 <p>Após termos cumprido todos os passos essenciais para estabelecer um sistema eficiente de gerenciamento de usuários, estamos agora preparados para levar nossa aplicação a um novo momento, introduzindo um sistema de gerenciamento de tarefas, mais conhecido como <em>todo list</em>. Nesta nova etapa, garantiremos que somente o usuário que criou uma tarefa tenha o direito de acessar e editar tal tarefa, reforçando a segurança e a privacidade dos dados. Para isso, desenvolveremos diversos endpoints e implementaremos as medidas de restrição e autenticação que aprimoramos na última aula.</p>
 <h2 id="estrutura-inicial-do-codigo">Estrutura inicial do código</h2>
-<p>Primeiro, vamos criar um novo arquivo chamado <code>todos.py</code> dentro do diretório de <code>routes</code>:</p>
+<p>Primeiro, criaremos um novo arquivo chamado <code>todos.py</code> no diretório de <code>routes</code>:</p>
 <div class="highlight"><span class="filename">fast_zero/routes/todos.py</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">APIRouter</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">'/todos'</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s1">'todos'</span><span class="p">])</span>
@@ -1148,7 +1148,7 @@
 <p>Neste código, criamos uma nova instância da classe <code>APIRouter</code> do FastAPI. Esta classe é usada para definir as rotas de nossa aplicação. A instância <code>router</code> funcionará como um mini aplicativo FastAPI, que poderá ter suas próprias rotas, modelos de resposta, etc.</p>
 <p>A opção <code>prefix</code> no construtor do <code>APIRouter</code> é usada para definir um prefixo comum para todas as rotas definidas neste roteador. Isso significa que todas as rotas que definirmos neste roteador começarão com <code>/todos</code>. Usamos um prefixo aqui porque queremos agrupar todas as rotas relacionadas a tarefas em um lugar. Isso torna nossa aplicação mais organizada e fácil de entender.</p>
 <p>A opção <code>tags</code> é usada para agrupar as rotas em seções no documento interativo de API gerado pelo FastAPI (como Swagger UI e ReDoc). Todas as rotas que definirmos neste roteador aparecerão na seção "todos" da documentação da API.</p>
-<p>Depois de definir o roteador, precisamos incluí-lo em nossa aplicação principal. Vamos atualizar o arquivo <code>fast_zero/app.py</code> para incluir as rotas de tarefas que iremos criar:</p>
+<p>Após definir o roteador, precisamos incluí-lo em nossa aplicação principal. Atualizaremos o arquivo <code>fast_zero/app.py</code> para incluir as rotas de tarefas que criaremos:</p>
 <div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">fast_zero.routes</span> <span class="kn">import</span> <span class="n">auth</span><span class="p">,</span> <span class="n">todos</span><span class="p">,</span> <span class="n">users</span>
@@ -1166,7 +1166,7 @@
 </code></pre></div>
 <p>Neste código, chamamos o método <code>include_router</code> do FastAPI para cada roteador que definimos. Este método adiciona todas as rotas do roteador à nossa aplicação. Com isso, nossa aplicação agora terá todas as rotas definidas nos roteadores <code>users</code>, <code>auth</code> e <code>todos</code>.</p>
 <h2 id="implementacao-da-tabela-no-banco-de-dados">Implementação da tabela no Banco de dados</h2>
-<p>Agora, iremos implementar a tabela 'Todos' no nosso banco de dados. Esta tabela estará diretamente relacionada à tabela 'User', pois toda tarefa pertence a um usuário. Esta relação é crucial para garantir que só o usuário dono da tarefa possa acessar e modificar suas tarefas.</p>
+<p>Agora, implementaremos a tabela 'Todos' no nosso banco de dados. Esta tabela estará diretamente relacionada à tabela 'User', pois toda tarefa pertence a um usuário. Esta relação é crucial para garantir que só o usuário dono da tarefa possa acessar e modificar suas tarefas.</p>
 <div class="highlight"><span class="filename">fast_zero/models.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">ForeignKey</span>
@@ -1240,9 +1240,9 @@
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>tests/test_db.py::test_create_user_without_todos<span class="w"> </span>PASSED
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>tests/test_db.py::test_create_todo<span class="w"> </span>PASSED
 </code></pre></div>
-<p>Isso mostra que os testes foram bem-sucedidos. Mesmo sem testes mais extensivos, agora vamos começar a criar os esquemas para esse modelo e, em seguida, os endpoints.</p>
+<p>Isso mostra que os testes foram bem-sucedidos. Mesmo sem testes mais extensivos, agora começaremos a criar os esquemas para esse modelo e, em seguida, os endpoints.</p>
 <h2 id="schemas-para-todos">Schemas para Todos</h2>
-<p>Vamos criar dois esquemas para nosso modelo de tarefas (todos): <code>TodoSchema</code> e <code>TodoPublic</code>.</p>
+<p>Criaremos dois esquemas para nosso modelo de tarefas (todos): <code>TodoSchema</code> e <code>TodoPublic</code>.</p>
 <div class="highlight"><span class="filename">fast_zero/schemas.py</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">TodoState</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">#...</span>
@@ -1379,7 +1379,7 @@
 <h2 id="endpoint-de-listagem">Endpoint de listagem</h2>
 <p>Agora que criamos a nossa migração e temos o endpoint de criação de Todos, temos que criar nosso endpoint de listagem de tarefas. Ele deve listar todas as tarefas de acordo com o <code>CurrentUser</code>.</p>
 <p>Algumas coisas adicionais e que podem ser importantes na hora de recuperar as tarefas é fazer um filtro de busca. Em alguns momentos queremos buscar uma tarefa por título, em outro momento por descrição, às vezes só pelo estado. Por exemplo, somente tarefas concluídas.</p>
-<p>Para fazer isso, podemos contar com um recurso do FastAPI chamado <code>Query</code>. A <code>Query</code> permite que definamos parâmetros específicos na URL, que podem ser utilizados para filtrar os resultados retornados pelo endpoint. Isso é feito através da inclusão de parâmetros como query strings na URL, que são interpretados pelo FastAPI para ajustar a consulta ao banco de dados.</p>
+<p>Para fazer isso, podemos contar com um recurso do FastAPI chamado <code>Query</code>. A <code>Query</code> permite que definamos parâmetros específicos na URL, que podem ser utilizados para filtrar os resultados retornados pelo endpoint. Isso é feito através da inclusão de parâmetros como query strings na URL, interpretados pelo FastAPI para ajustar a consulta ao banco de dados.</p>
 <p>Por exemplo, uma query string simples pode ser: <code>todos/?title="batatinha"</code>.</p>
 <p>Uma característica importante das queries do FastAPI é que podemos juntar mais de um atributo em uma busca. Por exemplo, podemos buscar somente as tarefas a fazer que contenham no título "trabalho". Dessa forma, temos um endpoint mais eficiente, já que podemos realizar buscas complexas e refinadas com uma única chamada.</p>
 <p>A combinação poderia ser algo como: <code>todos/?title="batatinha"&amp;status=todo</code>.</p>
@@ -1413,13 +1413,13 @@
 <p>Essa abordagem equilibra a flexibilidade e a eficiência, tornando o endpoint capaz de atender a uma variedade de necessidades de negócio. Utilizando os recursos do FastAPI, conseguimos implementar uma solução robusta e fácil de manter, que será testada posteriormente para garantir sua funcionalidade e integridade.</p>
 <p>No código acima, estamos utilizando filtros do SQLAlchemy, uma biblioteca ORM (Object-Relational Mapping) do Python, para adicionar condições à nossa consulta. Esses filtros correspondem aos parâmetros que o usuário pode passar na URL.</p>
 <ul>
-<li><code>Todo.title.contains(title)</code>: Verifica se o título da tarefa contém a string fornecida.</li>
-<li><code>Todo.description.contains(description)</code>: Verifica se a descrição da tarefa contém a string fornecida.</li>
-<li><code>Todo.state == state</code>: Compara o estado da tarefa com o valor fornecido.</li>
+<li><code>Todo.title.contains(title)</code>: verifica se o título da tarefa contém a string fornecida.</li>
+<li><code>Todo.description.contains(description)</code>: verifica se a descrição da tarefa contém a string fornecida.</li>
+<li><code>Todo.state == state</code>: compara o estado da tarefa com o valor fornecido.</li>
 </ul>
 <p>Essas condições são traduzidas em cláusulas SQL pelo SQLAlchemy, permitindo que o banco de dados filtre os resultados de acordo com os critérios especificados pelo usuário. Essa integração entre FastAPI e SQLAlchemy torna o processo de filtragem eficiente e a codificação mais expressiva e clara.</p>
 <h3 id="criando-uma-factory-para-simplificar-os-testes">Criando uma factory para simplificar os testes</h3>
-<p>Criar uma factory para o endpoint facilitaria os testes por diversas razões, especialmente quando se trata de testar o nosso endpoint de listagem que faz uso de múltiplas queries. Primeiro, a factory ajuda a encapsular a lógica de criação dos objetos necessários para o teste, como no caso dos objetos <code>Todo</code>. Isso significa que você pode criar objetos consistentes e bem-formados sem ter que repetir o mesmo código em vários testes.</p>
+<p>Criar uma factory para o endpoint facilitaria os testes por diversas razões, especialmente quando se trata de testar o nosso endpoint de listagem que usa múltiplas queries. Primeiro, a factory ajuda a encapsular a lógica de criação dos objetos necessários para o teste, como no caso dos objetos <code>Todo</code>. Isso significa que você pode criar objetos consistentes e bem-formados sem ter que repetir o mesmo código em vários testes.</p>
 <p>Com a complexidade das queries que nosso endpoint permite, precisamos cobrir todos os usos possíveis dessas queries. A factory vai nos ajudar a criar muitos casos de testes de forma prática e eficiente, já que podemos gerar diferentes combinações de títulos, descrições, estados, entre outros atributos, simulando diversas situações de uso.</p>
 <p>Além disso, ao utilizar bibliotecas como o <code>factory</code>, é possível gerar dados aleatórios e válidos, o que pode ajudar a garantir que os testes sejam abrangentes e testem o endpoint em uma variedade de condições. Ao simplificar o processo de configuração dos testes, você pode economizar tempo e esforço, permitindo que a equipe se concentre mais na lógica do teste.</p>
 <div class="highlight"><span class="filename">tests/test_todos.py</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">factory.fuzzy</span>
@@ -1440,9 +1440,9 @@
 <p>A fixture acima pode ser usada em diversos testes, reduzindo a duplicação de código e melhorando a manutenção. Por exemplo, em um teste que precisa criar vários objetos <code>Todo</code>, você pode simplesmente usar a <code>TodoFactory</code> para criar esses objetos com uma única linha de código. A factory já contém a lógica necessária para criar um objeto válido, e você pode facilmente sobrescrever qualquer um dos atributos, se necessário, para o caso de teste específico.</p>
 <p>A utilização de fábricas também promove uma melhor separação entre a lógica de criação do objeto e a lógica do teste, tornando os testes mais legíveis e fáceis de seguir. Com a <code>TodoFactory</code>, somos capazes de simular e testar diversos cenários de busca e filtragem, garantindo que nosso endpoint de listagem funcione corretamente em todas as situações possíveis, aumentando assim a robustez e confiabilidade de nosso sistema.</p>
 <h3 id="testes-para-esse-endpoint">Testes para esse endpoint</h3>
-<p>Ao trabalhar com o endpoint de listagem de tarefas, temos várias variações de query strings que precisam ser testadas. Cada uma dessas variações representa um caso de uso diferente, e queremos garantir que o sistema funcione corretamente em todos eles. Vamos separar os testes em pequenos blocos e explicar cada um deles.</p>
+<p>Ao trabalhar com o endpoint de listagem de tarefas, temos várias variações de query strings que precisam ser testadas. Cada uma dessas variações representa um caso de uso diferente, e queremos garantir que o sistema funcione corretamente em todos eles. Separaremos os testes em pequenos blocos e explicar cada um deles.</p>
 <h4 id="testando-a-listagem-de-todos">Testando a Listagem de Todos</h4>
-<p>Primeiro, vamos criar um teste básico que verifica se o endpoint está listando todos os objetos <code>Todo</code>.</p>
+<p>Primeiro, criaremos um teste básico que verifica se o endpoint está listando todos os objetos <code>Todo</code>.</p>
 <div class="highlight"><span class="filename">tests/test_todos.py</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span> <span class="nf">test_list_todos</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="n">session</span><span class="o">.</span><span class="n">bulk_save_objects</span><span class="p">(</span><span class="n">TodoFactory</span><span class="o">.</span><span class="n">create_batch</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
@@ -1456,7 +1456,7 @@
 </code></pre></div>
 <p>Este teste valida que todos os 5 objetos <code>Todo</code> são retornados pelo endpoint.</p>
 <h4 id="testando-a-paginacao">Testando a Paginação</h4>
-<p>Em seguida, vamos testar a paginação para garantir que o offset e o limite estejam funcionando corretamente.</p>
+<p>Em seguida, testaremos a paginação para garantir que o offset e o limite estejam funcionando corretamente.</p>
 <div class="highlight"><span class="filename">tests/test_todos.py</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">def</span> <span class="nf">test_list_todos_pagination</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="n">session</span><span class="o">.</span><span class="n">bulk_save_objects</span><span class="p">(</span><span class="n">TodoFactory</span><span class="o">.</span><span class="n">create_batch</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
@@ -1518,7 +1518,7 @@
 </code></pre></div>
 <p>Este teste garante que quando filtramos pelo estado, apenas as tarefas com o estado correspondente são retornadas.</p>
 <h4 id="testando-a-combinacao-de-filtros-de-estado-titulo-e-descricao">Testando a Combinação de Filtros de Estado, Título e Descrição</h4>
-<p>Em nosso conjunto de testes, também é importante verificar se o endpoint é capaz de lidar com múltiplos parâmetros de consulta simultaneamente. Para isso, vamos criar um teste que combine os filtros de estado, título e descrição. Isso assegurará que, quando esses parâmetros são usados juntos, o endpoint retornará apenas as tarefas que correspondem a todas essas condições.</p>
+<p>Em nosso conjunto de testes, também é importante verificar se o endpoint é capaz de lidar com múltiplos parâmetros de consulta simultaneamente. Para isso, criaremos um teste que combine os filtros de estado, título e descrição. Isso assegurará que, quando esses parâmetros são usados juntos, o endpoint retornará apenas as tarefas que correspondem a todas essas condições.</p>
 <p>Este teste é vital para garantir que os usuários podem realizar buscas complexas usando vários critérios ao mesmo tempo, e que o endpoint irá retornar os resultados esperados.</p>
 <p>A seguir, apresento o código do teste:</p>
 <div class="highlight"><span class="filename">tests/test_todos.py</span><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">def</span> <span class="nf">test_list_todos_filter_combined</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
@@ -1552,7 +1552,7 @@
 </code></pre></div>
 <p>Com esses testes, cobrimos todas as possíveis variações de query strings para o nosso endpoint, garantindo que ele funciona corretamente em todas essas situações. A abordagem modular para escrever esses testes facilita a leitura e a manutenção, além de permitir uma cobertura de teste abrangente e robusta.</p>
 <h3 id="executando-os-testes">Executando os testes</h3>
-<p>Importante para que não esqueçamos é de executar os testes para ver se tudo corre bem:</p>
+<p>É importante não esquecermos de executar os testes para ver se tudo corre bem:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>task<span class="w"> </span><span class="nb">test</span><span class="w"> </span>tests/test_todos.py
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="c1"># ...</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>tests/test_todos.py::test_create_todo<span class="w"> </span>PASSED
@@ -1568,7 +1568,7 @@
 <a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>tests/test_todos.py::test_patch_todo<span class="w"> </span>PASSED
 </code></pre></div>
 <h2 id="endpoint-de-alteracao">Endpoint de Alteração</h2>
-<p>Para fazer a alteração de uma tarefa, precisamos de um modelo onde tudo seja opcional, já que poderíamos querer atualizar apenas um ou alguns campos da tarefa. Vamos criar o esquema <code>TodoUpdate</code>, no qual todos os campos são opcionais:</p>
+<p>Para fazer a alteração de uma tarefa, precisamos de um modelo onde tudo seja opcional, já que poderíamos querer atualizar apenas um ou alguns campos da tarefa. Criaremos o esquema <code>TodoUpdate</code>, no qual todos os campos são opcionais:</p>
 <div class="highlight"><span class="filename">fast_zero/schemas.py</span><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">class</span> <span class="nc">TodoUpdate</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1597,7 +1597,7 @@
 </code></pre></div>
 <p>A linha <code>for key, value in todo.model_dump(exclude_unset=True).items():</code> está iterando através de todos os campos definidos na instância <code>todo</code> do modelo de atualização. A função <code>model_dump</code> é um método que vem do modelo <code>BaseModel</code> do Pydantic e permite exportar o modelo para um dicionário.</p>
 <p>O parâmetro <code>exclude_unset=True</code> é importante aqui, pois significa que apenas os campos que foram explicitamente definidos (ou seja, aqueles que foram incluídos na solicitação PATCH) serão incluídos no dicionário resultante. Isso permite que você atualize apenas os campos que foram fornecidos na solicitação, deixando os outros inalterados.</p>
-<p>Depois de obter a chave e o valor de cada campo definido, a linha <code>setattr(db_todo, key, value)</code> é usada para atualizar o objeto <code>db_todo</code> que representa a tarefa no banco de dados. A função <code>setattr</code> é uma função embutida do Python que permite definir o valor de um atributo em um objeto. Neste caso, ele está definindo o atributo com o nome igual à chave (ou seja, o nome do campo) no objeto <code>db_todo</code> com o valor correspondente.</p>
+<p>Após obter a chave e o valor de cada campo definido, a linha <code>setattr(db_todo, key, value)</code> é usada para atualizar o objeto <code>db_todo</code> que representa a tarefa no banco de dados. A função <code>setattr</code> é uma função embutida do Python que permite definir o valor de um atributo em um objeto. Neste caso, ele está definindo o atributo com o nome igual à chave (ou seja, o nome do campo) no objeto <code>db_todo</code> com o valor correspondente.</p>
 <p>Dessa forma, garantimos que somente os campos enviados ao schema sejam atualizados no objeto.</p>
 <h3 id="testes-para-o-endpoint-de-alteracao">Testes para o Endpoint de Alteração</h3>
 <p>Os testes aqui incluem o caso de atualização bem-sucedida e o caso de erro quando a tarefa não é encontrada:</p>
@@ -1641,7 +1641,7 @@
 </code></pre></div>
 <p>Com tudo funcionando, podemos partir para o nosso endpoint de DELETE.</p>
 <h2 id="endpoint-de-delecao">Endpoint de Deleção</h2>
-<p>A rota para deletar uma tarefa é simples e direta. Caso o todo exista, vamos deletar ele com a <code>sesion</code> caso não, retornamos <code>404</code>:</p>
+<p>A rota para deletar uma tarefa é simples e direta. Caso o <code>todo</code> exista, deletaremos ele com a <code>sesion</code> caso não, retornamos <code>404</code>:</p>
 <div class="highlight"><span class="filename">fast_zero/routes/todos.py</span><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nd">@router</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'/</span><span class="si">{todo_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Message</span><span class="p">)</span>
 <a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">def</span> <span class="nf">delete_todo</span><span class="p">(</span><span class="n">todo_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">CurrentUser</span><span class="p">):</span>
 <a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>    <span class="n">todo</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span>
@@ -1707,7 +1707,7 @@
 <p>Iniciamos criando a estrutura de banco de dados para as tarefas, incluindo tabelas e migrações, e em seguida definimos os schemas necessários. A partir daí, trabalhamos na criação dos endpoints para as operações CRUD: criação, leitura (listagem com filtragem), atualização (edição) e exclusão (deleção).</p>
 <p>Em cada estágio, focamos na qualidade e na robustez, utilizando testes rigorosos para assegurar que os endpoints se comportassem conforme esperado. Exploramos também técnicas específicas como atualização parcial e filtragem avançada, tornando a API flexível e poderosa.</p>
 <p>O resultado foi um sistema integrado de gerenciamento de tarefas, ou um "todo list", ligado aos usuários e à autenticação que já havíamos implementado. Esta aula reforçou a importância de um design cuidadoso e uma implementação criteriosa, ilustrando como a FastAPI pode ser usada para criar APIs eficientes e profissionais.</p>
-<p>Agora que a nossa aplicação está crescendo e ganhando mais funcionalidades, na próxima aula, vamos mergulhar no mundo da dockerização. Iremos aprender a colocar a nossa aplicação dentro de um container Docker, facilitando o deploy e o escalonamento. Este é um passo vital no desenvolvimento moderno de aplicações e estou ansioso para guiá-lo através dele. Até lá!</p></div>
+<p>Agora que a nossa aplicação está crescendo e ganhando mais funcionalidades, na próxima aula, mergulharemos no mundo da dockerização. Aprenderemos a colocar a nossa aplicação dentro de um container Docker, facilitando o deploy e o escalonamento. Este é um passo vital no desenvolvimento moderno de aplicações e estou ansioso para guiá-lo através dele. Até lá!</p></div>
 
 
 
@@ -1728,7 +1728,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 10, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2023</span>
   </span>
 
     

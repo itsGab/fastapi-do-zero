@@ -1008,7 +1008,7 @@
 <p>Abstração de banco de dados: ORMs permitem que você mude de um tipo de banco de dados para outro com poucas alterações no código.</p>
 </li>
 <li>
-<p>Segurança: ORMs geralmente lidam com escapar de consultas e prevenir injeções SQL, um tipo comum de vulnerabilidade de segurança.</p>
+<p>Segurança: ORMs lidam geralmente com escapar de consultas e prevenir injeções SQL, um tipo comum de vulnerabilidade de segurança.</p>
 </li>
 <li>
 <p>Eficiência no desenvolvimento: ORMs podem gerar automaticamente esquemas, realizar migrações e outras tarefas que seriam demoradas para fazer manualmente.</p>
@@ -1025,7 +1025,7 @@
 <p>Além disso, expor credenciais de banco de dados e outras informações sensíveis no código-fonte é uma prática de segurança ruim. Se esse código fosse comprometido, essas informações poderiam ser usadas para acessar e manipular seus recursos.</p>
 <p>Por isso, usaremos o <code>pydantic-settings</code> para gerenciar nossas configurações de ambiente. A biblioteca permite que você defina configurações em arquivos separados ou variáveis de ambiente e acesse-as de uma maneira estruturada e segura em seu código.</p>
 <p>Isso está alinhado com a metodologia dos 12 fatores, um conjunto de melhores práticas para desenvolvimento de aplicações modernas. O terceiro fator, "Config", afirma que as configurações que variam entre os ambientes devem ser armazenadas no ambiente e não no código.</p>
-<p>Agora que entendemos melhor esses conceitos, vamos começar instalando as bibliotecas que vamos usar. O primeiro passo é instalar o SQLAlchemy, um ORM que nos permite trabalhar com bancos de dados SQL de maneira Pythonic. Além disso, o Alembic, que é uma ferramenta de migração de banco de dados, funciona muito bem com o SQLAlchemy e nos ajudará a gerenciar as alterações do esquema do nosso banco de dados.</p>
+<p>Agora que entendemos melhor esses conceitos, começaremos instalando as bibliotecas que iremos usar. O primeiro passo é instalar o SQLAlchemy, um ORM que nos permite trabalhar com bancos de dados SQL de maneira Pythonic. Além disso, o Alembic, que é uma ferramenta de migração de banco de dados, funciona muito bem com o SQLAlchemy e nos ajudará a gerenciar as alterações do esquema do nosso banco de dados.</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>sqlalchemy
 </code></pre></div>
 <p>Além disso, para evitar a escrita de configurações do banco de dados diretamente no código-fonte, usaremos o <code>pydantic-settings</code>. Este pacote nos permite gerenciar as configurações do nosso aplicativo de uma maneira mais segura e estruturada.</p>
@@ -1050,8 +1050,8 @@
 <p>Agora que conhecemos a Engine e a Session, vamos explorar a definição de modelos de dados.</p>
 <h2 id="definindo-os-modelos-de-dados-com-sqlalchemy">Definindo os Modelos de Dados com SQLAlchemy</h2>
 <p>Os modelos de dados definem a estrutura de como os dados serão armazenados no banco de dados. No ORM do SQLAlchemy, esses modelos são definidos como classes Python que herdam de uma classe base comum. A classe base é criada a partir de <code>DeclarativeBase</code>.</p>
-<p>Cada classe que herda da classe base é automaticamente mapeada para uma tabela no banco de dados. Adicionalmente, a classe base inclui um objeto de metadados que é uma coleção de todas as tabelas que foram declaradas. Este objeto é utilizado para gerenciar operações como criação, modificação e exclusão de tabelas.</p>
-<p>Vamos agora definir nosso modelo <code>User</code>. No diretório <code>fast_zero</code>, crie um novo arquivo chamado <code>models.py</code>.</p>
+<p>Cada classe que herda da classe base é automaticamente mapeada para uma tabela no banco de dados. Adicionalmente, a classe base inclui um objeto de metadados que é uma coleção de todas as tabelas declaradas. Este objeto é utilizado para gerenciar operações como criação, modificação e exclusão de tabelas.</p>
+<p>Agora definiremos nosso modelo <code>User</code>. No diretório <code>fast_zero</code>, crie um novo arquivo chamado <code>models.py</code>.</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>touch<span class="w"> </span>fast_zero/models.py
 </code></pre></div>
 <p>Inclua o seguinte código no arquivo <code>models.py</code>:</p>
@@ -1089,7 +1089,7 @@
 </code></pre></div></td></tr></table></div>
 <p>Aqui, <code>Mapped</code> refere-se a um atributo Python que é associado (ou mapeado) a uma coluna específica em uma tabela de banco de dados. Por exemplo, <code>Mapped[int]</code> indica que este atributo é um inteiro que será mapeado para uma coluna correspondente em uma tabela de banco de dados. Da mesma forma, <code>Mapped[str]</code> se referiria a um atributo de string que seria mapeado para uma coluna de string correspondente. Esta abordagem permite ao SQLAlchemy realizar a conversão entre os tipos de dados Python e os tipos de dados do banco de dados, além de oferecer uma interface Pythonica para a interação entre eles.</p>
 <h2 id="testando-as-tabelas">Testando as Tabelas</h2>
-<p>Antes de prosseguirmos, uma boa prática seria criar um teste para validar se toda a estrutura do banco de dados funciona. Vamos criar um arquivo para validar isso: <code>test_db.py</code>.</p>
+<p>Antes de prosseguirmos, uma boa prática seria criar um teste para validar se toda a estrutura do banco de dados funciona. Criaremos um arquivo para validar isso: <code>test_db.py</code>.</p>
 <p>A partir daqui, você pode prosseguir com a estruturação do conteúdo desse arquivo para definir os testes necessários para validar o seu modelo de usuário e sua interação com o banco de dados.</p>
 <h3 id="antes-de-escrever-os-testes">Antes de Escrever os Testes</h3>
 <p>A essa altura, se estivéssemos buscando apenas cobertura, poderíamos simplesmente testar utilizando o modelo, e isso seria suficiente. No entanto, queremos verificar se toda a nossa interação com o banco de dados ocorrerá com sucesso. Isso inclui saber se os tipos de dados na tabela foram mapeados corretamente, se é possível interagir com o banco de dados, se o ORM está estruturado adequadamente com a classe base. Precisamos garantir que todo esse esquema funcione.</p>
@@ -1103,10 +1103,10 @@
   C -- associa-se a --&gt; H[Metadata]
   H -- mantém informações de --&gt; G[Tabelas no Banco de Dados]</code></pre>
 <p>Neste diagrama, vemos a relação completa entre o aplicativo Python e o banco de dados. A conexão é estabelecida através do SQLAlchemy ORM, que fornece uma Session para interagir com os Modelos. Esses modelos são mapeados para as tabelas no banco de dados, enquanto a Engine se conecta com o banco de dados e depende de Metadata para manter as informações das tabelas.</p>
-<p>Portanto, criaremos uma fixture para que possamos usar todo esse esquema sempre que necessário.</p>
+<p>Portanto, criaremos uma fixture para podermos usar todo esse esquema sempre que necessário.</p>
 <h3 id="criando-uma-fixture-para-interacoes-com-o-banco-de-dados">Criando uma Fixture para interações com o Banco de Dados</h3>
 <p>Para testar o banco, temos que fazer diversos passos, e isso pode tornar nosso teste bastante grande. Uma fixture pode ajudar a isolar toda essa configuração do banco de dados fora do teste. Assim, evitamos repetir o mesmo código em todos os testes e ainda garantimos que cada teste tenha sua própria versão limpa do banco de dados.</p>
-<p>Vamos criar uma fixture para a conexão com o banco de dados chamada <code>session</code>:</p>
+<p>Criaremos uma fixture para a conexão com o banco de dados chamada <code>session</code>:</p>
 <div class="highlight"><span class="filename">tests/conftest.py</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># ...</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span> <span class="nn">pytest</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
@@ -1146,7 +1146,7 @@
 </ol>
 <p>Resumindo, essa fixture está configurando e limpando um banco de dados de teste para cada teste que o solicita, assegurando que cada teste seja isolado e tenha seu próprio ambiente limpo para trabalhar. Isso é uma boa prática em testes de unidade, já que queremos que cada teste seja independente e não afete os demais.</p>
 <h3 id="criando-um-teste-para-a-nossa-tabela">Criando um Teste para a Nossa Tabela</h3>
-<p>Agora, no arquivo <code>test_db.py</code>, vamos escrever um teste para a criação de um usuário. Este teste adiciona um novo usuário ao banco de dados, faz commit das mudanças, e depois verifica se o usuário foi devidamente criado consultando-o pelo nome de usuário. Se o usuário foi criado corretamente, o teste passa. Caso contrário, o teste falha, indicando que há algo errado com nossa função de criação de usuário.</p>
+<p>Agora, no arquivo <code>test_db.py</code>, escreveremos um teste para a criação de um usuário. Este teste adiciona um novo usuário ao banco de dados, faz commit das mudanças, e depois verifica se o usuário foi devidamente criado consultando-o pelo nome de usuário. Se o usuário foi criado corretamente, o teste passa. Caso contrário, o teste falha, indicando que há algo errado com nossa função de criação de usuário.</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_db.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -1174,7 +1174,7 @@
 <a id="__codelineno-5-13" name="__codelineno-5-13"></a>    <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="executando-o-teste">Executando o teste</h3>
-<p>A execução de testes é uma parte vital do desenvolvimento de qualquer aplicação. Os testes nos ajudam a identificar e corrigir problemas antes que eles se tornem mais sérios. Eles também fornecem a confiança de que nossas mudanças não quebraram nenhuma funcionalidade existente. No nosso caso, vamos executar os testes para validar nossos modelos de usuário e garantir que eles estejam funcionando como esperado.</p>
+<p>A execução de testes é uma parte vital do desenvolvimento de qualquer aplicação. Os testes nos ajudam a identificar e corrigir problemas antes que eles se tornem mais sérios. Eles também fornecem a confiança de que nossas mudanças não quebraram nenhuma funcionalidade existente. No nosso caso, executaremos os testes para validar nossos modelos de usuário e garantir que eles estejam funcionando como esperado.</p>
 <p>Para executar os testes, digite o seguinte comando:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>task<span class="w"> </span><span class="nb">test</span>
 </code></pre></div>
@@ -1200,7 +1200,7 @@
 <p>Neste caso, podemos ver que todos os nossos testes passaram com sucesso. Isso significa que nossa funcionalidade de criação de usuário está funcionando corretamente e que nosso modelo de usuário está sendo corretamente persistido no banco de dados.</p>
 <p>Com nossos modelos e testes de banco de dados agora em ordem, estamos prontos para avançar para a próxima fase de configuração de nosso banco de dados e gerenciamento de migrações.</p>
 <h2 id="configuracao-do-ambiente-do-banco-de-dados">Configuração do ambiente do banco de dados</h2>
-<p>Por fim, vamos configurar nosso banco de dados. Primeiro, vamos criar um novo arquivo chamado <code>settings.py</code> dentro do diretório <code>fast_zero</code>. Aqui, usaremos o Pydantic para criar uma classe <code>Settings</code> que irá pegar as configurações do nosso arquivo <code>.env</code>.</p>
+<p>Por fim, configuraremos nosso banco de dados. Primeiro, criaremos um novo arquivo chamado <code>settings.py</code> dentro do diretório <code>fast_zero</code>. Aqui, usaremos o Pydantic para criar uma classe <code>Settings</code> que irá pegar as configurações do nosso arquivo <code>.env</code>.</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>touch<span class="w"> </span>fast_zero/settings.py
 </code></pre></div>
 <p>No arquivo <code>settings.py</code>, a classe <code>Settings</code> é definida como:</p>
@@ -1214,7 +1214,7 @@
 <a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="n">DATABASE_URL</span><span class="p">:</span> <span class="nb">str</span>
 </code></pre></div>
-<p>Agora, vamos definir o <code>DATABASE_URL</code> no nosso arquivo de ambiente <code>.env</code>. Crie o arquivo na raiz do projeto e adicione a seguinte linha:</p>
+<p>Agora, definiremos o <code>DATABASE_URL</code> no nosso arquivo de ambiente <code>.env</code>. Crie o arquivo na raiz do projeto e adicione a seguinte linha:</p>
 <div class="highlight"><span class="filename">.env</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="s2">"sqlite:///database.db"</span>
 </code></pre></div>
 <p>Com isso, quando a classe <code>Settings</code> for instanciada, ela irá automaticamente carregar as configurações do arquivo <code>.env</code>.</p>
@@ -1229,7 +1229,7 @@
 <p><a class="glightbox" href="https://www.youtube.com/embed/yQtqkq9UkDA" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/yQtqkq9UkDA" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 <p><a class="md-button" href="https://youtu.be/yQtqkq9UkDA"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
 </details>
-<p>Agora, vamos começar instalando o Alembic, que é uma ferramenta de migração de banco de dados para SQLAlchemy. Usaremos o Poetry para adicionar o Alembic ao nosso projeto:</p>
+<p>Agora, começaremos instalando o Alembic, que é uma ferramenta de migração de banco de dados para SQLAlchemy. Usaremos o Poetry para adicionar o Alembic ao nosso projeto:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>alembic
 </code></pre></div>
 <p>Após a instalação do Alembic, precisamos iniciá-lo em nosso projeto. O comando de inicialização criará um diretório <code>migrations</code> e um arquivo de configuração <code>alembic.ini</code>:</p>
@@ -1261,7 +1261,7 @@
 </code></pre></div>
 <p>No arquivo <code>alembic.ini</code>: ficam as configurações gerais das nossas migrações. Na pasta <code>migrations</code> foram criados um arquivo chamado <code>env.py</code>, esse arquivo é responsável por como as migrações serão feitas e o arquivo <code>script.py.mako</code> é um template para as novas migrações.</p>
 <h3 id="criando-uma-migracao-automatica">Criando uma migração automática</h3>
-<p>Com o Alembic devidamente instalado e iniciado, agora é o momento de gerar nossa primeira migração. Mas, antes disso, precisamos garantir que o Alembic consiga acessar nossas configurações e modelos corretamente. Para isso, vamos fazer algumas alterações no arquivo <code>migrations/env.py</code>.</p>
+<p>Com o Alembic devidamente instalado e iniciado, agora é o momento de gerar nossa primeira migração. Mas, antes disso, precisamos garantir que o Alembic consiga acessar nossas configurações e modelos corretamente. Para isso, faremos algumas alterações no arquivo <code>migrations/env.py</code>.</p>
 <p>Neste arquivo, precisamos:</p>
 <ol>
 <li>Importar as <code>Settings</code> do nosso arquivo <code>settings.py</code> e a <code>Base</code> dos nossos modelos.</li>
@@ -1331,7 +1331,7 @@
 <a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a>    <span class="c1"># ### end Alembic commands ###</span>
 </code></pre></div>
 <p>Esse arquivo descreve as mudanças a serem feitas no banco de dados. Ele usa a linguagem core do SQLAlchemy, que é mais baixo nível que o ORM. As funções <code>upgrade</code> e <code>downgrade</code> definem, respectivamente, o que fazer para aplicar e para desfazer a migração. No nosso caso, a função <code>upgrade</code> cria a tabela 'users' com os campos que definimos em <code>fast_zero/models.py</code>e a função <code>downgrade</code> a remove.</p>
-<p>Apesar desta migração ter sido criada, ela ainda não foi aplicada ao nosso banco de dados. No entanto, o Alembic já criou um arquivo <code>database.db</code>, conforme especificamos no arquivo <code>.env</code> e que foi lido pela classe <code>Settings</code> do Pydantic. Além disso, ele criou uma tabela <code>alembic_version</code> no banco de dados para controlar as versões das migrações que foram aplicadas.</p>
+<p>Apesar desta migração ter sido criada, ela ainda não foi aplicada ao nosso banco de dados. No entanto, o Alembic já criou um arquivo <code>database.db</code>, conforme especificamos no arquivo <code>.env</code> que foi lido pela classe <code>Settings</code> do Pydantic. Além disso, ele criou uma tabela <code>alembic_version</code> no banco de dados para controlar as versões das migrações que foram aplicadas.</p>
 <details class="tip">
 <summary>Caso não tenha o SQLite instalado na sua máquina:</summary>
 <div class="highlight"><span class="filename">Arch</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>pacman<span class="w"> </span>-S<span class="w"> </span>sqlite
@@ -1383,22 +1383,22 @@
 </code></pre></div>
 <p>Finalmente, lembre-se de que todas essas mudanças que fizemos só existem localmente no seu ambiente de trabalho até agora. Para que sejam compartilhadas com outras pessoas, precisamos fazer commit dessas mudanças no nosso sistema de controle de versão.</p>
 <h2 id="commit">Commit</h2>
-<p>Primeiro, vamos verificar o status do nosso repositório para ver as mudanças que fizemos:</p>
+<p>Primeiro, verificaremos o status do nosso repositório para ver as mudanças que fizemos:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>git<span class="w"> </span>status
 </code></pre></div>
-<p>Você verá uma lista de arquivos que foram modificados ou adicionados. As alterações devem incluir os arquivos de migração que criamos, bem como quaisquer alterações que fizemos em nossos arquivos de modelo e configuração.</p>
-<p>Em seguida, vamos adicionar todas as mudanças ao próximo commit:</p>
+<p>Você verá uma lista de arquivos modificados ou adicionados. As alterações devem incluir os arquivos de migração que criamos, bem como quaisquer alterações que fizemos em nossos arquivos de modelo e configuração.</p>
+<p>Em seguida, adicionaremos todas as mudanças ao próximo commit:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
 </code></pre></div>
-<p>Agora, estamos prontos para fazer o commit das nossas alterações. Vamos fornecer uma mensagem de commit que descreve as mudanças que fizemos:</p>
+<p>Agora, estamos prontos para fazer o commit das nossas alterações. Escreveremos uma mensagem de commit que descreve as mudanças que fizemos:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Adicionada a primeira migração com Alembic. Criada tabela de usuários."</span>
 </code></pre></div>
-<p>Finalmente, vamos enviar as mudanças para o repositório remoto:</p>
+<p>Finalmente, enviaremos as mudanças para o repositório remoto:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>git<span class="w"> </span>push
 </code></pre></div>
 <p>E pronto! As mudanças que fizemos foram salvas no histórico do Git e agora estão disponíveis no git.</p>
 <h2 id="conclusao">Conclusão</h2>
-<p>Nesta aula, demos passos significativos para preparar nosso projeto FastAPI para interagir com um banco de dados. Começamos definindo nosso primeiro modelo de dados, o <code>User</code>, utilizando o SQLAlchemy. Além disso, em conformidade com as práticas de Desenvolvimento Orientado por Testes (TDD), implementamos um teste para assegurar que a funcionalidade de criação de um novo usuário no banco de dados esteja operando corretamente.</p>
+<p>Nesta aula, demos passos significativos para preparar nosso projeto FastAPI para interagir com um banco de dados. Começamos definindo nosso primeiro modelo de dados, o <code>User</code>, utilizando o SQLAlchemy. Além disso, conforme as práticas de Desenvolvimento Orientado por Testes (TDD), implementamos um teste para assegurar que a funcionalidade de criação de um novo usuário no banco de dados esteja operando corretamente.</p>
 <p>Avançamos para configurar o ambiente de desenvolvimento, onde estabelecemos um arquivo <code>.env</code> para armazenar nossa <code>DATABASE_URL</code> e ajustamos o SQLAlchemy para utilizar essa URL. Complementarmente, incluímos o arquivo do banco de dados ao <code>.gitignore</code> para evitar que seja rastreado pelo controle de versão.</p>
 <p>Na última parte desta aula, focamos na instalação e configuração do Alembic, uma ferramenta de migração de banco de dados para SQLAlchemy. Usando o Alembic, criamos nossa primeira migração que, automaticamente, gera o esquema do banco de dados a partir dos nossos modelos SQLAlchemy.</p>
 <p>Com esses passos, nosso projeto está bem encaminhado para começar a persistir dados. Na próxima aula, avançaremos para a fase crucial de conectar o SQLAlchemy aos endpoints do nosso projeto. Isso permitirá a realização de operações de CRUD nos nossos usuários diretamente através da API.</p></div>
@@ -1422,7 +1422,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 11, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 12, 2023</span>
   </span>
 
     

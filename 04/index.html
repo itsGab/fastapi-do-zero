@@ -1021,7 +1021,7 @@
 <p>A sessão no SQLAlchemy é tão poderosa que, na verdade, incorpora três padrões de arquitetura importantes.</p>
 <ol>
 <li>
-<p><strong>Mapa de Identidade</strong>: Imagine que você esteja comprando frutas em uma loja online. Cada fruta que você adiciona ao seu carrinho recebe um código de barras único, para que a loja saiba exatamente qual fruta você quer. O Mapa de Identidade no SQLAlchemy é esse sistema de código de barras: ele garante que cada objeto na sessão seja único e facilmente identificável.</p>
+<p><strong>Mapa de Identidade</strong>: Imagine que você esteja comprando frutas em uma loja online. Cada fruta que você adiciona ao seu carrinho recebe um código de barras único, para a loja saber exatamente qual fruta você quer. O Mapa de Identidade no SQLAlchemy é esse sistema de código de barras: ele garante que cada objeto na sessão seja único e facilmente identificável.</p>
 </li>
 <li>
 <p><strong>Repositório</strong>: A sessão também atua como um repositório. Isso significa que ela é como um porteiro: ela controla todas as comunicações entre o seu código Python e o banco de dados. Todos os comandos que você deseja enviar para o banco de dados devem passar pela sessão.</p>
@@ -1030,7 +1030,7 @@
 <p><strong>Unidade de Trabalho</strong>: Finalmente, a sessão age como uma unidade de trabalho. Isso significa que ela mantém o controle de todas as alterações que você quer fazer no banco de dados. Se você adicionar uma fruta ao seu carrinho e depois mudar de ideia e remover, a sessão lembrará de ambas as ações. Então, quando você finalmente decidir finalizar a compra, ela enviará todas as suas alterações para o banco de dados de uma só vez.</p>
 </li>
 </ol>
-<p>Entender esses conceitos é importante, pois nos ajuda a entender melhor como o SQLAlchemy funciona e como podemos usá-lo de forma mais eficaz. Agora que temos uma ideia do que é uma sessão, vamos configurar uma para nosso projeto.</p>
+<p>Entender esses conceitos é importante, pois nos ajuda a entender melhor como o SQLAlchemy funciona e como podemos usá-lo de forma mais eficaz. Agora que temos uma ideia do que é uma sessão, configuraremos uma para nosso projeto.</p>
 <p>Para isso, criaremos a função <code>get_session</code> e também definiremos <code>Session</code> no arquivo <code>database.py</code>:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/database.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
@@ -1057,11 +1057,11 @@
 <h2 id="gerenciando-dependencias-com-fastapi">Gerenciando Dependências com FastAPI</h2>
 <p>Assim como a sessão SQLAlchemy, que implementa vários padrões arquiteturais importantes, FastAPI também usa um conceito de padrão arquitetural chamado "Injeção de Dependência".</p>
 <p>No mundo do desenvolvimento de software, uma "dependência" é um componente que um módulo de software precisa para realizar sua função. Imagine um módulo como uma fábrica e as dependências como as partes ou matérias-primas que a fábrica precisa para produzir seus produtos. Em vez de a fábrica ter que buscar essas peças por conta própria (o que seria ineficiente), elas são entregues à fábrica, prontas para serem usadas. Este é o conceito de Injeção de Dependência.</p>
-<p>A Injeção de Dependência permite que mantenhamos um baixo nível de acoplamento entre diferentes módulos de um sistema. As dependências entre os módulos não são definidas no código, mas sim pela configuração de uma infraestrutura de software (container) que é responsável por "injetar" em cada componente suas dependências declaradas.</p>
+<p>A Injeção de Dependência permite que mantenhamos um baixo nível de acoplamento entre diferentes módulos de um sistema. As dependências entre os módulos não são definidas no código, mas sim pela configuração de uma infraestrutura de software (container) responsável por "injetar" em cada componente suas dependências declaradas.</p>
 <p>Em termos práticos, o que isso significa é que, em vez de cada parte do nosso código ter que criar suas próprias instâncias de classes ou serviços de que depende (o que pode levar a duplicação de código e tornar os testes mais difíceis), essas instâncias são criadas uma vez e depois injetadas onde são necessárias.</p>
 <p>FastAPI fornece a função <code>Depends</code> para ajudar a declarar e gerenciar essas dependências. É uma maneira declarativa de dizer ao FastAPI: "Antes de executar esta função, execute primeiro essa outra função e passe-me o resultado". Isso é especialmente útil quando temos operações que precisam ser realizadas antes de cada request, como abrir uma sessão de banco de dados.</p>
 <h2 id="modificando-o-endpoint-post-users">Modificando o Endpoint POST /users</h2>
-<p>Agora que temos a nossa sessão de banco de dados sendo gerenciada por meio do FastAPI e da injeção de dependências, vamos atualizar nossos endpoints para que possam tirar proveito disso. Começaremos com a rota de POST para a criação de usuários. Ao invés de usarmos o banco de dados falso que criamos inicialmente, agora vamos fazer a inserção real dos usuários no nosso banco de dados.</p>
+<p>Agora que temos a nossa sessão de banco de dados gerenciada por meio do FastAPI e da injeção de dependências, atualizaremos nossos endpoints para poderem tirar proveito disso. Começaremos com a rota de POST para a criação de usuários. Ao invés de usarmos o banco de dados falso que criamos inicialmente, agora faremos a inserção real dos usuários no nosso banco de dados.</p>
 <p>Para isso, vamos modificar o nosso endpoint da seguinte maneira:</p>
 <div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">select</span>
@@ -1096,8 +1096,8 @@
 </code></pre></div>
 <p>Nesse código, a função <code>create_user</code> recebe um objeto do tipo <code>UserSchema</code> e uma sessão SQLAlchemy, que é injetada automaticamente pelo FastAPI usando o <code>Depends</code>. O código verifica se já existe um usuário com o mesmo nome no banco de dados e, caso não exista, cria um novo usuário, adiciona-o à sessão e confirma a transação.</p>
 <h3 id="testando-o-endpoint-post-users-com-pytest-e-fixtures">Testando o Endpoint POST /users com Pytest e Fixtures</h3>
-<p>Agora que nossa rota de POST está funcionando com o banco de dados real, precisamos atualizar nossos testes para refletir essa mudança. Como estamos usando a injeção de dependências, precisamos também usar essa funcionalidade nos nossos testes para que possamos injetar a sessão de banco de dados de teste.</p>
-<p>Vamos alterar a nossa fixture <code>client</code> para substituir a função <code>get_session</code> que estamos injetando no endpoint pela sessão do banco em memória que já tínhamos definido para banco de dados.</p>
+<p>Agora que nossa rota de POST está funcionando com o banco de dados real, precisamos atualizar nossos testes para refletir essa mudança. Como estamos usando a injeção de dependências, precisamos também usar essa funcionalidade nos nossos testes para podermos injetar a sessão de banco de dados de teste.</p>
+<p>Alteraremos a nossa fixture <code>client</code> para substituir a função <code>get_session</code> que estamos injetando no endpoint pela sessão do banco em memória que já tínhamos definido para banco de dados.</p>
 <div class="highlight"><span class="filename">tests/conftest.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
@@ -1116,7 +1116,7 @@
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
 <a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div>
-<p>Com isso, quando o FastAPI tentar injetar a sessão em nossos endpoints, ele vai injetar a sessão de teste que definimos, em vez da sessão real. E como estamos usando um banco de dados em memória para os testes, nossos testes não vão interferir nos dados reais do nosso aplicativo.</p>
+<p>Com isso, quando o FastAPI tentar injetar a sessão em nossos endpoints, ele injetará a sessão de teste que definimos, em vez da sessão real. E como estamos usando um banco de dados em memória para os testes, nossos testes não vão interferir nos dados reais do nosso aplicativo.</p>
 <div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="s1">'/users'</span><span class="p">,</span>
@@ -1133,7 +1133,7 @@
 <a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
 <a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="p">}</span>
 </code></pre></div>
-<p>Agora que temos a nossa fixture configurada, vamos atualizar o nosso teste <code>test_create_user</code> para usar o novo cliente de teste e verificar que o usuário está sendo realmente criado no banco de dados.</p>
+<p>Agora que temos a nossa fixture configurada, atualizaremos o nosso teste <code>test_create_user</code> para usar o novo cliente de teste e verificar que o usuário está sendo realmente criado no banco de dados.</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>task<span class="w"> </span><span class="nb">test</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># ...</span>
@@ -1147,10 +1147,10 @@
 <p>Para contornar isso, adicionaremos os seguintes parâmetros na criação da <code>engine</code>:</p>
 <ol>
 <li>
-<p><code>connect_args={'check_same_thread': False}</code>: Essa configuração desativa a verificação de que o objeto SQLite está sendo usado na mesma thread em que foi criado. Isso permite que a conexão seja compartilhada entre threads diferentes sem levar a erros.</p>
+<p><code>connect_args={'check_same_thread': False}</code>: essa configuração desativa a verificação de que o objeto SQLite está sendo usado na mesma thread em que foi criado. Isso permite que a conexão seja compartilhada entre threads diferentes sem levar a erros.</p>
 </li>
 <li>
-<p><code>poolclass=StaticPool</code>: Esse parâmetro faz com que a engine use um pool de conexões estático, ou seja, reutilize a mesma conexão para todas as solicitações. Isso garante que as duas threads usem o mesmo canal de comunicação, evitando erros relacionados ao uso de diferentes conexões em threads diferentes.</p>
+<p><code>poolclass=StaticPool</code>: esse parâmetro faz com que a engine use um pool de conexões estático, ou seja, reutilize a mesma conexão para todas as solicitações. Isso garante que as duas threads usem o mesmo canal de comunicação, evitando erros relacionados ao uso de diferentes conexões em threads diferentes.</p>
 </li>
 </ol>
 <p>Assim, nossa fixture deve ficar dessa forma:</p>
@@ -1201,7 +1201,7 @@
 </ul>
 <p>Essas adições tornam o nosso endpoint mais flexível e otimizado para lidar com diferentes cenários de uso.</p>
 <h3 id="testando-o-endpoint-get-users">Testando o Endpoint GET /users</h3>
-<p>Com a mudança para o banco de dados real, nosso banco de dados de teste será sempre resetado para cada teste. Portanto, não podemos mais executar o teste que tínhamos antes, pois não haverão usuários no banco. Para verificar se o nosso endpoint está funcionando corretamente, vamos criar um novo teste que solicita uma lista de usuários de um banco vazio:</p>
+<p>Com a mudança para o banco de dados real, nosso banco de dados de teste será sempre resetado para cada teste. Portanto, não podemos mais executar o teste que tínhamos antes, pois não haverá usuários no banco. Para verificar se o nosso endpoint está funcionando corretamente, criaremos um novo teste que solicita uma lista de usuários de um banco vazio:</p>
 <div class="highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">test_read_users</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/users'</span><span class="p">)</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
@@ -1216,9 +1216,9 @@
 <a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>tests/test_app.py::test_read_users<span class="w"> </span>PASSED
 <a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>tests/test_app.py::test_update_user<span class="w"> </span>FAILED
 </code></pre></div>
-<p>Porém, é claro, queremos também testar o caso em que existem usuários no banco. Para isso, vamos criar uma nova fixture que cria um usuário em nosso banco de dados de teste.</p>
+<p>Porém, é claro, queremos também testar o caso em que existem usuários no banco. Para isso, criaremos uma nova fixture que cria um usuário em nosso banco de dados de teste.</p>
 <h3 id="criando-uma-fixture-para-user">Criando uma fixture para User</h3>
-<p>Para criar essa fixture, vamos aproveitar a nossa fixture de sessão do SQLAlchemy, e criar um novo usuário dentro dela:</p>
+<p>Para criar essa fixture, aproveitaremos a nossa fixture de sessão do SQLAlchemy, e criar um novo usuário dentro dela:</p>
 <div class="highlight"><span class="filename">tests/conftest.py</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">Base</span><span class="p">,</span> <span class="n">User</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
 <a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># ...</span>
@@ -1253,11 +1253,11 @@
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>tests/test_app.py::test_read_users<span class="w"> </span>PASSED
 <a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>tests/test_app.py::test_read_users_with_users<span class="w"> </span>FAILED
 </code></pre></div>
-<p>No entanto, mesmo que nosso código pareça correto, podemos encontrar um problema: o Pydantic não consegue converter diretamente nosso modelo SQLAlchemy para um modelo Pydantic. Vamos resolver isso agora.</p>
+<p>No entanto, mesmo que nosso código pareça correto, podemos encontrar um problema: o Pydantic não consegue converter diretamente nosso modelo SQLAlchemy para um modelo Pydantic. Resolveremos isso agora.</p>
 <h3 id="integrando-o-schema-ao-model">Integrando o Schema ao Model</h3>
 <p>A integração direta do ORM com o nosso esquema Pydantic não é imediata e exige algumas modificações. O Pydantic, por padrão, não sabe como lidar com os modelos do SQLAlchemy, o que nos leva ao erro observado nos testes.</p>
 <p>A solução para esse problema passa por fazer uma alteração no esquema <code>UserPublic</code> que utilizamos, para que ele possa reconhecer e trabalhar com os modelos do SQLAlchemy. Isso permite que os objetos do SQLAlchemy sejam convertidos corretamente para os esquemas Pydantic.</p>
-<p>Para resolver o problema de conversão entre SQLAlchemy e Pydantic, precisamos atualizar o nosso esquema <code>UserPublic</code> para que ele possa reconhecer os modelos do SQLAlchemy. Para isso, vamos adicionar a linha <code>model_config = ConfigDict(from_attributes=True)</code> ao nosso esquema:</p>
+<p>Para resolver o problema de conversão entre SQLAlchemy e Pydantic, precisamos atualizar o nosso esquema <code>UserPublic</code> para que ele possa reconhecer os modelos do SQLAlchemy. Para isso, adicionaremos a linha <code>model_config = ConfigDict(from_attributes=True)</code> ao nosso esquema:</p>
 <div class="highlight"><span class="filename">fast_zero/schemas.py</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">EmailStr</span><span class="p">,</span> <span class="n">ConfigDict</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
 <a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># ...</span>
@@ -1281,7 +1281,7 @@
 </code></pre></div>
 <p>Agora que temos nosso endpoint GET funcionando corretamente e testado, podemos seguir para o endpoint PUT, e continuar com o processo de atualização dos nossos endpoints.</p>
 <h2 id="modificando-o-endpoint-put-users">Modificando o Endpoint PUT /users</h2>
-<p>Agora, vamos modificar o endpoint de PUT para suportar o banco de dados, como fizemos com os endpoints POST e GET:</p>
+<p>Agora, modificaremos o endpoint de PUT para suportar o banco de dados, como fizemos com os endpoints POST e GET:</p>
 <div class="highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">)</span>
@@ -1396,9 +1396,9 @@
 <p>Com o banco de dados agora em funcionamento, podemos verificar a cobertura de código do arquivo <code>fast_zero/app.py</code>. Se olharmos para a imagem abaixo, vemos que ainda há alguns casos que não testamos. Por exemplo, o que acontece quando tentamos atualizar ou excluir um usuário que não existe?</p>
 <p><a class="glightbox" href="../assets/04_coverage_mostrando_casos_nao_testados_de_erro.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/04_coverage_mostrando_casos_nao_testados_de_erro.png"></a></p>
 <p>Esses três casos ficam como exercício para quem está acompanhando este curso.</p>
-<p>Além disso, não devemos esquecer de remover a implementação do banco de dados falso <code>database = []</code> que usamos inicialmente e remover também as definições de <code>TestClient</code> em <code>test_app.py</code> pois tudo está usando as fixtures agora!</p>
+<p>Além disso, não devemos esquecer de remover a implementação do banco de dados falso <code>database = []</code> que usamos inicialmente e remover também as definições de <code>TestClient</code> em <code>test_app.py</code>, pois tudo está usando as fixtures agora!</p>
 <h2 id="commit">Commit</h2>
-<p>Agora que terminamos a atualização dos nossos endpoints, vamos fazer o commit das nossas alterações. O processo é o seguinte:</p>
+<p>Agora que terminamos a atualização dos nossos endpoints, faremos o commit das nossas alterações. O processo é o seguinte:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Atualizando endpoints para usar o banco de dados real"</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>git<span class="w"> </span>push
@@ -1407,7 +1407,7 @@
 <h2 id="conclusao">Conclusão</h2>
 <p>Parabéns por chegar ao final desta aula! Você deu um passo significativo no desenvolvimento de nossa aplicação, substituindo a implementação do banco de dados falso pela integração com um banco de dados real usando SQLAlchemy. Também vimos como ajustar os nossos testes para considerar essa nova realidade.</p>
 <p>Nesta aula, abordamos como modificar os endpoints para interagir com o banco de dados real e como utilizar a injeção de dependências do FastAPI para gerenciar nossas sessões do SQLAlchemy. Também discutimos a importância dos testes para garantir que nossos endpoints estão funcionando corretamente, e como as fixtures do Pytest podem nos auxiliar na preparação do ambiente para esses testes.</p>
-<p>Também nos deparamos com situações onde o Pydantic e o SQLAlchemy não interagem perfeitamente bem, e como solucionar esses casos.</p>
+<p>Além disso, nos deparamos com situações onde o Pydantic e o SQLAlchemy não interagem perfeitamente bem, e como solucionar esses casos.</p>
 <p>No final desta aula, você deve estar confortável em integrar um banco de dados real a uma aplicação FastAPI, saber como escrever testes robustos que levem em consideração a interação com o banco de dados, e estar ciente de possíveis desafios ao trabalhar com Pydantic e SQLAlchemy juntos.</p></div>
 
 
@@ -1429,7 +1429,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 10, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 13, 2023</span>
   </span>
 
     
