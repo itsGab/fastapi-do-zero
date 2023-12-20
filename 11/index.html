@@ -22,7 +22,7 @@
     
     
       
-        <title>[WIP] Fazendo deploy no Fly.io e configurando o PostgreSQL - FastAPI do Zero</title>
+        <title>Fazendo deploy no Fly.io e configurando o PostgreSQL - FastAPI do Zero</title>
       
     
     
@@ -59,7 +59,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="[WIP] Fazendo deploy no Fly.io e configurando o PostgreSQL - FastAPI do Zero" >
+        <meta  property="og:title"  content="Fazendo deploy no Fly.io e configurando o PostgreSQL - FastAPI do Zero" >
       
         <meta  property="og:description"  content="None" >
       
@@ -75,7 +75,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="[WIP] Fazendo deploy no Fly.io e configurando o PostgreSQL - FastAPI do Zero" >
+        <meta  name="twitter:title"  content="Fazendo deploy no Fly.io e configurando o PostgreSQL - FastAPI do Zero" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -113,7 +113,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wip-fazendo-deploy-no-flyio-e-configurando-o-postgresql" class="md-skip">
+        <a href="#fazendo-deploy-no-flyio-e-configurando-o-postgresql" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -148,7 +148,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              [WIP] Fazendo deploy no Fly.io e configurando o PostgreSQL
+              Fazendo deploy no Fly.io e configurando o PostgreSQL
             
           </span>
         </div>
@@ -530,7 +530,7 @@
           
   
   <span class="md-ellipsis">
-    [WIP] Fazendo deploy no Fly.io e configurando o PostgreSQL
+    Fazendo deploy no Fly.io e configurando o PostgreSQL
   </span>
   
 
@@ -541,7 +541,7 @@
         
   
   <span class="md-ellipsis">
-    [WIP] Fazendo deploy no Fly.io e configurando o PostgreSQL
+    Fazendo deploy no Fly.io e configurando o PostgreSQL
   </span>
   
 
@@ -563,45 +563,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-flyio-e-a-instalacao-da-cli" class="md-nav__link">
+  <a href="#o-flyio" class="md-nav__link">
     <span class="md-ellipsis">
-      O Fly.io e a instalação da CLI
+      O Fly.io
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O Fly.io">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flyclt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flyclt
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flyclt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fazendo-login-via-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fazendo login via terminal
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#criando-a-aplicacao-no-flyio-e-fazendo-o-deploy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Criando a aplicação no Fly.io e fazendo o deploy
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configurando-a-instancia-do-postgresql-no-flyio" class="md-nav__link">
+  <a href="#configuracoes-para-o-deploy" class="md-nav__link">
     <span class="md-ellipsis">
-      Configurando a instância do PostgreSQL no Fly.io
+      Configurações para o deploy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurações para o deploy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracao-dos-segredos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuração dos segredos
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#configurando-as-variaveis-de-ambiente-e-rodando-as-migracoes-do-alembic" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-da-aplicacao" class="md-nav__link">
     <span class="md-ellipsis">
-      Configurando as variáveis de ambiente e rodando as migrações do Alembic
+      Deploy da aplicação
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#configurando-o-deploy-continuo-no-github-actions" class="md-nav__link">
+  <a href="#commit" class="md-nav__link">
     <span class="md-ellipsis">
-      Configurando o deploy contínuo no Github Actions
+      Commit
     </span>
   </a>
   
@@ -671,45 +716,90 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-flyio-e-a-instalacao-da-cli" class="md-nav__link">
+  <a href="#o-flyio" class="md-nav__link">
     <span class="md-ellipsis">
-      O Fly.io e a instalação da CLI
+      O Fly.io
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="O Fly.io">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flyclt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flyclt
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flyclt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fazendo-login-via-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fazendo login via terminal
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#criando-a-aplicacao-no-flyio-e-fazendo-o-deploy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Criando a aplicação no Fly.io e fazendo o deploy
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configurando-a-instancia-do-postgresql-no-flyio" class="md-nav__link">
+  <a href="#configuracoes-para-o-deploy" class="md-nav__link">
     <span class="md-ellipsis">
-      Configurando a instância do PostgreSQL no Fly.io
+      Configurações para o deploy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configurações para o deploy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuracao-dos-segredos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuração dos segredos
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#configurando-as-variaveis-de-ambiente-e-rodando-as-migracoes-do-alembic" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-da-aplicacao" class="md-nav__link">
     <span class="md-ellipsis">
-      Configurando as variáveis de ambiente e rodando as migrações do Alembic
+      Deploy da aplicação
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Migrations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#configurando-o-deploy-continuo-no-github-actions" class="md-nav__link">
+  <a href="#commit" class="md-nav__link">
     <span class="md-ellipsis">
-      Configurando o deploy contínuo no Github Actions
+      Commit
     </span>
   </a>
   
@@ -742,62 +832,268 @@
   
 
 
-<div><h1 id="wip-fazendo-deploy-no-flyio-e-configurando-o-postgresql">[WIP] Fazendo deploy no Fly.io e configurando o PostgreSQL</h1>
-<p>Aula em manutenção. Discussões no tópico de manutenção na issue <a href="https://github.com/dunossauro/fastapi-do-zero/issues/58" target="_blank">#58</a> do repositório.</p>
+<div><h1 id="fazendo-deploy-no-flyio-e-configurando-o-postgresql">Fazendo deploy no Fly.io e configurando o PostgreSQL</h1>
+<details class="tip">
+<summary>Caso prefira ver a aula em vídeo</summary>
+<p><a class="glightbox" href="https://www.youtube.com/embed/u31qwQUeGuM" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/u31qwQUeGuM" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+</details>
+<p><a class="md-button" href="#">Aula <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span></a>
+<a class="md-button" href="#">Slides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM136 240h68c42 0 76 34 76 76s-34 76-76 76h-44v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V264c0-13.3 10.7-24 24-24zm68 104c15.5 0 28-12.5 28-28s-12.5-28-28-28h-44v56h44z"></path></svg></span></a>
+<a class="md-button" href="https://github.com/dunossauro/fastapi-do-zero/tree/main/codigo_das_aulas/11/">Código <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span></a></p>
 <hr>
 <p><strong>Objetivos da aula:</strong></p>
 <ul>
-<li>Entender o que é o Fly.io e como instalar sua CLI</li>
+<li>Entender o que é o Fly.io e como usar sua CLI</li>
 <li>Aprender a fazer o deploy de uma aplicação Docker no Fly.io</li>
 <li>Configurar uma instância do PostgreSQL no Fly.io</li>
 <li>Configurar as variáveis de ambiente</li>
-<li>Rodar as migrações do Alembic</li>
-<li>Configurar o deploy contínuo no Github Actions</li>
+<li>Rodar as migrações em produção</li>
 </ul>
 <hr>
-<h2 id="o-flyio-e-a-instalacao-da-cli">O Fly.io e a instalação da CLI</h2>
-<p>Na aula anterior, nós automatizamos nossos testes e integramos tudo em um pipeline de integração e deploy contínuos. Agora, vamos aprender a fazer o deploy da nossa aplicação em um ambiente de produção usando o Fly.io.</p>
-<p>O Fly.io é uma plataforma de deploy que nos permite lançar nossas aplicações Docker na nuvem. Ele também fornece uma série de recursos, como balanceamento de carga, criação de instâncias de banco de dados e configuração de variáveis de ambiente.</p>
-<p>Para iniciar, precisamos instalar a CLI do Fly.io, chamada <code>flyctl</code>. Você pode baixá-la no site oficial do Fly.io. Com o <code>flyctl</code> instalado, precisamos fazer login na nossa conta do Fly.io usando o comando:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>fly<span class="w"> </span>auth<span class="w"> </span>login
+<p>Agora que temos uma API criada com integração ao banco de dados e testes sendo executados via integração contínua. Chegou a tão esperada hora de colocar nossa aplicação em produção para que todas as pessoas possam acessá-la. Colocaremos nossa aplicação em produção usando um serviço de <a href="https://pt.wikipedia.org/wiki/Plataforma_como_servi%C3%A7o" target="_blank">PaaS</a>, chamado <a href="https://fly.io" target="_blank">Fly.io</a>.</p>
+<h2 id="o-flyio">O Fly.io</h2>
+<p>O Fly.io é uma plataforma de deploy que nos permite lançar nossas aplicações na nuvem e que oferece serviços para diversas linguagens de programação e frameworks como Python e Django, PHP e Laravel, Ruby e Rails, Elixir e Phoenix, etc. </p>
+<p>Ao mesmo tempo, em que permite que o deploy de aplicações em containers docker também possam ser utilizadas, como é o nosso caso. Além disso, o Fly disponibiliza bancos de dados para serem usados em nossas aplicações, como PostgreSQL e <a href="https://redis.io/" target="_blank">Redis</a>.</p>
+<p>O motivo pela escolha do Fly é que ele permite que façamos deploys de aplicações em desenvolvimento / provas de conceito de forma gratuita - o que usaremos para "colocar nossa aplicação no mundo".</p>
+<blockquote>
+<p>Para fazer o uso do fly.io é necessário que você <a href="https://fly.io/app/sign-in" target="_blank">crie uma conta no serviço</a>.</p>
+</blockquote>
+<h3 id="flyclt">Flyclt</h3>
+<p>Uma das formas de interagir com a plataforma é via uma aplicação de linha de comando disponibilizada pelo Fly, o <a href="https://fly.io/docs/flyctl/" target="_blank">flyctl</a>.</p>
+<p>O flyctl precisa ser instalado em seu computador. Em algumas distribuições linux o flyctl está disponível nos repositórios de aplicações. Para Mac/Windows ou distribuições linux que não contam com o pacote no repositório, você pode seguir o guia de <a href="https://fly.io/docs/hands-on/install-flyctl/" target="_blank">instalação oficial</a>.</p>
+<p>Após a instalação, você pode verificar se o flyctl está instalado em seu sistema operacional digitando o seguinte comando no terminal:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>flyctl<span class="w"> </span>version
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>flyctl<span class="w"> </span>v0.1.134<span class="w"> </span>linux/amd64<span class="w"> </span>Commit:<span class="w"> </span>...<span class="w"> </span>BuildDate:<span class="w"> </span><span class="m">2023</span>-12-08T18:58:44Z
 </code></pre></div>
-<p>Este comando irá abrir o navegador para você entrar com suas credenciais do Fly.io.</p>
-<h2 id="criando-a-aplicacao-no-flyio-e-fazendo-o-deploy">Criando a aplicação no Fly.io e fazendo o deploy</h2>
-<p>Depois de logado, podemos criar uma nova aplicação no Fly.io usando o comando:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>fly<span class="w"> </span>launch
+<p>A versão instalada no meu sistema é a <code>0.1.134</code>. No momento da sua instalação, você pode se deparar com uma versão mais recente do que a minha no momento, mas os comandos devem funcionar da mesma forma em qualquer versão menor que <code>0.2.0</code>.</p>
+<h4 id="fazendo-login-via-terminal">Fazendo login via terminal</h4>
+<p>Após a instalação do <code>flyctl</code> é importante que você efetue o login usando suas credenciais, para que o <code>flyctl</code> consiga vincular suas credenciais com a linha de comando. Para isso podemos executar o seguinte comando:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>flyctl<span class="w"> </span>auth<span class="w"> </span>login
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Opening<span class="w"> </span>https://fly.io/app/auth/cli/91283719231023123<span class="w"> </span>...
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>session...
 </code></pre></div>
-<p>Este comando irá perguntar algumas informações sobre sua aplicação e então criará uma nova aplicação no Fly.io. Com nossa aplicação criada, podemos agora fazer o deploy da nossa imagem Docker usando o comando:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>fly<span class="w"> </span>deploy<span class="w"> </span>--local-only
+<p>Isso abrirá uma janela em seu browser pedindo que você efetue o login:</p>
+<p><a class="glightbox" href="../assets/11_auth_login_fly.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Captura de tela da tela inicial de login do fly.io" class="center shadow" src="../assets/11_auth_login_fly.png" width="500"></a></p>
+<p>Após inserir suas credenciais, você pode fechar o browser e no shell a execução do comando terminará mostrando a conta em que você está logado:</p>
+<div class="highlight"><span class="filename">$ Continuação da resposta do terminal</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>session...<span class="w"> </span>Done
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>successfully<span class="w"> </span>logged<span class="w"> </span><span class="k">in</span><span class="w"> </span>as<span class="w"> </span>&lt;seu-email@de-login.com&gt;
 </code></pre></div>
-<p>A opção <code>--local-only</code> diz para o <code>flyctl</code> construir a imagem Docker localmente e depois fazer o upload dela para o Fly.io.</p>
-<h2 id="configurando-a-instancia-do-postgresql-no-flyio">Configurando a instância do PostgreSQL no Fly.io</h2>
-<p>Antes de avançarmos, é importante mencionar uma especificidade do Fly.io: para criar uma instância do PostgreSQL, a plataforma requer que um cartão de crédito seja fornecido. Esta é uma medida de segurança adotada para evitar o uso indevido de seus serviços, como a execução de ferramentas de mineração. Apesar dessa exigência, o serviço de PostgreSQL é oferecido de forma gratuita. Mais detalhes podem ser encontrados <a href="https://fly.io/blog/free-postgres/">neste artigo</a>.</p>
-<p>Agora, vamos criar uma instância do PostgreSQL. O Fly.io fornece um serviço PostgreSQL que podemos usar para criar uma nova instância do PostgreSQL com apenas alguns comandos.</p>
-<h2 id="configurando-as-variaveis-de-ambiente-e-rodando-as-migracoes-do-alembic">Configurando as variáveis de ambiente e rodando as migrações do Alembic</h2>
-<p>Com a instância criada, algumas variáveis de ambiente serão automaticamente definidas para nós. Para que o Alembic possa executar as migrações, precisamos configurar a variável <code>DATABASE_URL</code> no nosso aplicativo para apontar para a instância do PostgreSQL do Fly.io.</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>fly<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span>&lt;value&gt;
+<p>Desta forma, toda a configuração necessária para o iniciar o deploy está pronta!</p>
+<h2 id="configuracoes-para-o-deploy">Configurações para o deploy</h2>
+<p>Agora com o <code>flyctl</code> devidamente configurado. Podemos iniciar o processo de lançamento da nossa aplicação. O <code>flyctl</code> tem um comando específico para lançamento, o <code>launch</code>. Contudo, o comando <code>launch</code> é bastante interativo e ao final dele, o deploy da aplicação é executado. Para evitar o deploy no primeiro momento, pois ainda existem coisas para serem configuradas, vamos executá-lo da seguinte forma:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>flyctl<span class="w"> </span>launch<span class="w"> </span>--no-deploy
 </code></pre></div>
-<p>Substitua <code>&lt;value&gt;</code> pela string de conexão do seu banco de dados PostgreSQL.</p>
-<p>Finalmente, podemos executar nossas migrações Alembic. Usaremos a CLI do Fly.io para executar o comando dentro de um contêiner do nosso aplicativo:</p>
-<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>fly<span class="w"> </span>ssh<span class="w"> </span>console<span class="w"> </span>--app<span class="w"> </span>&lt;your-app-name&gt;<span class="w"> </span><span class="s1">'poetry run alembic upgrade head'</span>
+<p>Como resultado desse comando, o <code>flyctl</code> iniciará o modo interativo e exibirá uma resposta próxima a essa:</p>
+<div class="highlight"><span class="filename">$ Resposta do comando `launch`</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Detected<span class="w"> </span>a<span class="w"> </span>Dockerfile<span class="w"> </span>app
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Creating<span class="w"> </span>app<span class="w"> </span><span class="k">in</span><span class="w"> </span>/home/dunossauro/ci-example-fastapi
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>We<span class="s1">'re about to launch your app on Fly.io. Here'</span>s<span class="w"> </span>what<span class="w"> </span>you<span class="err">'</span>re<span class="w"> </span>getting:
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Organization:<span class="w"> </span>&lt;Seu<span class="w"> </span>Nome&gt;<span class="w">             </span><span class="o">(</span>fly<span class="w"> </span>launch<span class="w"> </span>defaults<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>personal<span class="w"> </span>org<span class="o">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>Name:<span class="w">         </span>fast-zero<span class="w">              </span><span class="o">(</span>derived<span class="w"> </span>from<span class="w"> </span>your<span class="w"> </span>directory<span class="w"> </span>name<span class="o">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Region:<span class="w">       </span>Sao<span class="w"> </span>Paulo,<span class="w"> </span>Brazil<span class="w">      </span><span class="o">(</span>this<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>fastest<span class="w"> </span>region<span class="w"> </span><span class="k">for</span><span class="w"> </span>you<span class="o">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>App<span class="w"> </span>Machines:<span class="w"> </span>shared-cpu-1x,<span class="w"> </span>1GB<span class="w"> </span>RAM<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>apps<span class="w"> </span>need<span class="w"> </span>about<span class="w"> </span>1GB<span class="w"> </span>of<span class="w"> </span>RAM<span class="o">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Postgres:<span class="w">     </span>&lt;none&gt;<span class="w">                 </span><span class="o">(</span>not<span class="w"> </span>requested<span class="o">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>Redis:<span class="w">        </span>&lt;none&gt;<span class="w">                 </span><span class="o">(</span>not<span class="w"> </span>requested<span class="o">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>?<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>tweak<span class="w"> </span>these<span class="w"> </span>settings<span class="w"> </span>before<span class="w"> </span>proceeding?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>
 </code></pre></div>
-<p>Substitua <code>&lt;your-app-name&gt;</code> pelo nome do seu aplicativo no Fly.io.</p>
-<h2 id="configurando-o-deploy-continuo-no-github-actions">Configurando o deploy contínuo no Github Actions</h2>
-<p>Agora que temos nosso aplicativo funcionando no Fly.io, podemos configurar o Github Actions para fazer o deploy automático sempre que fizermos um push no nosso repositório. Para isso, precisaremos adicionar alguns passos ao nosso arquivo de pipeline do Github Actions:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and push Docker image to Fly.io</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="no">flyctl deploy --local-only</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="no">flyctl deploy</span>
+<p>Nesse texto estão destacadas as configurações padrões do Fly. Como a Região onde seu deploy será feito (<code>Sao Paulo, Brazil</code>, o mais próximo a mim nesse momento), a configuração da máquina do deploy <code>App Machines: shared-cpu-1x, 1GB RAM</code> e a opção padrão do Postgres: <code>Postgres: &lt;none&gt;</code>.</p>
+<p>A pergunta feita ao final dessa seção <code>Do you want to tweak these settings before proceeding?</code> pode ser traduzida como: <code>Você deseja ajustar essas configuração antes de prosseguir?</code>. Diremos que sim, digitando <span class="keys"><kbd class="key-y">Y</kbd></span> e em seguida <span class="keys"><kbd class="key-enter">Enter</kbd></span>.</p>
+<p>Assim, a configuração do lançamento deve avançar e travar novamente com um texto parecido com esse:</p>
+<div class="highlight"><span class="filename">$ Continuação do comando `launch`</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>?<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>tweak<span class="w"> </span>these<span class="w"> </span>settings<span class="w"> </span>before<span class="w"> </span>proceeding?<span class="w"> </span>Yes
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Opening<span class="w"> </span>https://fly.io/cli/launch/59f08b31a5efd30bdf5536ac516de5ga<span class="w"> </span>...
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>launch<span class="w"> </span>data...⣽
 </code></pre></div>
-<p>Com isso, nossa aplicação está pronta para uso no Fly.io!</p>
+<p>Nesse momento, ele abrirá o browser novamente exibira uma tela de ajustes de configurações:</p>
+<p><a class="glightbox" href="../assets/11_fly_lauch_tweak.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="captura de tela da janela de tweak da aplicação" class="center shadow" src="../assets/11_fly_lauch_tweak.png" width="500"></a></p>
+<p>Nesse momento faremos alguns ajustes em nossa configuração:</p>
+<ol>
+<li>Seção <code>Basics</code>: adicionaremos o nome da nossa aplicação no Fly. (Usarei <code>fastzeroapp</code>)</li>
+<li>Seção <code>Memory &amp; CPU</code>: alteraremos o campo <code>VM Memory</code> para 256MB</li>
+<li>Seção <code>Database</code>:<ul>
+<li>alteraremos o campo <code>Postgres</code> para <code>Fly Postgres</code></li>
+<li>criaremos um nome para o nosso serviço de banco de dados. (Usarei <code>fastzerodb</code>)</li>
+<li>no campo <code>Configuration</code> alteraremos para <code>Development - Single node, 1x shared CPU, 256MB RAM, 1GB disk</code></li>
+</ul>
+</li>
+<li>Por fim, clicamos em <code>Confirm Settings</code>!</li>
+</ol>
+<p>Após esse ajuste, você pode fechar a janela do browser e voltar ao terminal, pois a parte interativa do <code>launch</code> ainda estará em execução. Como a resposta a seguir é bastante grande, colocarei <code>...</code> para pular algumas linhas que não nos interessam nesse momento:</p>
+<div class="highlight"><span class="filename">$ Continuação do comando `launch`</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Created<span class="w"> </span>app<span class="w"> </span><span class="s1">'fastzeroapp'</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>organization<span class="w"> </span><span class="s1">'personal'</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="hll">Admin<span class="w"> </span>URL:<span class="w"> </span>https://fly.io/apps/fastzeroapp
+</span><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Hostname:<span class="w"> </span>fastzeroapp.fly.dev
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Creating<span class="w"> </span>postgres<span class="w"> </span>cluster<span class="w"> </span><span class="k">in</span><span class="w"> </span>organization<span class="w"> </span>personal
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Creating<span class="w"> </span>app...
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>...
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>Postgres<span class="w"> </span>cluster<span class="w"> </span>fastzerodb<span class="w"> </span>created
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span>Username:<span class="w">    </span>postgres
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span>Password:<span class="w">    </span>t0Vf35P21eDlIVS
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span>Hostname:<span class="w">    </span>fastzerodb.internal
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">  </span>Flycast:<span class="w">     </span>fdaa:2:77b0:0:1::a
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">  </span>Proxy<span class="w"> </span>port:<span class="w">  </span><span class="m">5432</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">  </span>Postgres<span class="w"> </span>port:<span class="w">  </span><span class="m">5433</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="hll"><span class="w">  </span>Connection<span class="w"> </span>string:<span class="w"> </span>postgres://postgres:t0Vf35P21eDlIVS@fastzerodb.flycast:5432
+</span><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>...
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>Postgres<span class="w"> </span>cluster<span class="w"> </span>fastzerodb<span class="w"> </span>is<span class="w"> </span>now<span class="w"> </span>attached<span class="w"> </span>to<span class="w"> </span>fastzeroapp
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>The<span class="w"> </span>following<span class="w"> </span>secret<span class="w"> </span>was<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>fastzeroapp:
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="hll"><span class="w">  </span><span class="nv">DATABASE_URL</span><span class="o">=</span>postgres://fastzeroapp:zHgBlc6JNaslGtz@fastzerodb.flycast:5432/fastzeroapp?sslmode<span class="o">=</span>disable
+</span><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>Postgres<span class="w"> </span>cluster<span class="w"> </span>fastzerodb<span class="w"> </span>is<span class="w"> </span>now<span class="w"> </span>attached<span class="w"> </span>to<span class="w"> </span>fastzeroapp
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>?<span class="w"> </span>Create<span class="w"> </span>.dockerignore<span class="w"> </span>from<span class="w"> </span>.gitignore<span class="w"> </span>files?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span>
+</code></pre></div>
+<p>Nas linhas em destaque, vemos que o Fly se encarregou de criar um dashboard para vermos o status atual da nossa aplicação (https://fly.io/apps/nome-do-seu-app), inicializou um banco de dados postgres para usarmos em conjunto com nossa aplicação e também adicionou a url do banco de dados a variável de ambiente <code>DATABASE_URL</code> com a configuração do postgres referente a nossa aplicação.</p>
+<p><strong>A <code>Connection string</code> do banco de dados deve ser armazenada por você, essa informação não será disponibilizada novamente, nem mesmo na parte web do Fly. Por isso <ins class="critic">guarde-a com cuidado e não compartilhem de forma alguma</ins>.</strong></p>
+<p>Assim sendo, para prosseguir com o <code>launch</code> devemos responder a seguinte pergunta: <code>Create .dockerignore from .gitignore files? (y/N)</code>, que pode ser traduzida como <code>Crie um .dockerignore partindo do arquivo .gitignore?</code>. Vamos novamente responder que sim. Digitando <span class="keys"><kbd class="key-y">Y</kbd></span> e em seguida <span class="keys"><kbd class="key-enter">Enter</kbd></span>.</p>
+<div class="highlight"><span class="filename">$ Continuação do comando `launch`</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Created<span class="w"> </span>&lt;seu-path&gt;/.dockerignore<span class="w"> </span>from<span class="w"> </span><span class="m">6</span><span class="w"> </span>.gitignore<span class="w"> </span>files.
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Wrote<span class="w"> </span>config<span class="w"> </span>file<span class="w"> </span>fly.toml
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Validating<span class="w"> </span>&lt;seu-path&gt;/fly.toml
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Platform:<span class="w"> </span>machines
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>✓<span class="w"> </span>Configuration<span class="w"> </span>is<span class="w"> </span>valid
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>Your<span class="w"> </span>app<span class="w"> </span>is<span class="w"> </span>ready!<span class="w"> </span>Deploy<span class="w"> </span>with<span class="w"> </span><span class="sb">`</span>flyctl<span class="w"> </span>deploy<span class="sb">`</span>
+</code></pre></div>
+<p>Agora o <code>flyctl</code> criou um arquivo <code>.dockerignore</code> que não copia os arquivos do <code>.gitignore</code> para dentro do container docker e também criou um arquivo de configuração do Fly, o arquivo <code>fly.toml</code>.</p>
+<p>Na última linha ele nos disse que nossa aplicação está pronta para o deploy. Mas ainda temos mais configurações a fazer!</p>
+<h3 id="configuracao-dos-segredos">Configuração dos segredos</h3>
+<p>Para que nossa aplicação funcione de maneira adequada, todas as variáveis de ambiente precisam estar configuradas no ambiente. O <code>flyctl</code> tem um comando para vermos as variáveis que já foram definidas no ambiente e também para definir novas. O comando <code>secrets</code>.</p>
+<p>Para vermos as variáveis já configuradas no ambiente, podemos executar o seguinte comando:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>flyctl<span class="w"> </span>secrets<span class="w"> </span>list
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>NAME<span class="w">            </span>DIGEST<span class="w">              </span>CREATED<span class="w"> </span>AT
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>DATABASE_URL<span class="w">    </span>f803df294e7326fa<span class="w">    </span>22m43s<span class="w"> </span>ago
+</code></pre></div>
+<p>Uma coisa que podemos notar na resposta do <code>secrets</code> é que ele leu nosso arquivo <code>.env</code> e adicionou a variável de ambiente <code>DATABASE_URL</code> com base no postgres que foi criado durante o comando <code>launch</code>. Um ponto de atenção que devemos tomar nesse momento, é que a variável criada é iniciada com o prefixo <code>postgres://</code>. Para que o sqlalchemy reconheça esse endereço como válido, o prefixo deve ser alterado para <code>postgresql://</code>. Para isso, usaremos a url fornecida pelo comando <code>launch</code> e alterar o prefixo.</p>
+<p>Desta forma, podemos registar a variável de ambiente <code>DATABASE_URL</code> novamente. Agora com o valor correto:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>flyctl<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span>postgresql://postgres:t0Vf35P21eDlIVS@fastzerodb.flycast:5432
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Secrets<span class="w"> </span>are<span class="w"> </span>staged<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>deployment
+</code></pre></div>
+<p>Contudo, não é somente a variável de ambiente do postgres que é importante para que nossa aplicação seja executada. Temos que adicionar as outras variáveis contidas no nosso <code>.env</code> ao Fly.</p>
+<p>Iniciaremos adicionando a variável <code>ALGORITHM</code>:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>flyctl<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">ALGORITHM</span><span class="o">=</span><span class="s2">"HS256"</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Secrets<span class="w"> </span>are<span class="w"> </span>staged<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>deployment
+</code></pre></div>
+<p>Seguida pela variável <code>SECRET_KEY</code>:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>flyctl<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">SECRET_KEY</span><span class="o">=</span><span class="s2">"your-secret-key"</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Secrets<span class="w"> </span>are<span class="w"> </span>staged<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>deployment
+</code></pre></div>
+<p>E por fim a variável <code>ACCESS_TOKEN_EXPIRE_MINUTES</code>:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>flyctl<span class="w"> </span>secrets<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">ACCESS_TOKEN_EXPIRE_MINUTES</span><span class="o">=</span><span class="m">30</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Secrets<span class="w"> </span>are<span class="w"> </span>staged<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>first<span class="w"> </span>deployment
+</code></pre></div>
+<p>Com isso, todos os segredos da nossa aplicação já estão configurados no nosso ambiente do Fly. Agora podemos partir para o nosso tão aguardado deploy.</p>
+<h3 id="deploy-da-aplicacao">Deploy da aplicação</h3>
+<p>Para efetuarmos o deploy da aplicação, podemos usar o comando <code>deploy</code> do<code>flyctl</code>. Uma coisa interessante nessa parte do processo é que o Fly pode fazer o deploy de duas formas:</p>
+<ol>
+<li>Copiar seus arquivos e fazer o build do docker na nuvem;</li>
+<li>Você pode fazer o build localmente e subir apenas o container para um <a href="https://docs.docker.com/docker-hub/repos/" target="_blank">repositório</a> disponível no Fly.</li>
+</ol>
+<p>Optaremos por fazer o build localmente para não serem alocadas duas máquinas em nossa aplicação<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Para executar o build localmente usamos a flag <code>--local-only</code>.</p>
+<p>O <a href="https://community.fly.io/t/increasing-apps-v2-availability/12357/1" target="_blank">Fly sobre duas instâncias por padrão</a> da nossa aplicação para melhorar a disponibilidade do app. Como vamos nos basear no uso gratuito, para todos poderem executar o deploy, adicionaremos a flag <code>--ha=false</code> ao deploy. Para desativamos a alta escalabilidade:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>fly<span class="w"> </span>deploy<span class="w"> </span>--local-only<span class="w"> </span>--ha<span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+<p>Como a resposta do comando <code>deploy</code> é bastante grande, substituirei o texto por <code>...</code> para pular algumas linhas que não nos interessam nesse momento:</p>
+<div class="highlight"><span class="filename">$ Resultado do comando `deploy`</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">==</span>&gt;<span class="w"> </span>Verifying<span class="w"> </span>app<span class="w"> </span>config
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Validating<span class="w"> </span>/home/dunossauro/ci-example-fastapi/fly.toml
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Platform:<span class="w"> </span>machines
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>✓<span class="w"> </span>Configuration<span class="w"> </span>is<span class="w"> </span>valid
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>--&gt;<span class="w"> </span>Verified<span class="w"> </span>app<span class="w"> </span><span class="nv">config</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="o">==</span>&gt;<span class="w"> </span>Building<span class="w"> </span><span class="nv">image</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="o">==</span>&gt;<span class="w"> </span>Building<span class="w"> </span>image<span class="w"> </span>with<span class="w"> </span>Docker
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>...
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>exporting<span class="w"> </span>to<span class="w"> </span>image<span class="w">                                                  </span><span class="m">0</span>.0s
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>exporting<span class="w"> </span>layers<span class="w">                                                 </span><span class="m">0</span>.0s
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>writing<span class="w"> </span>image<span class="w"> </span>sha256:b95a9d9f8abcea085550449a720a0bb9176e195fe4<span class="w">  </span><span class="m">0</span>.0s
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>naming<span class="w"> </span>to<span class="w"> </span>registry.fly.io/fastzeroapp:deployment-01HHKKDMF87FN4<span class="w">  </span><span class="m">0</span>.0s
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>--&gt;<span class="w"> </span>Building<span class="w"> </span>image<span class="w"> </span><span class="k">done</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="o">==</span>&gt;<span class="w"> </span>Pushing<span class="w"> </span>image<span class="w"> </span>to<span class="w"> </span>fly
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>The<span class="w"> </span>push<span class="w"> </span>refers<span class="w"> </span>to<span class="w"> </span>repository<span class="w"> </span><span class="o">[</span>registry.fly.io/fastzeroapp<span class="o">]</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>...
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>deployment-01HHKKDMF87FN441VA6H0JR4BS:<span class="w"> </span>digest:<span class="w"> </span>sha256:153a13e2931f923ab60df7e9dd0f18e2cc89fff7833ac18443935c7d0763a329<span class="w"> </span>size:<span class="w"> </span><span class="m">2419</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>--&gt;<span class="w"> </span>Pushing<span class="w"> </span>image<span class="w"> </span><span class="k">done</span>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>image:<span class="w"> </span>registry.fly.io/fastzeroapp:deployment-01HHKKDMF87FN441VA6H0JR4BS
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>image<span class="w"> </span>size:<span class="w"> </span><span class="m">349</span><span class="w"> </span>MB
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="hll">Watch<span class="w"> </span>your<span class="w"> </span>deployment<span class="w"> </span>at<span class="w"> </span>https://fly.io/apps/fastzeroapp/monitoring
+</span><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>
+<a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>-------
+<a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>Updating<span class="w"> </span>existing<span class="w"> </span>machines<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s1">'fastzeroapp'</span><span class="w"> </span>with<span class="w"> </span>rolling<span class="w"> </span>strategy
+<a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>
+<a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>-------
+<a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="hll"><span class="w"> </span>✔<span class="w"> </span>Machine<span class="w"> </span>1781551ad22489<span class="w"> </span><span class="o">[</span>app<span class="o">]</span><span class="w"> </span>update<span class="w"> </span>succeeded
+</span><a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>-------
+<a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>
+<a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a><span class="hll">Visit<span class="w"> </span>your<span class="w"> </span>newly<span class="w"> </span>deployed<span class="w"> </span>app<span class="w"> </span>at<span class="w"> </span>https://fastzeroapp.fly.dev/
+</span></code></pre></div>
+<p>As primeiras linhas da resposta estão relacionadas ao build do docker e a publicação no repositório de imagens docker do Fly.</p>
+<p>Na sequência, temos algumas informações importantes a respeito do deploy da nossa aplicação. Como a URL de monitoramento (<code>https://fly.io/apps/&lt;nome-do-app&gt;/monitoring</code>), o aviso de que o deploy foi efetuado com sucesso (<code>Machine 1781551ad22489 [app] update succeeded</code>) e por fim, a URL de acesso a nossa aplicação (<code>https://&lt;nome-do-app&gt;.fly.dev/</code>).</p>
+<p>Dessa forma podemos acessar a nossa aplicação acessando a URL fornecida pela última linha de resposta em nosso browser, como <code>https://fastzeroapp.fly.dev/</code>:</p>
+<p><a class="glightbox" href="../assets/11_resposta_do_servidor.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/11_resposta_do_servidor.png"></a></p>
+<p>E pronto, nossa aplicação está disponível para acesso! Obtivemos o nosso "Olá mundo". 🚀🚀🚀🚀🚀🚀</p>
+<p>Porém, contudo, entretanto, ainda existe um problema na nossa aplicação no ar. Para ficar evidente, tente acessar o swagger da sua aplicação no ar e registrar um usuário usando o endpoint <code>/user</code> com o método POST:</p>
+<p><a class="glightbox" href="../assets/11_erro_na_aplica%C3%A7%C3%A3o_falta_de_migra%C3%A7%C3%A3o.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/11_erro_na_aplica%C3%A7%C3%A3o_falta_de_migra%C3%A7%C3%A3o.png" width="800"></a></p>
+<p>Você receberá uma mensagem de erro, um erro 500: <code>Internal Server Error</code>, por de não efetuarmos a migração no banco de dados de produção. Porém, para ter certeza disso, podemos usar a URL de monitoramento do Fly para ter certeza do erro ocorrido. Acessando: <code>https://fly.io/apps/&lt;nome-do-app&gt;/monitoring</code>, podemos visualizar os erros exibidos no console da nossa aplicação:</p>
+<p><a class="glightbox" href="../assets/11_erro_no_monitoramento.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/11_erro_no_monitoramento.png"></a></p>
+<p>Podemos ver no console a mensagem: <code>Relation "users" does not exist</code>. Que traduzida pode ser lido como <code>A relação "users" não existe</code>. O significa que a tabela "users" não foi criada ou não existe no banco de dados.</p>
+<p>Desta forma, para que nossa aplicação funcione corretamente precisamos executar as migrações.</p>
+<h3 id="migrations">Migrations</h3>
+<p>Agora que nosso container já está em execução no fly, podemos executar o comando de migração dos dados, pois ele está na mesma rede do postgres configurado pelo Fly<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Essa conexão é feita via <a href="https://en.wikipedia.org/wiki/Secure_Shell" target="_blank">SSH</a> e pode ser efetuada com o comando <code>ssh</code> do <code>flyctl</code>.</p>
+<p>Podemos fazer isso de duas formas, acessando efetivamente o container remotamente ou enviando somente um comando para o Fly. Optarei pela segunda opção, pois ela não é interativa e usará somente uma única chamada do shell. Desta forma:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="hll">flyctl<span class="w"> </span>ssh<span class="w"> </span>console<span class="w"> </span>-a<span class="w"> </span>fastzeroapp<span class="w"> </span>-C<span class="w"> </span><span class="s2">"poetry run alembic upgrade head"</span>
+</span><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Connecting<span class="w"> </span>to<span class="w"> </span>fdaa:2:77b0:a7b:1f60:3f74:a755:2...<span class="w"> </span><span class="nb">complete</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>Skipping<span class="w"> </span>virtualenv<span class="w"> </span>creation,<span class="w"> </span>as<span class="w"> </span>specified<span class="w"> </span><span class="k">in</span><span class="w"> </span>config<span class="w"> </span>file.
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Context<span class="w"> </span>impl<span class="w"> </span>PostgresqlImpl.
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Will<span class="w"> </span>assume<span class="w"> </span>transactional<span class="w"> </span>DDL.
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span>upgrade<span class="w">  </span>-&gt;<span class="w"> </span>e018397cecf4,<span class="w"> </span>create<span class="w"> </span>users<span class="w"> </span>table
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span>upgrade<span class="w"> </span>e018397cecf4<span class="w"> </span>-&gt;<span class="w"> </span>de865434f506,<span class="w"> </span>create<span class="w"> </span>todos<span class="w"> </span>table
+</code></pre></div>
+<details class="failure">
+<summary>Possível erro que pode ocorrer!</summary>
+<p>Uma das formas de funcionamento padrão do Fly é desativar a máquina caso ninguém esteja usando. Aí quando uma requisição for feita para aplicação, ele inicia a máquina novamente.</p>
+<p>Caso você tente fazer um ssh e a aplicação não estiver de pé no momento, você vai receber um erro como esse:
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>flyctl<span class="w"> </span>ssh<span class="w"> </span>console<span class="w"> </span>-a<span class="w"> </span>fastzeroapp<span class="w"> </span>-C<span class="w"> </span><span class="s2">"poetry run alembic upgrade head"</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="hll">Error:<span class="w"> </span>app<span class="w"> </span>fastzeroapp<span class="w"> </span>has<span class="w"> </span>no<span class="w"> </span>started<span class="w"> </span>VMs.
+</span><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="hll">It<span class="w"> </span>may<span class="w"> </span>be<span class="w"> </span>unhealthy<span class="w"> </span>or<span class="w"> </span>not<span class="w"> </span>have<span class="w"> </span>been<span class="w"> </span>deployed<span class="w"> </span>yet.
+</span><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>Try<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span>verify:
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>fly<span class="w"> </span>status
+</code></pre></div>
+<p>Nesse caso, você pode tentar acessar sua aplicação pelo browser ou via terminal e ela iniciará novamente. Nesse momento, quando a máquina estiver rodando, você pode rodar a migração novamente.</p>
+</details>
+<p>O comando <code>ssh</code> do <code>flyctl</code> é um grupo de subcomandos para executar operações específicas em um container. Podemos pedir os logs de certificado com <code>ssh log</code>, inserir ou recuperar arquivos via <a href="https://en.wikipedia.org/wiki/File_Transfer_Protocol" target="_blank">FTP</a> com o <code>ssh ftp</code>.</p>
+<p>O subcomando que utilizamos <code>ssh console</code> nos fornece acesso ao shell do container. Por isso tivemos que especificar com a flag <code>-a</code> o nome da nossa aplicação (poderíamos acessar o console do banco de dados, também). E a flag <code>-C</code> é o comando que queremos que seja executado no console do container. Nesse caso, o comando completo representa: "Acesse o console do app fastzeroapp via SSH e execute o comando <code>poetry run alembic upgrade head</code>".</p>
+<p>Dessa forma temos a migração executada com sucesso. Você pode usar o comando <code>ssh console</code> sem especificar o comando também, dessa forma ele fará um login via ssh no container.</p>
+<p>Com isso, podemos voltar ao swagger e tentar executar a operação de criação de um novo user com um POST no endpoit <code>/users</code>. Tudo deve ocorrer perfeitamente dessa vez:</p>
+<p><a class="glightbox" href="../assets/11_funcionamento_apos_migra%C3%A7%C3%A3o.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/11_funcionamento_apos_migra%C3%A7%C3%A3o.png"></a></p>
+<p>Agora, SIM, nossa aplicação está em produção para qualquer pessoa poder usar e aproveitar da sua aplicação. Mande o link para geral e veja o que as pessoas acham da sua mais nova aplicação. 🚀</p>
+<h2 id="commit">Commit</h2>
+<p>Agora que fizemos todas as alterações necessárias, devemos adicionar ao nosso repositório os arquivos criados pelo <code>flyctl launch</code>. Os arquivos <code>.dockerignore</code> e <code>fly.toml</code>:</p>
+<div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Adicionando arquivos gerados pelo Fly</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="s2">git push</span>
+</code></pre></div>
+<p>E pronto!</p>
 <h2 id="conclusao">Conclusão</h2>
-<p>Ao longo desta aula, nós mergulhamos no mundo do deploy de aplicações com o Fly.io, uma plataforma que facilita imensamente a tarefa de colocar nossas aplicações para funcionar na nuvem. Além disso, também tivemos a chance de entender como gerenciar variáveis de ambiente de forma segura e eficiente, permitindo a nossa aplicação se adaptar a diferentes contextos de execução.</p>
-<p>Aprendemos como subir nossa imagem Docker no Fly.io e como este processo pode ser simplificado e automatizado. Também vimos como é possível ter nosso banco de dados rodando no mesmo ambiente da nossa aplicação, facilitando a manutenção e a escalabilidade.</p>
-<p>Configuramos e utilizamos o PostgreSQL no Fly.io, o que nos deu uma visão prática de como gerenciar bancos de dados em um ambiente de produção. Ao fazer isso, pudemos integrar ainda mais a nossa aplicação ao ambiente em que ela está rodando.</p>
-<p>Além disso, exploramos a importância das migrações e como elas podem ser gerenciadas usando o Alembic, que nos permitiu atualizar nosso banco de dados de forma controlada e rastreável.</p>
-<p>Finalmente, vimos como podemos automatizar todo o processo de deploy usando o Github Actions. Esta é uma prática extremamente útil e poderosa, pois permite que a nossa aplicação esteja sempre atualizada com as últimas alterações que fizemos, sem a necessidade de qualquer intervenção manual.</p>
-<p>Com todas essas peças, temos agora uma aplicação robusta e pronta para escalar, com todos os elementos necessários para ser operada em um ambiente de produção real. Estas são ferramentas e práticas que estão no coração do desenvolvimento de software moderno, e dominá-las nos permitirá construir aplicações cada vez mais complexas e eficientes.</p>
-<p>Na próxima aula, faremos uma recapitulação de tudo o que aprendemos neste curso e discutiremos os próximos passos. Continue acompanhando para fortalecer ainda mais seus conhecimentos em desenvolvimento de aplicações com FastAPI, Docker, CI/CD e muito mais. Até a próxima aula!</p></div>
+<p>Assim, como prometido, chegamos ao final da jornada! Temos uma aplicação pequena, mas funcional em produção! 🚀</p>
+<p>Ao longo desta aula, percorremos uma jornada sobre como implantar uma aplicação FastAPI com Docker no Fly.io, uma plataforma que oferece uma maneira simples e acessível de colocar suas aplicações na nuvem. Exploramos alguns comandos do <code>flyctl</code> e fomos desde a configuração inicial até o processo de deploy e resolução de problemas. Agora, com nossa aplicação pronta para o mundo, você possui o conhecimento necessário para compartilhar suas criações com outras pessoas e continuar sua jornada no desenvolvimento web.</p>
+<p>Na próxima aula discutiremos um pouco sobre o que mais você pode aprender para continuar desenvolvendo seus conhecimentos em FastAPI e desenvolvimento web, além de claro, de algumas dicas de materiais. Até lá!</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>No plano gratuito existe uma limitação de máquinas disponíveis por aplicação. Quando usamos mais de uma máquina, temos que ter um plano pago, por esse motivo, faremos o build localmente. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:2">
+<p>É possível executar a migração usando a sua máquina como ponto de partida. Para isso é necessário usar o proxy do Fly: <code>fly proxy 5432 -a fastzerodb</code>. Dessa forma, a porta 5432 é disponibilizada localmente para executar o comando. Acredito, porém, que a conexão via ssh é mais proveitosa, no momento em que podemos explorar mais uma forma de interagir com o Fly. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+</ol>
+</div></div>
 
 
 
@@ -818,7 +1114,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 10, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 20, 2023</span>
   </span>
 
     
@@ -828,13 +1124,12 @@
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contribuidores">
       
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4Z"/></svg>
       
     </span>
     <nav>
       
-        <a href="mailto:mendesxeduardo@gmail.com">dunossauro</a>, 
-        <a href="mailto:julio.formiga@gmail.com">Julio Formiga</a>
+        <a href="mailto:mendesxeduardo@gmail.com">dunossauro</a>
     </nav>
   </span>
 
