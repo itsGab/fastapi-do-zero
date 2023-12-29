@@ -22,7 +22,7 @@
     
     
       
-        <title>Fazendo deploy no Fly.io e configurando o PostgreSQL - FastAPI do Zero</title>
+        <title>Fazendo deploy no Fly.io - FastAPI do Zero</title>
       
     
     
@@ -59,7 +59,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Fazendo deploy no Fly.io e configurando o PostgreSQL - FastAPI do Zero" >
+        <meta  property="og:title"  content="Fazendo deploy no Fly.io - FastAPI do Zero" >
       
         <meta  property="og:description"  content="None" >
       
@@ -75,7 +75,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Fazendo deploy no Fly.io e configurando o PostgreSQL - FastAPI do Zero" >
+        <meta  name="twitter:title"  content="Fazendo deploy no Fly.io - FastAPI do Zero" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -113,7 +113,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fazendo-deploy-no-flyio-e-configurando-o-postgresql" class="md-skip">
+        <a href="#fazendo-deploy-no-flyio" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -148,7 +148,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fazendo deploy no Fly.io e configurando o PostgreSQL
+              Fazendo deploy no Fly.io
             
           </span>
         </div>
@@ -530,7 +530,7 @@
           
   
   <span class="md-ellipsis">
-    Fazendo deploy no Fly.io e configurando o PostgreSQL
+    Fazendo deploy no Fly.io
   </span>
   
 
@@ -541,7 +541,7 @@
         
   
   <span class="md-ellipsis">
-    Fazendo deploy no Fly.io e configurando o PostgreSQL
+    Fazendo deploy no Fly.io
   </span>
   
 
@@ -832,14 +832,7 @@
   
 
 
-<div><h1 id="fazendo-deploy-no-flyio-e-configurando-o-postgresql">Fazendo deploy no Fly.io e configurando o PostgreSQL</h1>
-<details class="tip">
-<summary>Caso prefira ver a aula em vídeo</summary>
-<p><a class="glightbox" href="https://www.youtube.com/embed/u31qwQUeGuM" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/u31qwQUeGuM" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
-</details>
-<p><a class="md-button" href="#">Aula <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span></a>
-<a class="md-button" href="#">Slides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM136 240h68c42 0 76 34 76 76s-34 76-76 76h-44v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V264c0-13.3 10.7-24 24-24zm68 104c15.5 0 28-12.5 28-28s-12.5-28-28-28h-44v56h44z"></path></svg></span></a>
-<a class="md-button" href="https://github.com/dunossauro/fastapi-do-zero/tree/main/codigo_das_aulas/11/">Código <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span></a></p>
+<div><h1 id="fazendo-deploy-no-flyio">Fazendo deploy no Fly.io</h1>
 <hr>
 <p><strong>Objetivos da aula:</strong></p>
 <ul>
@@ -849,6 +842,14 @@
 <li>Configurar as variáveis de ambiente</li>
 <li>Rodar as migrações em produção</li>
 </ul>
+<details class="tip">
+<summary>Caso prefira ver a aula em vídeo</summary>
+<p>Esse aula ainda não está disponível em formato de vídeo, somente em texto!</p>
+<p><a class="glightbox" href="https://www.youtube.com/embed/u31qwQUeGuM" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/u31qwQUeGuM" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+</details>
+<p><a class="md-button" href="#">Aula <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span></a>
+<a class="md-button" href="#">Slides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM136 240h68c42 0 76 34 76 76s-34 76-76 76h-44v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V264c0-13.3 10.7-24 24-24zm68 104c15.5 0 28-12.5 28-28s-12.5-28-28-28h-44v56h44z"></path></svg></span></a>
+<a class="md-button" href="https://github.com/dunossauro/fastapi-do-zero/tree/main/codigo_das_aulas/11/">Código <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span></a></p>
 <hr>
 <p>Agora que temos uma API criada com integração ao banco de dados e testes sendo executados via integração contínua. Chegou a tão esperada hora de colocar nossa aplicação em produção para que todas as pessoas possam acessá-la. Colocaremos nossa aplicação em produção usando um serviço de <a href="https://pt.wikipedia.org/wiki/Plataforma_como_servi%C3%A7o" target="_blank">PaaS</a>, chamado <a href="https://fly.io" target="_blank">Fly.io</a>.</p>
 <h2 id="o-flyio">O Fly.io</h2>
