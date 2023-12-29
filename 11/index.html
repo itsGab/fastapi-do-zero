@@ -900,6 +900,11 @@
 <a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>?<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>tweak<span class="w"> </span>these<span class="w"> </span>settings<span class="w"> </span>before<span class="w"> </span>proceeding?<span class="w"> </span><span class="o">(</span>y/N<span class="o">)</span><span class="w"> </span>
 </code></pre></div>
 <p>Nesse texto estão destacadas as configurações padrões do Fly. Como a Região onde seu deploy será feito (<code>Sao Paulo, Brazil</code>, o mais próximo a mim nesse momento), a configuração da máquina do deploy <code>App Machines: shared-cpu-1x, 1GB RAM</code> e a opção padrão do Postgres: <code>Postgres: &lt;none&gt;</code>.</p>
+<details class="danger" open="open">
+<summary>Uma nota sobre o Postgres + Fly</summary>
+<p>Antes de avançarmos, é importante mencionar uma especificidade do Fly.io: para criar uma instância do PostgreSQL, a plataforma requer que um cartão de crédito seja fornecido. Esta é uma medida de segurança adotada para evitar o uso indevido de seus serviços, como a execução de ferramentas de mineração. Apesar dessa exigência, o serviço de PostgreSQL é oferecido de forma gratuita. Mais detalhes podem ser encontrados <a href="https://fly.io/blog/free-postgres/">neste artigo</a>.</p>
+<p>Caso você não adicione um cartão, o erro levatado pelo <code>flyctl</code> está descrito na <a href="https://github.com/dunossauro/fastapi-do-zero/issues/73" target="_blank">issue #73</a></p>
+</details>
 <p>A pergunta feita ao final dessa seção <code>Do you want to tweak these settings before proceeding?</code> pode ser traduzida como: <code>Você deseja ajustar essas configuração antes de prosseguir?</code>. Diremos que sim, digitando <span class="keys"><kbd class="key-y">Y</kbd></span> e em seguida <span class="keys"><kbd class="key-enter">Enter</kbd></span>.</p>
 <p>Assim, a configuração do lançamento deve avançar e travar novamente com um texto parecido com esse:</p>
 <div class="highlight"><span class="filename">$ Continuação do comando `launch`</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>?<span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>tweak<span class="w"> </span>these<span class="w"> </span>settings<span class="w"> </span>before<span class="w"> </span>proceeding?<span class="w"> </span>Yes
@@ -1114,7 +1119,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 20, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 29, 2023</span>
   </span>
 
     
