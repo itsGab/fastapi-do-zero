@@ -1098,8 +1098,7 @@
 <a class="md-button" href="https://github.com/dunossauro/fastapi-do-zero/blob/main/slides/pdf/aula_01.pdf">Slides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM136 240h68c42 0 76 34 76 76s-34 76-76 76h-44v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V264c0-13.3 10.7-24 24-24zm68 104c15.5 0 28-12.5 28-28s-12.5-28-28-28h-44v56h44z"></path></svg></span></a>
 <a class="md-button" href="https://github.com/dunossauro/fast_zero/tree/01">Código <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span></a></p>
 <hr>
-<p>Nesta aula começaremos nossa jornada na construção de uma API com FastAPI. FastAPI é um framework web python moderno, altamente performático e baseado em anotações de tipos.</p>
-<p>Partiremos do básico, configurando nosso ambiente de desenvolvimento. Discutiremos desde a escolha e instalação da versão correta do Python até a instalação e configuração do Poetry, um gerenciador de pacotes e dependências para Python. Além disso, instalaremos e configuraremos uma série de ferramentas de desenvolvimento úteis, como Ruff, Blue, Isort, pytest e Taskipy.</p>
+<p>Nesta aula começaremos nossa jornada na construção de uma API com FastAPI. Partiremos do básico, configurando nosso ambiente de desenvolvimento. Discutiremos desde a escolha e instalação da versão correta do Python até a instalação e configuração do Poetry, um gerenciador de pacotes e dependências para Python. Além disso, instalaremos e configuraremos uma série de ferramentas de desenvolvimento úteis, como Ruff, Blue, Isort, pytest e Taskipy.</p>
 <p>Após configurado o nosso ambiente, criaremos nosso primeiro programa "Hello, World!" com FastAPI. Isso nos permitirá confirmar que tudo está funcionando corretamente. E, finalmente, exploraremos uma parte crucial do Desenvolvimento Orientado por Testes (TDD), escrevendo nosso primeiro teste com Pytest.</p>
 <h2 id="ambiente-de-desenvolvimento">Ambiente de Desenvolvimento</h2>
 <p>Para iniciar essa aula você precisa de algumas ferramentas.</p>
@@ -1123,7 +1122,7 @@
 <h2 id="instalacao-do-python-311">Instalação do Python 3.11</h2>
 <p>Se você precisar (re)construir o ambiente usado nesse curso, é <strong>recomendado</strong> que você use o <a href="https://github.com/pyenv/pyenv" target="_blank">pyenv</a>.</p>
 <p>Caso encontre dificuldades durante a instalação, o pyenv conta com dois assistentes simplificados para sua configuração. Para windows, use o <a href="https://pyenv-win.github.io/pyenv-win/" target="_blank">pyenv-windows</a>. Para GNU/Linux e MacOS, use o <a href="https://github.com/pyenv/pyenv-installer" target="_blank">pyenv-installer</a>.</p>
-<p>Navegue até o diretório onde fará os exercícios e executará os códigos de exemplo no seu terminal e digite os seguintes comandos:</p>
+<p>Navegue até o diretório onde fará os exercícios e irá executar os códigos de exemplo no seu terminal e digite os seguintes comandos:</p>
 <div class="highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pyenv<span class="w"> </span>update
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.11:latest
 </code></pre></div>
@@ -1188,7 +1187,7 @@ Desta forma os próximos comandos podem ser executados normalmente.
 <p>Essa comando criará um arquivo oculto chamado <code>.python-version</code> na raiz do nosso projeto:</p>
 <div class="highlight"><span class="filename">.python-version</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>3.11.7
 </code></pre></div>
-<p>Esse arquivo fará com que toda vez que o terminal for aberto nesse diretório, o pyenv usará a versão descrita no arquivo quando o python interpretador for chamado.</p>
+<p>Esse arquivo fará com que toda vez que o terminal for aberto nesse diretório, o pyenv use a versão descrita no arquivo quando o python interpretador for chamado.</p>
 <p>Em conjunto com essa instrução, devemos dizer ao poetry que usaremos essa versão em nosso projeto. Para isso alteraremos o arquivo de configuração do projeto o <code>pyproject.toml</code> na raiz do projeto:</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-9-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="k">[tool.poetry.dependencies]</span>
@@ -1676,7 +1675,7 @@ Desta forma os próximos comandos podem ser executados normalmente.
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 31, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 1, 2024</span>
   </span>
 
     
