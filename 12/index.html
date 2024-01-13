@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../assets/logo.svg">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
       
@@ -896,13 +896,13 @@
 <p>Já cobrimos alguns temas não citados neste curso usando FastAPI em algumas Lives de Python. Você pode assistir para aprender mais também.</p>
 <h3 id="templates-e-websockets">Templates e WebSockets</h3>
 <p>Na <a href="https://youtu.be/EqFzY8dBWHs">Live de Python #164</a> conversamos sobre websockets com Python e usamos FastAPI para exemplificar o comportamento. Durante essa live criamos uma aplicação de chat e usamos os templates com HTML e <a href="https://jinja.palletsprojects.com" target="_blank">Jinja2</a> e <a href="https://brython.info/" target="_blank">Brython</a> para ações dinâmicas como faríamos com JavaScript.</p>
-<p><a class="glightbox" href="https://www.youtube.com/embed/EqFzY8dBWHs" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/EqFzY8dBWHs" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+<p><a class="glightbox" href="https://www.youtube.com/embed/EqFzY8dBWHs" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/EqFzY8dBWHs" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 <h3 id="graphql-strawberry">GraphQL (Strawberry)</h3>
 <p>Na <a href="https://youtu.be/3h8K29U5_HA">Live de Python #185</a> conversamos sobre GraphQL um padrão alternativo a REST APIs. Todos os exemplos foram aplicados usando <a href="https://strawberry.rocks/" target="_blank">Strawberry</a> e FastAPI</p>
-<p><a class="glightbox" href="https://www.youtube.com/embed/3h8K29U5_HA" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/3h8K29U5_HA" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+<p><a class="glightbox" href="https://www.youtube.com/embed/3h8K29U5_HA" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/3h8K29U5_HA" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 <h3 id="sqlmodel">SQLModel</h3>
 <p>Na <a href="https://youtu.be/7RbUreoXOQg">Live de Python #235</a> conversamos sobre <a href="https://sqlmodel.tiangolo.com/" target="_blank">SQLModel</a> um ORM alternativo ao SQLAlchemy que se integra com o Pydantic. O SQLModel também foi desenvolvido pelo <a href="https://tiangolo.com/" target="_blank">Sebastian</a> (criador do FastAPI). Caminhando ao final dessa aula, podemos ver a implementação do SQLModel em uma aplicação básica com FastAPI.</p>
-<p><a class="glightbox" href="https://www.youtube.com/embed/7RbUreoXOQg" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/7RbUreoXOQg" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+<p><a class="glightbox" href="https://www.youtube.com/embed/7RbUreoXOQg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/7RbUreoXOQg" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 <h2 id="proximos-passos">Próximos passos</h2>
 <p>Parte importante do aprendizado vem de entender que o que vimos aqui é o básico, o mínimo que devemos saber para conseguir fazer uma aplicação consistente usando FastAPI. Agora é a hora de trilhar novos caminhos e conhecer mais as possibilidades. Tanto na construção de APIs, quanto no aprofundamento de recursos do FastAPI.</p>
 <h3 id="observabilidade">Observabilidade</h3>
@@ -916,7 +916,7 @@
 </ul>
 <details class="tip">
 <summary>Já fizemos uma live sobre logs!</summary>
-<p><a class="glightbox" href="https://www.youtube.com/embed/PGAOqAWuwC0" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/PGAOqAWuwC0" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+<p><a class="glightbox" href="https://www.youtube.com/embed/PGAOqAWuwC0" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/PGAOqAWuwC0" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 </details>
 </li>
 <li>
@@ -934,10 +934,10 @@
 <p>Outro ponto importante, e talvez o carro chefe do FastAPI é poder ser usado de forma concorrente. O que significa que ele pode fazer outro trabalho enquanto aguarda por chamadas de input/ouput. Por exemplo, enquanto esperamos o postgres responder, podemos outra requisição. Nesse momento, enquanto essa requisição faz outra chamada ao banco, podemos responder a que estávamos aguardando a resposta no banco de dados. Isso faz com que o tempo da aplicação seja otimizado durante a execução.</p>
 <p>Chamadas assíncronas em python são caracterizadas pelo uso das corrotinas <code class="language-python highlight"><span class="k">async</span> <span class="k">def</span></code> e as esperas com <code class="language-python highlight"><span class="k">await</span></code>. A própria documentação do fastAPI apresenta um tutorial sobre <a href="https://fastapi.tiangolo.com/pt/async/" target="_blank">AsyncIO</a>.</p>
 <p>Conversamos sobre AsyncIO diversas vezes na <a href="https://www.youtube.com/@Dunossauro/search?query=asyncio" target="_blank">Live de Python</a>. Se pudesse destacar um material que gostei de ter feito sobre esse assunto, seria a live sobre requisições assíncronas:</p>
-<p><a class="glightbox" href="https://www.youtube.com/embed/V4hSLZRCGoE" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/V4hSLZRCGoE" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+<p><a class="glightbox" href="https://www.youtube.com/embed/V4hSLZRCGoE" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/V4hSLZRCGoE" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 <p>Se tiver curiosidade de ver um exemplo real de AsyncIO e FastAPI nos mesmos moldes que aprendemos durante esse curso.</p>
 <div class="sbs">
-<p><a class="glightbox" href="https://user-images.githubusercontent.com/1103672/162596499-ab338e0c-6301-47de-a720-08eff5c36582.gif" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="https://user-images.githubusercontent.com/1103672/162596499-ab338e0c-6301-47de-a720-08eff5c36582.gif"></a></p>
+<p><a class="glightbox" href="https://user-images.githubusercontent.com/1103672/162596499-ab338e0c-6301-47de-a720-08eff5c36582.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="https://user-images.githubusercontent.com/1103672/162596499-ab338e0c-6301-47de-a720-08eff5c36582.gif"></a></p>
 <div>
 <p>Temos o projeto do chat que fica disponível durante as lives. Tanto na <a href="https://www.twitch.tv/dunossauro" target="_blank">Twitch</a>, quanto no <a href="https://www.youtube.com/@Dunossauro/" target="_blank">YouTube</a>. O <a href="https://github.com/dunossauro/livestream-chat" target="_blank">livestream-chat</a>.</p>
 <p>Aqui temos vários conceitos aplicados ao projeto. Templates com HTML e Jinja, WebSockets com diferentes canais, requisições em backgroud, uso de asyncio, eventos do FastAPI, logs com loguru, integração com um APM (<a href="https://sentry.io/" target="_blank">Sentry</a>), testes assíncronos, etc.</p>
@@ -985,6 +985,7 @@
     
     
       
+  
   <span class="md-source-file__fact">
     <span class="md-icon" title="Contribuidores">
       
@@ -992,8 +993,7 @@
       
     </span>
     <nav>
-      
-        <a href="mailto:mendesxeduardo@gmail.com">dunossauro</a>
+      dunossauro
     </nav>
   </span>
 
