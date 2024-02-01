@@ -6,8 +6,6 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Entendimento básico sobre API, HTTP, JSON e a estrutura do projeto">
-      
       
       
         <link rel="canonical" href="https://fastapidozero.dunossauro.com/02/">
@@ -24,7 +22,7 @@
     
     
       
-        <title>Estruturando o Projeto e Criando Rotas CRUD - FastAPI do Zero</title>
+        <title>Introdução ao desenvolvimento WEB - FastAPI do Zero</title>
       
     
     
@@ -61,9 +59,9 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Estruturando o Projeto e Criando Rotas CRUD - FastAPI do Zero" >
+        <meta  property="og:title"  content="Introdução ao desenvolvimento WEB - FastAPI do Zero" >
       
-        <meta  property="og:description"  content="Entendimento básico sobre API, HTTP, JSON e a estrutura do projeto" >
+        <meta  property="og:description"  content="None" >
       
         <meta  property="og:image"  content="https://fastapidozero.dunossauro.com/assets/images/social/02.png" >
       
@@ -77,9 +75,9 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Estruturando o Projeto e Criando Rotas CRUD - FastAPI do Zero" >
+        <meta  name="twitter:title"  content="Introdução ao desenvolvimento WEB - FastAPI do Zero" >
       
-        <meta  name="twitter:description"  content="Entendimento básico sobre API, HTTP, JSON e a estrutura do projeto" >
+        <meta  name="twitter:description"  content="None" >
       
         <meta  name="twitter:image"  content="https://fastapidozero.dunossauro.com/assets/images/social/02.png" >
       
@@ -115,7 +113,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#estruturando-o-projeto-e-criando-rotas-crud" class="md-skip">
+        <a href="#introducao-ao-desenvolvimento-web" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -150,7 +148,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Estruturando o Projeto e Criando Rotas CRUD
+              Introdução ao desenvolvimento WEB
             
           </span>
         </div>
@@ -352,7 +350,7 @@
           
   
   <span class="md-ellipsis">
-    Estruturando o Projeto e Criando Rotas CRUD
+    Introdução ao desenvolvimento WEB
   </span>
   
 
@@ -363,7 +361,7 @@
         
   
   <span class="md-ellipsis">
-    Estruturando o Projeto e Criando Rotas CRUD
+    Introdução ao desenvolvimento WEB
   </span>
   
 
@@ -385,140 +383,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-que-e-uma-api" class="md-nav__link">
+  <a href="#a-web" class="md-nav__link">
     <span class="md-ellipsis">
-      O que é uma API?
+      A web
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#o-que-e-http" class="md-nav__link">
-    <span class="md-ellipsis">
-      O que é HTTP?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compreendendo-os-verbos-http-codigos-de-resposta-e-codigos-de-erro" class="md-nav__link">
-    <span class="md-ellipsis">
-      Compreendendo os Verbos HTTP, Códigos de Resposta e Códigos de Erro
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Compreendendo os Verbos HTTP, Códigos de Resposta e Códigos de Erro">
+    <nav class="md-nav" aria-label="A web">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#verbos-http" class="md-nav__link">
+  <a href="#o-modelo-cliente-servidor" class="md-nav__link">
     <span class="md-ellipsis">
-      Verbos HTTP
+      O modelo cliente-servidor
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#codigos-de-resposta-http" class="md-nav__link">
-    <span class="md-ellipsis">
-      Códigos de Resposta HTTP
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#codigos-de-erro-http" class="md-nav__link">
-    <span class="md-ellipsis">
-      Códigos de Erro HTTP
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#como-acontece-a-comunicacao-web-entre-cliente-e-servidor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Como acontece a comunicação web entre cliente e servidor
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pydantic-e-a-validacao-de-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pydantic e a validação de dados
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pydantic e a validação de dados">
+    <nav class="md-nav" aria-label="O modelo cliente-servidor">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#suporte-a-emails" class="md-nav__link">
+  <a href="#usando-o-uvicorn-na-rede-local" class="md-nav__link">
     <span class="md-ellipsis">
-      Suporte a emails
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementando-as-rotas-crud" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementando as Rotas CRUD
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Implementando as Rotas CRUD">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#implementando-a-rota-post" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementando a Rota POST
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Implementando a Rota POST">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#criando-um-banco-de-dados-falso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Criando um banco de dados falso
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#implementando-o-teste-da-rota-post" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementando o teste da rota POST
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nao-se-repita-dry" class="md-nav__link">
-    <span class="md-ellipsis">
-      Não se repita (DRY)
+      Usando o uvicorn na rede local
     </span>
   </a>
   
@@ -530,19 +417,57 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#implementando-a-rota-get" class="md-nav__link">
+  <a href="#o-modelo-padrao-da-web" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementando a Rota GET
+      O modelo padrão da web
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Implementando a Rota GET">
+    <nav class="md-nav" aria-label="O modelo padrão da web">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#implementando-o-teste-da-rota-de-get" class="md-nav__link">
+  <a href="#url" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementando o teste da rota de GET
+      URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mensagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mensagens
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mensagens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cabecalho" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cabeçalho
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Corpo
     </span>
   </a>
   
@@ -554,19 +479,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#implementando-a-rota-put" class="md-nav__link">
+  <a href="#verbos" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementando a Rota PUT
+      Verbos
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Implementando a Rota PUT">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#implementando-o-teste-da-rota-de-put" class="md-nav__link">
+  <a href="#codigos-de-resposta" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementando o teste da rota de PUT
+      Códigos de resposta
     </span>
   </a>
   
@@ -578,28 +502,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#implementando-a-rota-delete" class="md-nav__link">
+  <a href="#html" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementando a Rota DELETE
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Implementando a Rota DELETE">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#implementando-o-teste-da-rota-de-delete" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementando o teste da rota de DELETE
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#checando-tudo-antes-do-commit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Checando tudo antes do commit
+      HTML
     </span>
   </a>
   
@@ -616,11 +521,116 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commit" class="md-nav__link">
+  <a href="#apis" class="md-nav__link">
     <span class="md-ellipsis">
-      Commit
+      APIs
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openapi-e-documentacao-automatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI e documentação automática
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swagger-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swagger UI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redoc
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trafegando-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trafegando JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trafegando JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contratos-em-apis-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contratos em APIs JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pydantic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pydantic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pydantic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrando-o-pydantic-com-o-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrando o Pydantic com o FastAPI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -652,7 +662,7 @@
         
   
   <span class="md-ellipsis">
-    Configurando o banco de dados e gerenciando migrações com Alembic
+    Estruturando o Projeto e Criando Rotas CRUD
   </span>
   
 
@@ -672,7 +682,7 @@
         
   
   <span class="md-ellipsis">
-    Integrando Banco de Dados a API
+    Configurando o banco de dados e gerenciando migrações com Alembic
   </span>
   
 
@@ -692,7 +702,7 @@
         
   
   <span class="md-ellipsis">
-    Autenticação e Autorização com JWT
+    Integrando Banco de Dados a API
   </span>
   
 
@@ -712,7 +722,7 @@
         
   
   <span class="md-ellipsis">
-    Refatorando a Estrutura do Projeto
+    Autenticação e Autorização com JWT
   </span>
   
 
@@ -732,7 +742,7 @@
         
   
   <span class="md-ellipsis">
-    Tornando o sistema de autenticação robusto
+    Refatorando a Estrutura do Projeto
   </span>
   
 
@@ -752,7 +762,7 @@
         
   
   <span class="md-ellipsis">
-    Criando Rotas CRUD para Gerenciamento de Tarefas em FastAPI
+    Tornando o sistema de autenticação robusto
   </span>
   
 
@@ -772,7 +782,7 @@
         
   
   <span class="md-ellipsis">
-    Dockerizando a nossa aplicação e introduzindo o PostgreSQL
+    Criando Rotas CRUD para Gerenciamento de Tarefas em FastAPI
   </span>
   
 
@@ -792,7 +802,7 @@
         
   
   <span class="md-ellipsis">
-    Automatizando os testes com Integração Contínua
+    Dockerizando a nossa aplicação e introduzindo o PostgreSQL
   </span>
   
 
@@ -812,7 +822,7 @@
         
   
   <span class="md-ellipsis">
-    Fazendo deploy no Fly.io
+    Automatizando os testes com Integração Contínua
   </span>
   
 
@@ -829,6 +839,26 @@
   
     <li class="md-nav__item">
       <a href="../12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fazendo deploy no Fly.io
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -868,140 +898,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-que-e-uma-api" class="md-nav__link">
+  <a href="#a-web" class="md-nav__link">
     <span class="md-ellipsis">
-      O que é uma API?
+      A web
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#o-que-e-http" class="md-nav__link">
-    <span class="md-ellipsis">
-      O que é HTTP?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compreendendo-os-verbos-http-codigos-de-resposta-e-codigos-de-erro" class="md-nav__link">
-    <span class="md-ellipsis">
-      Compreendendo os Verbos HTTP, Códigos de Resposta e Códigos de Erro
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Compreendendo os Verbos HTTP, Códigos de Resposta e Códigos de Erro">
+    <nav class="md-nav" aria-label="A web">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#verbos-http" class="md-nav__link">
+  <a href="#o-modelo-cliente-servidor" class="md-nav__link">
     <span class="md-ellipsis">
-      Verbos HTTP
+      O modelo cliente-servidor
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#codigos-de-resposta-http" class="md-nav__link">
-    <span class="md-ellipsis">
-      Códigos de Resposta HTTP
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#codigos-de-erro-http" class="md-nav__link">
-    <span class="md-ellipsis">
-      Códigos de Erro HTTP
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#como-acontece-a-comunicacao-web-entre-cliente-e-servidor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Como acontece a comunicação web entre cliente e servidor
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pydantic-e-a-validacao-de-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      Pydantic e a validação de dados
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Pydantic e a validação de dados">
+    <nav class="md-nav" aria-label="O modelo cliente-servidor">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#suporte-a-emails" class="md-nav__link">
+  <a href="#usando-o-uvicorn-na-rede-local" class="md-nav__link">
     <span class="md-ellipsis">
-      Suporte a emails
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementando-as-rotas-crud" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementando as Rotas CRUD
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Implementando as Rotas CRUD">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#implementando-a-rota-post" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementando a Rota POST
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Implementando a Rota POST">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#criando-um-banco-de-dados-falso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Criando um banco de dados falso
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#implementando-o-teste-da-rota-post" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementando o teste da rota POST
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nao-se-repita-dry" class="md-nav__link">
-    <span class="md-ellipsis">
-      Não se repita (DRY)
+      Usando o uvicorn na rede local
     </span>
   </a>
   
@@ -1013,19 +932,57 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#implementando-a-rota-get" class="md-nav__link">
+  <a href="#o-modelo-padrao-da-web" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementando a Rota GET
+      O modelo padrão da web
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Implementando a Rota GET">
+    <nav class="md-nav" aria-label="O modelo padrão da web">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#implementando-o-teste-da-rota-de-get" class="md-nav__link">
+  <a href="#url" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementando o teste da rota de GET
+      URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      HTTP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mensagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mensagens
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mensagens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cabecalho" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cabeçalho
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#corpo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Corpo
     </span>
   </a>
   
@@ -1037,19 +994,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#implementando-a-rota-put" class="md-nav__link">
+  <a href="#verbos" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementando a Rota PUT
+      Verbos
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Implementando a Rota PUT">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#implementando-o-teste-da-rota-de-put" class="md-nav__link">
+  <a href="#codigos-de-resposta" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementando o teste da rota de PUT
+      Códigos de resposta
     </span>
   </a>
   
@@ -1061,28 +1017,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#implementando-a-rota-delete" class="md-nav__link">
+  <a href="#html" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementando a Rota DELETE
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Implementando a Rota DELETE">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#implementando-o-teste-da-rota-de-delete" class="md-nav__link">
-    <span class="md-ellipsis">
-      Implementando o teste da rota de DELETE
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#checando-tudo-antes-do-commit" class="md-nav__link">
-    <span class="md-ellipsis">
-      Checando tudo antes do commit
+      HTML
     </span>
   </a>
   
@@ -1099,11 +1036,116 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commit" class="md-nav__link">
+  <a href="#apis" class="md-nav__link">
     <span class="md-ellipsis">
-      Commit
+      APIs
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#endpoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openapi-e-documentacao-automatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI e documentação automática
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#swagger-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Swagger UI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redoc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redoc
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trafegando-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trafegando JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trafegando JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contratos-em-apis-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contratos em APIs JSON
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pydantic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pydantic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pydantic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrando-o-pydantic-com-o-fastapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrando o Pydantic com o FastAPI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1134,15 +1176,15 @@
   
 
 
-<div><h1 id="estruturando-o-projeto-e-criando-rotas-crud">Estruturando o Projeto e Criando Rotas CRUD</h1>
+<div><h1 id="introducao-ao-desenvolvimento-web">Introdução ao desenvolvimento WEB</h1>
 <hr>
 <p>Objetivos dessa aula:</p>
 <ul>
-<li>Entendimento dos verbos HTTP, JSON e códigos de resposta</li>
-<li>Compreender a estrutura de um projeto FastAPI e como estruturar rotas CRUD (Criar, Ler, Atualizar, Deletar)</li>
-<li>Aprender sobre a biblioteca Pydantic e sua utilidade na validação e serialização de dados</li>
-<li>Implementação de rotas CRUD em FastAPI</li>
-<li>Escrita e execução de testes para validar o comportamento das rotas</li>
+<li>Criar uma básica teórica sobre desenvolvimento web</li>
+<li>Apresentar o protocolo HTTP</li>
+<li>Introduzir os conceitos de APIs JSON</li>
+<li>Apresentar o OpenAPI</li>
+<li>Introduzir os schemas usando Pydantic</li>
 </ul>
 <details class="tip">
 <summary>Caso prefira ver a aula em vídeo</summary>
@@ -1153,475 +1195,453 @@
 <a class="md-button" href="https://github.com/dunossauro/fastapi-do-zero/blob/main/slides/pdf/aula_02.pdf">Slides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM136 240h68c42 0 76 34 76 76s-34 76-76 76h-44v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V264c0-13.3 10.7-24 24-24zm68 104c15.5 0 28-12.5 28-28s-12.5-28-28-28h-44v56h44z"></path></svg></span></a>
 <a class="md-button" href="https://github.com/dunossauro/fast_zero/tree/02">Código <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span></a></p>
 <hr>
-<p>Boas-vindas de volta à nossa construção de uma aplicação usando FastAPI. Na última aula, configuramos todo o ambiente necessário para começarmos a desenvolver nosso aplicativo. Nesta aula, daremos um passo adiante ao estruturarmos os primeiros endpoints da nossa API, focando nas quatro operações básicas de gerenciamento de usuários. Vamos abordar o <strong>CRUD</strong> - Criar, Ler, Atualizar e Deletar - e como essas operações se aplicam aos dados da nossa base de dados.</p>
-<h2 id="o-que-e-uma-api">O que é uma API?</h2>
-<p>Acrônimo de Application Programming Interface (Interface de Programação de Aplicações), uma API é um conjunto de regras e protocolos que permitem a comunicação entre diferentes softwares. As APIs servem como uma ponte entre diferentes programas, permitindo que eles se comuniquem e compartilhem informações de maneira eficiente e segura.</p>
-<p>No mundo moderno, as APIs geralmente comunicam usando o formato de dados JSON (JavaScript Object Notation), que é uma maneira leve e eficiente de transmitir dados entre a API e o cliente.</p>
-<p>As APIs são fundamentais no mundo da programação moderna, ao permitirem a interação entre diferentes sistemas, independentemente de como foram projetados ou em que linguagem foram escritos.</p>
-<h2 id="o-que-e-http">O que é HTTP?</h2>
-<p>HTTP, ou Hypertext Transfer Protocol (Protocolo de Transferência de Hipertexto), é o protocolo fundamental na web para a transferência de dados e comunicação entre clientes e servidores.</p>
-<p>No contexto das APIs, o HTTP é o protocolo que permite a comunicação entre o cliente (geralmente o navegador de um usuário, mas pode ser qualquer coisa que saiba como fazer solicitações HTTP) e o servidor onde a API está hospedada. As informações entre o cliente e o servidor são trocadas na forma de JSON, tornando-se uma linguagem universal para a troca de informações na web.</p>
-<p>O HTTP é baseado no modelo de requisição-resposta: o cliente faz uma requisição para o servidor, e o servidor responde a essa requisição. Essas requisições e respostas são formatadas conforme as regras do protocolo HTTP.</p>
-<p>A seguir, exploraremos como os verbos HTTP, os códigos de resposta e os códigos de erro são utilizados para gerenciar a comunicação entre o cliente e a API.</p>
-<h2 id="compreendendo-os-verbos-http-codigos-de-resposta-e-codigos-de-erro">Compreendendo os Verbos HTTP, Códigos de Resposta e Códigos de Erro</h2>
-<p>Quando trabalhamos com APIs REST, o uso apropriado dos verbos HTTP, códigos de resposta e códigos de erro é crucial para criar uma API clara e consistente.</p>
-<h3 id="verbos-http">Verbos HTTP</h3>
-<p>Os verbos HTTP indicam a ação desejada a ser executada em um determinado recurso. Os verbos mais comuns são:</p>
-<ul>
-<li><strong>GET</strong>: Recupera recursos. Deve retornar o status HTTP 200 (OK) se bem-sucedido.</li>
-<li><strong>POST</strong>: Cria um novo recurso. Deve retornar o status HTTP 201 (Criado) se bem-sucedido.</li>
-<li><strong>PUT</strong>: Atualiza um recurso existente. Deve retornar o status HTTP 200 (OK) se bem-sucedido.</li>
-<li><strong>DELETE</strong>: Exclui um recurso. Deve retornar o status HTTP 200 (OK) se bem-sucedido.</li>
-</ul>
-<h3 id="codigos-de-resposta-http">Códigos de Resposta HTTP</h3>
-<p>Os códigos de resposta HTTP informam ao cliente sobre o resultado de sua solicitação. Aqui estão alguns dos códigos de resposta mais comuns:</p>
-<ul>
-<li><strong>200 OK</strong>: A solicitação foi bem-sucedida. O significado exato depende do método HTTP utilizado na solicitação.</li>
-<li><strong>201 Created</strong>: A solicitação foi bem-sucedida e um novo recurso foi criado como resultado.</li>
-<li><strong>404 Not Found</strong>: O recurso solicitado não pôde ser encontrado. Este código é frequentemente usado quando o recurso é inexistente.</li>
-</ul>
-<h3 id="codigos-de-erro-http">Códigos de Erro HTTP</h3>
-<p>Os códigos de erro HTTP indicam que houve um problema com a solicitação. Alguns códigos de erro comuns incluem:</p>
-<ul>
-<li><strong>400 Bad Request</strong>: A solicitação era inválida ou malformada.</li>
-<li><strong>401 Unauthorized</strong>: A solicitação requer autenticação. Se a solicitação incluía credenciais de autenticação e mesmo assim retornou 401, isso significa que as credenciais não foram aceitas.</li>
-<li><strong>403 Forbidden</strong>: O cliente não tem permissões para acessar o recurso solicitado, apesar de estar autenticado.</li>
-<li><strong>404 Not Found</strong>: O recurso solicitado não existe no servidor.</li>
-<li><strong>422 Unprocessable Entity</strong>: A solicitação está bem formada, mas os parâmetros semânticos são inválidos ou incompatíveis.</li>
-<li><strong>500 Internal Server Error</strong>: Ocorreu um erro inesperado no servidor.</li>
-</ul>
-<p>Ao trabalhar com APIs REST, é importante lidar corretamente com esses códigos de resposta e erro para proporcionar uma boa experiência para os usuários da API.</p>
-<h2 id="como-acontece-a-comunicacao-web-entre-cliente-e-servidor">Como acontece a comunicação web entre cliente e servidor</h2>
-<p>A comunicação entre cliente e servidor na web é um processo que ocorre em várias etapas e é governado por protocolos de comunicação específicos. O protocolo mais comum é o HTTP (Hypertext Transfer Protocol). Essa forma de comunicação é geralmente descrita como stateless, o que significa que cada requisição é processada de forma independente, sem qualquer conhecimento das requisições anteriores.</p>
-<p>A informação é trocada na forma de mensagens HTTP, que contêm dados e informações sobre como esses dados devem ser processados. Um aspecto fundamental dessa comunicação é a troca de dados na forma de objetos JSON, que são uma maneira eficiente e flexível de representar dados estruturados.</p>
+<p>Boas-vindas à segunda aula do nosso curso de FastAPI. Agora que já temos o ambiente preparado, com algum código escrito e testado, é o momento ideal para entendermos o que viemos fazer aqui. Até este ponto, você já deve saber que o FastAPI é um framework para desenvolvimento de aplicações web, mais especificamente para o desenvolvimento de APIs web. É aqui que ter um bom referencial teórico se torna importante para compreendermos exatamente o que o framework é capaz de fazer.</p>
+<h2 id="a-web">A web</h2>
+<p>Sempre que nos referimos a aplicações web, estamos falando de aplicações que funcionam em rede. Essa rede pode ser privativa, como a sua rede doméstica ou uma rede empresarial, ou podemos estar nos referindo à <a href="https://pt.wikipedia.org/wiki/World_Wide_Web" target="_blank">World Wide Web</a> (WWW), comumente conhecida como "internet". A internet, que tem uma longa história iniciada na década de 1960, possui diversos padrões definidos e vem se aperfeiçoando desde então. Compreender completamente sua complexidade é um desafio, especialmente 6 décadas após seu início.</p>
+<p>Quando falamos em comunicação em rede, geralmente nos referimos à comunicação entre dois ou mais dispositivos interconectados. A ideia é que possamos nos comunicar com outros dispositivos usando a rede.</p>
+<h3 id="o-modelo-cliente-servidor">O modelo cliente-servidor</h3>
+<p>No contexto de aplicações web, geralmente nos referimos a um modelo específico de comunicação: o cliente-servidor. Neste modelo, temos clientes, como aplicativos móveis, terminais de comando, navegadores, etc., acessando recursos fornecidos por outro computador, conhecido como servidor.</p>
+<p>Neste modelo, fazemos chamadas de um cliente, via rede, <a href="#o-modelo-padrao-da-web">seguindo alguns padrões</a>, e recebemos respostas da nossa aplicação, o servidor. Por exemplo, podemos enviar um comando ao servidor: "Crie um usuário para mim". Em resposta, ele nos fornece um retorno, seja uma confirmação de sucesso ou uma mensagem de erro.</p>
 <pre class="mermaid"><code>sequenceDiagram
     participant Cliente
     participant Servidor
-    Cliente-&gt;&gt;Servidor: Requisição HTTP (GET, POST, PUT, DELETE)
+    Note left of Cliente: Fazendo a requisição
+    Cliente-&gt;&gt;Servidor: Crie um usuário
+    activate Servidor
     Note right of Servidor: Processa a requisição
-    Servidor--&gt;&gt;Cliente: Resposta HTTP (Código de Status)
-    Note left of Cliente: Processa a resposta
-    Cliente-&gt;&gt;Servidor: Requisição HTTP com JSON (POST, PUT)
-    Note right of Servidor: Processa a requisição e o JSON
-    Servidor--&gt;&gt;Cliente: Resposta HTTP com JSON
-    Note left of Cliente: Processa a resposta e o JSON</code></pre>
-<p>Este diagrama representa a sequência básica de uma comunicação cliente-servidor usando HTTP e JSON:</p>
-<ul>
-<li>O cliente, geralmente um navegador web ou uma aplicação, faz uma requisição HTTP para o servidor. Essa requisição pode ser de diferentes tipos, como GET (para recuperar dados), POST ou PUT (para enviar dados), ou DELETE (para excluir dados).</li>
-<li>O servidor recebe uma requisição, a processa e, em seguida, prepara a resposta. A resposta inclui um código de status que indica se a requisição foi bem-sucedida ou não.</li>
-<li>O cliente recebe a resposta do servidor e a processa. Se os dados foram solicitados, eles são exibidos ao usuário. Se foi uma operação de envio de dados, a resposta do servidor indicará se a operação foi bem-sucedida.</li>
-<li>Para operações que envolvem o envio de dados, como POST e PUT, o cliente inclui os dados na forma de um objeto JSON na requisição. O JSON é um formato de dados leve e fácil de usar que permite a representação de estruturas de dados complexas.</li>
-<li>O servidor recebe a requisição com os dados JSON, processa a requisição e os dados, e envia uma resposta ao cliente. Esta resposta também pode incluir dados no formato JSON.</li>
-<li>Finalmente, o cliente processa a resposta do servidor e quaisquer dados JSON incluídos nela.</li>
-</ul>
-<p>Essa é uma visão geral simplificada do processo. Na prática, a comunicação entre cliente e servidor pode envolver muitas outras nuances, como autenticação, redirecionamento, cookies e muito mais.</p>
-<h2 id="pydantic-e-a-validacao-de-dados">Pydantic e a validação de dados</h2>
-<p>Antes de mergulharmos no código, vamos entender alguns conceitos importantes.</p>
+    Servidor--&gt;&gt;Cliente: Sucesso na requisição: Usuário criado com sucesso
+    deactivate Servidor
+    Note left of Cliente: Obtivemos a resposta desejada
+
+    Cliente-&gt;&gt;Servidor: Crie o mesmo usuário
+    activate Servidor
+    Note left of Cliente: Fazendo uma nova requisição
+    Note right of Servidor: Processa a requisição
+    Servidor--&gt;&gt;Cliente: Erro na requisição: Usuário já existe
+    deactivate Servidor
+    Note left of Cliente: Obtivemos a resposta de erro</code></pre>
+<p>A comunicação é bidirecional: um cliente faz uma requisição ao servidor, que por sua vez emite uma resposta.</p>
+<p>Por exemplo, ao construir um servidor, precisamos de uma biblioteca que consiga "servir" nossa aplicação. É aí que entra o Uvicorn, responsável por servir nossa aplicação com FastAPI.</p>
+<p>Quando executamos:</p>
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uvicorn<span class="w"> </span>fast_zero.app:app
+</span></code></pre></div>
+<p>Iniciamos um servidor em loopback, acessível apenas internamente no nosso computador. Por isso, ao acessarmos <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> no navegador, estamos fazendo uma requisição ao servidor em <code>127.0.0.1:8000</code>.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Cliente
+    participant Servidor
+    Note left of Cliente: Fazendo a requisição
+    Cliente-&gt;&gt;Servidor: 
+    activate Servidor
+    Note right of Servidor: Processa a requisição
+    Servidor--&gt;&gt;Cliente: Sucesso na requisição: {"message":"Olá Mundo!"}
+    deactivate Servidor
+    Note left of Cliente: Obtivemos a resposta desejada</code></pre>
+<h4 id="usando-o-uvicorn-na-rede-local">Usando o uvicorn na rede local</h4>
+<p>Falando em redes, o Uvicorn no seu PC também pode servir o FastAPI na sua rede local:</p>
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uvicorn<span class="w"> </span>fast_zero.app:app<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
+</span></code></pre></div>
 <details class="tip">
-<summary>Caso esse seja seu primeiro contato com Pydantic</summary>
-<p>Temos uma live de python exclusiva sobre esse assunto</p>
-<p><a class="glightbox" href="https://www.youtube.com/embed/UdfLu1G47BU" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/UdfLu1G47BU" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
-<p><a class="md-button" href="https://www.youtube.com/watch?v=UdfLu1G47BU"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
+<summary>Esse comando também poderia ser executado com <code>taskipy</code></summary>
+<p>Uma característica interessante do taskipy é que qualquer continuação após o comando da task é passado para o comando original. Poderíamos então executar dessa forma também:
+</p><div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>task<span class="w"> </span>run<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
+</span></code></pre></div>
 </details>
-<p>O Pydantic é uma biblioteca Python que oferece validação de dados e configurações usando anotações de tipos Python. Ela é utilizada extensivamente com o FastAPI para lidar com a validação e serialização/desserialização de dados. O Pydantic tem um papel crucial ao trabalhar com JSON, permitindo a validação dos dados recebidos neste formato, assim como sua conversão para formatos nativos do Python e vice-versa.</p>
-<p>O uso do Pydantic nos permite definir modelos de dados, ou "esquemas", com campos anotados com tipos de dados. O Pydantic garante que as instâncias desses modelos sempre estejam conforme o esquema definido.</p>
-<p><strong>Esquemas</strong>: No contexto da programação, um esquema é uma representação estrutural de um objeto ou entidade. Por exemplo, no nosso caso, um usuário pode ser representado por um esquema que contém campos para nome de usuário, e-mail e senha. Esquemas são úteis porque permitem definir a estrutura de um objeto de uma maneira clara e reutilizável.</p>
-<p><strong>Validação de dados</strong>: Este é o processo de verificar se os dados recebidos estão conforme as regras e restrições definidas. Por exemplo, se esperamos que o campo "email" contenha um endereço de e-mail válido, a validação de dados garantirá que os dados inseridos nesse campo de fato correspondam a um formato de e-mail válido.</p>
-<p>Considere um exemplo onde recebemos o seguinte objeto JSON, representando um novo usuário que quer se registrar em nosso serviço:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joao123"</span><span class="p">,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joao123@email.com"</span><span class="p">,</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"segredo123"</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+<p>Assim, você pode acessar a aplicação de outro computador na sua rede usando o endereço IP da sua máquina.</p>
+<details class="tip">
+<summary>Descobrindo o seu endereço local usando python</summary>
+<p>Caso não esteja familiarizado com o terminal ou ferramentas para descobrir seu endereço IP:</p>
+<div class="language-py highlight"><span class="filename">&gt;&gt;&gt; Terminal interativo!</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">socket</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s2">"8.8.8.8"</span><span class="p">,</span> <span class="mi">80</span><span class="p">))</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s1">'192.168.0.100'</span><span class="c1"># (1)!</span>
 </span></code></pre></div>
-<p>Para lidar com esta entrada de dados, devemos definir um esquema Pydantic que corresponda à estrutura deste objeto JSON. Usamos anotações de tipos Python para definir o tipo de dado de cada campo:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">EmailStr</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">class</span> <span class="nc">UserSchema</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span>
-</span></code></pre></div>
-<p>Neste exemplo, o campo <code>username</code> é esperado como uma string, o campo <code>email</code> como uma string que valida o formato de um endereço de email (graças à anotação <code>EmailStr</code> do Pydantic), e o campo <code>password</code> também é esperado como uma string.</p>
-<p>Ao usar este esquema, qualquer tentativa de criar um usuário com dados que não correspondam a este formato (por exemplo, um email que não é válido, ou um campo de nome de usuário que não é uma string) resultará em um erro de validação.</p>
-<h3 id="suporte-a-emails">Suporte a emails</h3>
-<p>Para que o Pydantic suporte a validação de emails, é necessário instalar o <code>pydantic[email]</code></p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>poetry<span class="w"> </span>add<span class="w"> </span><span class="s2">"pydantic[email]"</span>
-</span></code></pre></div>
-<p>Ademais, se tentarmos criar um usuário com um email inválido, o Pydantic irá automaticamente validar o campo e retornar um erro útil. Isso nos poupa muito trabalho de validação manual e ajuda a manter nossa API robusta e confiável.</p>
-<h2 id="implementando-as-rotas-crud">Implementando as Rotas CRUD</h2>
-<p>CRUD é um acrônimo que representa as quatro operações básicas que você pode realizar em qualquer banco de dados persistente:</p>
+<ol>
+<li>O endereço do meu computador na rede local</li>
+</ol>
+</details>
+<p><a class="glightbox" href="../assets/02/acesso_do_uvicorn_na_rede.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="imagem do navegador do celular acessando o servidor via rede" class="center shadow" src="../assets/02/acesso_do_uvicorn_na_rede.jpg"></a></p>
+<h3 id="o-modelo-padrao-da-web">O modelo padrão da web</h3>
+<p>Ignorando muita história e diversas camadas de padrões, podemos nos concentrar nos três padrões principais que serão mais importantes para nós agora:</p>
+<pre class="mermaid"><code>graph
+    A[Web] --&gt; B[URL]
+    A --&gt; C[HTTP]
+    A --&gt; D[HTML]</code></pre>
 <ul>
-<li><strong>C</strong>reate (Criar): Adicionar novos registros ao banco de dados. No HTTP, essa ação é geralmente associada ao verbo POST.</li>
-<li><strong>R</strong>ead (Ler): Recuperar registros existentes do banco de dados. No HTTP, essa ação é geralmente associada ao verbo GET.</li>
-<li><strong>U</strong>pdate (Atualizar): Modificar registros existentes no banco de dados. No HTTP, essa ação é geralmente associada ao verbo PUT ou PATCH.</li>
-<li><strong>D</strong>elete (Excluir): Remover registros existentes do banco de dados. No HTTP, essa ação é geralmente associada ao verbo DELETE.</li>
+<li><a href="https://pt.wikipedia.org/wiki/URL" target="_blank">URL</a>: <em>Localizador Uniforme de Recursos</em>. Um endereço de rede pelo qual podemos nos comunicar com um computador na rede.</li>
+<li><a href="https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="_blank">HTTP</a>: um protocolo que especifica como deve ocorrer a comunicação entre dispositivos.</li>
+<li><a href="https://pt.wikipedia.org/wiki/HTML" target="_blank">HTML</a>: a linguagem usada para criar e estruturar páginas na web.</li>
 </ul>
-<p>Os códigos de status HTTP são usados para indicar o resultado de cada operação CRUD. Por exemplo, uma solicitação POST bem-sucedida (create) retorna o status HTTP 201 (Criado), enquanto uma solicitação GET bem-sucedida (read) retorna o status HTTP 200 (OK).</p>
-<p>É importante notar que, ao trabalhar com FastAPI e Pydantic, nossos esquemas desempenham um papel vital na operação de "Create" (criar). Ao usar a operação POST para adicionar um novo registro ao nosso banco de dados, aproveitaremos a validação de dados do Pydantic para garantir que o novo registro esteja conforme o esquema do nosso modelo de dados. Se os dados enviados na solicitação POST não passarem na validação do Pydantic, nossa API retornará um código de status HTTP 422 (Unprocessable Entity), indicando que os dados fornecidos são inválidos ou incompletos.</p>
-<p>Agora que temos uma compreensão clara do que é o CRUD, como se relaciona com os verbos HTTP, os códigos de status e a validação do Pydantic, podemos passar para a implementação dessas operações em nossa API FastAPI.</p>
-<p>Na nossa API, criaremos rotas correspondentes para cada uma das operações do CRUD, começando com a operação "create" (criar), que será implementada pela rota POST.</p>
-<h3 id="implementando-a-rota-post">Implementando a Rota POST</h3>
-<p>A rota POST é usada para criar um novo usuário em nosso sistema. Lembrando, o verbo HTTP POST está relacionado à operação "Create" do CRUD. Se tudo ocorrer como esperado e um novo usuário for criado com sucesso, a rota deve retornar o status HTTP 201 (Criado).</p>
-<p>Para a criação dessa rota, usaremos de base o JSON que criamos anteriormente. Para que a pessoa se cadastre na nossa plataforma, ela precisa enviar os dados de nome de usuário, email e senha:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joao123"</span><span class="p">,</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joao123@email.com"</span><span class="p">,</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"segredo123"</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Para isso, criaremos um esquema Pydantic equivalente em um arquivo de esquemas: <code>fast_zero/schemas.py</code>:</p>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<h4 id="url">URL</h4>
+<p>Uma URL (Uniform Resource Locator) é como um endereço que nos ajuda a encontrar um recurso específico em uma rede, como a URL <code>http://127.0.0.1:8000</code> que usamos para acessar nossa aplicação.</p>
+<p>Uma URL é composta por várias partes, como neste exemplo: <code>protocolo://endereço:porta/caminho/recurso?query_string#fragmento</code>. Neste primeiro momento, focaremos nos primeiros quatro componentes, essenciais para o andamento da aula:</p>
+<ol>
+<li>
+<p><strong>Protocolo</strong>: A primeira parte da URL, terminando com "://". Os mais comuns são "http://" e "https://". Este protocolo define como os dados são trocados entre seu computador e o local onde o recurso está armazenado, seja na internet ou numa rede local.</p>
+</li>
+<li>
+<p><strong>Endereço do Host</strong>: Pode ser um endereço IP (como "192.168.1.10") ou um endereço de <a href="https://pt.wikipedia.org/wiki/Sistema_de_Nomes_de_Dom%C3%ADnio" target="_blank">DNS</a> (como "youtube.com"). Ele identifica o dispositivo na rede que contém o recurso desejado.</p>
+</li>
+<li>
+<p><strong>Porta (opcional)</strong>: Após o endereço do host, pode haver um número após dois pontos, como em "192.168.1.10:8080". Este número é a porta, usada para direcionar sua solicitação ao serviço específico no dispositivo. Por padrão, as portas são <code>80</code> para HTTP e <code>443</code> para HTTPS, quando não especificadas.</p>
+</li>
+<li>
+<p><strong>Caminho</strong>: Indica a localização exata do recurso no servidor ou dispositivo. Por exemplo, em "192.168.1.10:8000/busca", <code>/busca</code> é o nome do recurso. Quando não especificado, o servidor responde com o recurso na raiz (<code>/</code>).</p>
+</li>
+</ol>
+<p>Ao acessarmos via navegador a URL <code>http://127.0.0.1:8000</code>, estamos acessando o servidor via protocolo <code>HTTP</code>, no endereço do nosso próprio computador, na porta <code>8000</code>, solicitando o recurso <code>/</code>.</p>
+<h4 id="http">HTTP</h4>
+<p>Quando o cliente inicia uma requisição para um endereço na rede, isso é feito via um protocolo e direcionado ao servidor do recurso. Em aplicações web, a maioria da comunicação ocorre via protocolo HTTP ou sua versão segura, o HTTPS.</p>
+<p>HTTP, ou <em>Hypertext Transfer Protocol</em> (Protocolo de Transferência de Hipertexto), é o protocolo fundamental na web para a transferência de dados e comunicação entre clientes e servidores. Ele baseia-se no modelo de requisição-resposta: onde cliente faz uma requisição ao servidor, que responde a essa requisição. Essas requisições e respostas são formatadas conforme as regras do protocolo HTTP.</p>
+<h5 id="mensagens">Mensagens</h5>
+<p>No contexto do HTTP, tanto requisições quanto respostas são referidas como <strong>mensagens</strong>. As mensagens HTTP na versão 1 têm uma estrutura textual semelhante ao seguinte exemplo.</p>
+<p>Um exemplo de mensagem HTTP enviada pelo cliente:</p>
+<div class="language-http highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Exemplo da mensagem emitada pelo cliente</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
 <span class="normal"><a href="#__codelineno-4-4">4</a></span>
 <span class="normal"><a href="#__codelineno-4-5">5</a></span>
-<span class="normal"><a href="#__codelineno-4-6">6</a></span>
-<span class="normal"><a href="#__codelineno-4-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">EmailStr</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">class</span> <span class="nc">UserSchema</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nf">GET</span> <span class="nn">/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="na">Accept</span><span class="o">:</span> <span class="l">*/*</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="na">Host</span><span class="o">:</span> <span class="l">127.0.0.1:8000</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="na">User-Agent</span><span class="o">:</span> <span class="l">HTTPie/3.2.2</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Agora criaremos nosso endpoint que esperará receber esse esquema Pydantic e retornará 201, caso o JSON enviado seja válido:</p>
-<div class="language-python highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Código da nossa rota de olá mundo omitido</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="k">return</span> <span class="n">user</span>
-</span></code></pre></div>
-<p>Com esse endpoint criado, podemos executar a nossa aplicação:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>task<span class="w"> </span>run
-</span></code></pre></div>
-<p>E acessar a página <a href="http://localhost:8000/docs">http://localhost:8000/docs</a>. Isso nos mostrará as definições do nosso endpoint usando o Swagger.</p>
-<p><a class="glightbox" href="../assets/02_swagger.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_swagger.png"></a></p>
-<p>Dessa forma, podemos testar de forma simplificada a nossa API, enviando o JSON e realizando alguns testes.</p>
-<p><a class="glightbox" href="../assets/02_swagger_com_request.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_swagger_com_request.png"></a></p>
-<p>Entretanto, precisamos prestar atenção a um detalhe: nosso modelo retorna a senha do usuário, o que é uma péssima prática de segurança.</p>
-<p><a class="glightbox" href="../assets/02_respsota_do_swagger.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_respsota_do_swagger.png"></a></p>
-<p>Para evitar isso, podemos criar um novo modelo que será usado somente para resposta. Dessa forma, não expomos os dados que não queremos na API:</p>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-10">10</a></span>
-<span class="normal"><a href="#__codelineno-7-11">11</a></span>
-<span class="normal"><a href="#__codelineno-7-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="k">class</span> <span class="nc">UserPublic</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12"></a>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
+<p>Na primeira linha, temos o <a href="#verbos">verbo</a> GET, que solicita um recurso, neste caso, o recurso é <code>/</code>. As linhas seguintes compõem o <a href="#cabecalho">cabeçalho</a> da mensagem. Elas informam que o cliente aceita qualquer tipo de resposta (<code>Accept: */*</code>), indicam a URL destino (<code>Host: 127.0.0.1:8000</code>) e identificam o cliente que gerou a requisição (<code>User-Agent: HTTPie/3.2.2</code>), que neste caso foi o cliente <a href="https://httpie.io/cli" target="_blank">HTTPie</a>.</p>
+<p>Em resposta a esta mensagem, o servidor enviou o seguinte:</p>
+<div class="language-http highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Exemplo da mensagem de resposta do servidor</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span>
+<span class="normal"><a href="#__codelineno-5-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="na">content-length</span><span class="o">:</span> <span class="l">24</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="na">content-type</span><span class="o">:</span> <span class="l">application/json</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="na">date</span><span class="o">:</span> <span class="l">Fri, 19 Jan 2024 04:05:50 GMT</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="na">server</span><span class="o">:</span> <span class="l">uvicorn</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Olá mundo"</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Precisamos também dizer ao FastAPI que esse será o modelo de resposta, e converter nosso <code>user</code> em <code>UserPublic</code>:</p>
-<div class="language-python highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># código omitido</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
-</span></span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="k">return</span> <span class="n">user</span>
+<p>Aqui, na primeira linha da resposta, temos a versão do protocolo HTTP utilizada e o <a href="#c%C3%B3digos-de-resposta">código de resposta</a> <code>200 OK</code>, indicando que a requisição foi bem-sucedida. O cabeçalho da resposta inclui informações como o <code>content-length</code> e <code>content-type</code>, que especificam o tamanho e o tipo do conteúdo da resposta, respectivamente. A data e o servidor que processou a requisição também são indicados. Finalmente, o <a href="#corpo">corpo da resposta</a>, formatado em JSON, contém a mensagem <code>"Olá mundo"</code>.</p>
+<details class="example">
+<summary>Como as mensagens do HTTP foram geradas?</summary>
+<p>A visualização das mensagens foram geradas com o cliente CLI do HTTPie: <code>http GET http://127.0.0.1:8000 -v</code></p>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nf">GET</span> <span class="nn">/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">Accept</span><span class="o">:</span> <span class="l">*/*</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">Accept-Encoding</span><span class="o">:</span> <span class="l">gzip, deflate</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">Connection</span><span class="o">:</span> <span class="l">keep-alive</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">Host</span><span class="o">:</span> <span class="l">127.0.0.1:8000</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="na">User-Agent</span><span class="o">:</span> <span class="l">HTTPie/3.2.2</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>HTTP/1.1 200 OK
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>content-length: 24
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>content-type: application/json
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>date: Fri, 19 Jan 2024 04:05:50 GMT
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>server: uvicorn
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>{
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    "message": "Olá mundo"
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>}
 </span></code></pre></div>
-<p>Note que somente adicionando o <code>response_model</code>, o FastAPI já faz a conversão de <code>UserSchema</code> em <code>UserPublic</code></p>
-<p>Agora, se fizermos de novo a chamada no Swagger, receberemos o mesmo objeto, mas sem expor a senha.</p>
-<p><a class="glightbox" href="../assets/02_swagger_sem_senha.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_swagger_sem_senha.png"></a></p>
-<details class="tip">
-<summary>Caso nunca tenha usado o Swagger</summary>
-<p>Temos uma live focada em OpenAPI, que são as especificações do Swagger
-<a class="glightbox" href="https://www.youtube.com/embed/TfGHNBaK9a0" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/TfGHNBaK9a0" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
-<p><a class="md-button" href="https://youtu.be/TfGHNBaK9a0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
 </details>
-<h4 id="criando-um-banco-de-dados-falso">Criando um banco de dados falso</h4>
-<p>Finalmente, para brincar com essas rotas, podemos criar uma lista provisória para simular um banco de dados. Assim, podemos adicionar nossos dados e entender como o FastAPI funciona. Para isso, adicionamos uma lista provisória para o "banco" e alteramos nosso endpoint para inserir nossos modelos do Pydantic nessa lista:</p>
-<div class="language-python highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span><span class="p">,</span> <span class="n">UserDB</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># código omitido</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="hll"><span class="n">database</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># provisório para estudo!</span>
-</span></span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="hll">    <span class="n">user_with_id</span> <span class="o">=</span> <span class="n">UserDB</span><span class="p">(</span><span class="o">**</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump</span><span class="p">(),</span> <span class="nb">id</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="hll">
-</span></span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="hll">    <span class="n">database</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user_with_id</span><span class="p">)</span>
-</span></span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="hll">
-</span></span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="hll">    <span class="k">return</span> <span class="n">user_with_id</span>
-</span></span></code></pre></div>
-<p>Se queremos uma simulação de banco de dados, precisamos ter um <code>ID</code> para cada usuário registrado no nosso "banco". Sendo assim, alteraremos nosso modelo de resposta pública (<code>UserPublic</code>) para que ele forneça o ID de criação do usuário. Também criaremos um novo modelo que represente o usuário com sua senha e identificador, que chamaremos de <code>UserDB</code>:</p>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<h6 id="cabecalho">Cabeçalho</h6>
+<p>O cabeçalho de uma mensagem HTTP contém metadados essenciais sobre a requisição ou resposta. Alguns elementos comuns que podem ser incluídos no cabeçalho são:</p>
+<ul>
+<li><strong>Content-Type</strong>: Especifica o tipo de mídia no corpo da mensagem. Por exemplo, <code>Content-Type: application/json</code> indica que o corpo da mensagem está em formato JSON. Ou <code>Content-Type: text/html</code>, para mensagens que contém <a href="#html">HTML</a>.</li>
+<li><strong>Authorization</strong>: Usado para autenticação, como tokens ou credenciais. (veremos mais disso nas aulas seguintes)</li>
+<li><strong>Accept</strong>: Especifica o tipo de mídia que o cliente aceita, como <code>application/json</code>.</li>
+<li><strong>Server</strong>: Fornece informações sobre o software do servidor.</li>
+</ul>
+<h6 id="corpo">Corpo</h6>
+<p>O corpo da mensagem contém os dados propriamente ditos, variando conforme o tipo de mídia. Exemplos podem incluir um objeto JSON ou uma estrutura HTML.</p>
+<h5 id="verbos">Verbos</h5>
+<p>Quando um cliente faz uma requisição HTTP, ele indica sua intenção ao servidor utilizando verbos. Estes verbos sinalizam diferentes ações no protocolo HTTP. Vejamos alguns exemplos:</p>
+<ul>
+<li><strong>GET</strong>: utilizado para recuperar recursos. Empregamos este verbo quando queremos solicitar um dado já existente no servidor.</li>
+<li><strong>POST</strong>: permite criar um novo recurso. Por exemplo, enviar dados para registrar um novo usuário.</li>
+<li><strong>PUT</strong>: Atualiza um recurso existente. Como, por exemplo, atualizar as informações de um usuário existente.</li>
+<li><strong>DELETE</strong>: Exclui um recurso. Por exemplo, remover um usuário específico do sistema.</li>
+</ul>
+<p>Na nossa aplicação FastAPI, definimos que a função <code>read_root</code> que  será executada quando uma requisição GET for feita por um cliente no caminho <code>/</code>:</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+</span></span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="k">def</span> <span class="nf">read_root</span><span class="p">():</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Quando realizamos a requisição via navegador, o verbo padrão é o GET. Por isso, obtemos na tela a mensagem <code>{'message': 'Olá Mundo!'}</code>.</p>
+<p><a class="glightbox" href="../assets/02/nagevador_com_localhost.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt='Captura de tela do navegador acessando "http://127.0.0.1"' class="center shadow" src="../assets/02/nagevador_com_localhost.png"></a></p>
+<p>Essa é exatamente a resposta fornecida pela execução da função <code>read_root</code>. No futuro, criaremos funções para lidar com os outros verbos HTTP.</p>
+<h5 id="codigos-de-resposta">Códigos de resposta</h5>
+<p>No mundo das requisições usando o protocolo HTTP, além da resposta obtida quando nos comunicamos com o servidor, também recebemos um código de resposta (<em>status code</em>). Os códigos são formas de mostrar ao cliente como o servidor lidou com a sua requisição. Os códigos são divididos em classes e as classes são distribuídas por centenas:</p>
+<ul>
+<li>1xx: informativo — utilizada para enviar informações para o cliente de que sua requisição foi recebida e está sendo processada.</li>
+<li>2xx: sucesso — Indica que a requisição foi bem-sucedida (por exemplo, 200 OK, 201 Created).</li>
+<li>3xx: redirecionamento — Informa que mais ações são necessárias para completar a requisição (por exemplo, 301 Moved Permanently, 302 Found).</li>
+<li>4xx: erro no <strong>cliente</strong> — Significa que houve um erro na requisição feita pelo cliente (por exemplo, 400 Bad Request, 404 Not Found).</li>
+<li>5xx: erro no <strong>servidor</strong> — Indica um erro no servidor ao processar a requisição válida do cliente (por exemplo, 500 Internal Server Error, 503 Service Unavailable).</li>
+</ul>
+<p>Sempre que fazemos uma requisição, obtemos um código de resposta. Por exemplo, em nosso arquivo de teste, quando efetuamos a requisição, fazemos a checagem para ver se recebemos um código de sucesso, o código <code>200</code>:</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="k">def</span> <span class="nf">test_root_deve_retornar_200_e_ola_mundo</span><span class="p">():</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="hll">    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span></span></code></pre></div></td></tr></table></div>
+<p>Para garantir que a resposta obtida pelo cliente seja considerada um sucesso, o FastAPI, por padrão, envia o código de sucesso <code>200</code> para o método GET. No entanto, também podemos deixar isso explícito na definição da rota:</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</span></span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="k">def</span> <span class="nf">read_root</span><span class="p">():</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Temos diversos códigos a explorar durante nossa jornada, mas gostaria de listar os mais comuns dentro do nosso escopo:</p>
+<ul>
+<li><strong>200 OK</strong>: a solicitação foi bem-sucedida. O significado exato depende do método HTTP utilizado na solicitação.</li>
+<li><strong>201 Created</strong>: a solicitação foi bem-sucedida e um novo recurso foi criado como resultado.</li>
+<li><strong>404 Not Found</strong>: o recurso solicitado não pôde ser encontrado, sendo frequentemente usado quando o recurso é inexistente.</li>
+<li><strong>422 Unprocessable Entity</strong>: usado quando a requisição está bem-formada, mas não pode ser seguida devido a erros semânticos. É comum em APIs ao validar dados de entrada.</li>
+</ul>
+<p>Assim, podemos ir ao terceiro pilar do desenvolvimento web que são os conteúdos relacionados as respostas.</p>
+<h4 id="html">HTML</h4>
+<div class="admonition example">
+<p class="admonition-title">Sobre o código apresentado nesse tópico!</p>
+<p>Todo o código apresentado neste tópico é apenas um exemplo básico do uso de HTML com FastAPI e não será utilizado no curso. No entanto, é extremamente importante mencionar este tópico.</p>
+<p>Embora este tópico abranja apenas HTML puro, o FastAPI pode utilizar <a href="https://jinja.palletsprojects.com/" target="_blank">Jinja</a> como sistema de templates para uma aplicação mais eficiente.</p>
+<details class="tip">
+<summary>Interessado em aprender sobre a aplicação de templates?</summary>
+<p>Na live sobre websockets com FastAPI, discutimos bastante sobre templates. Você pode assistir ao vídeo aqui:
+<a class="glightbox" href="https://www.youtube.com/embed/EqFzY8dBWHs" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/EqFzY8dBWHs" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+</details>
+<p>A documentação do FastAPI também oferece um tópico focado em <a href="https://fastapi.tiangolo.com/pt/advanced/templates/" target="_blank">Templates</a>.</p>
+</div>
+<p>O terceiro pilar fundamental da web é o HTML, sigla para <em>Hypertext Markup Language</em>. Trata-se da linguagem de marcação padrão usada para criar e estruturar páginas na internet. Quando acessamos um site, o que vemos em nossos navegadores é o resultado da interpretação do HTML. Esta linguagem utiliza uma série de 'tags' – como <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code> e outras – para definir a estrutura e o conteúdo de uma página web.</p>
+<p>A beleza do HTML reside em sua simplicidade e eficácia. Mais do que uma linguagem, é uma forma de organizar e apresentar informações na web. Cada tag tem um propósito específico: <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code> são usadas para títulos e subtítulos; <code>&lt;p&gt;</code> para parágrafos; <code>&lt;a&gt;</code> para links; enquanto <code>&lt;div&gt;</code> e <code>&lt;span&gt;</code> auxiliam na organização e estilo do conteúdo. Juntas, essas tags formam a espinha dorsal de quase todas as páginas da internet.</p>
+<p>Se nosso objetivo fosse apresentar um HTML simples, poderíamos usar a classe de resposta <code>HTMLResponse</code>:</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
 <span class="normal"><a href="#__codelineno-10-11">11</a></span>
 <span class="normal"><a href="#__codelineno-10-12">12</a></span>
 <span class="normal"><a href="#__codelineno-10-13">13</a></span>
 <span class="normal"><a href="#__codelineno-10-14">14</a></span>
 <span class="normal"><a href="#__codelineno-10-15">15</a></span>
 <span class="normal"><a href="#__codelineno-10-16">16</a></span>
-<span class="normal"><a href="#__codelineno-10-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="k">class</span> <span class="nc">UserPublic</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13"></a>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14"></a>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15"></a>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="k">class</span> <span class="nc">UserDB</span><span class="p">(</span><span class="n">UserSchema</span><span class="p">):</span>
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="hll"><span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">HTMLResponse</span>
+</span></span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="n">response_class</span><span class="o">=</span><span class="n">HTMLResponse</span><span class="p">)</span>
+</span></span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="k">def</span> <span class="nf">read_root</span><span class="p">():</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a>    <span class="k">return</span> <span class="s2">"""</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="s2">    &lt;html&gt;</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="s2">      &lt;head&gt;</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="s2">        &lt;title&gt; Nosso olá mundo!&lt;/title&gt;</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="s2">      &lt;/head&gt;</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="s2">      &lt;body&gt;</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="s2">        &lt;h1&gt; Olá Mundo &lt;/h1&gt;</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="s2">      &lt;/body&gt;</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="s2">    &lt;/html&gt;"""</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Dessa forma, nada muda. No entanto, podemos prosseguir com a construção dos outros endpoints. E lembre-se, é importante testar esse endpoint para garantir que tudo esteja funcionando corretamente.</p>
-<h4 id="implementando-o-teste-da-rota-post">Implementando o teste da rota POST</h4>
-<p>Antes de criar o teste de fato, executaremos a task de teste para ver como anda a nossa cobertura:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>task<span class="w"> </span><span class="nb">test</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># parte da resposta foi omitida</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>-------------------------------------------
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>fast_zero/app.py<span class="w">           </span><span class="m">12</span><span class="w">      </span><span class="m">3</span><span class="w">    </span><span class="m">75</span>%
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>fast_zero/schemas.py<span class="w">       </span><span class="m">11</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>-------------------------------------------
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>TOTAL<span class="w">                      </span><span class="m">23</span><span class="w">      </span><span class="m">3</span><span class="w">    </span><span class="m">87</span>%
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="c1"># parte da resposta foi omitida</span>
+<p>Ao acessarmos nossa URL no navegador, podemos ver o HTML sendo renderizado:</p>
+<p><a class="glightbox" href="../assets/02/retorno_do_ola_mundo_em_html.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center" src="../assets/02/retorno_do_ola_mundo_em_html.png"></a></p>
+<p>Embora o HTML seja crucial para a estruturação de páginas web, nosso curso foca em uma perspectiva diferente: a transferência de dados. Enquanto o HTML é usado para apresentar dados visualmente nos navegadores, existe outra camada focada na transferência de informações entre sistemas e servidores. Aqui entra o conceito de APIs (Application Programming Interfaces), que frequentemente utilizam JSON (JavaScript Object Notation) para a troca de dados. JSON é um formato leve de troca de dados, fácil de ler e escrever para humanos, e simples de interpretar e gerar para máquinas.</p>
+<p>Portanto, embora não aprofundemos no HTML como linguagem, é importante entender seu papel como a camada de apresentação padrão da web. Agora, direcionaremos nossa atenção para as APIs e a troca de dados em JSON, explorando como essas tecnologias permitem a comunicação eficiente entre diferentes sistemas e aplicativos.</p>
+<h2 id="apis">APIs</h2>
+<p>Quando falamos sobre aplicações web que não envolvem uma camada de visualização, como HTML, geralmente estamos nos referindo a APIs. A sigla API vem de <em>Application Programming Interface</em> (Interface de Programação de Aplicações). Uma API é projetada para ser uma interface claramente definida e documentada, que facilita a interação por meio do protocolo HTTP.</p>
+<p>A essência das APIs reside no modelo cliente-servidor, onde o cliente troca dados com o servidor através de <a href="#endpoint"><em>endpoints</em></a>, respeitando as regras estabelecidas pelo protocolo HTTP. Por exemplo, para solicitar dados ao servidor, usamos o verbo GET, direcionando a requisição a um endpoint específico do servidor, que em resposta nos fornece o dado ou recurso solicitado.</p>
+<h3 id="endpoint">Endpoint</h3>
+<p>O termo "endpoint" refere-se a um ponto específico em uma API para onde as requisições são enviadas. Basicamente, é um endereço na web (URL) onde o servidor ou a API está ativo e pronto para responder a requisições dos clientes. Cada endpoint está associado a uma função específica da API, como recuperar dados, criar novos registros, atualizar ou deletar dados existentes.</p>
+<p>A localização e estrutura de um endpoint, que incluem o caminho na URL e os métodos HTTP permitidos, definem como os clientes devem formatar suas requisições para serem compreendidas e processadas pelo servidor. Por exemplo, um endpoint para recuperar informações de um usuário pode ter um endereço como <code>https://api.exemplo.com/usuarios/{id}</code>, onde <code>{id}</code> é o identificador único do usuário desejado.</p>
+<p>Atualmente, em nossa aplicação, temos apenas um endpoint disponível: o <code>/</code>. Vejamos o exemplo:</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">aula_00.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
+</span></span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="k">def</span> <span class="nf">read_root</span><span class="p">():</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá Mundo!'</span><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Quando utilizamos o decorador <code class="language-python highlight"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span></code>, estamos instruindo nossa API que, para chamadas de método <code>GET</code> no endpoint <code>/</code>, a função <code>read_root</code> será executada. O resultado dessa função, neste caso <code>{'message': 'Olá Mundo!'}</code>, é o que será retornado ao cliente.</p>
+<h3 id="documentacao">Documentação</h3>
+<p>Uma pergunta comum nesse estágio é: "Ok, mas como descobrir ou conhecer os endpoints disponíveis em uma API?". A resposta reside na documentação. Uma documentação eficaz é essencial em APIs, especialmente quando muitos clientes diferentes precisam se comunicar com o servidor. A melhor prática é fornecer uma documentação detalhada, clara e acessível sobre os endpoints disponíveis, incluindo informações sobre o formato e a estrutura dos dados que podem ser enviados e recebidos.</p>
+<p>A documentação de uma API serve como um guia ou um manual, facilitando o entendimento e a utilização por desenvolvedores e usuários finais. Ela desempenha um papel crucial ao:</p>
+<ul>
+<li>Definir claramente os endpoints e suas funcionalidades.</li>
+<li>Especificar os métodos HTTP suportados (GET, POST, PUT, DELETE, etc.).</li>
+<li>Descrever os parâmetros esperados em requisições e respostas.</li>
+<li>Fornecer exemplos de requisições e respostas para facilitar o entendimento.</li>
+</ul>
+<h4 id="openapi-e-documentacao-automatica">OpenAPI e documentação automática</h4>
+<p>Uma das soluções mais eficazes para a documentação de APIs é a utilização da especificação OpenAPI, disponível em <a href="https://swagger.io/specification/" target="_blank">OpenAPI Specification</a>. Essa especificação fornece um padrão robusto para descrever APIs, permitindo aos desenvolvedores criar documentações precisas e testáveis de forma automática. Esta abordagem não apenas simplifica o processo de documentação, mas também garante que a documentação seja consistentemente atualizada e precisa.</p>
+<p>Para visualizar e interagir com essa documentação, ferramentas como <a href="https://swagger.io/tools/swagger-ui/" target="_blank">Swagger UI</a> e <a href="https://redocly.github.io/redoc/" target="_blank">Redoc</a> são amplamente utilizadas. Elas transformam a especificação OpenAPI em visualizações interativas, fornecendo uma interface fácil de navegar onde os usuários podem não apenas ler a documentação, mas também experimentar a API diretamente na interface. Esta funcionalidade interativa é fundamental para uma compreensão prática de como a API funciona, além de oferecer uma maneira eficiente de testar suas funcionalidades em tempo real.</p>
+<p>No contexto do FastAPI, há suporte automático tanto para Swagger UI quanto para Redoc. Para explorar a documentação atual da nossa aplicação, basta iniciar o servidor com o seguinte comando:</p>
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>task<span class="w"> </span>run
 </span></code></pre></div>
-<p>Vemos que temos 3 Miss. Possivelmente das linhas que acabamos de escrever.</p>
-<p><a class="glightbox" href="../assets/02_cobertura_get_sem_testes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_cobertura_get_sem_testes.png"></a></p>
-<p>Então, vamos escrever nosso teste. Esse teste para a rota POST precisa verificar se a criação de um novo usuário funciona corretamente. Enviamos uma solicitação POST com um novo usuário para a rota /users/. Em seguida, verificamos se a resposta tem o status HTTP 201 (Criado) e se a resposta contém o novo usuário criado.</p>
-<div class="language-python highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">():</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>        <span class="s1">'/users/'</span><span class="p">,</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>            <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'secret'</span><span class="p">,</span>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        <span class="p">},</span>
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>    <span class="p">)</span>
-</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">201</span>
-</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
-</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>        <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
-</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>        <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
-</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>        <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>    <span class="p">}</span>
-</span></code></pre></div>
-<p>Ao executar o teste:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>task<span class="w"> </span><span class="nb">test</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># parte da resposta foi omitida</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.3-final-0<span class="w"> </span>-----------
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>Name<span class="w">                    </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>-------------------------------------------
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>fast_zero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>fast_zero/app.py<span class="w">           </span><span class="m">12</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>fast_zero/schemas.py<span class="w">       </span><span class="m">11</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>-------------------------------------------
-</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>TOTAL<span class="w">                      </span><span class="m">23</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>
-</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="c1"># parte da resposta foi omitida</span>
-</span></code></pre></div>
-<h4 id="nao-se-repita-dry">Não se repita (DRY)</h4>
-<p>Você deve ter notado que a linha <code>client = TestClient(app)</code> está repetida na primeira linha dos dois testes que fizemos. Repetir código pode tornar o gerenciamento de testes mais complexo à medida que cresce, e é aqui que o princípio de "Não se repita" (<a href="https://pt.wikipedia.org/wiki/Don't_repeat_yourself" target="_blank">DRY</a>) entra em jogo. DRY incentiva a redução da repetição, criando um código mais limpo e manutenível.</p>
-<p>Para solucionar essa repetição, podemos usar uma funcionalidade do pytest chamada Fixture. Uma fixture é como uma função que prepara dados ou estado necessários para o teste. Pode ser pensada como uma forma de não repetir a fase de Arrange de um teste, simplificando a chamada e não repetindo código.</p>
-<details class="info">
-<summary>Se fixtures são uma novidade para você</summary>
-<p>Existe uma live de Python onde discutimos especificamente sobre fixtures
-<a class="glightbox" href="https://www.youtube.com/embed/sidi9Z_IkLU" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/sidi9Z_IkLU" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
-<p><a class="md-button" href="https://youtu.be/sidi9Z_IkLU"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto </a></p>
+<h4 id="swagger-ui">Swagger UI</h4>
+<p>Ao acessarmos o endereço <a href="http://127.0.0.1/docs" target="_blank">http://127.0.0.1/docs</a>, nos deparamos com a interface do Swagger UI:</p>
+<p><a class="glightbox" href="../assets/02/captura_de_tela_swagger_ui.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Captura de tela da página inicial do swagger UI" class="center shadow" src="../assets/02/captura_de_tela_swagger_ui.png"></a></p>
+<p>Esta imagem nos dá uma visão geral dos endpoints disponíveis na nossa aplicação, neste caso, o endpoint <code>/</code> que aceita o verbo HTTP <code>GET</code>. Ao explorar mais a fundo e clicar nesse método:</p>
+<p><a class="glightbox" href="../assets/02/documenta%C3%A7%C3%A3o_do_swagger_ui_do_endpoint_GET.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Captura de tela da documentação do / no swagger UI" class="center shadow" src="../assets/02/documenta%C3%A7%C3%A3o_do_swagger_ui_do_endpoint_GET.png"></a></p>
+<p>Na documentação, é possível observar diversas informações cruciais, como o <a href="#c%C3%B3digos-de-resposta">código de resposta</a> <code>200</code>, que indica sucesso, o tipo de dado retornado pelo <a href="#cabe%C3%A7alho">cabeçalho</a> (<code>application/json</code>) e um exemplo do valor de retorno. Contudo, a documentação atual sugere, incorretamente, que o retorno é uma <code>string</code>, quando, na verdade, nossa aplicação retorna um objeto <a href="#trafegando-json" target="_blank">JSON</a>. Essa diferença será abordada em breve.</p>
+<p>Um aspecto interessante do Swagger UI é a possibilidade de interagir diretamente com a API através da interface. Ao clicar em <code>Try it out</code>, um botão <code>Execute</code> se torna disponível:</p>
+<p><a class="glightbox" href="../assets/02/captura_de_tela_do_botao_execute_na_swagger_ui.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Captura de tela do clique no botão try it out do swagger, apresentando o botão execute." class="center shadow" src="../assets/02/captura_de_tela_do_botao_execute_na_swagger_ui.png"></a></p>
+<p>Clicar em <code>Execute</code> faz do Swagger um cliente temporário da nossa API, enviando uma requisição ao servidor e exibindo a resposta:</p>
+<p><a class="glightbox" href="../assets/02/captura_de_tela_do_swagger_com_a_reposta_do_endpoint_root.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02/captura_de_tela_do_swagger_com_a_reposta_do_endpoint_root.png"></a></p>
+<p>A resposta ilustra como fazer a chamada usando o <a href="https://curl.se/docs/manpage.html" target="_blank">Curl</a>, a <a href="#url" target="_blank">URL</a> utilizada, o <a href="#codigos-de-resposta">código de resposta</a> 200, e detalhes da resposta do servidor, incluindo o corpo da mensagem (<a href="#corpo" target="_blank">body</a>) e os cabeçalhos (<a href="#cabe%C3%A7alho" target="_blank">headers</a>).</p>
+<details class="tip">
+<summary>Caso queira saber mais sobre OpenAPI e Swagger</summary>
+<p>Temos uma live focada em OpenAPI, que são as especificações do Swagger:
+<a class="glightbox" href="https://www.youtube.com/embed/TfGHNBaK9a0" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/TfGHNBaK9a0" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 </details>
-<p>Neste caso, criaremos uma fixture que retorna nosso <code>client</code>. Para fazer isso, precisamos criar o arquivo <code>tests/conftest.py</code>. O arquivo <code>conftest.py</code> é um arquivo especial reconhecido pelo pytest que permite definir fixtures que podem ser reutilizadas em diferentes módulos de teste em um projeto. É uma forma de centralizar recursos comuns de teste.</p>
-<div class="language-python highlight"><span class="filename">tests/conftest.py</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span> <span class="nn">pytest</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="k">def</span> <span class="nf">client</span><span class="p">():</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="k">return</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+<h4 id="redoc">Redoc</h4>
+<p>Assim como o Swagger UI, o <a href="https://redocly.github.io/redoc/" target="_blank">Redoc</a> é outra ferramenta popular para visualizar a documentação de APIs OpenAPI, mas com um foco em uma apresentação mais limpa e legível. Para acessar a documentação Redoc da nossa aplicação, podemos visitar o endereço <a href="http://127.0.0.1/redoc" target="_blank">http://127.0.0.1/redoc</a>. O Redoc organiza a documentação de uma maneira mais linear e de fácil leitura, destacando as descrições dos endpoints, os métodos HTTP disponíveis, os schemas dos dados de entrada e saída, além de exemplos de requisições e respostas.</p>
+<p><a class="glightbox" href="../assets/02/captura_de_tela_do_redoc.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Captura de tela da página inicial do Redoc" class="center shadow" src="../assets/02/captura_de_tela_do_redoc.png"></a></p>
+<h2 id="trafegando-json">Trafegando JSON</h2>
+<p>Quando discutimos APIs "modernas"<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, nos referimos a APIs que priorizam o tráfego de dados, deixando de lado a camada de apresentação, como o <a href="#html">HTML</a>. O objetivo é transmitir dados de forma agnóstica para diferentes tipos de clientes. Nesse contexto, o JSON (JavaScript Object Notation) se tornou a mídia padrão, graças à sua leveza e facilidade de leitura tanto por humanos quanto por máquinas.</p>
+<p>O JSON é apreciado por sua simplicidade, apresentando dados em estruturas de documento chave-valor, onde os valores podem ser strings, números, booleanos, arrays, entre outros.</p>
+<p>Abaixo, um exemplo ilustra o formato JSON:</p>
+<div class="language-json highlight"><span class="filename">Exemplo de um JSON</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="nt">"livros"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">            </span><span class="nt">"titulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"O apanhador no campo de centeio"</span><span class="p">,</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">            </span><span class="nt">"autor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J.D. Salinger"</span><span class="p">,</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">            </span><span class="nt">"ano"</span><span class="p">:</span><span class="w"> </span><span class="mi">1945</span><span class="p">,</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">            </span><span class="nt">"disponivel"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">            </span><span class="nt">"titulo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"O mestre e a margarida"</span><span class="p">,</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">            </span><span class="nt">"autor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mikhail Bulgákov"</span><span class="p">,</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">            </span><span class="nt">"ano"</span><span class="p">:</span><span class="w"> </span><span class="mi">1966</span><span class="p">,</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">            </span><span class="nt">"disponivel"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Agora, em vez de repetir a criação do <code>client</code> em cada teste, podemos simplesmente passar a fixture como um argumento nos nossos testes:</p>
-<div class="language-python highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># ...</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">def</span> <span class="nf">test_root_deve_retornar_200_e_ola_mundo</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="c1"># ...</span>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>        <span class="s1">'/users/'</span><span class="p">,</span>
-</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>            <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
-</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
-</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'secret'</span><span class="p">,</span>
-</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>        <span class="p">},</span>
-</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>    <span class="p">)</span>
-</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>    <span class="c1"># ...</span>
+<p>Este exemplo demonstra como o JSON organiza dados de forma intuitiva e acessível, tornando-o ideal para a comunicação de dados em uma ampla variedade de aplicações.</p>
+<h3 id="contratos-em-apis-json">Contratos em APIs JSON</h3>
+<p>Quando falamos sobre o compartilhamento de JSON entre cliente e servidor, é crucial estabelecer um entendimento mútuo sobre a estrutura dos dados que serão trocados. A este entendimento, denominamos <em>schema</em>, que atua como um contrato definindo a forma e o conteúdo dos dados trafegados.</p>
+<p>O schema de uma API desempenha um papel fundamental ao assegurar que ambos, cliente e servidor, estejam alinhados quanto à estrutura dos dados. Este "contrato" especifica:</p>
+<ul>
+<li>Campos de Dados Esperados: quais campos são esperados na mensagem JSON, incluindo nomes de campos e tipos de dados (como strings, números, boolianos).</li>
+<li>Restrições Adicionais: como validações para tamanhos de strings, formatos de números e outros tipos de validação de dados.</li>
+<li>Estrutura de Objetos Aninhados: como os objetos são estruturados dentro do JSON, incluindo arrays e sub-objetos.</li>
+</ul>
+<p>Por exemplo, para nossa mensagem simples retornada por <code>read_root</code> (<code class="language-python highlight"><span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá mundo!'</span><span class="p">}</span></code>), teríamos um schema assim:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">  </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"message"</span><span class="p">]</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Com essa simples mudança, conseguimos tornar nosso código mais limpo e fácil de manter, seguindo o princípio DRY.</p>
-<hr>
-<p>Vemos que estamos no caminho certo. Agora que a rota POST está implementada, seguiremos para a próxima operação CRUD: Read.</p>
-<h3 id="implementando-a-rota-get">Implementando a Rota GET</h3>
-<p>A rota GET é usada para recuperar informações de um ou mais usuários do nosso sistema. No contexto do CRUD, o verbo HTTP GET está associado à operação "Read". Se a solicitação for bem-sucedida, a rota deve retornar o status HTTP 200 (OK).</p>
-<p>Para estruturar a resposta dessa rota, podemos criar um novo modelo chamado <code>UserList</code>. Este modelo representará uma lista de usuários e contém apenas um campo chamado <code>users</code>, que é uma lista de <code>UserPublic</code>. Isso nos permite retornar múltiplos usuários de uma vez.</p>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-20">20</a></span>
-<span class="normal"><a href="#__codelineno-16-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="k">class</span> <span class="nc">UserList</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21"></a>    <span class="n">users</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">UserPublic</span><span class="p">]</span>
+<p>Onde estamos dizendo ao cliente que ao chamar a API, será retornado um objeto, esse objeto contem a propriedade <code class="language-python highlight"><span class="s2">"message"</span></code>, a mensagem será do tipo <code>string</code>. Ao final, vemos que o campo <code>message</code> é requerido. Isso quer dizer que ele sempre será enviado na resposta.</p>
+<details class="example">
+<summary>E em casos mais complicados, como ficaria o schema?</summary>
+<p>Para o exemplo que fizemos antes, sobre os livros, o schema seria assim:
+</p><div class="language-json highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="nt">"livros"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">      </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">        </span><span class="nt">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">          </span><span class="nt">"titulo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">          </span><span class="p">},</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">          </span><span class="nt">"autor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="w">          </span><span class="p">},</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="w">          </span><span class="nt">"ano"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">          </span><span class="p">},</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">          </span><span class="nt">"disponivel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">            </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">          </span><span class="p">}</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">        </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"titulo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"autor"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ano"</span><span class="p">,</span><span class="w"> </span><span class="s2">"disponivel"</span><span class="p">]</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">  </span><span class="nt">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"livros"</span><span class="p">]</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a><span class="p">}</span>
+</span></code></pre></div>
+</details>
+<h3 id="pydantic">Pydantic</h3>
+<p>No universo de APIs e contratos de dados, especialmente ao trabalhar com Python, o <a href="https://docs.pydantic.dev/latest/" target="_blank">Pydantic</a> se destaca como uma ferramenta poderosa e versátil. Essa biblioteca, altamente integrada ao ecossistema Python, especializa-se na criação de schemas de dados e na validação de tipos. Com o Pydantic, é possível expressar schemas JSON de maneira elegante e eficiente através de classes Python, proporcionando uma ponte robusta entre a flexibilidade do JSON e a segurança de tipos de Python.</p>
+<p>Por exemplo, o schema JSON <code>{'message': 'Olá mundo!'}</code>. Com o Pydantic, podemos representar esse schema na forma de uma classe Python chamada <code>Message</code>. Isso é feito de maneira intuitiva e direta:</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="k">class</span> <span class="nc">Message</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5"></a>    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Com esse modelo definido, podemos criar nosso endpoint GET. Este endpoint retornará uma instância de <code>UserList</code>, que por sua vez contém uma lista de <code>UserPublic</code>. Cada <code>UserPublic</code> é criado a partir dos dados de um usuário em nosso banco de dados fictício.</p>
-<div class="language-python highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span><span class="p">,</span> <span class="n">UserDB</span><span class="p">,</span> <span class="n">UserList</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># código omitido</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserList</span><span class="p">)</span>
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="k">def</span> <span class="nf">read_users</span><span class="p">():</span>
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'users'</span><span class="p">:</span> <span class="n">database</span><span class="p">}</span>
-</span></code></pre></div>
-<p>Com essa implementação, nossa API agora pode retornar uma lista de usuários. No entanto, nosso trabalho ainda não acabou. A próxima etapa é escrever testes para garantir que nossa rota GET está funcionando corretamente. Isso nos ajudará a identificar e corrigir quaisquer problemas antes de prosseguirmos com a implementação de outras rotas.</p>
-<h4 id="implementando-o-teste-da-rota-de-get">Implementando o teste da rota de GET</h4>
-<p>Nosso teste da rota GET tem que verificar se a recuperação dos usuários está funcionando corretamente. Enviamos uma solicitação GET para a rota /users/. Em seguida, verificamos se a resposta tem o status HTTP 200 (OK) e se a resposta contém a lista de usuários.</p>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-30">30</a></span>
-<span class="normal"><a href="#__codelineno-18-31">31</a></span>
-<span class="normal"><a href="#__codelineno-18-32">32</a></span>
-<span class="normal"><a href="#__codelineno-18-33">33</a></span>
-<span class="normal"><a href="#__codelineno-18-34">34</a></span>
-<span class="normal"><a href="#__codelineno-18-35">35</a></span>
-<span class="normal"><a href="#__codelineno-18-36">36</a></span>
-<span class="normal"><a href="#__codelineno-18-37">37</a></span>
-<span class="normal"><a href="#__codelineno-18-38">38</a></span>
-<span class="normal"><a href="#__codelineno-18-39">39</a></span>
-<span class="normal"><a href="#__codelineno-18-40">40</a></span>
-<span class="normal"><a href="#__codelineno-18-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30"></a><span class="k">def</span> <span class="nf">test_read_users</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">)</span>
-</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
-</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34"></a>        <span class="s1">'users'</span><span class="p">:</span> <span class="p">[</span>
-</span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35"></a>            <span class="p">{</span>
-</span><span id="__span-18-36"><a id="__codelineno-18-36" name="__codelineno-18-36"></a>                <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'alice'</span><span class="p">,</span>
-</span><span id="__span-18-37"><a id="__codelineno-18-37" name="__codelineno-18-37"></a>                <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'alice@example.com'</span><span class="p">,</span>
-</span><span id="__span-18-38"><a id="__codelineno-18-38" name="__codelineno-18-38"></a>                <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-18-39"><a id="__codelineno-18-39" name="__codelineno-18-39"></a>            <span class="p">}</span>
-</span><span id="__span-18-40"><a id="__codelineno-18-40" name="__codelineno-18-40"></a>        <span class="p">]</span>
-</span><span id="__span-18-41"><a id="__codelineno-18-41" name="__codelineno-18-41"></a>    <span class="p">}</span>
+<p>Para iniciar o desenvolvimento com schemas no contexto do FastAPI, podemos criar um arquivo chamado <code>fast_zero/schemas.py</code> e definir a classe <code>Message</code>. Vale ressaltar que o Pydantic é uma dependência integrada do FastAPI (não precisa ser instalado), refletindo a importância dessa biblioteca no processo de validação de dados e na geração de documentação automática para APIs, como a documentação OpenAPI.</p>
+<h4 id="integrando-o-pydantic-com-o-fastapi">Integrando o Pydantic com o FastAPI</h4>
+<p>A integração do modelo Pydantic (ou schema JSON) com o FastAPI é feita ao especificar o modelo no campo <code>response_model</code> do decorador do endpoint. Isso garante que a resposta da API esteja alinhada com o schema definido, além de auxiliar na validação dos dados retornados:</p>
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">Message</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="hll">
+</span></span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Message</span><span class="p">)</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="k">def</span> <span class="nf">read_root</span><span class="p">():</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span> <span class="s1">'Olá mundo'</span><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Com as rotas POST e GET implementadas, agora podemos criar e recuperar usuários. Implementaremos a próxima operação CRUD: Update.</p>
-<h3 id="implementando-a-rota-put">Implementando a Rota PUT</h3>
-<p>A rota PUT é usada para atualizar as informações de um usuário existente. No contexto do CRUD, o verbo HTTP PUT está associado à operação "Update". Se a solicitação for bem-sucedida, a rota deve retornar o status HTTP 200 (OK). No entanto, se o usuário solicitado não for encontrado, deveríamos retornar o status HTTP 404 (Não Encontrado).</p>
-<div class="language-python highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="c1"># ...</span>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
-</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    <span class="k">if</span> <span class="n">user_id</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span> <span class="ow">or</span> <span class="n">user_id</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'User not found'</span><span class="p">)</span>
-</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
-</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>    <span class="n">user_with_id</span> <span class="o">=</span> <span class="n">UserDB</span><span class="p">(</span><span class="o">**</span><span class="n">user</span><span class="o">.</span><span class="n">model_dump</span><span class="p">(),</span> <span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
-</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>    <span class="n">database</span><span class="p">[</span><span class="n">user_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_with_id</span>
-</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>
-</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>    <span class="k">return</span> <span class="n">user_with_id</span>
-</span></code></pre></div>
-<h4 id="implementando-o-teste-da-rota-de-put">Implementando o teste da rota de PUT</h4>
-<p>Nosso teste da rota PUT precisa verificar se a atualização de um usuário existente funciona corretamente. Enviamos uma solicitação PUT com as novas informações do usuário para a rota <code>/users/{user_id}</code>. Em seguida, verificamos se a resposta tem o status HTTP 200 (OK) e se a resposta contém o usuário atualizado.</p>
-<div class="language-python highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">def</span> <span class="nf">test_update_user</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>        <span class="s1">'/users/1'</span><span class="p">,</span>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>            <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'bob'</span><span class="p">,</span>
-</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>            <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bob@example.com'</span><span class="p">,</span>
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'mynewpassword'</span><span class="p">,</span>
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>        <span class="p">},</span>
-</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>    <span class="p">)</span>
-</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span>
-</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>        <span class="s1">'username'</span><span class="p">:</span> <span class="s1">'bob'</span><span class="p">,</span>
-</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>        <span class="s1">'email'</span><span class="p">:</span> <span class="s1">'bob@example.com'</span><span class="p">,</span>
-</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>        <span class="s1">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>    <span class="p">}</span>
-</span></code></pre></div>
-<p>Com as rotas POST, GET e PUT implementadas, agora podemos criar, recuperar e atualizar usuários. A última operação CRUD que precisamos implementar é Delete.</p>
-<h3 id="implementando-a-rota-delete">Implementando a Rota DELETE</h3>
-<p>A rota DELETE é usada para excluir um usuário do nosso sistema. No contexto do CRUD, o verbo HTTP DELETE está associado à operação "Delete". Se a solicitação for bem-sucedida, a rota deve retornar o status HTTP 200 (OK). No entanto, se o usuário solicitado não for encontrado, deveríamos retornar o status HTTP 404 (Não Encontrado).</p>
-<p>Para transmitir uma mensagem de sucesso ou falha na operação de exclusão, podemos criar um modelo chamado <code>Message</code>. Esse modelo será responsável por embalar uma mensagem que será retornada na nossa API.</p>
-<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/schemas.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-20">20</a></span>
-<span class="normal"><a href="#__codelineno-21-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="k">class</span> <span class="nc">Message</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21"></a>    <span class="n">detail</span><span class="p">:</span> <span class="nb">str</span>
-</span></code></pre></div></td></tr></table></div>
-<p>Agora podemos criar nosso endpoint DELETE. Este endpoint receberá o ID do usuário que queremos excluir. Note que, estamos lançando uma exceção HTTP quando o ID do usuário está fora do range da nossa lista (simulação do nosso banco de dados). Quando conseguimos excluir o usuário com sucesso, retornamos a mensagem de sucesso em um modelo do tipo <code>Message</code>.</p>
-<div class="language-python highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span><span class="p">,</span> <span class="n">UserDB</span><span class="p">,</span> <span class="n">UserList</span><span class="p">,</span> <span class="n">Message</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1"># ...</span>
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
-</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Message</span><span class="p">)</span>
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="k">def</span> <span class="nf">delete_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>    <span class="k">if</span> <span class="n">user_id</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span> <span class="ow">or</span> <span class="n">user_id</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'User not found'</span><span class="p">)</span>
-</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>
-</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>    <span class="k">del</span> <span class="n">database</span><span class="p">[</span><span class="n">user_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>
-</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>    <span class="k">return</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'User deleted'</span><span class="p">}</span>
-</span></code></pre></div>
-<p>Com a implementação da rota DELETE concluída, é fundamental garantirmos que essa rota está funcionando conforme o esperado. Para isso, precisamos escrever testes para essa rota.</p>
-<h4 id="implementando-o-teste-da-rota-de-delete">Implementando o teste da rota de DELETE</h4>
-<p>Nosso teste da rota DELETE precisa verificar se a exclusão de um usuário existente funciona corretamente. Enviamos uma solicitação DELETE para a rota /users/{user_id}. Em seguida, verificamos se a resposta tem o status HTTP 200 (OK) e se a resposta contém uma mensagem informando que o usuário foi excluído.</p>
-<div class="language-python highlight"><span class="filename">tests/test_app.py</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">def</span> <span class="nf">test_delete_user</span><span class="p">(</span><span class="n">client</span><span class="p">):</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s1">'/users/1'</span><span class="p">)</span>
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
-</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
-</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'User deleted'</span><span class="p">}</span>
-</span></code></pre></div>
-<h4 id="checando-tudo-antes-do-commit">Checando tudo antes do commit</h4>
-<p>Antes de fazermos o commit, é uma boa prática checarmos todo o código, e podemos fazer isso com as ações que criamos com o taskipy.</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>$<span class="w"> </span>task<span class="w"> </span>lint
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="m">5</span><span class="w"> </span>files<span class="w"> </span>would<span class="w"> </span>be<span class="w"> </span>left<span class="w"> </span>unchanged.
-</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
-</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>$<span class="w"> </span>task<span class="w"> </span>format
-</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
-</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="m">5</span><span class="w"> </span>files<span class="w"> </span>left<span class="w"> </span>unchanged.
-</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>Skipped<span class="w"> </span><span class="m">1</span><span class="w"> </span>files
-</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>
-</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>$<span class="w"> </span>task<span class="w"> </span><span class="nb">test</span>
-</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>...
-</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
-</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>tests/test_app.py::test_create_user<span class="w"> </span>PASSED
-</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>tests/test_app.py::test_read_users<span class="w"> </span>PASSED
-</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>tests/test_app.py::test_update_user<span class="w"> </span>PASSED
-</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>tests/test_app.py::test_delete_user<span class="w"> </span>PASSED
-</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>
-</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.4-final-0<span class="w"> </span>-----------
-</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>Name<span class="w">                   </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
-</span><span id="__span-24-20"><a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>------------------------------------------
-</span><span id="__span-24-21"><a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>fastzero/__init__.py<span class="w">       </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-</span><span id="__span-24-22"><a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>fastzero/app.py<span class="w">           </span><span class="m">28</span><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">93</span>%
-</span><span id="__span-24-23"><a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>fastzero/schemas.py<span class="w">       </span><span class="m">15</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
-</span><span id="__span-24-24"><a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>------------------------------------------
-</span><span id="__span-24-25"><a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>TOTAL<span class="w">                     </span><span class="m">43</span><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">95</span>%
-</span><span id="__span-24-26"><a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>
-</span><span id="__span-24-27"><a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a>
-</span><span id="__span-24-28"><a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a><span class="o">============================================</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span>.48s<span class="w"> </span><span class="o">=============================================</span>
-</span><span id="__span-24-29"><a id="__codelineno-24-29" name="__codelineno-24-29" href="#__codelineno-24-29"></a>Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
-</span></code></pre></div>
-<h2 id="commit">Commit</h2>
-<p>Após toda essa jornada de aprendizado, construção e teste de rotas, chegou a hora de registrar nosso progresso utilizando o git. Fazer commits regulares é uma boa prática, pois mantém um histórico detalhado das alterações e facilita a volta a uma versão anterior do código, se necessário.</p>
-<p>Primeiramente, verificaremos as alterações feitas no projeto com o comando <code>git status</code>. Este comando nos mostrará todos os arquivos modificados que ainda não foram incluídos em um commit.</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>git<span class="w"> </span>status
-</span></code></pre></div>
-<p>Em seguida, adicionaremos todas as alterações para o próximo commit. O comando <code>git add .</code> adiciona todas as alterações feitas em todos os arquivos do projeto.</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>git<span class="w"> </span>add<span class="w"> </span>.
-</span></code></pre></div>
-<p>Agora, estamos prontos para fazer o commit. Com o comando <code>git commit</code>, criamos uma nova entrada no histórico do nosso projeto. É importante adicionar uma mensagem descritiva ao commit, para que, no futuro, outras pessoas ou nós mesmos entendamos o que foi alterado. Nesse caso, a mensagem do commit poderia ser "Implementando rotas CRUD".</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Implementando rotas CRUD"</span>
-</span></code></pre></div>
-<p>Por fim, enviamos nossas alterações para o repositório remoto com <code>git push</code>. Se você tiver várias branches, certifique-se de estar na branch correta antes de executar este comando.</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>git<span class="w"> </span>push
-</span></code></pre></div>
-<p>E pronto! As alterações estão seguras no histórico do git, e podemos continuar com o próximo passo do projeto.</p>
+<p>Com essa abordagem, ao iniciar o servidor (<code>task run</code>) e acessar a Swagger UI em <a href="http://127.0.0.1:8000/docs" target="_blank">http://127.0.0.1:8000/docs</a>, observamos uma evolução significativa na documentação. Um novo campo <code>Schemas</code> é exibido, destacando a estrutura do modelo <code>Message</code> que definimos:</p>
+<p><a class="glightbox" href="../assets/02/captura_de_tela_do_swagger_mostrando_o_schema_de_message.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt='Captura de tele do Swagger UI mostrando o json schema de "Message" que definimos no FastAPI' class="center shadow" src="../assets/02/captura_de_tela_do_swagger_mostrando_o_schema_de_message.png"></a></p>
+<p>Além disso, na seção de <code>Responses</code>, temos um exemplo claro da saída esperada do endpoint: <code>{"message": "string"}</code>. Isso ilustra como a API irá responder, especificando que o campo obrigatório <code>"message"</code> será retornado com um valor do tipo <code>"string"</code>.</p>
 <h2 id="conclusao">Conclusão</h2>
-<p>Com a implementação bem-sucedida das rotas CRUD, demos um passo significativo na construção de uma API robusta e funcional com FastAPI. Agora podemos manipular usuários - criar, ler, atualizar e excluir - o que é fundamental para muitos sistemas de informação.</p>
-<p>O papel dos testes em cada etapa não pode ser subestimado. Testes não apenas nos ajudam a assegurar que nosso código está funcionando como esperado, mas também nos permitem refinar nossas soluções e detectar problemas potenciais antes que eles afetem a funcionalidade geral do nosso sistema. Nunca subestime a importância de executar seus testes sempre que fizer uma alteração em seu código!</p>
-<p>Até aqui, no entanto, trabalhamos com um "banco de dados" provisório, na forma de uma lista Python, que é volátil e não persiste os dados de uma execução do aplicativo para outra. Para nosso aplicativo ser útil em um cenário do mundo real, precisamos armazenar nossos dados de forma mais duradoura. É aí que os bancos de dados entram.</p>
-<p>No próximo tópico, exploraremos uma das partes mais críticas de qualquer aplicativo - a conexão e interação com um banco de dados. Aprenderemos a integrar nosso aplicativo FastAPI com um banco de dados real, permitindo a persistência de nossos dados de usuário entre as sessões do aplicativo.</p></div>
+<p>Nesta aula, navegamos brevemente pelo vasto mundo do desenvolvimento web com foco em APIs, abraçando desde os fundamentos da comunicação na web até as práticas de troca de dados. Exploramos o modelo cliente-servidor, entendemos algumas das nuances das mensagens HTTP e tivemos uma introdução sobre URLs e HTML. Embora o HTML desempenhe um papel central na camada de apresentação, o nosso foco recaiu sobre as APIs, particularmente aquelas que trafegam JSON, um formato de dados.</p>
+<p>Aprofundamos no uso de ferramentas e conceitos vitais para a criação de APIs, como o FastAPI e o Pydantic, que juntos oferecem uma poderosa combinação para a validação de dados e a geração automática de documentação. A exploração do Swagger UI e do Redoc enriqueceu nosso entendimento sobre a importância da documentação acessível e clara para APIs, facilitando tanto o desenvolvimento quanto a usabilidade.</p>
+<p>Essa aula nos deu uma fundamentação básica para avançarmos na construção de APIs. Embora tenhamos exemplificado os conceitos com FastAPI, esses conceitos teóricos podem ajudar você a desenvolver ferramentas web em qualquer tecnologia ou linguagem.</p>
+<p>Nos vemos nas próximas aulas para aplicar todos esses conceitos de forma mais aprofundada!</p>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Apesar da noção comum de que APIs modernas são projetadas para trafegar JSON, existem debates intensos sobre as melhores práticas para a transferência de dados em APIs. Uma leitura recomendada é o livro <a href="https://hypermedia.systems/" target="_blank">hypermedia systems</a>, que é gratuito e oferece percepções valiosas. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div></div>
 
 
 
@@ -1642,7 +1662,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 29, 2023</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2024</span>
   </span>
 
     
@@ -1657,7 +1677,7 @@
       
     </span>
     <nav>
-      dunossauro, Julio Formiga, Rodrigo Vieira, Ricardo Emanuel, Bruna Ferreira
+      dunossauro, Julio Formiga, Rodrigo Vieira
     </nav>
   </span>
 

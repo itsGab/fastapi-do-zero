@@ -605,7 +605,7 @@
         
   
   <span class="md-ellipsis">
-    Estruturando o Projeto e Criando Rotas CRUD
+    Introdução ao desenvolvimento WEB
   </span>
   
 
@@ -625,7 +625,7 @@
         
   
   <span class="md-ellipsis">
-    Configurando o banco de dados e gerenciando migrações com Alembic
+    Estruturando o Projeto e Criando Rotas CRUD
   </span>
   
 
@@ -645,7 +645,7 @@
         
   
   <span class="md-ellipsis">
-    Integrando Banco de Dados a API
+    Configurando o banco de dados e gerenciando migrações com Alembic
   </span>
   
 
@@ -665,7 +665,7 @@
         
   
   <span class="md-ellipsis">
-    Autenticação e Autorização com JWT
+    Integrando Banco de Dados a API
   </span>
   
 
@@ -685,7 +685,7 @@
         
   
   <span class="md-ellipsis">
-    Refatorando a Estrutura do Projeto
+    Autenticação e Autorização com JWT
   </span>
   
 
@@ -705,7 +705,7 @@
         
   
   <span class="md-ellipsis">
-    Tornando o sistema de autenticação robusto
+    Refatorando a Estrutura do Projeto
   </span>
   
 
@@ -725,7 +725,7 @@
         
   
   <span class="md-ellipsis">
-    Criando Rotas CRUD para Gerenciamento de Tarefas em FastAPI
+    Tornando o sistema de autenticação robusto
   </span>
   
 
@@ -745,7 +745,7 @@
         
   
   <span class="md-ellipsis">
-    Dockerizando a nossa aplicação e introduzindo o PostgreSQL
+    Criando Rotas CRUD para Gerenciamento de Tarefas em FastAPI
   </span>
   
 
@@ -765,7 +765,7 @@
         
   
   <span class="md-ellipsis">
-    Automatizando os testes com Integração Contínua
+    Dockerizando a nossa aplicação e introduzindo o PostgreSQL
   </span>
   
 
@@ -785,7 +785,7 @@
         
   
   <span class="md-ellipsis">
-    Fazendo deploy no Fly.io
+    Automatizando os testes com Integração Contínua
   </span>
   
 
@@ -802,6 +802,26 @@
   
     <li class="md-nav__item">
       <a href="../12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fazendo deploy no Fly.io
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1274,8 +1294,8 @@ Desta forma os próximos comandos podem ser executados normalmente.
 </span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="hll">INFO:<span class="w">     </span>Uvicorn<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>http://127.0.0.1:8000<span class="w"> </span><span class="o">(</span>Press<span class="w"> </span>CTRL+C<span class="w"> </span>to<span class="w"> </span>quit<span class="o">)</span>
 </span></span></code></pre></div>
 <p>A mensagem que o Uvicorn nos apresenta na última linha <code>http://127.0.0.1:8000</code> tem uma informação bastante importante.</p>
-<p><a class="glightbox" href="../assets/01_endereco_http_black.png#only-light" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt='Figura representando a divisão para "protocolo" com "http://" , "endereço" com "127.0.0.1" e "porta" com ":8000"' class="center shadow" src="../assets/01_endereco_http_black.png#only-light"></a>
-<a class="glightbox" href="../assets/01_endereco_http_white.png#only-dark" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt='Figura representando a divisão para "protocolo" com "http://" , "endereço" com "127.0.0.1" e "porta" com ":8000"' class="center shadow" src="../assets/01_endereco_http_white.png#only-dark"></a></p>
+<p><a class="glightbox" href="../assets/01/endereco_http_black.png#only-light" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt='Figura representando a divisão para "protocolo" com "http://" , "endereço" com "127.0.0.1" e "porta" com ":8000"' class="center" src="../assets/01/endereco_http_black.png#only-light"></a>
+<a class="glightbox" href="../assets/01/endereco_http_white.png#only-dark" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt='Figura representando a divisão para "protocolo" com "http://" , "endereço" com "127.0.0.1" e "porta" com ":8000"' class="center" src="../assets/01/endereco_http_white.png#only-dark"></a></p>
 <ol>
 <li>Ela nos diz qual o protocolo que ele está servido <code>HTTP</code>, o protocolo padrão da web;</li>
 <li>O endereço de rede (IP) no qual ele está escutando <code>127.0.0.1</code>, endereço especial (<a href="https://pt.wikipedia.org/wiki/Loopback#Protocolo_de_Interface_de_Rede_Virtual_da_Internet" target="_blank">loopback</a>) que aponta para a nossa própria máquina;</li>
@@ -1283,7 +1303,7 @@ Desta forma os próximos comandos podem ser executados normalmente.
 </ol>
 <p>Agora, com o servidor inicializado, podemos usar um cliente para acessar o endereço <a href="http://127.0.0.1:8000" target="_blank">http://127.0.0.1:8000</a>.</p>
 <p>O cliente mais tradicional da web é o navegador, podemos digitar o endereço na barra de navegação e se tudo ocorreu corretamente, você deve ver a mensagem "Olá Mundo!" em formato JSON.</p>
-<p><a class="glightbox" href="../assets/01_nagevador_com_localhost.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt='Captura de tela do browser acessando "http://127.0.0.1"' class="center shadow" src="../assets/01_nagevador_com_localhost.png"></a></p>
+<p><a class="glightbox" href="../assets/01/nagevador_com_localhost.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt='Captura de tela do browser acessando "http://127.0.0.1"' class="center shadow" src="../assets/01/nagevador_com_localhost.png"></a></p>
 <blockquote>
 <p>Para parar a execução do uvicorn no shell, você pode digitar <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-c">C</kbd></span> e a mensagem <code>Shutting down</code> aparecerá mostrando que o servidor foi finalizado.</p>
 </blockquote>
@@ -1306,9 +1326,9 @@ Desta forma os próximos comandos podem ser executados normalmente.
 </span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="o">}</span>
 </span></code></pre></div>
 <p>Existem até mesmo aplicações gráficas de código aberto pensadas para serem clientes HTTP para APIs. Como o <a href="https://hoppscotch.io/" target="_blank">hoppscotch</a>:</p>
-<p><a class="glightbox" href="../assets/01_cliente_grafico_para_apis_hoppscotch.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Captura de tela do hoppscotch" class="center shadow" src="../assets/01_cliente_grafico_para_apis_hoppscotch.png"></a></p>
+<p><a class="glightbox" href="../assets/01/cliente_grafico_para_apis_hoppscotch.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Captura de tela do hoppscotch" class="center shadow" src="../assets/01/cliente_grafico_para_apis_hoppscotch.png"></a></p>
 <p>Ou como o <a href="https://www.usebruno.com/" target="_blank">Bruno</a>:
-<a class="glightbox" href="../assets/01_cliente_grafico_para_apis_bruno.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Captura de tela do bruno" class="center shadow" src="../assets/01_cliente_grafico_para_apis_bruno.png"></a></p>
+<a class="glightbox" href="../assets/01/cliente_grafico_para_apis_bruno.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Captura de tela do bruno" class="center shadow" src="../assets/01/cliente_grafico_para_apis_bruno.png"></a></p>
 </details>
 <h2 id="instalando-as-ferramentas-de-desenvolvimento">Instalando as ferramentas de desenvolvimento</h2>
 <p>As escolhas de ferramentas de desenvolvimento, de forma geral, são escolhas bem particulares. Não costumam ser consensuais nem mesmo em times de desenvolvimento. Dito isso, selecionei algumas ferramentas que gosto de usar e alinhadas com a utilidade que elas apresentam no desenvolvimento do projeto.</p>
@@ -1587,9 +1607,9 @@ Desta forma os próximos comandos podem ser executados normalmente.
 </span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
 </span></code></pre></div>
 <p>Isso gera um relatório de cobertura de testes em formato HTML. Podemos abrir esse arquivo em nosso navegador e entender exatamente quais linhas do código não estão sendo testadas.</p>
-<p><a class="glightbox" href="../assets/02_navegador_com_pagina_inicial_do_coverage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="navegador" class="center shadow" src="../assets/02_navegador_com_pagina_inicial_do_coverage.png"></a></p>
+<p><a class="glightbox" href="../assets/01/navegador_com_pagina_inicial_do_coverage.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="navegador" class="center" src="../assets/01/navegador_com_pagina_inicial_do_coverage.png"></a></p>
 <p>Se clicarmos no arquivo <code>fast_zero/app.py</code> podemos ver em vermelho as linhas que não estão sendo testadas:</p>
-<p><a class="glightbox" href="../assets/02_navegador_com_pagina_de_cobertura_sem_testes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="navegador" class="center shadow" src="../assets/02_navegador_com_pagina_de_cobertura_sem_testes.png"></a></p>
+<p><a class="glightbox" href="../assets/01/navegador_com_pagina_de_cobertura_sem_testes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="navegador" class="center" src="../assets/01/navegador_com_pagina_de_cobertura_sem_testes.png"></a></p>
 <p>Isto significa que precisamos testar todo esse arquivo.</p>
 <h3 id="escrevendo-o-teste">Escrevendo o teste</h3>
 <p>Agora, escreveremos nosso primeiro teste com Pytest. Mas, antes de escrever o teste, precisamos criar um arquivo específico para eles. Na pasta <code>tests</code>, vamos criar um arquivo chamado <code>test_app.py</code>.</p>
@@ -1628,7 +1648,7 @@ Desta forma os próximos comandos podem ser executados normalmente.
 </span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
 </span></code></pre></div>
 <p>No navegador, podemos ver que a única linha não "testada" é aquela onde temos a lógica (o corpo) da função <code>read_root</code>. As linhas de definição estão todas verdes:</p>
-<p><a class="glightbox" href="../assets/02_navegador_com_pagina_de_cobertura_com_estrutuda_de_testes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="browser" class="center shadow" src="../assets/02_navegador_com_pagina_de_cobertura_com_estrutuda_de_testes.png"></a></p>
+<p><a class="glightbox" href="../assets/01/navegador_com_pagina_de_cobertura_com_estrutuda_de_testes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="browser" class="center" src="../assets/01/navegador_com_pagina_de_cobertura_com_estrutuda_de_testes.png"></a></p>
 <p>No verde vemos o que foi executado quando chamamos o teste, no vermelho o que não foi.</p>
 <p>Para resolver isso, temos que criar um teste de fato, fazendo uma chamada para nossa API usando o cliente de teste que definimos:</p>
 <div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/test_app.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1"> 1</a></span>
@@ -1680,7 +1700,7 @@ Desta forma os próximos comandos podem ser executados normalmente.
 </span></span></code></pre></div>
 <p>Dessa forma, temos um teste que coletou 1 item (1 teste). Esse teste foi aprovado e a cobertura não deixou de abranger nenhuma linha de código.</p>
 <p>Como conseguimos coletar um item, o <code>post_test</code> foi executado e também gerou um HTML com a cobertura atualizada.</p>
-<p><a class="glightbox" href="../assets/02_navegador_com_pagina_de_cobertura_com_teste.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/02_navegador_com_pagina_de_cobertura_com_teste.png"></a></p>
+<p><a class="glightbox" href="../assets/01/navegador_com_pagina_de_cobertura_com_teste.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center" src="../assets/01/navegador_com_pagina_de_cobertura_com_teste.png"></a></p>
 <h2 id="estrutura-de-um-teste">Estrutura de um teste</h2>
 <p>Agora que escrevemos nosso primeiro teste de forma intuitiva, podemos entender o que cada passo do teste faz. Essa compreensão é vital, pois nos ajudará a escrever testes com mais confiança e eficácia. Para desvendar o método por trás da nossa abordagem, exploraremos uma estratégia conhecida como <a href="https://xp123.com/articles/3a-arrange-act-assert/" target="_blank">AAA</a>, que divide o teste em três fases distintas: Arrange, Act, Assert.</p>
 <details class="info">
@@ -1782,7 +1802,7 @@ Desta forma os próximos comandos podem ser executados normalmente.
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 18, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2024</span>
   </span>
 
     
