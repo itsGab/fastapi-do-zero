@@ -610,6 +610,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conclusao" class="md-nav__link">
     <span class="md-ellipsis">
       Conclusão
@@ -972,6 +981,15 @@
   <a href="#commit" class="md-nav__link">
     <span class="md-ellipsis">
       Commit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercícios
     </span>
   </a>
   
@@ -1421,6 +1439,12 @@
 </span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>git<span class="w"> </span>push
 </span></code></pre></div>
 <p>Com isso, terminamos a atualização dos nossos endpoints para usar o nosso banco de dados real.</p>
+<h2 id="exercicios">Exercícios</h2>
+<ol>
+<li>Escrever um teste para o enpoint de POST (create_user) que contemple o cenário onde o username já foi registrado. Validando o erro <code>400</code>;</li>
+<li>Atualizar os testes criados nos exercícios 1 e 2 da <a href="../03/#exercicios" target="_blank">aula 03</a> para suportarem o banco de dados;</li>
+<li>Implementar o banco de dados para o endpoint de listagem por id, criado no exercício 3 da <a href="../03/#exercicios" target="_blank">aula 03</a>.</li>
+</ol>
 <h2 id="conclusao">Conclusão</h2>
 <p>Parabéns por chegar ao final desta aula! Você deu um passo significativo no desenvolvimento de nossa aplicação, substituindo a implementação do banco de dados falso pela integração com um banco de dados real usando SQLAlchemy. Também vimos como ajustar os nossos testes para considerar essa nova realidade.</p>
 <p>Nesta aula, abordamos como modificar os endpoints para interagir com o banco de dados real e como utilizar a injeção de dependências do FastAPI para gerenciar nossas sessões do SQLAlchemy. Também discutimos a importância dos testes para garantir que nossos endpoints estão funcionando corretamente, e como as fixtures do Pytest podem nos auxiliar na preparação do ambiente para esses testes.</p>
@@ -1446,7 +1470,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 1, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 2, 2024</span>
   </span>
 
     
