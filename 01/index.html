@@ -1225,7 +1225,7 @@ Desta forma os próximos comandos podem ser executados normalmente.
 <ol>
 <li>Essa era a maior versão do 3.11 quando escrevi</li>
 </ol>
-<p>Essa comando criará um arquivo oculto chamado <code>.python-version</code> na raiz do nosso projeto:</p>
+<p>Esse comando criará um arquivo oculto chamado <code>.python-version</code> na raiz do nosso projeto:</p>
 <div class="language-text highlight"><span class="filename">.python-version</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>3.11.7
 </span></code></pre></div>
 <p>Esse arquivo fará com que toda vez que o terminal for aberto nesse diretório, o pyenv use a versão descrita no arquivo quando o python interpretador for chamado.</p>
@@ -1377,7 +1377,7 @@ Desta forma os próximos comandos podem ser executados normalmente.
 </span></code></pre></div></td></tr></table></div>
 <details class="example" open="open">
 <summary>Nota sobre "migrations"</summary>
-<p>Em quase todas as ferramentas, nessa fase de configuração, excluiremos a pasta <code>migrations</code>, isso pode não fazer muito sentido nesse momento. Contudo, quando iniciarmos o trabalho com o banco de dados, a ferramenta <code>Alembic</code> faz geração de código automático. Por serem códigos gerados automaticamente, não queremos alterar a configuração feita per ela.</p>
+<p>Em quase todas as ferramentas, nessa fase de configuração, excluiremos a pasta <code>migrations</code>, isso pode não fazer muito sentido nesse momento. Contudo, quando iniciarmos o trabalho com o banco de dados, a ferramenta <code>Alembic</code> faz geração de código automático. Por serem códigos gerados automaticamente, não queremos alterar a configuração feita por ela.</p>
 </details>
 <h3 id="isort">isort</h3>
 <p><a href="https://pycqa.github.io/isort/" target="_blank">isort</a> é uma ferramenta para organizar os imports. Na PEP-8 existe uma regra de <a href="https://peps.python.org/pep-0008/#imports" target="_blank">precedência sobre os imports</a>. A função do isort é agrupar os imports e também ordená-los em ordem alfabética, para ajudar a buscar onde e o que foi importado.</p>
@@ -1398,7 +1398,7 @@ Desta forma os próximos comandos podem ser executados normalmente.
 </span></code></pre></div></td></tr></table></div>
 <h3 id="blue">blue</h3>
 <p><a href="https://blue.readthedocs.io/en/latest/index.html#" target="_blank">Blue</a> é um formatador de código. A ideia por trás do uso de um formatador é simplesmente padronizar toda a escrita do código. Como, por exemplo, definimos strings entre <code>'</code> ou entre <code>"</code>? Quando a linha exceder a 79 caracteres, como faremos a quebra de linha? Se quebrarmos a linha, usaremos vírgula no último valor ou não? Com o foco de padronizar o código.</p>
-<p>Configuraremos o blue para somente para excluir o caminho das migrações quando forem utilizadas:</p>
+<p>Configuraremos o blue para somente excluir o caminho das migrações quando forem utilizadas:</p>
 <div class="language-toml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">pyproject.toml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-34">34</a></span>
 <span class="normal"><a href="#__codelineno-25-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-25-34"><a id="__codelineno-25-34" name="__codelineno-25-34"></a><span class="k">[tool.blue]</span>
 </span><span id="__span-25-35"><a id="__codelineno-25-35" name="__codelineno-25-35"></a><span class="n">extend-exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'(migrations/)'</span>
@@ -1426,7 +1426,7 @@ Desta forma os próximos comandos podem ser executados normalmente.
 <li>lint: executa o ruff para ver se não temos nenhum problema com o código e checa se estamos conforme a PEP-8</li>
 <li>format: formata o código usando blue e isort</li>
 <li>run: executa o servidor de desenvolvimento do FastAPI</li>
-<li>pre_test: executa a camada de lint antes de executar os teste</li>
+<li>pre_test: executa a camada de lint antes de executar os testes</li>
 <li>test: executa os testes com pytest de forma verbosa (-vv) e adiciona nosso código como base de cobertura</li>
 <li>post_test: gera um report de cobertura após os testes</li>
 </ul>
@@ -1839,7 +1839,7 @@ Desta forma os próximos comandos podem ser executados normalmente.
       
     </span>
     <nav>
-      dunossauro, Julio Formiga, Igor Ferreira, Lucas Mendes, Adorilson Bezerra
+      dunossauro, Julio Formiga, Marcelo Machado, Igor Ferreira, Lucas Mendes, Adorilson Bezerra
     </nav>
   </span>
 
