@@ -1773,7 +1773,7 @@
 <ol>
 <li>Aqui fazemos uma validação simples, verificamos se o id não é maior que o tamanho da lista <code class="language-python highlight"><span class="n">user_id</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span></code> e o número enviado para o <code>user)id</code> é um valor positivo <code class="language-python highlight"><span class="n">user_id</span> <span class="o">&lt;</span> <span class="mi">1</span></code>.</li>
 <li>Levantamos um erro do tipo <code>HTTPException</code> para dizer que o usuário não existe na base de dados. Esse modelo já está presente no swagger com <code>HTTPValidationError</code>.</li>
-<li>Nessa linha estamos substituindo a posição (<code>user_id - 1</code>) na lista pelo novo objeto.</li>
+<li>Nessa linha, estamos substituindo a posição (<code>user_id - 1</code>) na lista pelo novo objeto.</li>
 </ol>
 <p>Para que essa variável definida na URL seja transferida para nosso endpoint, devemos adicionar um parâmetro na função com o mesmo nome da variável definida. Como <code class="language-python highlight"><span class="k">def</span> <span class="nf">update_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span></code> na linha em destaque.</p>
 <h4 id="implementando-o-teste-da-rota-de-put">Implementando o teste da rota de PUT</h4>
