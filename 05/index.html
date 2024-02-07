@@ -1021,6 +1021,37 @@
 
 
 <div><h1 id="integrando-banco-de-dados-a-api">Integrando Banco de Dados a API</h1>
+<!--toc:start-->
+<ul>
+<li><a href="#integrando-banco-de-dados-a-api">Integrando Banco de Dados a API</a></li>
+<li><a href="#integrando-sqlalchemy-%C3%A0-nossa-aplica%C3%A7%C3%A3o-fastapi">Integrando SQLAlchemy à Nossa Aplicação FastAPI</a></li>
+<li><a href="#gerenciando-depend%C3%AAncias-com-fastapi">Gerenciando Dependências com FastAPI</a></li>
+<li><a href="#modificando-o-endpoint-post-users">Modificando o Endpoint POST /users</a><ul>
+<li><a href="#testando-o-endpoint-post-users-com-pytest-e-fixtures">Testando o Endpoint POST /users com Pytest e Fixtures</a></li>
+<li><a href="#threads-e-conex%C3%B5es">Threads e conexões</a></li>
+</ul>
+</li>
+<li><a href="#modificando-o-endpoint-get-users">Modificando o Endpoint GET /users</a><ul>
+<li><a href="#testando-o-endpoint-get-users">Testando o Endpoint GET /users</a></li>
+<li><a href="#criando-uma-fixture-para-user">Criando uma fixture para User</a></li>
+<li><a href="#integrando-o-schema-ao-model">Integrando o Schema ao Model</a></li>
+</ul>
+</li>
+<li><a href="#modificando-o-endpoint-put-users">Modificando o Endpoint PUT /users</a><ul>
+<li><a href="#adicionando-o-teste-do-put">Adicionando o teste do PUT</a></li>
+</ul>
+</li>
+<li><a href="#modificando-o-endpoint-delete-users">Modificando o Endpoint DELETE /users</a><ul>
+<li><a href="#adicionando-testes-para-delete">Adicionando testes para DELETE</a></li>
+</ul>
+</li>
+<li><a href="#cobertura-e-testes-n%C3%A3o-feitos">Cobertura e testes não feitos</a></li>
+<li><a href="#commit">Commit</a></li>
+<li><a href="#exerc%C3%ADcios">Exercícios</a></li>
+<li><a href="#conclus%C3%A3o">Conclusão</a></li>
+</ul>
+<!--toc:end-->
+
 <hr>
 <p>Objetivos dessa aula:</p>
 <ul>
@@ -1325,7 +1356,7 @@
 </span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">):</span>
 </span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
 </span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    <span class="n">db_user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">user_id</span><span class="p">))</span>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="k">if</span> <span class="n">db_user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">db_user</span><span class="p">:</span>
 </span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'User not found'</span><span class="p">)</span>
 </span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
 </span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>    <span class="n">db_user</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span>
@@ -1413,7 +1444,7 @@
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">def</span> <span class="nf">delete_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_session</span><span class="p">)):</span>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="n">db_user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">user_id</span><span class="p">))</span>
 </span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    <span class="k">if</span> <span class="n">db_user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">db_user</span><span class="p">:</span>
 </span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'User not found'</span><span class="p">)</span>
 </span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
 </span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>    <span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">db_user</span><span class="p">)</span>
