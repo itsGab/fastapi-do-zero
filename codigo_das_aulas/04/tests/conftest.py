@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import Session
 
 from fast_zero.app import app
 from fast_zero.models import Base
@@ -15,7 +15,7 @@ def client():
 @pytest.fixture
 def session():
     engine = create_engine('sqlite:///:memory:')
-    Session = sessionmaker(bind=engine)
     Base.metadata.create_all(engine)
-    yield Session()
+    with Session(engine) as _session:
+        yield _session
     Base.metadata.drop_all(engine)
