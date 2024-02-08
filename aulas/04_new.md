@@ -29,11 +29,103 @@ Objetivos dessa aula:
 Com os endpoints da nossa API já estabelecidos, estamos, por ora, utilizando um banco de dados simulado, armazenando uma lista em memória. Nesta aula, iniciaremos o processo de configuração do nosso banco de dados real. Nossa agenda inclui a instalação do SQLAlchemy, a definição do modelo de usuários, e a execução da primeira migração com o Alembic para um banco de dados evolutivo.
 
 
-## [WIP] ORM
+## ORM
 
-> Uma introdução ao ORM, explicar sua relação com o banco de dados.
+Ao desenvolver aplicações web e APIs, os bancos de dados surgem como componentes fundamentais, armazenando tudo, desde informações de usuários até dados de produtos. Tradicionalmente, interagir com esses bancos de dados requer o uso de [SQL](https://pt.wikipedia.org/wiki/SQL){:target="_blank"} (Structured Query Language), uma linguagem poderosa, porém complexa, que permite realizar operações como criar, ler, atualizar e deletar dados - ações conhecidas coletivamente como [CRUD](03.md#crud-e-http){:target="_blank"}. 
 
-### SQLAlchemy
+Contudo, além do SQL, cada sistema de banco de dados pode exigir um driver específico para a conexão, e diferentes drivers podem requerer códigos e formas distintas de uso das bibliotecas. Isso adiciona uma camada extra de complexidade ao desenvolvimento, tornando a tarefa especialmente desafiadora e propensa a erros para iniciantes ou em projetos que demandam agilidade.
+
+Para tornar o desenvolvimento mais acessível e seguro, tecnologias como [DALs](https://pt.wikipedia.org/wiki/Camada_de_acesso_a_dados){:target="_blank"} e ORMs (Object-Relational Mapping), que abstraem a complexidade de interagir diretamente com o banco de dados. Essas tecnologias permitem a manipulação da base de dados usando objetos da nossa linguagem de programação, no caso, Python, simplificando a interação e, em alguns casos, aumentando a segurança.
+
+ORMs, especificamente, facilitam a realização de todas as operações de SQL por meio de uma camada de abstração, permitindo que desenvolvedores se concentrem na lógica do aplicativo sem se preocuparem com as especificidades dos comandos SQL ou nuances dos drivers de banco de dados. Todas as camadas de operações de SQL podem ser feitas usando um ORM, como:
+
+- Criar e manipular o modelo de dados ([DDL](https://pt.wikipedia.org/wiki/Linguagem_de_defini%C3%A7%C3%A3o_de_dados){:target="_blank"}) como criar e deletar tabelas:
+
+	=== "Exemplo do ORM"
+		```python title="Código de exemplo, não copiar"
+		from orm import column
+
+		class Pets(Table):
+			id = column(str)
+			nome = column(str)
+			raça = column(str)
+			idade = column(int)
+			ultima_consulta  = column(datetime)
+			
+		Table.create_all()
+		```
+
+	=== "O equivalente em SQL"
+
+		```sql
+		CREATE TABLE pets (
+			id INTEGER NOT NULL, 
+			nome VARCHAR NOT NULL, 
+			"raça" VARCHAR NOT NULL, 
+			idade VARCHAR NOT NULL, 
+			ultima_consulta DATETIME NOT NULL, 
+			PRIMARY KEY (id)
+		)
+		```
+
+- A manipulação dos dados, como adicionar ou remover registros ([DML](https://pt.wikipedia.org/wiki/Linguagem_de_manipula%C3%A7%C3%A3o_de_dados){:target="_blank"}):
+
+	=== "Exemplo do ORM"
+		```py title="Código de exemplo, não copiar"
+		from orm import dml
+
+		dml.add(
+		   Pet(nome='Piteu', raça='vira-lata', idade=5, ultima_consulta=datetime.now())
+		)
+		```
+
+	=== "O equivalente em SQL"
+		```sql
+		INSERT INTO pets (nome, "raça", idade, ultima_consulta) VALUES ('Piteu', 'vira-lata', 5, '2024-02-08 10:37:14.816206')
+		```
+
+- Forma de fazer as buscas ([DQL](https://en.wikipedia.org/wiki/Data_query_language){:target="_blank"}):
+
+	=== "Exemplo do ORM"
+		```py title="Código de exemplo, não copiar"
+		from orm import select
+
+		select(Pets).where(id=1)
+		```
+
+	=== "O equivalente em SQL"
+		```sql
+		SELECT pets.id, pets.nome, pets."raça", pets.idade, pets.ultima_consulta 
+		FROM pets 
+		WHERE pets.id = :id_1
+		```
+
+> Note que esses são códigos fictícios, o objetivo aqui é mostrar como um ORM geralmente atual. Vamos ver ele em ação no tópico do [SQLAlchemy](#sqlalchemy).
+
+Além disso, um aspecto vital do uso de ORMs é a capacidade de gerenciar [migrações](#migrações) de dados, um processo que permite atualizar o esquema do banco de dados de forma segura e controlada conforme a aplicação evolui. As migrações acompanham as alterações na estrutura do banco de dados (como adicionar uma nova coluna ou tabela) e aplicam essas alterações de forma sequencial, garantindo que o banco de dados esteja sempre sincronizado com o código da aplicação. Esse recurso é indispensável em ambientes de desenvolvimento ágil, onde as necessidades e os requisitos podem mudar rapidamente. Assim, o ORM não só facilita o trabalho diário com bancos de dados, como também assegura que a evolução da aplicação possa ocorrer de maneira fluida e sem interrupções.
+
+### Vantagens e desvantagens em usar um ORM
+
+Mas por que usaríamos um ORM? Aqui estão algumas razões:
+
+- **Abstração de banco de dados**: ORMs permitem que você mude de um tipo de banco de dados para outro com poucas alterações no código. Isso oferece uma grande flexibilidade para projetos que podem precisar migrar de um banco para outro. (Faremos isso na aula [10](10.md)).
+
+- **Segurança**: ORMs ajudam a prevenir injeções SQL, uma vulnerabilidade comum de segurança, ao escapar automaticamente as consultas SQL.
+
+- **Eficiência no desenvolvimento**: Com a capacidade de gerar esquemas automaticamente e realizar migrações, ORMs economizam tempo e esforço que seriam gastos em tarefas manuais de gerenciamento de banco de dados.
+
+- **Implementação de Padrões de Projeto**: ORMs incorporam padrões de design necessários para a estruturação do projeto de forma eficiente, promovendo boas práticas de desenvolvimento e arquitetura de software. Isso inclui padrões como Unit of Work e Repository, facilitando a manutenção do código e melhorando a organização do projeto.
+
+Em alguns casos o uso de ORMs também podem ser desencorajados:
+
+- **Curva de aprendizado**: Apesar de abstraírem a complexidade do SQL, ORMs requerem que os desenvolvedores aprendam sua própria forma de realizar operações, o que pode representar uma curva de aprendizado inicial. (O objetivo dessa aula)
+
+- **Performance**: Embora ORMs facilitem o desenvolvimento, eles podem, em alguns casos, gerar consultas SQL ineficientes que afetam a performance da aplicação, especialmente em operações complexas ou em bases de dados muito grandes.
+
+Ao considerar essas vantagens e desvantagens, podemos tomar decisões mais informadas sobre a incorporação de ORMs em seus projetos, equilibrando a necessidade de agilidade e segurança no desenvolvimento com as exigências de performance e funcionalidade específica do banco de dados.
+
+
+## SQLAlchemy
 
 > Uma introdução ao SQLAlchemy
 > Instalação
