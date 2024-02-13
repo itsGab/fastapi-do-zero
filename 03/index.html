@@ -427,9 +427,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementado-endpoints" class="md-nav__link">
+  <a href="#implementando-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementado endpoints
+      Implementando endpoints
     </span>
   </a>
   
@@ -955,9 +955,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementado-endpoints" class="md-nav__link">
+  <a href="#implementando-endpoints" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementado endpoints
+      Implementando endpoints
     </span>
   </a>
   
@@ -1282,7 +1282,7 @@
 <p>Dessa forma podemos criar associações entre os endpoints e a base de dados. Por exemplo: quando quisermos inserir um dado no banco de dados, nós como clientes devemos comunicar essa intenção ao servidor usando o método POST enviando os dados (em nosso caso no formato JSON) que devem ser persistidos na base de dados. Com isso iniciamos o processo de <em>create</em> na base de dados.</p>
 <h3 id="respostas-da-api">Respostas da API</h3>
 <p>Usamos códigos de status para informar ao cliente o resultado das operações no servidor, como se um dado foi criado, encontrado, atualizado ou excluído com sucesso. Por isso investiremos mais algum momento aqui.</p>
-<p>Os códigos que devemos prestar atenção para responder de corretamente as requisições. Os casos de sucesso incluem:</p>
+<p>Os códigos que devemos prestar atenção para responder corretamente as requisições. Os casos de sucesso incluem:</p>
 <ul>
 <li><strong>200 OK</strong>: Indica sucesso na requisição.<ul>
 <li><strong>GET</strong>: Quando um dado é solicitado e retornado com sucesso.</li>
@@ -1307,7 +1307,7 @@
 <li><strong>500 INTERNAL SERVER ERROR</strong>: Uma mensagem de erro genérica, dada quando uma condição inesperada foi encontrada. Geralmente ocorre quando nossa aplicação apresenta um erro.</li>
 </ul>
 <p>Compreendendo esses códigos, estamos prontos para iniciar a implementação de alguns endpoints e colocar esses conceitos em prática.</p>
-<h2 id="implementado-endpoints">Implementado endpoints</h2>
+<h2 id="implementando-endpoints">Implementando endpoints</h2>
 <p>Para facilitar o aprendizado, sugiro dividir a criação de novos endpoints em três etapas:</p>
 <ol>
 <li>Relação com o HTTP: Determinar o verbo HTTP esperado e os códigos de resposta para situações de sucesso e erro.</li>
@@ -1360,7 +1360,7 @@
 <p>Como já temos o endpoint definido, precisamos fazer a associação do modelo com ele. Para fazer isso basta que o endpoint receba um parâmetro e esse parâmetro esteja associado a um modelo via anotação de parâmetros:</p>
 <div class="language-python highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">Message</span><span class="p">,</span> <span class="n">UserSchema</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Código do olá mundo homitido</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1"># Código do olá mundo omitido</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="hll"><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
@@ -1391,7 +1391,7 @@
 </span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16"></a>    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Para aplicar um modelo a resposta do endpoint, temos que passar o modelo ao parâmetro <code>response_model</code>, como fizemos na <a href="../02/#integrando-o-pydantic-com-o-fastapi" target="_blank">aula passada</a>:</p>
-<div class="language-py highlight"><span class="filename">aula_00.py</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="hll"><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">Message</span><span class="p">,</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span>
+<div class="language-python highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="hll"><span class="kn">from</span> <span class="nn">fast_zero.schemas</span> <span class="kn">import</span> <span class="n">Message</span><span class="p">,</span> <span class="n">UserSchema</span><span class="p">,</span> <span class="n">UserPublic</span>
 </span></span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># Código omitido</span>
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
@@ -1408,7 +1408,7 @@
 <p>Esse modelo é usado para quando o JSON enviado na requisição não cumprir os requisitos do schema.</p>
 <p>Por exemplo, se fizermos uma requisição que foge dos padrões definidos no schema:</p>
 <p><a class="glightbox" href="../assets/03/chamada_com_schema_errado_no_swagger.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/03/chamada_com_schema_errado_no_swagger.png" width="500"></a></p>
-<p>Essa requisição foge dos padrões, pois não envia o campo <code>password</code> e envia tipo de dado errado para <code>email</code>.</p>
+<p>Essa requisição foge dos padrões, pois não envia o campo <code>password</code> e envia o tipo de dado errado para <code>email</code>.</p>
 <p>Com isso, receberemos um erro <code>422 UNPROCESSABLE ENTITY</code>, dizendo que nosso schema foi violado e a resposta contém os detalhes dos campos faltantes ou mal formatados:</p>
 <p><a class="glightbox" href="../assets/03/resposta_do_422_no_swagger.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/03/resposta_do_422_no_swagger.png" width="500"></a></p>
 <p>A mensagem completa de retorno do servidor mostra de forma detalhada os erros de validação encontrados em cada campo, individualmente no campo <code>details</code>:</p>
@@ -1448,7 +1448,7 @@
 <li>Campo notificado</li>
 <li>Mensagem que acompanha o erro</li>
 </ol>
-<p>Vemos que o pydantic desempenha um papel bastante importante no funcionamento da API. Pois ele consegue de "barrar" o request antes dele ser exposto à nossa função de endpoint. Evitando que diversos casos estranhos sejam cobertos de forma transparente. Tanto em relação aos tipos dos campos, quanto em relação aos campos que deveriam ser enviados, mas não foram.</p>
+<p>Vemos que o pydantic desempenha um papel bastante importante no funcionamento da API. Pois ele consegue "barrar" o request antes dele ser exposto à nossa função de endpoint. Evitando que diversos casos estranhos sejam cobertos de forma transparente. Tanto em relação aos tipos dos campos, quanto em relação aos campos que deveriam ser enviados, mas não foram.</p>
 <h3 id="estendendo-a-validacao-com-e-mail">Estendendo a validação com e-mail</h3>
 <p>Outro ponto que deve ser considerado é a capacidade de estender os campos usados pelo pydantic nas anotações de tipo.</p>
 <p>Para garantir que o campo <code>email</code> realmente contenha um e-mail válido, podemos usar uma ferramenta especial do Pydantic que verifica se o e-mail tem o formato correto, como a presença de <code>@</code> e um domínio válido.</p>
@@ -1503,7 +1503,7 @@
 </span></code></pre></div>
 <ol>
 <li>O json dessa mensagem de erro aparece em uma única linha. Eu fiz a quebra para que ficasse mais fácil de lermos a resposta.</li>
-<li>A mensagem de erro diz que o input passado ao modelo do pydantic deveria ser um dicionário válido ou um objeto onde os campos do poderiam ser extraídos.</li>
+<li>A mensagem de erro diz que o input passado ao modelo do pydantic deveria ser um dicionário válido ou um objeto onde os campos poderiam ser extraídos.</li>
 <li>O objeto enviado ao modelo</li>
 </ol>
 <p>Essencialmente, o erro nos informa que o modelo esperava receber um objeto válido para processamento, mas, em vez disso, recebeu <code>None</code>. Isso ocorre porque ainda não implementamos a lógica para processar o input recebido e retornar uma resposta adequada que corresponda ao modelo <code>UserPublic</code>.</p>
@@ -1512,10 +1512,10 @@
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1"># código omitido</span>
 </span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
-</span></span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="k">return</span> <span class="n">user</span>
-</span></code></pre></div>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'/users/'</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserPublic</span><span class="p">)</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">UserSchema</span><span class="p">):</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="hll">    <span class="k">return</span> <span class="n">user</span>
+</span></span></code></pre></div>
 <p>Este retorno simples do objeto <code>user</code> garante que o schema seja cumprido. Agora, ao realizarmos novamente a chamada no Swagger, o objeto que enviamos é retornado conforme esperado, mas sem expor a senha, alinhado ao modelo <code>UserPublic</code> e emitindo uma resposta com o código 201:</p>
 <p><a class="glightbox" href="../assets/03/swagger_sem_senha.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Captura de tela do swagger exibindo o modelo de resposta UserPublic corretamente com o código 201" class="center" src="../assets/03/swagger_sem_senha.png"></a></p>
 <p>Essa abordagem nos permite fechar o ciclo de validação, demonstrando a eficácia do Pydantic na garantia de que os dados de resposta estejam corretos. Com essa implementação simples, estabelecemos a base para o desenvolvimento real do código do endpoint POST, preparando o terreno para uma lógica mais complexa que envolverá a criação e o manejo de usuários dentro de nossa aplicação.</p>
@@ -1753,7 +1753,7 @@
 <h2 id="implementando-a-rota-put">Implementando a Rota PUT</h2>
 <p>A rota PUT é usada para atualizar as informações de um usuário existente. No contexto do CRUD, o verbo HTTP PUT está associado à operação "Update". Se a solicitação for bem-sucedida, a rota deve retornar o status HTTP 200 (OK). No entanto, se o usuário solicitado não for encontrado, deveríamos retornar o status HTTP 404 (Não Encontrado).</p>
 <p>Uma característica importante do verbo PUT é que ele é direcionado a um recurso em específico. Nesse caso, estamos direcionando a alteração a um <code>user</code> em específico na base de dados. O identificador de <code>user</code> é o campo <code>id</code> que estamos usando nos modelos do Pydantic. Nesse caso, nosso endpoint deve receber o identificador de quem será alterado.</p>
-<p>Para fazer essa identificação do recurso na <a href="../02/#url" target="_blank">URL</a> usamos a seguinte combinação <code>/caminho/recurso</code>. Mas, como o recurso é dinâmico, ele deve ser enviado pelo cliente. Fazendo com que ele valor tenha que ser uma variável. Dentro do FastAPI, as variáveis de recursos são descritas dentro de {}, como <code>{user_id}</code>. Fazendo com que o caminho completo do nosso endpoint seja <code class="language-python highlight"><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span></code>. Da seguinte forma:</p>
+<p>Para fazer essa identificação do recurso na <a href="../02/#url" target="_blank">URL</a> usamos a seguinte combinação <code>/caminho/recurso</code>. Mas, como o recurso é dinâmico, ele deve ser enviado pelo cliente. Fazendo com que o valor tenha que ser uma variável. Dentro do FastAPI, as variáveis de recursos são descritas dentro de {}, como <code>{user_id}</code>. Fazendo com que o caminho completo do nosso endpoint seja <code class="language-python highlight"><span class="s1">'/users/</span><span class="si">{user_id}</span><span class="s1">'</span></code>. Da seguinte forma:</p>
 <div class="language-python highlight"><span class="filename">fast_zero/app.py</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
 </span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
 </span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="c1"># ...</span>
@@ -1769,7 +1769,7 @@
 </span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>    <span class="k">return</span> <span class="n">user_with_id</span>
 </span></code></pre></div>
 <ol>
-<li>Aqui fazemos uma validação simples, verificamos se o id não é maior que o tamanho da lista <code class="language-python highlight"><span class="n">user_id</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span></code> e o número enviado para o <code>user)id</code> é um valor positivo <code class="language-python highlight"><span class="n">user_id</span> <span class="o">&lt;</span> <span class="mi">1</span></code>.</li>
+<li>Aqui fazemos uma validação simples, verificamos se o id não é maior que o tamanho da lista <code class="language-python highlight"><span class="n">user_id</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span></code> e o número enviado para o <code>user_id</code> é um valor positivo <code class="language-python highlight"><span class="n">user_id</span> <span class="o">&lt;</span> <span class="mi">1</span></code>.</li>
 <li>Levantamos um erro do tipo <code>HTTPException</code> para dizer que o usuário não existe na base de dados. Esse modelo já está presente no swagger com <code>HTTPValidationError</code>.</li>
 <li>Nessa linha, estamos substituindo a posição (<code>user_id - 1</code>) na lista pelo novo objeto.</li>
 </ol>
@@ -1890,7 +1890,7 @@
 <ol>
 <li>Escrever um teste para o erro de <code class="language-python highlight"><span class="mi">404</span></code> para o endpoint de PUT;</li>
 <li>Escrever um teste para o erro de <code class="language-python highlight"><span class="mi">404</span></code> para o endpoint de DELETE;</li>
-<li>Criar um enpoint de GET para pegar um único recurso como <code>users/{id}</code> e fazer seus testes.</li>
+<li>Criar um endpoint de GET para pegar um único recurso como <code>users/{id}</code> e fazer seus testes.</li>
 </ol>
 <h2 id="conclusao">Conclusão</h2>
 <p>Com a implementação bem-sucedida das rotas CRUD, demos um passo significativo na construção de uma API robusta e funcional com FastAPI. Agora podemos manipular usuários - criar, ler, atualizar e excluir - o que é fundamental para muitos sistemas de informação.</p>
@@ -1917,7 +1917,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 7, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 5, 2024</span>
   </span>
 
     
@@ -1932,7 +1932,7 @@
       
     </span>
     <nav>
-      dunossauro, Julio Formiga, MatheusAlmeida28
+      dunossauro, Marcelo Machado, Julio Formiga, MatheusAlmeida28
     </nav>
   </span>
 

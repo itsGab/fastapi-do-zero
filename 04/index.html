@@ -1027,7 +1027,7 @@
 <p>Abstração de banco de dados: ORMs permitem que você mude de um tipo de banco de dados para outro com poucas alterações no código.</p>
 </li>
 <li>
-<p>Segurança: ORMs lidam geralmente com escapar de consultas e prevenir injeções SQL, um tipo comum de vulnerabilidade de segurança.</p>
+<p>Segurança: ORMs lidam geralmente com escapagem de consultas e para prevenir injeções SQL, um tipo comum de vulnerabilidade de segurança.</p>
 </li>
 <li>
 <p>Eficiência no desenvolvimento: ORMs podem gerar automaticamente esquemas, realizar migrações e outras tarefas que seriam demoradas para fazer manualmente.</p>
@@ -1044,7 +1044,7 @@
 <p>Além disso, expor credenciais de banco de dados e outras informações sensíveis no código-fonte é uma prática de segurança ruim. Se esse código fosse comprometido, essas informações poderiam ser usadas para acessar e manipular seus recursos.</p>
 <p>Por isso, usaremos o <code>pydantic-settings</code> para gerenciar nossas configurações de ambiente. A biblioteca permite que você defina configurações em arquivos separados ou variáveis de ambiente e acesse-as de uma maneira estruturada e segura em seu código.</p>
 <p>Isso está alinhado com a metodologia dos 12 fatores, um conjunto de melhores práticas para desenvolvimento de aplicações modernas. O terceiro fator, "Config", afirma que as configurações que variam entre os ambientes devem ser armazenadas no ambiente e não no código.</p>
-<p>Agora que entendemos melhor esses conceitos, começaremos instalando as bibliotecas que iremos usar. O primeiro passo é instalar o SQLAlchemy, um ORM que nos permite trabalhar com bancos de dados SQL de maneira Pythonic. Além disso, o Alembic, que é uma ferramenta de migração de banco de dados, funciona muito bem com o SQLAlchemy e nos ajudará a gerenciar as alterações do esquema do nosso banco de dados.</p>
+<p>Agora que entendemos melhor esses conceitos, começaremos instalando as bibliotecas que iremos usar. O primeiro passo é instalar o SQLAlchemy, um ORM que nos permite trabalhar com bancos de dados SQL de maneira Pythonica. Além disso, o Alembic, que é uma ferramenta de migração de banco de dados, funciona muito bem com o SQLAlchemy e nos ajudará a gerenciar as alterações do esquema do nosso banco de dados.</p>
 <div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>sqlalchemy
 </span></code></pre></div>
 <p>Além disso, para evitar a escrita de configurações do banco de dados diretamente no código-fonte, usaremos o <code>pydantic-settings</code>. Este pacote nos permite gerenciar as configurações do nosso aplicativo de uma maneira mais segura e estruturada.</p>
@@ -1272,7 +1272,7 @@
 </span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>   ├── test_app.py
 </span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>   └── test_db.py
 </span></code></pre></div>
-<p>No arquivo <code>alembic.ini</code>: ficam as configurações gerais das nossas migrações. Na pasta <code>migrations</code> foram criados um arquivo chamado <code>env.py</code>, esse arquivo é responsável por como as migrações serão feitas e o arquivo <code>script.py.mako</code> é um template para as novas migrações.</p>
+<p>No arquivo <code>alembic.ini</code>: ficam as configurações gerais das nossas migrações. Na pasta <code>migrations</code> foram criados um arquivo chamado <code>env.py</code>, esse arquivo é responsável por como as migrações serão feitas, e o arquivo <code>script.py.mako</code> é um template para as novas migrações.</p>
 <h3 id="criando-uma-migracao-automatica">Criando uma migração automática</h3>
 <p>Com o Alembic devidamente instalado e iniciado, agora é o momento de gerar nossa primeira migração. Mas, antes disso, precisamos garantir que o Alembic consiga acessar nossas configurações e modelos corretamente. Para isso, faremos algumas alterações no arquivo <code>migrations/env.py</code>.</p>
 <p>Neste arquivo, precisamos:</p>
@@ -1408,7 +1408,7 @@
 <p>Finalmente, enviaremos as mudanças para o repositório remoto:</p>
 <div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>git<span class="w"> </span>push
 </span></code></pre></div>
-<p>E pronto! As mudanças que fizemos foram salvas no histórico do Git e agora estão disponíveis no git.</p>
+<p>E pronto! As mudanças que fizemos foram salvas no histórico do Git e agora estão disponíveis no GitHub.</p>
 <h2 id="conclusao">Conclusão</h2>
 <p>Nesta aula, demos passos significativos para preparar nosso projeto FastAPI para interagir com um banco de dados. Começamos definindo nosso primeiro modelo de dados, o <code>User</code>, utilizando o SQLAlchemy. Além disso, conforme as práticas de Desenvolvimento Orientado por Testes (TDD), implementamos um teste para assegurar que a funcionalidade de criação de um novo usuário no banco de dados esteja operando corretamente.</p>
 <p>Avançamos para configurar o ambiente de desenvolvimento, onde estabelecemos um arquivo <code>.env</code> para armazenar nossa <code>DATABASE_URL</code> e ajustamos o SQLAlchemy para utilizar essa URL. Complementarmente, incluímos o arquivo do banco de dados ao <code>.gitignore</code> para evitar que seja rastreado pelo controle de versão.</p>
@@ -1434,7 +1434,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 7, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 5, 2024</span>
   </span>
 
     
@@ -1449,7 +1449,7 @@
       
     </span>
     <nav>
-      dunossauro, Julio Formiga
+      dunossauro, Marcelo Machado, Julio Formiga
     </nav>
   </span>
 
