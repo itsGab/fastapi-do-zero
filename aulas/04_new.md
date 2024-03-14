@@ -28,6 +28,46 @@ Objetivos dessa aula:
 
 Com os endpoints da nossa API já estabelecidos, estamos, por ora, utilizando um banco de dados simulado, armazenando uma lista em memória. Nesta aula, iniciaremos o processo de configuração do nosso banco de dados real. Nossa agenda inclui a instalação do SQLAlchemy, a definição do modelo de usuários, e a execução da primeira migração com o Alembic para um banco de dados evolutivo.
 
+## Bancos de dados
+
+Uma parte importante em relação à construção de aplicações é o banco de dados. Ele atua como um repositório central para armazenar e gerenciar dados de forma persistente, permitindo que a aplicação os acesse, manipule e recupere posteriormente.
+
+Por forma persistente, é o contrário do que fizemos até agora, que é poder contar com os dados mesmo caso a aplicação fique fora do ar. Os dados são persistidos em um local único. Desta forma, outras aplicações também podem acessar.
+
+Outra grande vantagem de persistir os dados em um banco, é poder **buscar pelos dados**. Bancos de dados contam com linguagens especializadas em fazer consultas (em inglês dizemos *queries*).
+
+### SQLite
+
+Durante a maior parte da nossa passagem por esse curso, vamos usar um banco de dados chamado [SQLite](https://www.sqlite.org/index.html){:target="_blank"}. O SQLite é um banco de dados relacional, minimalista, autocontido, escrito em linguagem C, bastante rápido e que usa um único arquivo para armazenar os dados.
+
+??? tip "Caso nunca tenha trabalhado com sqlite"
+	Temos uma live, bastante antiga no canal, onde usamos SQLite puro para fazer algumas operações com o banco de dados.
+
+	![type:video](https://www.youtube.com/embed/2WUo5tD-eIA)
+
+Por ser um relacional, a linguagem de consulta é o [SQL](https://pt.wikipedia.org/wiki/SQL){:target="_blank"}(Linguagem de consulta estruturada). Onde poderíamos consultar nossos usuários na base de dados de maneira direta e sem usar código python.
+
+> Posteriormente, vamos migrar nosso banco de dados para o PostgreSQL para colocar a aplicação em produção. Isso acontecerá na aula [10](10.md){:target="_blank"}.
+
+Algo como:
+
+```sql
+SELECT * from users WHERE users.id == 1
+```
+
+Para procurar um registro de usuários onde [*where*] o `id` dele seja um. Em contraste com aquele código sem banco de dados que fizemos na aula passada para encontrar um usuário:
+
+```python
+def update_user(user_id: int, user: UserSchema):
+    if user_id > len(database) or user_id < 1:
+        raise HTTPException(status_code=404, detail='User not found')
+
+    user_with_id = UserDB(**user.model_dump(), id=user_id)
+    database[user_id - 1] = user_with_id
+
+    return user_with_id
+```
+
 
 ## ORM
 
