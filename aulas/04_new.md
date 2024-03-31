@@ -143,7 +143,7 @@ ORMs, especificamente, facilitam a realização de todas as operações de SQL p
 		WHERE pets.id = :id_1
 		```
 
-> Note que esses são códigos fictícios, o objetivo aqui é mostrar como um ORM geralmente atual. Vamos ver ele em ação no tópico do [SQLAlchemy](#sqlalchemy).
+> Note que esses são códigos fictícios, o objetivo aqui é mostrar como um ORM geralmente atua. Vamos ver ele em ação no tópico do [SQLAlchemy](#sqlalchemy).
 
 Além disso, um aspecto vital do uso de ORMs é a capacidade de gerenciar [migrações](#migrações) de dados, um processo que permite atualizar o esquema do banco de dados de forma segura e controlada conforme a aplicação evolui. As migrações acompanham as alterações na estrutura do banco de dados (como adicionar uma nova coluna ou tabela) e aplicam essas alterações de forma sequencial, garantindo que o banco de dados esteja sempre sincronizado com o código da aplicação. Esse recurso é indispensável em ambientes de desenvolvimento ágil, onde as necessidades e os requisitos podem mudar rapidamente. Assim, o ORM não só facilita o trabalho diário com bancos de dados, como também assegura que a evolução da aplicação possa ocorrer de maneira fluida e sem interrupções.
 
