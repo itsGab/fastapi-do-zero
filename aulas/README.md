@@ -66,7 +66,7 @@ Esse material será disponibilizado de três formas diferentes:
 
 ## Pré-requisitos
 
-Para aproveitar ao máximo este curso, é recomendado que você tenha algum conhecimento prévio de Python. Além disso, algum entendimento básico de desenvolvimento web e APIs RESTful será útil, mas não essencial, pois a abordagem deste curso é prática e centrada em um projeto concreto. Por meio de exemplos reais e instruções passo a passo, você terá a oportunidade de acompanhar o processo de construção de uma aplicação real. Mesmo que os conceitos de desenvolvimento web sejam novos para você, a ênfase na aplicação prática e a estrutura detalhada do curso facilitarão o entendimento e a aplicação dessas habilidades até o fim do processo.
+Para aproveitar ao máximo este curso, é recomendado que você tenha algum conhecimento prévio de Python e o básico em em SQL. Além disso, algum entendimento básico de desenvolvimento web e APIs RESTful será útil, mas não essencial, pois a abordagem deste curso é prática e centrada em um projeto concreto. Por meio de exemplos reais e instruções passo a passo, você terá a oportunidade de acompanhar o processo de construção de uma aplicação real. Mesmo que os conceitos de desenvolvimento web sejam novos para você, a ênfase na aplicação prática e a estrutura detalhada do curso facilitarão o entendimento e a aplicação dessas habilidades até o fim do processo.
 
 ??? info "Caso esteja iniciando seus estudos em Python!"
 	Caso você ainda não se sinta uma pessoa preparada, ou caiu aqui sem saber exatamente o que esperar. Temos um pequeno curso introdutório. Destinado aos primeiros passos com python.

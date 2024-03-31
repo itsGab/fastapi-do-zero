@@ -68,8 +68,11 @@ def update_user(user_id: int, user: UserSchema):
     return user_with_id
 ```
 
+Embora algumas pessoas possam se sentir confortáveis usando somente SQL. Em nosso projeto, vamos usar um formato hibrido entre essas duas abordagens. Usaremos uma camada de abstração entre o Python e o Banco de dados chamada de ORM.
 
-## ORM
+### ORM
+
+> Tratar esse novo tópico com base nas novas adições anteriores. Talvez seja necessário fazer um mix entre a itrodução desse tópico e a do banco de dados.
 
 Ao desenvolver aplicações web e APIs, os bancos de dados surgem como componentes fundamentais, armazenando tudo, desde informações de usuários até dados de produtos. Tradicionalmente, interagir com esses bancos de dados requer o uso de [SQL](https://pt.wikipedia.org/wiki/SQL){:target="_blank"} (Structured Query Language), uma linguagem poderosa, porém complexa, que permite realizar operações como criar, ler, atualizar e deletar dados - ações conhecidas coletivamente como [CRUD](03.md#crud-e-http){:target="_blank"}. 
 
@@ -144,7 +147,7 @@ ORMs, especificamente, facilitam a realização de todas as operações de SQL p
 
 Além disso, um aspecto vital do uso de ORMs é a capacidade de gerenciar [migrações](#migrações) de dados, um processo que permite atualizar o esquema do banco de dados de forma segura e controlada conforme a aplicação evolui. As migrações acompanham as alterações na estrutura do banco de dados (como adicionar uma nova coluna ou tabela) e aplicam essas alterações de forma sequencial, garantindo que o banco de dados esteja sempre sincronizado com o código da aplicação. Esse recurso é indispensável em ambientes de desenvolvimento ágil, onde as necessidades e os requisitos podem mudar rapidamente. Assim, o ORM não só facilita o trabalho diário com bancos de dados, como também assegura que a evolução da aplicação possa ocorrer de maneira fluida e sem interrupções.
 
-### Vantagens e desvantagens em usar um ORM
+#### Vantagens e desvantagens em usar um ORM
 
 Mas por que usaríamos um ORM? Aqui estão algumas razões:
 
