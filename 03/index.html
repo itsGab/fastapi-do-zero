@@ -1468,7 +1468,7 @@
 <p>Um ponto crucial do Pydantic é sua habilidade de checar se os dados estão corretos enquanto o programa está rodando, garantindo que tudo esteja conforme esperado. Fazendo com que, caso o cliente envie um dado que não corresponde com o schema definido, seja levantado um erro <code class="language-python highlight"><span class="mi">422</span></code>. E caso a nossa resposta como servidor também não siga o schema, será levantado um erro <code class="language-python highlight"><span class="mi">500</span></code>. Fazendo com que ele seja uma garantia de duas vias, nossa API segue a especificação da documentação.</p>
 <p>Quando relacionamos um modelo à resposta do enpoint, o Pydantic de forma automática, cria um schema chamado <code>HTTPValidationError</code>:</p>
 <p><a class="glightbox" href="../assets/03/422_no_swagger.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/03/422_no_swagger.png"></a></p>
-<p>Esse modelo é usado para quando o JSON enviado na requisição não cumprir os requisitos do schema.</p>
+<p>Esse modelo é usado quando o JSON enviado na requisição não cumpre os requisitos do schema.</p>
 <p>Por exemplo, se fizermos uma requisição que foge dos padrões definidos no schema:</p>
 <p><a class="glightbox" href="../assets/03/chamada_com_schema_errado_no_swagger.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/03/chamada_com_schema_errado_no_swagger.png" width="500"></a></p>
 <p>Essa requisição foge dos padrões, pois não envia o campo <code>password</code> e envia o tipo de dado errado para <code>email</code>.</p>
