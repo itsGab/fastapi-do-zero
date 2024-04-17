@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/logo.svg">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1140,7 +1140,7 @@
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">RUN</span><span class="w"> </span>poetry<span class="w"> </span>install<span class="w"> </span>--no-interaction<span class="w"> </span>--no-ansi
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">8000</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"poetry"</span><span class="p">,</span><span class="w"> </span><span class="s2">"run"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uvicorn"</span><span class="p">,</span><span class="w"> </span><span class="s2">"--host"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0.0.0.0"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fast_zero.app:app"</span><span class="w"> </span><span class="p">]</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">CMD</span><span class="w"> </span>poetry<span class="w"> </span>run<span class="w"> </span>uvicorn<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>fast_zero.app:app
 </span></code></pre></div>
 <p>Aqui está o que cada linha faz:</p>
 <ol>
@@ -1152,7 +1152,7 @@
 <li><code>RUN poetry config installer.max-workers 10</code>: configura o Poetry para usar até 10 workers ao instalar pacotes.</li>
 <li><code>RUN poetry install --no-interaction --no-ansi</code>: instala as dependências do nosso projeto sem interação e sem cores no output.</li>
 <li><code>EXPOSE 8000</code>: informa ao Docker que o contêiner escutará na porta 8000.</li>
-<li><code>CMD [ "poetry", "run", "uvicorn", "--host", "0.0.0.0", "fast_zero.app:app" ]</code>: define o comando que será executado quando o contêiner for iniciado.</li>
+<li><code>CMD poetry run uvicorn --host 0.0.0.0 fast_zero.app:app</code>: define o comando que será executado quando o contêiner for iniciado.</li>
 </ol>
 <p>Vamos entender melhor esse último comando:</p>
 <ul>
@@ -1254,11 +1254,11 @@
 <h3 id="adicionando-o-suporte-ao-postgresql-na-nossa-aplicacao">Adicionando o suporte ao PostgreSQL na nossa aplicação</h3>
 <p>Para que o SQLAlchemy suporte o PostgreSQL, precisamos instalar uma dependência chamada <code>psycopg2-binary</code>. Este é o adaptador PostgreSQL para Python e é crucial para fazer a comunicação.</p>
 <p>Para instalar essa dependência, utilize o seguinte comando:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>psycopg2-binary
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>psycopg<span class="o">[</span>binary<span class="o">]</span>
 </span></code></pre></div>
 <p>Uma das vantagens do SQLAlchemy enquanto ORM é a flexibilidade. Com apenas algumas alterações mínimas, como a atualização da string de conexão, podemos facilmente transicionar para um banco de dados diferente. Assim, após ajustar o arquivo <code>.env</code> com a string de conexão do PostgreSQL, a aplicação deverá operar normalmente, mas desta vez utilizando o PostgreSQL.</p>
 <p>Para ajustar a conexão com o PostgreSQL, modifique seu arquivo <code>.env</code> para incluir a seguinte string de conexão:</p>
-<div class="language-bash highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="s2">"postgresql://app_user:app_password@localhost:5432/app_db"</span>
+<div class="language-bash highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="s2">"postgresql+psycopg://app_user:app_password@localhost:5432/app_db"</span>
 </span></code></pre></div>
 <div class="admonition failure">
 <p class="admonition-title">Caso tenha alterado as variáveis de ambiente do contêiner</p>
@@ -1310,36 +1310,32 @@
 <span class="normal"><a href="#__codelineno-14-23">23</a></span>
 <span class="normal"><a href="#__codelineno-14-24">24</a></span>
 <span class="normal"><a href="#__codelineno-14-25">25</a></span>
-<span class="normal"><a href="#__codelineno-14-26">26</a></span>
-<span class="normal"><a href="#__codelineno-14-27">27</a></span>
-<span class="normal"><a href="#__codelineno-14-28">28</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">'3'</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">  </span><span class="nt">fastzero_database</span><span class="p">:</span>
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgdata:/var/lib/postgresql/data</span>
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_user</span>
-</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_db</span>
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_password</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"5432:5432"</span>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14"></a>
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="w">  </span><span class="nt">fastzero_app</span><span class="p">:</span>
-</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastzero_app</span>
-</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span>
-</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18"></a><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
-</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19"></a><span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dockerfile</span>
-</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"8000:8000"</span>
-</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
-</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastzero_database</span>
-</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25"></a><span class="w">      </span><span class="nt">DATABASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgresql://app_user:app_password@fastzero_database:5432/app_db</span>
-</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26"></a>
-</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27"></a><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28"></a><span class="w">  </span><span class="nt">pgdata</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-14-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">  </span><span class="nt">fastzero_database</span><span class="p">:</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgdata:/var/lib/postgresql/data</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_user</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_db</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_password</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"5432:5432"</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="w">  </span><span class="nt">fastzero_app</span><span class="p">:</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastzero_app</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16"></a><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17"></a><span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dockerfile</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"8000:8000"</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastzero_database</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23"></a><span class="w">      </span><span class="nt">DATABASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgresql+psycopg://app_user:app_password@fastzero_database:5432/app_db</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24"></a>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26"></a><span class="w">  </span><span class="nt">pgdata</span><span class="p">:</span>
 </span></code></pre></div></td></tr></table></div>
 <p><strong>Explicação linha a linha:</strong></p>
 <ol>
@@ -1557,18 +1553,17 @@
 </span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span><span class="m">1</span>/1
 </span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>fastzero_database-1<span class="w">  </span>Started<span class="w">                      </span><span class="m">0</span>.3s<span class="w"> </span>
 </span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                           </span>docker:default
-</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
-</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="m">18</span><span class="w"> </span>files<span class="w"> </span>would<span class="w"> </span>be<span class="w"> </span>left<span class="w"> </span>unchanged.
-</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="o">================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">================</span>
-</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>platform<span class="w"> </span>linux<span class="w"> </span>-<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.6,<span class="w"> </span>pytest-7.4.3,<span class="w"> </span>pluggy-1.3.0<span class="w"> </span>-<span class="w"> </span>/app/.venv/bin/python
-</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>cachedir:<span class="w"> </span>.pytest_cache
-</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>rootdir:<span class="w"> </span>/app
-</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>configfile:<span class="w"> </span>pyproject.toml
-</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-4.1.0,<span class="w"> </span>Faker-20.1.0
-</span><span id="__span-25-19"><a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a>collected<span class="w"> </span><span class="m">27</span><span class="w"> </span>items
-</span><span id="__span-25-20"><a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>
-</span><span id="__span-25-21"><a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
-</span><span id="__span-25-22"><a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a>...
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="o">================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">================</span>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>platform<span class="w"> </span>linux<span class="w"> </span>-<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.6,<span class="w"> </span>pytest-7.4.3,<span class="w"> </span>pluggy-1.3.0<span class="w"> </span>-<span class="w"> </span>/app/.venv/bin/python
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>cachedir:<span class="w"> </span>.pytest_cache
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>rootdir:<span class="w"> </span>/app
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>configfile:<span class="w"> </span>pyproject.toml
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-4.1.0,<span class="w"> </span>Faker-20.1.0
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>collected<span class="w"> </span><span class="m">27</span><span class="w"> </span>items
+</span><span id="__span-25-19"><a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a>
+</span><span id="__span-25-20"><a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>PASSED
+</span><span id="__span-25-21"><a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a>...
 </span></code></pre></div>
 <p>É importante notar que, embora o <code>docker-compose run</code> inicie as dependências necessárias para a execução do serviço especificado, ele não finaliza essas dependências após a conclusão do comando. Isso significa que após a execução dos testes, o serviço do banco de dados continuará ativo. Você precisará finalizá-lo manualmente com <code>docker-compose down</code> para encerrar todos os serviços e limpar o ambiente:</p>
 <div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>docker-compose<span class="w"> </span>down
@@ -1665,17 +1660,16 @@
 </span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Creating<span class="w"> </span><span class="m">1</span>/0
 </span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span><span class="m">09</span>-fastzero_database-1<span class="w">  </span>Running<span class="w">                     </span><span class="m">0</span>.0s<span class="w"> </span>
 </span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                          </span>docker:default
-</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>All<span class="w"> </span><span class="k">done</span>!<span class="w"> </span>✨<span class="w"> </span>🍰<span class="w"> </span>✨
-</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="m">18</span><span class="w"> </span>files<span class="w"> </span>would<span class="w"> </span>be<span class="w"> </span>left<span class="w"> </span>unchanged.
-</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="o">=======================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">=======================</span>
-</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>platform<span class="w"> </span>linux<span class="w"> </span>-<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.6,<span class="w"> </span>pytest-7.4.3,<span class="w"> </span>pluggy-1.3.0<span class="w"> </span>-<span class="w"> </span>/app/.venv/bin/python
-</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>cachedir:<span class="w"> </span>.pytest_cache
-</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>rootdir:<span class="w"> </span>/app
-</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>configfile:<span class="w"> </span>pyproject.toml
-</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-4.1.0,<span class="w"> </span>Faker-20.1.0
-</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>collected<span class="w"> </span><span class="m">27</span><span class="w"> </span>items
-</span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a>
-</span><span id="__span-29-19"><a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="o">=======================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">=======================</span>
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>platform<span class="w"> </span>linux<span class="w"> </span>-<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.6,<span class="w"> </span>pytest-7.4.3,<span class="w"> </span>pluggy-1.3.0<span class="w"> </span>-<span class="w"> </span>/app/.venv/bin/python
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>cachedir:<span class="w"> </span>.pytest_cache
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>rootdir:<span class="w"> </span>/app
+</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>configfile:<span class="w"> </span>pyproject.toml
+</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-4.1.0,<span class="w"> </span>Faker-20.1.0
+</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>collected<span class="w"> </span><span class="m">27</span><span class="w"> </span>items
+</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>
+</span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>PASSED
 </span></code></pre></div>
 <p>Dessa forma temos um ambiente mais coeso e podemos reproduzir nossas configurações de forma bastante simples em qualquer ambiente.</p>
 <h2 id="commit">Commit</h2>
@@ -1707,7 +1701,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 27, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 9, 2024</span>
   </span>
 
     
@@ -1832,7 +1826,7 @@
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

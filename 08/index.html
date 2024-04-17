@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/logo.svg">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -975,8 +975,8 @@
 <h2 id="testes-para-autenticacao">Testes para autenticação</h2>
 <p>Antes de mergulharmos nos testes, conversaremos um pouco sobre por que eles são tão importantes. Na programação, é fácil cair na armadilha de pensar que, se algo funciona na maioria das vezes, então está tudo bem. Mas a verdade é que é nos casos marginais que os bugs mais difíceis de encontrar e corrigir costumam se esconder.</p>
 <p>Por exemplo, o que acontece se tentarmos autenticar um usuário que não existe? Ou se tentarmos autenticar com as credenciais erradas? Se não testarmos esses cenários, podemos acabar com um sistema que parece funcionar na superfície, mas que, na verdade, está cheio de falhas de segurança.</p>
-<p><a class="glightbox" href="../assets/08/coverage_mostrando_que_o_put_n%C3%A3o_foi_testado_com_usuario_errado.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center" src="../assets/08/coverage_mostrando_que_o_put_n%C3%A3o_foi_testado_com_usuario_errado.png"></a></p>
-<p>No código apresentado, se observarmos atentamente, vemos que o erro <code>HTTPException(status_code=400, detail='Not enough permissions')</code> em <code>users.py</code> na rota <code>/{user_id}</code> não está sendo coberto por nossos testes. Essa exceção é lançada quando um usuário não autenticado ou um usuário sem permissões adequadas tenta acessar, ou alterar um recurso que não deveria.</p>
+<p><a class="glightbox" href="../assets/08/coverage_mostrando_que_o_put_n%C3%A3o_foi_testado_com_usuario_errado.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="descrição" class="center shadow" src="../assets/08/coverage_mostrando_que_o_put_n%C3%A3o_foi_testado_com_usuario_errado.png" width="700"></a></p>
+<p>No código apresentado, se observarmos atentamente, vemos que o erro <code class="language-python highlight"><span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'Not enough permissions'</span><span class="p">)</span></code> em <code>users.py</code> na rota <code>/{user_id}</code> não está sendo coberto por nossos testes. Essa exceção é lançada quando um usuário não autenticado ou um usuário sem permissões adequadas tenta acessar, ou alterar um recurso que não deveria.</p>
 <p>Essa lacuna em nossos testes representa um risco potencial, pois não estamos verificando como nosso sistema se comporta quando alguém tenta, por exemplo, alterar os detalhes de um usuário sem ter permissões adequadas. Embora possamos assumir que nosso sistema se comportará corretamente, a falta de testes nos deixa sem uma confirmação concreta.</p>
 <h3 id="testando-a-alteracao-de-um-usuario-nao-autorizado">Testando a alteração de um usuário não autorizado</h3>
 <p>Agora, escreveremos alguns testes para esses casos. Vamos começar com um cenário simples: o que acontece quando um usuário tenta alterar as informações de outro usuário?</p>
@@ -991,7 +991,7 @@
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'mynewpassword'</span><span class="p">,</span>
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="p">},</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="p">)</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span>
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'Not enough permissions'</span><span class="p">}</span>
 </span></code></pre></div>
 Este teste vai simular um usuário tentando alterar as informações de outro usuário. Se nosso sistema estiver funcionando corretamente, ele deverá rejeitar essa tentativa e retornar um erro.
@@ -1063,7 +1063,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 <span class="normal"><a href="#__codelineno-3-71">71</a></span>
 <span class="normal"><a href="#__codelineno-3-72">72</a></span>
 <span class="normal"><a href="#__codelineno-3-73">73</a></span>
-<span class="normal"><a href="#__codelineno-3-74">74</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="normal"><a href="#__codelineno-3-74">74</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
 </span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50"></a><span class="k">def</span> <span class="nf">user</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
 </span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51"></a>    <span class="n">password</span> <span class="o">=</span> <span class="s1">'testtest'</span>
 </span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">UserFactory</span><span class="p">(</span><span class="n">password</span><span class="o">=</span><span class="n">get_password_hash</span><span class="p">(</span><span class="n">password</span><span class="p">))</span>
@@ -1077,7 +1077,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60"></a>    <span class="k">return</span> <span class="n">user</span>
 </span><span id="__span-3-61"><a id="__codelineno-3-61" name="__codelineno-3-61"></a>
 </span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62"></a>
-</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
 </span><span id="__span-3-64"><a id="__codelineno-3-64" name="__codelineno-3-64"></a><span class="k">def</span> <span class="nf">other_user</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
 </span><span id="__span-3-65"><a id="__codelineno-3-65" name="__codelineno-3-65"></a>    <span class="n">password</span> <span class="o">=</span> <span class="s1">'testtest'</span>
 </span><span id="__span-3-66"><a id="__codelineno-3-66" name="__codelineno-3-66"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">UserFactory</span><span class="p">(</span><span class="n">password</span><span class="o">=</span><span class="n">get_password_hash</span><span class="p">(</span><span class="n">password</span><span class="p">))</span>
@@ -1114,7 +1114,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58"></a>            <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'mynewpassword'</span><span class="p">,</span>
 </span><span id="__span-4-59"><a id="__codelineno-4-59" name="__codelineno-4-59"></a>        <span class="p">},</span>
 </span><span id="__span-4-60"><a id="__codelineno-4-60" name="__codelineno-4-60"></a>    <span class="p">)</span>
-</span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span>
+</span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span>
 </span><span id="__span-4-62"><a id="__codelineno-4-62" name="__codelineno-4-62"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'Not enough permissions'</span><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Neste caso, não estamos usando a fixture <code>user</code> porque queremos simular um cenário onde o usuário associado ao token (autenticado) está tentando realizar uma ação sobre outro usuário, representado pela fixture <code>other_user</code>. Ao usar a <code>other_user</code>, garantimos que o id do usuário que estamos tentando modificar ou deletar não seja o mesmo do usuário associado ao token, mas que ainda assim exista no banco de dados.</p>
@@ -1124,7 +1124,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># ...</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>PASSED
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>tests/test_auth.py::test_get_token<span class="w"> </span>PASSED
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>tests/test_db.py::test_create_user<span class="w"> </span>PASSED
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>tests/test_users.py::test_create_user<span class="w"> </span>PASSED
@@ -1150,7 +1150,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-6-76"><a id="__codelineno-6-76" name="__codelineno-6-76"></a>        <span class="sa">f</span><span class="s1">'/users/</span><span class="si">{</span><span class="n">other_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">'</span><span class="p">,</span>
 </span><span id="__span-6-77"><a id="__codelineno-6-77" name="__codelineno-6-77"></a>        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span><span class="p">},</span>
 </span><span id="__span-6-78"><a id="__codelineno-6-78" name="__codelineno-6-78"></a>    <span class="p">)</span>
-</span><span id="__span-6-79"><a id="__codelineno-6-79" name="__codelineno-6-79"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span>
+</span><span id="__span-6-79"><a id="__codelineno-6-79" name="__codelineno-6-79"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span>
 </span><span id="__span-6-80"><a id="__codelineno-6-80" name="__codelineno-6-80"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'Not enough permissions'</span><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Como você pode ver, esse teste tenta deletar o user de um id diferente usando o token do user. Se nosso sistema estiver funcionando corretamente, ele deverá rejeitar essa tentativa e retornar um status 400 com uma mensagem de erro indicando que o usuário não tem permissões suficientes para realizar essa ação.</p>
@@ -1181,7 +1181,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>            <span class="s1">'/auth/token'</span><span class="p">,</span>
 </span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>            <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'username'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">clean_password</span><span class="p">},</span>
 </span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>        <span class="p">)</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span>
 </span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>        <span class="n">token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">'access_token'</span><span class="p">]</span>
 </span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
 </span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    <span class="k">with</span> <span class="n">freeze_time</span><span class="p">(</span><span class="s1">'2023-07-14 12:31:00'</span><span class="p">):</span>
@@ -1194,7 +1194,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>                <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'wrong'</span><span class="p">,</span>
 </span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a>            <span class="p">},</span>
 </span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a>        <span class="p">)</span>
-</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNAUTHORIZED</span>
 </span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'Could not validate credentials'</span><span class="p">}</span>
 </span></code></pre></div>
 <p>Lembre-se de que configuramos nosso token para expirar após 30 minutos. Portanto, nós avançamos o tempo em 31 minutos para garantir que o token tenha expirado.</p>
@@ -1271,7 +1271,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>        <span class="s1">'/auth/token'</span><span class="p">,</span>
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'username'</span><span class="p">:</span> <span class="s1">'no_user@no_domain.com'</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'testtest'</span><span class="p">},</span>
 </span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="p">)</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'Incorrect email or password'</span><span class="p">}</span>
 </span></code></pre></div>
 <h3 id="testando-a-excecao-para-uma-senha-incorreta">Testando a exceção para uma senha incorreta</h3>
@@ -1281,7 +1281,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>        <span class="s1">'/auth/token'</span><span class="p">,</span>
 </span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'username'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">:</span> <span class="s1">'wrong_password'</span><span class="p">}</span>
 </span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="p">)</span>
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">BAD_REQUEST</span>
 </span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'Incorrect email or password'</span><span class="p">}</span>
 </span></code></pre></div>
 <p>Com esses testes, garantimos que nossas exceções estão sendo lançadas corretamente. Essa é uma parte importante da construção de um sistema de autenticação robusto, pois nos permite ter confiança de que estamos tratando corretamente os casos de erro.</p>
@@ -1313,7 +1313,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
 </span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span>
 </span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>    <span class="k">assert</span> <span class="s1">'access_token'</span> <span class="ow">in</span> <span class="n">data</span>
 </span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>    <span class="k">assert</span> <span class="s1">'token_type'</span> <span class="ow">in</span> <span class="n">data</span>
 </span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s1">'token_type'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'bearer'</span>
@@ -1325,7 +1325,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>            <span class="s1">'/auth/token'</span><span class="p">,</span>
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>            <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">'username'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="s1">'password'</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">clean_password</span><span class="p">},</span>
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>        <span class="p">)</span>
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span>
 </span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>        <span class="n">token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">'access_token'</span><span class="p">]</span>
 </span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
 </span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>    <span class="k">with</span> <span class="n">freeze_time</span><span class="p">(</span><span class="s1">'2023-07-14 12:31:00'</span><span class="p">):</span>
@@ -1333,7 +1333,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>            <span class="s1">'/auth/refresh_token'</span><span class="p">,</span>
 </span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">'Authorization'</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s1">'</span><span class="p">},</span>
 </span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>        <span class="p">)</span>
-</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">401</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">UNAUTHORIZED</span>
 </span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>        <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s1">'detail'</span><span class="p">:</span> <span class="s1">'Could not validate credentials'</span><span class="p">}</span>
 </span></code></pre></div>
 <p>Agora, se executarmos nossos testes, todos eles devem passar, incluindo os novos testes que acabamos de adicionar.</p>
@@ -1341,7 +1341,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="c1"># ...</span>
 </span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>tests/test_app.py::test_root_deve_retornar_200_e_ola_mundo<span class="w"> </span>PASSED
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>PASSED
 </span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>tests/test_auth.py::test_get_token<span class="w"> </span>PASSED
 </span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>tests/test_auth.py::test_token_inexistent_user<span class="w"> </span>PASSED
 </span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>tests/test_auth.py::test_token_wrong_password<span class="w"> </span>PASSED
@@ -1389,7 +1389,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 28, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 17, 2024</span>
   </span>
 
     
@@ -1514,7 +1514,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
