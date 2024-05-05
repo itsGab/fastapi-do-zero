@@ -401,9 +401,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usando-o-uvicorn-na-rede-local" class="md-nav__link">
+  <a href="#usando-o-fastapi-na-rede-local" class="md-nav__link">
     <span class="md-ellipsis">
-      Usando o uvicorn na rede local
+      Usando o fastapi na rede local
     </span>
   </a>
   
@@ -1116,9 +1116,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usando-o-uvicorn-na-rede-local" class="md-nav__link">
+  <a href="#usando-o-fastapi-na-rede-local" class="md-nav__link">
     <span class="md-ellipsis">
-      Usando o uvicorn na rede local
+      Usando o fastapi na rede local
     </span>
   </a>
   
@@ -1454,9 +1454,9 @@
 <p>A comunicação é bidirecional: um cliente faz uma requisição ao servidor, que por sua vez emite uma resposta.</p>
 <p>Por exemplo, ao construir um servidor, precisamos de uma biblioteca que consiga "servir" nossa aplicação. É aí que entra o Uvicorn, responsável por servir nossa aplicação com FastAPI.</p>
 <p>Quando executamos:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uvicorn<span class="w"> </span>fast_zero.app:app
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>fastapi<span class="w"> </span>dev<span class="w"> </span>fast_zero/app.py
 </span></code></pre></div>
-<p>Iniciamos um servidor em loopback, acessível apenas internamente no nosso computador. Por isso, ao acessarmos <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> no navegador, estamos fazendo uma requisição ao servidor em <code>127.0.0.1:8000</code>.</p>
+<p>Quando executamos esse comando. O FastAPI faz uma chamada ao <code>uvicorn</code> e iniciamos um servidor em loopback, acessível apenas internamente no nosso computador. Por isso, ao acessarmos <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> no navegador, estamos fazendo uma requisição ao servidor em <code>127.0.0.1:8000</code>.</p>
 <pre class="mermaid"><code>sequenceDiagram
     participant Cliente
     participant Servidor
@@ -1467,9 +1467,9 @@
     Servidor--&gt;&gt;Cliente: Sucesso na requisição: {"message":"Olá Mundo!"}
     deactivate Servidor
     Note left of Cliente: Obtivemos a resposta desejada</code></pre>
-<h4 id="usando-o-uvicorn-na-rede-local">Usando o uvicorn na rede local</h4>
+<h4 id="usando-o-fastapi-na-rede-local">Usando o fastapi na rede local</h4>
 <p>Falando em redes, o Uvicorn no seu PC também pode servir o FastAPI na sua rede local:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uvicorn<span class="w"> </span>fast_zero.app:app<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>fastapi<span class="w"> </span>dev<span class="w"> </span>fast_zero/app.py<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0
 </span></code></pre></div>
 <details class="tip">
 <summary>Esse comando também poderia ser executado com <code>taskipy</code></summary>
@@ -1935,7 +1935,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 1, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 5, 2024</span>
   </span>
 
     
