@@ -1116,8 +1116,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 <span class="normal"><a href="#__codelineno-2-42">42</a></span>
 <span class="normal"><a href="#__codelineno-2-43">43</a></span>
 <span class="normal"><a href="#__codelineno-2-44">44</a></span>
-<span class="normal"><a href="#__codelineno-2-45">45</a></span>
-<span class="normal"><a href="#__codelineno-2-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="kn">import</span> <span class="nn">factory</span>
+<span class="normal"><a href="#__codelineno-2-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="kn">import</span> <span class="nn">factory</span>
 </span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36"></a>
 </span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="c1"># ...</span>
 </span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38"></a>
@@ -1125,18 +1124,16 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
 </span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40"></a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
 </span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41"></a>        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
 </span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42"></a>
-</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43"></a>    <span class="nb">id</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">Sequence</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="p">)</span>
-</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">LazyAttribute</span><span class="p">(</span><span class="k">lambda</span> <span class="n">obj</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'test</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45"></a>    <span class="n">email</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">LazyAttribute</span><span class="p">(</span><span class="k">lambda</span> <span class="n">obj</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">@test.com'</span><span class="p">)</span>
-</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46"></a>    <span class="n">password</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">LazyAttribute</span><span class="p">(</span><span class="k">lambda</span> <span class="n">obj</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">@example.com'</span><span class="p">)</span>
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">Sequence</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'test</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44"></a>    <span class="n">email</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">LazyAttribute</span><span class="p">(</span><span class="k">lambda</span> <span class="n">obj</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">@test.com'</span><span class="p">)</span>
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45"></a>    <span class="n">password</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">LazyAttribute</span><span class="p">(</span><span class="k">lambda</span> <span class="n">obj</span><span class="p">:</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">obj</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s1">@example.com'</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Explicando linha a linha, esse código faz o seguinte:</p>
 <ul>
 <li><code>class UserFactory(factory.Factory):</code> define uma fábrica para o modelo <code>User</code>, herdando de <code>factory.Factory</code>.</li>
 <li><code>class Meta:</code> uma classe interna <code>Meta</code> é usada para configurar a fábrica.</li>
 <li><code>model = User</code>: define o modelo para o qual a fábrica está construindo instâncias. No caso, estamos referenciando a classe <code>User</code>, que deve ser um modelo de banco de dados, como o SQLAlchemy.</li>
-<li><code>id = factory.Sequence(lambda n: n)</code>: define um campo <code>id</code> que recebe uma sequência. A cada chamada da fábrica, o valor <code>n</code> é incrementado, então cada instância gerada terá um <code>id</code> único.</li>
-<li><code>username = factory.LazyAttribute(lambda obj: f'test{obj.id}')</code>: define o campo <code>username</code> usando um atributo preguiçoso, baseado no <code>id</code>.</li>
+<li><code>username = factory.Sequence(lambda n: f'test{n}')</code>: define um campo <code>username</code> que recebe uma sequência. A cada chamada da fábrica, o valor <code>n</code> é incrementado, então cada instância gerada terá um <code>username</code> único. Usando a string <code class="language-python highlight"><span class="s1">'test</span><span class="si">{n}</span><span class="s1">'</span></code>.</li>
 <li><code>email = factory.LazyAttribute(lambda obj: f'{obj.username}@test.com')</code>: define o campo <code>email</code> gerado a partir do <code>username</code>.</li>
 <li><code>password = factory.LazyAttribute(lambda obj: f'{obj.username}@example.com')</code>: define o campo <code>password</code> similar ao campo <code>email</code>.</li>
 </ul>
@@ -1493,7 +1490,7 @@ Este teste vai simular um usuário tentando alterar as informações de outro us
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 17, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 5, 2024</span>
   </span>
 
     
