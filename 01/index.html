@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../assets/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1265,7 +1265,7 @@
 <a class="md-button" href="https://github.com/dunossauro/fastapi-do-zero/blob/main/slides/pdf/aula_01.pdf">Slides <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 384 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 0C28.7 0 0 28.7 0 64v384c0 35.3 28.7 64 64 64h256c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zm192 0v128h128L256 0zM136 240h68c42 0 76 34 76 76s-34 76-76 76h-44v32c0 13.3-10.7 24-24 24s-24-10.7-24-24V264c0-13.3 10.7-24 24-24zm68 104c15.5 0 28-12.5 28-28s-12.5-28-28-28h-44v56h44z"></path></svg></span></a>
 <a class="md-button" href="https://github.com/dunossauro/fastapi-do-zero/tree/main/codigo_das_aulas/01">Código <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg></span></a></p>
 <hr>
-<p>Nesta aula começaremos nossa jornada na construção de uma API com FastAPI. Partiremos do básico, configurando nosso ambiente de desenvolvimento. Discutiremos desde a escolha e instalação da versão correta do Python até a instalação e configuração do Poetry, um gerenciador de pacotes e dependências para Python. Além disso, instalaremos e configuraremos uma série de ferramentas de desenvolvimento úteis, como Ruff, pytest e Taskipy.</p>
+<p>Nesta aula, iniciaremos nossa jornada na construção de uma API com FastAPI. Partiremos do básico, configurando nosso ambiente de desenvolvimento. Discutiremos desde a escolha e instalação da versão correta do Python até a instalação e configuração do Poetry, um gerenciador de pacotes e dependências para Python. Além disso, instalaremos e configuraremos uma série de ferramentas de desenvolvimento úteis, como Ruff, pytest e Taskipy.</p>
 <p>Após configurado o nosso ambiente, criaremos nosso primeiro programa "Hello, World!" com FastAPI. Isso nos permitirá confirmar que tudo está funcionando corretamente. E, finalmente, exploraremos uma parte crucial do Desenvolvimento Orientado por Testes (TDD), escrevendo nosso primeiro teste com Pytest.</p>
 <h2 id="ambiente-de-desenvolvimento">Ambiente de Desenvolvimento</h2>
 <p>Para iniciar esse curso você precisa de algumas ferramentas instaladas:</p>
@@ -1280,14 +1280,14 @@
 </li>
 <li>O <a href="https://python-poetry.org/" target="_blank">Poetry</a> para gerenciar os pacotes e seu ambiente virtual (caso não conheça o poetry temos uma <a href="https://youtu.be/ZOSWdktsKf0" target="_blank">live de python sobre ele</a>)</li>
 <li><a href="https://git-scm.com/" target="_blank">Git</a>: Para gerenciar versões</li>
-<li><a href="https://www.docker.com/" target="_blank">Docker</a>: Para criar um container da nossa aplicação (caso não tenha nenhuma experiência com docker a <a href="https://www.youtube.com/playlist?list=PLf-O3X2-mxDn1VpyU2q3fuI6YYeIWp5rR" target="_blank">Linuxtips</a> tem uma playlist completa e grátis sobre docker no canal deles no YouTube)<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
+<li><a href="https://www.docker.com/" target="_blank">Docker</a>: Para criar um container da nossa aplicação (caso não tenha nenhuma experiência com docker a <a href="https://www.youtube.com/playlist?list=PLf-O3X2-mxDn1VpyU2q3fuI6YYeIWp5rR" target="_blank">Linuxtips</a> tem uma playlist completa e grátis sobre docker no canal deles no YouTube)<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></li>
 <li><strong>OPCIONAL</strong>: O <a href="https://github.com/pypa/pipx" target="_blank">pipx</a> pode te
  ajudar bastante nesses momentos de instalações</li>
 <li><strong>OPCIONAL</strong>: O <a href="https://github.com/Antrikshy/ignr.py" target="_blank">ignr</a> para criar nosso gitignore</li>
 <li><strong>OPCIONAL (extremamente recomendado)</strong>: O <a href="https://cli.github.com/" target="_blank">gh</a> para criar o repositório e fazer alterações sem precisar acessar a página do Github</li>
 </ol>
 <h2 id="instalacao-do-python">Instalação do Python</h2>
-<p>Se você precisar (re)construir o ambiente usado nesse curso, é <strong>recomendado</strong> que você use o <a href="https://github.com/pyenv/pyenv" target="_blank">pyenv</a>.</p>
+<p>Se você precisar (re)construir o ambiente usado nesse curso, é <strong>extremamente recomendado</strong> que você use o <a href="https://github.com/pyenv/pyenv" target="_blank">pyenv</a>.</p>
 <p>Caso encontre dificuldades durante a instalação, o pyenv conta com dois assistentes simplificados para sua configuração. Para windows, use o <a href="https://pyenv-win.github.io/pyenv-win/" target="_blank">pyenv-windows</a>. Para GNU/Linux e MacOS, use o <a href="https://github.com/pyenv/pyenv-installer" target="_blank">pyenv-installer</a>.</p>
 <p>Navegue até o diretório onde fará os exercícios e irá executar os códigos de exemplo no seu terminal e digite os seguintes comandos:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Versão 3.11</label><label for="__tabbed_1_2">Versão 3.12</label></div>
@@ -1608,13 +1608,13 @@ Esse comando diz ao uvicorn o seguinte: na pasta fast_zero existe um arquivo cha
 <ul>
 <li><a href="https://github.com/taskipy/taskipy" target="_blank">taskipy</a>: ferramenta usada para criação de comandos. Como executar a aplicação, rodar os testes, etc.</li>
 <li><a href="https://docs.pytest.org/" target="_blank">pytest</a>: ferramenta para escrever e executar testes</li>
-<li><a href="https://docs.astral.sh/ruff/" target="_blank">ruff</a>: Uma ferramenta que tem duas funções no nosso código. <ol>
+<li><a href="https://docs.astral.sh/ruff/" target="_blank">ruff</a>: Uma ferramenta que tem duas funções no nosso código:<ol>
 <li>Um analisador estático de código (um <a href="https://pt.wikipedia.org/wiki/Linter_(computa%C3%A7%C3%A3o)" target="_blank">linter</a>), para dizer se não estamos infringido alguma <a href="https://docs.astral.sh/ruff/rules/" target="_blank">boa prática de programação</a>;</li>
 <li>Um formatador de código. Para seguirmos um estilo único de código. Vamos nos basear na <a href="https://peps.python.org/pep-0008/" target="_blank">PEP-8</a>.</li>
 </ol>
 </li>
 </ul>
-<p>Para instalar essas ferramentas que usaremos em desenvolvimento, podemos usar um grupo do poetry focado nelas, para não serem instaladas quando nossa aplicação estiver em produção:</p>
+<p>Para instalar essas ferramentas que usaremos em desenvolvimento, podemos usar um grupo (<code>--group dev</code>) do poetry focado nelas, para não serem instaladas quando nossa aplicação estiver em produção:</p>
 <div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>--group<span class="w"> </span>dev<span class="w"> </span>pytest<span class="w"> </span>pytest-cov<span class="w"> </span>taskipy<span class="w"> </span>ruff<span class="w"> </span>httpx
 </span></code></pre></div>
 <blockquote>
@@ -1623,7 +1623,7 @@ Esse comando diz ao uvicorn o seguinte: na pasta fast_zero existe um arquivo cha
 <h2 id="configurando-as-ferramentas-de-desenvolvimento">Configurando as ferramentas de desenvolvimento</h2>
 <p>Após a instalação das ferramentas de desenvolvimento, precisamos definir as configurações de cada uma individualmente no arquivo <code>pyproject.toml</code>.</p>
 <h3 id="ruff">Ruff</h3>
-<p>O <a href="https://docs.astral.sh/ruff/" target="_blank">Ruff</a> é uma ferramenta moderna em python, escrita em rust, compatível<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> com os projetos de análise estática escritos e mantidos originalmente pela comunidade no projeto <a href="https://github.com/PyCQA/" target="_blank">PYCQA</a><sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup> e tem duas funções principais:</p>
+<p>O <a href="https://docs.astral.sh/ruff/" target="_blank">Ruff</a> é uma ferramenta moderna em python, escrita em rust, compatível<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup> com os projetos de análise estática escritos e mantidos originalmente pela comunidade no projeto <a href="https://github.com/PyCQA/" target="_blank">PYCQA</a><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> e tem duas funções principais:</p>
 <ol>
 <li>Analisar o código de forma estática (Linter): Efetuar a verificação se estamos programando de acordo com boas práticas do python.</li>
 <li>Formatar o código (Formatter): Efetuar a verificação do código para padronizar um estilo de código pré-definido.</li>
@@ -2089,10 +2089,13 @@ Esse comando diz ao uvicorn o seguinte: na pasta fast_zero existe um arquivo cha
 <hr>
 <ol>
 <li id="fn:1">
-<p>Em alguns casos existe uma divergência de opiniões em os linter mais tradicionais. Mas, em geral funciona bem. <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>Você não precisa se preocupar com o docker inicialmente, ele será usado da aula 10 em diante <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 <li id="fn:2">
-<p>Em versões antigas do texto usávamos as ferramentas do PyCQA como o pylint e o isort. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">↩</a></p>
+<p>Em alguns casos existe uma divergência de opiniões em os linter mais tradicionais. Mas, em geral funciona bem. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:3">
+<p>Em versões antigas do texto usávamos as ferramentas do PyCQA como o pylint e o isort. <a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
 </ol>
 </div></div>
@@ -2116,7 +2119,7 @@ Esse comando diz ao uvicorn o seguinte: na pasta fast_zero existe um arquivo cha
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 5, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 15, 2024</span>
   </span>
 
     
@@ -2241,7 +2244,7 @@ Esse comando diz ao uvicorn o seguinte: na pasta fast_zero existe um arquivo cha
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      <script src="../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
       
     
   <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
