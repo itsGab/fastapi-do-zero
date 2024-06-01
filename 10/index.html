@@ -1232,11 +1232,9 @@
 <p>Para criar um container Docker, escrevemos uma lista de passos de como construir o ambiente para execução da nossa aplicação em um arquivo chamado <code>Dockerfile</code>. Ele define o ambiente de execução, os comandos necessários para preparar o ambiente e o comando a ser executado quando um contêiner é iniciado a partir da imagem.</p>
 <p>Uma das coisas interessantes sobre Docker é que existe um <a href="https://hub.docker.com/" target="_blank">Hub de containers</a> prontos onde a comunidade hospeda imagens "prontas", que podemos usar como ponto de partida. Por exemplo, a comunidade de python mantém um grupo de imagens com o <a href="https://hub.docker.com/_/python" target="_blank">ambiente python</a> pronto para uso. Podemos partir dessa imagem com o python já instalado adicionar os passos para que nossa aplicação seja executada.</p>
 <p>Aqui está um exemplo de <code>Dockerfile</code> para executar nossa aplicação:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Versão 3.11</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Versão 3.11</label><label for="__tabbed_1_2">Versão 3.12</label></div>
 <div class="tabbed-content">
-<div class="tabbed-block"></div>
-</div>
-</div>
+<div class="tabbed-block">
 <div class="language-docker highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">POETRY_VIRTUALENVS_CREATE</span><span class="o">=</span><span class="nb">false</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -1263,11 +1261,8 @@
 <li><code>EXPOSE 8000</code>: informa ao Docker que o contêiner escutará na porta 8000.</li>
 <li><code>CMD poetry run uvicorn --host 0.0.0.0 fast_zero.app:app</code>: define o comando que será executado quando o contêiner for iniciado.</li>
 </ol>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Versão 3.12</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block"></div>
 </div>
-</div>
+<div class="tabbed-block">
 <div class="language-docker highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.12-slim</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">POETRY_VIRTUALENVS_CREATE</span><span class="o">=</span><span class="nb">false</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
@@ -1294,6 +1289,9 @@
 <li><code>EXPOSE 8000</code>: informa ao Docker que o contêiner escutará na porta 8000.</li>
 <li><code>CMD poetry run uvicorn --host 0.0.0.0 fast_zero.app:app</code>: define o comando que será executado quando o contêiner for iniciado.</li>
 </ol>
+</div>
+</div>
+</div>
 <p>Vamos entender melhor esse último comando:</p>
 <ul>
 <li><code>poetry run</code> define o comando que será executado dentro do ambiente virtual criado pelo Poetry.</li>
