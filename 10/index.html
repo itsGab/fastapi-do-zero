@@ -670,9 +670,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#criacao-do-docker-composeyml" class="md-nav__link">
+  <a href="#criacao-do-composeyaml" class="md-nav__link">
     <span class="md-ellipsis">
-      Criação do docker-compose.yml
+      Criação do compose.yaml
     </span>
   </a>
   
@@ -1123,9 +1123,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#criacao-do-docker-composeyml" class="md-nav__link">
+  <a href="#criacao-do-composeyaml" class="md-nav__link">
     <span class="md-ellipsis">
-      Criação do docker-compose.yml
+      Criação do compose.yaml
     </span>
   </a>
   
@@ -1228,11 +1228,31 @@
 <p>Após a implementação do nosso gerenciador de tarefas na aula anterior, temos uma primeira versão estável da nossa aplicação. Nesta aula, além de aprendermos a "dockerizar" nossa aplicação FastAPI, também abordaremos a migração do banco de dados SQLite para o PostgreSQL.</p>
 <h2 id="o-docker-e-a-nossa-aplicacao">O Docker e a nossa aplicação</h2>
 <p><a href="https://www.docker.com/" target="_blank">Docker</a> é uma plataforma aberta que permite automatizar o processo de implantação, escalonamento e operação de aplicações dentro de contêineres. Ele serve para "empacotar" uma aplicação e suas dependências em um contêiner virtual que pode ser executado em qualquer sistema operacional que suporte Docker. Isso facilita a implantação, o desenvolvimento e o compartilhamento de aplicações, além de proporcionar um ambiente isolado e consistente.</p>
+<details class="warning">
+<summary>Caso não tenha o docker instalado na sua máquina</summary>
+<p>A instalação do Docker varia entre sistemas operacionais. Por esse motivo, acredito que não cabe cobrir a instalação do docker nesse material.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Windows</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">MacOS X</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>A instalação no windows varia com a forma em que você administra o seu sistema. Ela pode se basear em WSL2 ou no Hyper-V.</p>
+<p>Os passos para ambos os tipos de instalação podem ser encontrados na documentação oficial do docker: <a href="https://docs.docker.com/desktop/install/windows-install/" target="_blank">link</a>.</p>
+</div>
+<div class="tabbed-block">
+<p>A instalação no linux variará de acordo com a sua distribuição. As distribuições mais tradicionais (baseadas em Debian e RHEL podem ser encontradas na documentação oficial do docker: <a href="https://docs.docker.com/desktop/install/linux-install/" target="_blank">link</a>.</p>
+<p>Outras distribuições devem ter o pacote do docker disponível em seus repositórios. Como distro baseadas em <a href="https://wiki.archlinux.org/title/Docker" target="_blank">Archlinux</a>.</p>
+</div>
+<div class="tabbed-block">
+<p>A instalação no MacOS, dependerá da arquitetura do seu computador. Se você usa Intel ou Silicon.</p>
+<p>Os passos para ambos os tipos de instalação podem ser encontrados na documentação oficial do docker: <a href="https://docs.docker.com/desktop/install/mac-install/" target="_blank">link</a>.</p>
+</div>
+</div>
+</div>
+</details>
 <h3 id="criando-nosso-dockerfile">Criando nosso Dockerfile</h3>
 <p>Para criar um container Docker, escrevemos uma lista de passos de como construir o ambiente para execução da nossa aplicação em um arquivo chamado <code>Dockerfile</code>. Ele define o ambiente de execução, os comandos necessários para preparar o ambiente e o comando a ser executado quando um contêiner é iniciado a partir da imagem.</p>
 <p>Uma das coisas interessantes sobre Docker é que existe um <a href="https://hub.docker.com/" target="_blank">Hub de containers</a> prontos onde a comunidade hospeda imagens "prontas", que podemos usar como ponto de partida. Por exemplo, a comunidade de python mantém um grupo de imagens com o <a href="https://hub.docker.com/_/python" target="_blank">ambiente python</a> pronto para uso. Podemos partir dessa imagem com o python já instalado adicionar os passos para que nossa aplicação seja executada.</p>
 <p>Aqui está um exemplo de <code>Dockerfile</code> para executar nossa aplicação:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Versão 3.11</label><label for="__tabbed_1_2">Versão 3.12</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Versão 3.11</label><label for="__tabbed_2_2">Versão 3.12</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-docker highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span>
@@ -1303,17 +1323,25 @@
 <p>Para criar uma imagem Docker a partir do Dockerfile, usamos o comando <code>docker build</code>. O comando a seguir cria uma imagem chamada "fast_zero":</p>
 <div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span><span class="s2">"fast_zero"</span><span class="w"> </span>.
 </span></code></pre></div>
+<details class="warning">
+<summary>Você usa Mac com Silicon?</summary>
+<p>Pode haver alguma incompatibilidade em alguma biblioteca durante o build. Pois nem todos os pacotes estão disponíveis para Silicon no <a href="https://pypi.org/" target="_blank">pypi</a>. Arquitetura <code>aarch64</code>.</p>
+<p>Caso encontre algum problema, durante o build você pode especificar a plataforma para <code>amd64</code>. Que é a arquitetura em que o curso foi escrito:</p>
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>build<span class="w"> </span>--platform<span class="w"> </span>linux/amd64<span class="w"> </span>-t<span class="w"> </span><span class="s2">"fast_zero"</span><span class="w"> </span>.
+</span></code></pre></div>
+<p>Mais informações nessa <a href="https://github.com/dunossauro/fastapi-do-zero/issues/147" target="_blank">issue</a>. Obrigado <a href="https://github.com/K-dash" target="_blank">@K-dash</a> por notificar <img alt="❤" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2764.svg" title=":heart:"></p>
+</details>
 <p>Este comando lê o Dockerfile no diretório atual (indicado pelo <code>.</code>) e cria uma imagem com a tag "fast_zero", (indicada pelo <code>-t</code>).</p>
 <p>Então verificaremos se a imagem foi criada com sucesso usando o comando:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>images
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>images
 </span></code></pre></div>
 <p>Este comando lista todas as imagens Docker disponíveis no seu sistema.</p>
 <h3 id="executando-o-container">Executando o container</h3>
 <p>Para executar o contêiner, usamos o comando <code>docker run</code>. Especificamos o nome do contêiner com a flag <code>--name</code>, indicamos a imagem que queremos executar e a tag que queremos usar <code>&lt;nome_da_imagem&gt;:&lt;tag&gt;</code>. A flag <code>-p</code> serve para mapear a porta do host para a porta do contêiner <code>&lt;porta_do_host&gt;:&lt;porta_do_contêiner&gt;</code>. Portanto, teremos o seguinte comando:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>fastzeroapp<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>fast_zero:latest
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>fastzeroapp<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>fast_zero:latest
 </span></code></pre></div>
 <p>Este comando iniciará nossa aplicação dentro de um contêiner Docker, que estará escutando na porta 8000. Para testar se tudo está funcionando corretamente, você pode acessar <code>http://localhost:8000</code> em um navegador ou usar um comando como:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>http://localhost:8000
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>http://localhost:8000
 </span></code></pre></div>
 <details class="danger" open="open">
 <summary>Caso você fique preso no terminal</summary>
@@ -1324,17 +1352,17 @@
 <ol>
 <li>
 <p><strong>Rodar um contêiner em background</strong>: se você deseja executar o contêiner em segundo plano para que não ocupe o terminal, pode usar a opção <code>-d</code>:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>fastzeroapp<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>fast_zero:latest
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>fastzeroapp<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>fast_zero:latest
 </span></code></pre></div>
 </li>
 <li>
 <p><strong>Parar um contêiner</strong>: quando você "para" um contêiner, está essencialmente interrompendo a execução do processo principal do contêiner. Isso significa que o contêiner não está mais ativo, mas ainda existe no sistema, com seus dados associados e configuração. Isso permite que você reinicie o contêiner posteriormente, se desejar.</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>fastzeroapp
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>fastzeroapp
 </span></code></pre></div>
 </li>
 <li>
 <p><strong>Remover um contêiner</strong>: ao "remover" um contêiner, você está excluindo o contêiner do sistema. Isso significa que todos os dados associados ao contêiner são apagados. Uma vez que um contêiner é removido, você não pode reiniciá-lo; no entanto, você pode sempre criar um novo contêiner a partir da mesma imagem.</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>rm<span class="w"> </span>fastzeroapp
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>rm<span class="w"> </span>fastzeroapp
 </span></code></pre></div>
 </li>
 </ol>
@@ -1355,13 +1383,13 @@
 <h3 id="como-executar-o-postgres">Como executar o postgres?</h3>
 <p>Embora o PostgreSQL seja poderoso, sua instalação direta em uma máquina real pode ser desafiadora e pode resultar em configurações diferentes entre os ambientes de desenvolvimento. Felizmente, podemos utilizar o Docker para resolver esse problema. No Docker Hub, estão disponíveis imagens pré-construídas do PostgreSQL, permitindo-nos executar o PostgreSQL com um único comando. Confira a <a href="https://hub.docker.com/_/postgres">imagem oficial do PostgreSQL</a>.</p>
 <p>Para executar um contêiner do PostgreSQL, use o seguinte comando:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span>--name<span class="w"> </span>app_database<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_USER</span><span class="o">=</span>app_user<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>app_db<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>app_password<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span>postgres
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span>--name<span class="w"> </span>app_database<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_USER</span><span class="o">=</span>app_user<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>app_db<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>app_password<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span>postgres
 </span></code></pre></div>
 <h4 id="explicando-as-flags-e-configuracoes">Explicando as Flags e Configurações</h4>
 <ul>
@@ -1379,29 +1407,39 @@
 <h4 id="volumes-e-persistencia-de-dados">Volumes e Persistência de Dados</h4>
 <p>Para garantir a persistência dos dados entre execuções do contêiner, utilizamos volumes. Um volume mapeia um diretório do sistema host para um diretório no contêiner. Isso é crucial para bancos de dados, pois sem um volume, ao remover o contêiner, todos os dados armazenados dentro dele se perderiam.</p>
 <p>No PostgreSQL, o diretório padrão para armazenamento de dados é <code>/var/lib/postgresql/data</code>. Mapeamos esse diretório para um volume (neste caso "pgdata") em nossa máquina host para garantir a persistência dos dados:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span>--name<span class="w"> </span>app_database<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_USER</span><span class="o">=</span>app_user<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>app_db<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>app_password<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span>-v<span class="w"> </span>pgdata:/var/lib/postgresql/data<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span>postgres
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span>--name<span class="w"> </span>app_database<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_USER</span><span class="o">=</span>app_user<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_DB</span><span class="o">=</span>app_db<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>app_password<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span>-v<span class="w"> </span>pgdata:/var/lib/postgresql/data<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span>postgres
 </span></code></pre></div>
 <p>O parâmetro do volume é passado ao contêiner usando o parâmetro <code>-v</code> Dessa forma, os dados do banco continuarão existindo, mesmo que o contêiner seja reiniciado ou removido.</p>
 <h3 id="adicionando-o-suporte-ao-postgresql-na-nossa-aplicacao">Adicionando o suporte ao PostgreSQL na nossa aplicação</h3>
 <p>Para que o SQLAlchemy suporte o PostgreSQL, precisamos instalar uma dependência chamada <code>psycopg</code>. Este é o adaptador PostgreSQL para Python e é crucial para fazer a comunicação.</p>
 <p>Para instalar essa dependência, utilize o seguinte comando:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>poetry<span class="w"> </span>add<span class="w"> </span><span class="s2">"psycopg[binary]"</span>
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>poetry<span class="w"> </span>add<span class="w"> </span><span class="s2">"psycopg[binary]"</span>
 </span></code></pre></div>
 <p>Uma das vantagens do SQLAlchemy enquanto ORM é a flexibilidade. Com apenas algumas alterações mínimas, como a atualização da string de conexão, podemos facilmente transicionar para um banco de dados diferente. Assim, após ajustar o arquivo <code>.env</code> com a string de conexão do PostgreSQL, a aplicação deverá operar normalmente, mas desta vez utilizando o PostgreSQL.</p>
 <p>Para ajustar a conexão com o PostgreSQL, modifique seu arquivo <code>.env</code> para incluir a seguinte string de conexão:</p>
-<div class="language-bash highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="s2">"postgresql+psycopg://app_user:app_password@localhost:5432/app_db"</span>
+<div class="language-bash highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="s2">"postgresql+psycopg://app_user:app_password@localhost:5432/app_db"</span>
 </span></code></pre></div>
 <div class="admonition failure">
 <p class="admonition-title">Caso tenha alterado as variáveis de ambiente do contêiner</p>
 <p>Se você alterou <code>app_user</code>, <code>app_password</code> ou <code>app_db</code> ao inicializar o contêiner PostgreSQL, garanta que esses valores sejam refletidos na string de conexão acima. A palavra <code>localhost</code> indica que o banco de dados PostgreSQL está sendo executado na mesma máquina que sua aplicação. Se o banco de dados estiver em uma máquina diferente, substitua <code>localhost</code> pelo endereço IP correspondente e, se necessário, ajuste a porta <code>5432</code>.</p>
 </div>
+<p>Para que a instalação do <code>psycopg</code> esteja na imagem docker, precisamos fazer um novo build. Para que a nova versão do <code>pyproject.toml</code> seja copiada e os novos pacotes sejam instalados:</p>
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span>rm<span class="w"> </span>fastzeroapp<span class="w"> </span><span class="c1">#(1)!</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span><span class="s2">"fast_zero"</span><span class="w"> </span><span class="c1">#(2)!</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>fastzeroapp<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>fast_zero:latest<span class="w"> </span><span class="c1">#(3)!</span>
+</span></code></pre></div>
+<ol>
+<li>Remove a versão antiga</li>
+<li>Refaz o build</li>
+<li>Executa novamente</li>
+</ol>
 <h3 id="executando-as-migracoes">Executando as migrações</h3>
 <p>Migrações são como versões para seu banco de dados, permitindo que você atualize sua estrutura de forma ordenada e controlada. Sempre que mudamos de banco de dados, ou até mesmo quando alteramos sua estrutura, as migrações precisam ser executadas para garantir que a base de dados esteja em sincronia com nosso código.</p>
 <p>No contexto de contêineres, rodar as migrações se torna ainda mais simples. Quando mudamos de banco de dados, como é o caso de termos saído de um SQLite (por exemplo) para um PostgreSQL, as migrações são essenciais. O motivo é simples: o novo banco de dados não terá a estrutura e os dados do antigo, a menos que migremos. As migrações irão garantir que o novo banco de dados tenha a mesma estrutura e relações que o anterior.</p>
@@ -1409,71 +1447,67 @@
 <summary>Antes de executar o próximo comando</summary>
 <p>Assegure-se de que ambos os contêineres, tanto da aplicação quanto do banco de dados, estejam ativos. O contêiner do banco de dados deve estar rodando para que a aplicação possa se conectar a ele.</p>
 <p>Assegure-se de que o contêiner da aplicação esteja ativo. Estamos usando a flag <code>--network=host</code> para que o contêiner use a rede do host. Isso pode ser essencial para evitar problemas de conexão, já que não podemos prever como está configurada a rede do computador onde este comando será executado.</p>
-<div class="language-bash highlight"><span class="filename">execução no terminal</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--network<span class="o">=</span>host<span class="w"> </span>--name<span class="w"> </span>fastzeroapp<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>fast_zero:latest
+<div class="language-bash highlight"><span class="filename">execução no terminal</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--network<span class="o">=</span>host<span class="w"> </span>--name<span class="w"> </span>fastzeroapp<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>fast_zero:latest
 </span></code></pre></div>
 </details>
 <p>Para aplicar migrações em um ambiente com contêineres, frequentemente temos comandos específicos associados ao serviço. Vejamos como executar migrações usando o Docker:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>fastzeroapp<span class="w"> </span>poetry<span class="w"> </span>run<span class="w"> </span>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>fastzeroapp<span class="w"> </span>poetry<span class="w"> </span>run<span class="w"> </span>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
 </span></code></pre></div>
 <p>O comando <code>docker exec</code> é usado para invocar um comando específico dentro de um contêiner em execução. A opção <code>-it</code> é uma combinação de <code>-i</code> (interativo) e <code>-t</code> (pseudo-TTY), que juntas garantem um terminal interativo, permitindo a comunicação direta com o contêiner.</p>
 <p>Após executar as migrações, você pode verificar a criação das tabelas utilizando um sistema de gerenciamento de banco de dados. A seguir, apresentamos um exemplo com o Beekeeper Studio:</p>
 <p><a class="glightbox" href="../assets/10/beekeeper_postgres.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Tabelas do PostgreSQL no Beekeeper Studio" src="../assets/10/beekeeper_postgres.png"></a></p>
 <p><strong>Lembre-se</strong>: Embora as tabelas estejam agora criadas e estruturadas, o banco de dados ainda não contém os dados anteriormente presentes no SQLite ou em qualquer outro banco que você estivesse utilizando antes.</p>
 <h2 id="simplificando-nosso-fluxo-com-docker-compose">Simplificando nosso fluxo com <code>docker-compose</code></h2>
-<p>Docker Compose é uma ferramenta que permite definir e gerenciar aplicativos multi-contêiner com Docker. <strong>É como se você tivesse um maestro conduzindo uma orquestra: o maestro (ou Docker Compose) garante que todos os músicos (ou contêineres) toquem em harmonia.</strong> Definimos nossa aplicação e serviços relacionados, como o PostgreSQL, em um arquivo <code>docker-compose.yml</code> e os gerenciamos juntos através de comandos simplificados.</p>
+<p>Docker Compose é uma ferramenta que permite definir e gerenciar aplicativos multi-contêiner com Docker. <strong>É como se você tivesse um maestro conduzindo uma orquestra: o maestro (ou Docker Compose) garante que todos os músicos (ou contêineres) toquem em harmonia.</strong> Definimos nossa aplicação e serviços relacionados, como o PostgreSQL, em um arquivo <code>compose.yaml</code> e os gerenciamos juntos através de comandos simplificados.</p>
 <p>Ao adotar o Docker Compose, facilitamos o desenvolvimento e a execução da nossa aplicação com seus serviços dependentes utilizando um único comando.</p>
-<h3 id="criacao-do-docker-composeyml">Criação do <code>docker-compose.yml</code></h3>
-<div class="language-yaml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">docker-compose.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-15-10">10</a></span>
-<span class="normal"><a href="#__codelineno-15-11">11</a></span>
-<span class="normal"><a href="#__codelineno-15-12">12</a></span>
-<span class="normal"><a href="#__codelineno-15-13">13</a></span>
-<span class="normal"><a href="#__codelineno-15-14">14</a></span>
-<span class="normal"><a href="#__codelineno-15-15">15</a></span>
-<span class="normal"><a href="#__codelineno-15-16">16</a></span>
-<span class="normal"><a href="#__codelineno-15-17">17</a></span>
-<span class="normal"><a href="#__codelineno-15-18">18</a></span>
-<span class="normal"><a href="#__codelineno-15-19">19</a></span>
-<span class="normal"><a href="#__codelineno-15-20">20</a></span>
-<span class="normal"><a href="#__codelineno-15-21">21</a></span>
-<span class="normal"><a href="#__codelineno-15-22">22</a></span>
-<span class="normal"><a href="#__codelineno-15-23">23</a></span>
-<span class="normal"><a href="#__codelineno-15-24">24</a></span>
-<span class="normal"><a href="#__codelineno-15-25">25</a></span>
-<span class="normal"><a href="#__codelineno-15-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">  </span><span class="nt">fastzero_database</span><span class="p">:</span>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgdata:/var/lib/postgresql/data</span>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_user</span>
-</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_db</span>
-</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_password</span>
-</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"5432:5432"</span>
-</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12"></a>
-</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="w">  </span><span class="nt">fastzero_app</span><span class="p">:</span>
-</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastzero_app</span>
-</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span>
-</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
-</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dockerfile</span>
-</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"8000:8000"</span>
-</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
-</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastzero_database</span>
-</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23"></a><span class="w">      </span><span class="nt">DATABASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgresql+psycopg://app_user:app_password@fastzero_database:5432/app_db</span>
-</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24"></a>
-</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="w">  </span><span class="nt">pgdata</span><span class="p">:</span>
+<h3 id="criacao-do-composeyaml">Criação do <code>compose.yaml</code></h3>
+<div class="language-yaml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">compose.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span>
+<span class="normal"><a href="#__codelineno-17-19">19</a></span>
+<span class="normal"><a href="#__codelineno-17-20">20</a></span>
+<span class="normal"><a href="#__codelineno-17-21">21</a></span>
+<span class="normal"><a href="#__codelineno-17-22">22</a></span>
+<span class="normal"><a href="#__codelineno-17-23">23</a></span>
+<span class="normal"><a href="#__codelineno-17-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">  </span><span class="nt">fastzero_database</span><span class="p">:</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pgdata:/var/lib/postgresql/data</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_user</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_db</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app_password</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"5432:5432"</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12"></a>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="w">  </span><span class="nt">fastzero_app</span><span class="p">:</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastzero_app</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"8000:8000"</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastzero_database</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21"></a><span class="w">      </span><span class="nt">DATABASE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgresql+psycopg://app_user:app_password@fastzero_database:5432/app_db</span>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22"></a>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24"></a><span class="w">  </span><span class="nt">pgdata</span><span class="p">:</span>
 </span></code></pre></div></td></tr></table></div>
 <p><strong>Explicação linha a linha:</strong></p>
 <ol>
@@ -1502,7 +1536,7 @@
 <p><code>image: fastzero_app</code>: usa a imagem Docker da nossa aplicação.</p>
 </li>
 <li>
-<p><code>build:</code> : instruções para construir a imagem se não estiver disponível, nosso <code>Dockerfile</code>.</p>
+<p><code>build:</code>: instruções para construir a imagem se não estiver disponível, procura pelo <code>Dockerfile</code> em <code>.</code>.</p>
 </li>
 <li>
 <p><code>ports:</code>: mapeia portas do contêiner para o host.</p>
@@ -1528,11 +1562,11 @@
 <p>Para usar o Docker Compose, você precisa tê-lo instalado em seu sistema. Ele não está incluído na instalação padrão do Docker, então lembre-se de instalá-lo separadamente!</p>
 <p>O guia oficial de instalação pode ser encontrado <a href="https://docs.docker.com/compose/install/standalone/" target="_blank">aqui</a></p>
 </div>
-<p>Com este arquivo <code>docker-compose.yml</code>, você pode iniciar ambos os serviços (aplicação e banco de dados) simultaneamente usando:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker-compose<span class="w"> </span>up
+<p>Com este arquivo <code>compose.yaml</code>, você pode iniciar ambos os serviços (aplicação e banco de dados) simultaneamente usando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker-compose<span class="w"> </span>up
 </span></code></pre></div>
 <p>Para parar os serviços e manter os dados seguros nos volumes definidos, use:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker-compose<span class="w"> </span>down
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker-compose<span class="w"> </span>down
 </span></code></pre></div>
 <p>Esses comandos simplificam o fluxo de trabalho e garantem que os serviços iniciem corretamente e se comuniquem conforme o esperado.</p>
 <div class="admonition note">
@@ -1546,19 +1580,19 @@
 <p>No Docker, o <code>entrypoint</code> permite que você configure um ambiente de contêiner que será executado como um executável. É útil para preparar o ambiente, como realizar migrações de banco de dados, antes de iniciar a aplicação propriamente dita. Isso significa que qualquer comando definido no <code>CMD</code> do Dockerfile não será executado automaticamente se um <code>entrypoint</code> estiver definido. Em vez disso, precisamos incluir explicitamente esse comando no script de <code>entrypoint</code>.</p>
 <p><strong>Implementando o Entrypoint</strong></p>
 <p>Criamos um script chamado <code>entrypoint.sh</code> que irá preparar nosso ambiente antes de a aplicação iniciar:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">entrypoin.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
-<span class="normal"><a href="#__codelineno-18-2">2</a></span>
-<span class="normal"><a href="#__codelineno-18-3">3</a></span>
-<span class="normal"><a href="#__codelineno-18-4">4</a></span>
-<span class="normal"><a href="#__codelineno-18-5">5</a></span>
-<span class="normal"><a href="#__codelineno-18-6">6</a></span>
-<span class="normal"><a href="#__codelineno-18-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="ch">#!/bin/sh</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1"># Executa as migrações do banco de dados</span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4"></a>poetry<span class="w"> </span>run<span class="w"> </span>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5"></a>
-</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="c1"># Inicia a aplicação</span>
-</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7"></a>poetry<span class="w"> </span>run<span class="w"> </span>uvicorn<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>fast_zero.app:app
+<div class="language-bash highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">entrypoin.sh</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span>
+<span class="normal"><a href="#__codelineno-20-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="ch">#!/bin/sh</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="c1"># Executa as migrações do banco de dados</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4"></a>poetry<span class="w"> </span>run<span class="w"> </span>alembic<span class="w"> </span>upgrade<span class="w"> </span>head
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5"></a>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="c1"># Inicia a aplicação</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7"></a>poetry<span class="w"> </span>run<span class="w"> </span>uvicorn<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>fast_zero.app:app
 </span></code></pre></div></td></tr></table></div>
 <p><strong>Explicação Detalhada do Script</strong>:</p>
 <ul>
@@ -1571,85 +1605,81 @@
 <p><strong>Visualizando o Processo</strong>:</p>
 <p>Você pode pensar no <code>entrypoint.sh</code> como o ato de aquecer e verificar todos os instrumentos antes de uma apresentação musical. Antes de a música começar, cada instrumento é afinado e testado. Da mesma forma, nosso script assegura que o banco de dados está em harmonia com a aplicação antes de ela começar a receber requisições.</p>
 <p><strong>Adicionando o Entrypoint ao Docker Compose</strong>:</p>
-<p>Incluímos o <code>entrypoint</code> no nosso serviço no arquivo <code>docker-compose.yml</code>, garantindo que esteja apontando para o script correto:</p>
-<div class="language-yaml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">docker-compose.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-15">15</a></span>
-<span class="normal"><a href="#__codelineno-19-16">16</a></span>
-<span class="normal"><a href="#__codelineno-19-17">17</a></span>
-<span class="normal"><a href="#__codelineno-19-18">18</a></span>
-<span class="normal"><a href="#__codelineno-19-19">19</a></span>
-<span class="normal"><a href="#__codelineno-19-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="w">  </span><span class="nt">fastzero_app</span><span class="p">:</span>
-</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastzero_app</span>
-</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="hll"><span class="w">    </span><span class="nt">entrypoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./entrypoint.sh</span>
-</span></span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span>
-</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19"></a><span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
-</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dockerfile</span>
+<p>Incluímos o <code>entrypoint</code> no nosso serviço no arquivo <code>compose.yaml</code>, garantindo que esteja apontando para o script correto:</p>
+<div class="language-yaml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">compose.yaml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-15">15</a></span>
+<span class="normal"><a href="#__codelineno-21-16">16</a></span>
+<span class="normal"><a href="#__codelineno-21-17">17</a></span>
+<span class="normal"><a href="#__codelineno-21-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="w">  </span><span class="nt">fastzero_app</span><span class="p">:</span>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fastzero_app</span>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="hll"><span class="w">    </span><span class="nt">entrypoint</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./entrypoint.sh</span>
+</span></span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
 </span></code></pre></div></td></tr></table></div>
 <p><strong>Reconstruindo e Executando com Novas Configurações</strong>:</p>
 <p>Para aplicar as alterações, reconstruímos e executamos os serviços com a opção <code>--build</code>:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>--build
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>--build
 </span></code></pre></div>
 <p><strong>Observando o Comportamento Esperado</strong>:</p>
 <p>Quando o contêiner é iniciado, você deve ver as migrações sendo aplicadas, seguidas pela inicialização da aplicação:</p>
-<div class="language-shell highlight"><span class="filename">$ Exemplo do resultado no terminal!</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="hll">fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Context<span class="w"> </span>impl<span class="w"> </span>PostgresqlImpl.
-</span></span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="hll">fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Will<span class="w"> </span>assume<span class="w"> </span>transactional<span class="w"> </span>DDL.
-</span></span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO:<span class="w">     </span>Started<span class="w"> </span>server<span class="w"> </span>process<span class="w"> </span><span class="o">[</span><span class="m">10</span><span class="o">]</span>
-</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO:<span class="w">     </span>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>application<span class="w"> </span>startup.
-</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO:<span class="w">     </span>Application<span class="w"> </span>startup<span class="w"> </span>complete.
-</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="hll">fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO:<span class="w">     </span>Uvicorn<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>http://0.0.0.0:8000<span class="w"> </span><span class="o">(</span>Press<span class="w"> </span>CTRL+C<span class="w"> </span>to<span class="w"> </span>quit<span class="o">)</span>
+<div class="language-shell highlight"><span class="filename">$ Exemplo do resultado no terminal!</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="hll">fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Context<span class="w"> </span>impl<span class="w"> </span>PostgresqlImpl.
+</span></span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="hll">fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO<span class="w">  </span><span class="o">[</span>alembic.runtime.migration<span class="o">]</span><span class="w"> </span>Will<span class="w"> </span>assume<span class="w"> </span>transactional<span class="w"> </span>DDL.
+</span></span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO:<span class="w">     </span>Started<span class="w"> </span>server<span class="w"> </span>process<span class="w"> </span><span class="o">[</span><span class="m">10</span><span class="o">]</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO:<span class="w">     </span>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>application<span class="w"> </span>startup.
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO:<span class="w">     </span>Application<span class="w"> </span>startup<span class="w"> </span>complete.
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="hll">fastzero_app-1<span class="w">  </span><span class="p">|</span><span class="w"> </span>INFO:<span class="w">     </span>Uvicorn<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>http://0.0.0.0:8000<span class="w"> </span><span class="o">(</span>Press<span class="w"> </span>CTRL+C<span class="w"> </span>to<span class="w"> </span>quit<span class="o">)</span>
 </span></span></code></pre></div>
 <p>Este processo garante que as migrações do banco de dados são realizadas automaticamente, mantendo a base de dados alinhada com a aplicação e pronta para ação assim que o servidor Uvicorn entra em cena.</p>
 <hr>
 <details class="info">
 <summary>Nota de revisão sobre variáveis de ambiente</summary>
-<p>Utilizar variáveis de ambiente definidas em um arquivo <code>.env</code> é uma prática recomendada para cenários de produção devido à segurança que oferece. No entanto, para manter a simplicidade e o foco nas funcionalidades do FastAPI neste curso, optamos por explicitar essas variáveis no <code>docker-compose.yml</code>. Isso é particularmente relevante, pois o Docker Compose é utilizado apenas para o ambiente de desenvolvimento; no deploy para <a href="http://fly.io">fly.io</a>, o qual é o nosso foco, o compose não será utilizado em produção.</p>
+<p>Utilizar variáveis de ambiente definidas em um arquivo <code>.env</code> é uma prática recomendada para cenários de produção devido à segurança que oferece. No entanto, para manter a simplicidade e o foco nas funcionalidades do FastAPI neste curso, optamos por explicitar essas variáveis no <code>compose.yaml</code>. Isso é particularmente relevante, pois o Docker Compose é utilizado apenas para o ambiente de desenvolvimento; no deploy para <a href="http://fly.io">fly.io</a>, o qual é o nosso foco, o compose não será utilizado em produção.</p>
 <p>Ainda assim, é valioso mencionar como essa configuração mais segura seria realizada, especialmente para aqueles que planejam utilizar o Docker Compose em produção.</p>
 <hr>
-<p>Em ambientes de produção com Docker Compose, é uma boa prática gerenciar variáveis de ambiente sensíveis, como credenciais, por meio de um arquivo <code>.env</code>. Isso previne a exposição dessas informações diretamente no arquivo <code>docker-compose.yml</code>, contribuindo para a segurança do projeto.</p>
+<p>Em ambientes de produção com Docker Compose, é uma boa prática gerenciar variáveis de ambiente sensíveis, como credenciais, por meio de um arquivo <code>.env</code>. Isso previne a exposição dessas informações diretamente no arquivo <code>compose.yaml</code>, contribuindo para a segurança do projeto.</p>
 <p>As variáveis de ambiente podem ser definidas em nosso arquivo <code>.env</code> localizado na raiz do projeto:</p>
-<div class="language-text highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>POSTGRES_USER=app_user
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>POSTGRES_DB=app_db
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>POSTGRES_PASSWORD=app_password
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>DATABASE_URL=postgresql://app_user:app_password@fastzero_database:5432/app_db
+<div class="language-text highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>POSTGRES_USER=app_user
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>POSTGRES_DB=app_db
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>POSTGRES_PASSWORD=app_password
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>DATABASE_URL=postgresql://app_user:app_password@fastzero_database:5432/app_db
 </span></code></pre></div>
-<p>Para aplicar essas variáveis, referencie o arquivo <code>.env</code> no <code>docker-compose.yml</code>:</p>
-<div class="language-yaml highlight"><span class="filename">docker-compose.yaml</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nt">fastzero_database</span><span class="p">:</span>
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="hll"><span class="w">    </span><span class="nt">env_file</span><span class="p">:</span>
-</span></span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="hll"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span>
-</span></span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">    </span><span class="c1"># Restante da configuração...</span>
-</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>
-</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">  </span><span class="nt">fastzero_app</span><span class="p">:</span>
-</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
-</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="hll"><span class="w">    </span><span class="nt">env_file</span><span class="p">:</span>
-</span></span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="hll"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span>
-</span></span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">    </span><span class="c1"># Restante da configuração...</span>
+<p>Para aplicar essas variáveis, referencie o arquivo <code>.env</code> no <code>compose.yaml</code>:</p>
+<div class="language-yaml highlight"><span class="filename">compose.yaml</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nt">fastzero_database</span><span class="p">:</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="hll"><span class="w">    </span><span class="nt">env_file</span><span class="p">:</span>
+</span></span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="hll"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span>
+</span></span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">    </span><span class="c1"># Restante da configuração...</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">  </span><span class="nt">fastzero_app</span><span class="p">:</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="hll"><span class="w">    </span><span class="nt">env_file</span><span class="p">:</span>
+</span></span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="hll"><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span>
+</span></span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="w">    </span><span class="c1"># Restante da configuração...</span>
 </span></code></pre></div>
 <p>Adotar essa abordagem evita a exposição das variáveis de ambiente no arquivo de configuração. Esta não foi a abordagem padrão no curso devido à complexidade adicional e à intenção de evitar confusões. Dependendo do ambiente estabelecido pela equipe de DevOps/SRE em um projeto real, essa gestão pode variar entre variáveis de ambiente, arquivos <code>.env</code> ou soluções mais avançadas como <a href="https://www.hashicorp.com/products/vault" target="_blank">Vault</a>.</p>
 <p>Se optar por utilizar um arquivo <code>.env</code> com as configurações do PostgreSQL, configure o Pydantic para ignorar variáveis de ambiente que não são necessárias, adicionando <code class="language-py highlight"><span class="n">extra</span><span class="o">=</span><span class="s1">'ignore'</span></code> a chamada de <code>SettingsConfigDic</code>:</p>
-<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/settings.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-24-10">10</a></span>
-<span class="normal"><a href="#__codelineno-24-11">11</a></span>
-<span class="normal"><a href="#__codelineno-24-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kn">from</span> <span class="nn">pydantic_settings</span> <span class="kn">import</span> <span class="n">BaseSettings</span><span class="p">,</span> <span class="n">SettingsConfigDict</span>
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2"></a>
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3"></a>
-</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
-</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5"></a>    <span class="n">model_config</span> <span class="o">=</span> <span class="n">SettingsConfigDict</span><span class="p">(</span>
-</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6"></a>        <span class="n">env_file</span><span class="o">=</span><span class="s1">'.env'</span><span class="p">,</span> <span class="n">env_file_encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'ignore'</span>
-</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7"></a>    <span class="p">)</span>
-</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8"></a>
-</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9"></a>    <span class="n">DATABASE_URL</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10"></a>    <span class="n">SECRET_KEY</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11"></a>    <span class="n">ALGORITHM</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12"></a>    <span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span><span class="p">:</span> <span class="nb">int</span>
+<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">fast_zero/settings.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-26-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-26-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-26-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-26-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-26-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-26-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-26-10">10</a></span>
+<span class="normal"><a href="#__codelineno-26-11">11</a></span>
+<span class="normal"><a href="#__codelineno-26-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kn">from</span> <span class="nn">pydantic_settings</span> <span class="kn">import</span> <span class="n">BaseSettings</span><span class="p">,</span> <span class="n">SettingsConfigDict</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2"></a>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3"></a>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5"></a>    <span class="n">model_config</span> <span class="o">=</span> <span class="n">SettingsConfigDict</span><span class="p">(</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6"></a>        <span class="n">env_file</span><span class="o">=</span><span class="s1">'.env'</span><span class="p">,</span> <span class="n">env_file_encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="s1">'ignore'</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7"></a>    <span class="p">)</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8"></a>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9"></a>    <span class="n">DATABASE_URL</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10"></a>    <span class="n">SECRET_KEY</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11"></a>    <span class="n">ALGORITHM</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12"></a>    <span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span><span class="p">:</span> <span class="nb">int</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Com essa configuração, o Pydantic irá ignorar quaisquer variáveis no <code>.env</code> que não sejam explicitamente declaradas na classe <code>Settings</code>, evitando assim conflitos e erros inesperados.</p>
 <blockquote>
@@ -1659,154 +1689,154 @@
 <h2 id="testes-com-docker">Testes com Docker</h2>
 <p>Agora que temos o <code>docker-compose</code> configurado, realizar testes tornou-se uma tarefa simplificada. Podemos executar toda a suíte de testes com um único comando, sem a necessidade de ajustes adicionais ou configurações complexas. Isso é possível devido à maneira como o <code>docker-compose</code> gerencia os serviços e suas dependências.</p>
 <p>Para executar os testes, utilizamos o comando:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
 </span></code></pre></div>
 <p>Vamos entender melhor o que cada parte do comando faz:</p>
 <ul>
 <li>
-<p><code>docker-compose run</code>: este comando executa um serviço único definido no seu arquivo <code>docker-compose.yml</code>. Ao contrário do <code>docker-compose up</code>, que inicia todos os serviços, o <code>run</code> permite que você inicie um serviço específico.</p>
+<p><code>docker-compose run</code>: este comando executa um serviço único definido no seu arquivo <code>compose.yaml</code>. Ao contrário do <code>docker-compose up</code>, que inicia todos os serviços, o <code>run</code> permite que você inicie um serviço específico.</p>
 </li>
 <li>
-<p><code>--entrypoint</code>: a flag <code>--entrypoint</code> substitui o ponto de entrada padrão do container. O ponto de entrada padrão é especificado no <code>Dockerfile</code> ou no <code>docker-compose.yml</code> e é normalmente o comando que inicia sua aplicação. Ao substituir o entrypoint, você pode executar comandos diferentes, como neste caso, onde queremos rodar nossos testes.</p>
+<p><code>--entrypoint</code>: a flag <code>--entrypoint</code> substitui o ponto de entrada padrão do container. O ponto de entrada padrão é especificado no <code>Dockerfile</code> ou no <code>compose.yaml</code> e é normalmente o comando que inicia sua aplicação. Ao substituir o entrypoint, você pode executar comandos diferentes, como neste caso, onde queremos rodar nossos testes.</p>
 </li>
 <li>
 <p><code>"poetry run task test"</code>: este é o comando que substituirá o entrypoint padrão. Ele diz ao Docker para iniciar o container e executar a nossa suíte de testes com o Poetry, uma ferramenta para gerenciamento de dependências e pacotes em Python.</p>
 </li>
 <li>
-<p><code>fastzero_app</code>: este é o nome do serviço que definimos no <code>docker-compose.yml</code>. É o serviço que contém a nossa aplicação FastAPI e onde nossos testes serão executados.</p>
+<p><code>fastzero_app</code>: este é o nome do serviço que definimos no <code>compose.yaml</code>. É o serviço que contém a nossa aplicação FastAPI e onde nossos testes serão executados.</p>
 </li>
 </ul>
 <p>Ao utilizar esse comando, o Docker Compose cuidará de iniciar os serviços dos quais <code>fastzero_app</code> depende, neste caso, o serviço <code>fastzero_database</code> do PostgreSQL. Isso é importante porque nossos testes podem depender de um banco de dados ativo para funcionar corretamente. O Compose garante que a ordem de inicialização dos serviços seja respeitada e que o serviço do banco de dados esteja pronto antes de iniciar os testes.</p>
 <p>Se executarmos o comando, vemos que ele inicia o banco de dados, inicia o container da aplicação e na sequência executa o comando que passamos no <code>--entrypoint</code> que é exatamente como executar os testes:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="c1"># Resulado esperado</span>
-</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                           </span>docker:default
-</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Creating<span class="w"> </span><span class="m">2</span>/2
-</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w"> </span>✔<span class="w"> </span>Network<span class="w"> </span>default<span class="w">                </span>Created<span class="w">                      </span><span class="m">0</span>.1s<span class="w"> </span>
-</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>fastzero_database-1<span class="w">  </span>Created<span class="w">                      </span><span class="m">0</span>.1s<span class="w"> </span>
-</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span><span class="m">1</span>/1
-</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>fastzero_database-1<span class="w">  </span>Started<span class="w">                      </span><span class="m">0</span>.3s<span class="w"> </span>
-</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                           </span>docker:default
-</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>
-</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="o">================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">================</span>
-</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>platform<span class="w"> </span>linux<span class="w"> </span>-<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.6,<span class="w"> </span>pytest-7.4.3,<span class="w"> </span>pluggy-1.3.0<span class="w"> </span>-<span class="w"> </span>/app/.venv/bin/python
-</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a>cachedir:<span class="w"> </span>.pytest_cache
-</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a>rootdir:<span class="w"> </span>/app
-</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a>configfile:<span class="w"> </span>pyproject.toml
-</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-4.1.0,<span class="w"> </span>Faker-20.1.0
-</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a>collected<span class="w"> </span><span class="m">27</span><span class="w"> </span>items
-</span><span id="__span-26-19"><a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a>
-</span><span id="__span-26-20"><a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>PASSED
-</span><span id="__span-26-21"><a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a>...
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="c1"># Resulado esperado</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                           </span>docker:default
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Creating<span class="w"> </span><span class="m">2</span>/2
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w"> </span>✔<span class="w"> </span>Network<span class="w"> </span>default<span class="w">                </span>Created<span class="w">                      </span><span class="m">0</span>.1s<span class="w"> </span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>fastzero_database-1<span class="w">  </span>Created<span class="w">                      </span><span class="m">0</span>.1s<span class="w"> </span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span><span class="m">1</span>/1
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>fastzero_database-1<span class="w">  </span>Started<span class="w">                      </span><span class="m">0</span>.3s<span class="w"> </span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                           </span>docker:default
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="o">================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">================</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>platform<span class="w"> </span>linux<span class="w"> </span>-<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.6,<span class="w"> </span>pytest-7.4.3,<span class="w"> </span>pluggy-1.3.0<span class="w"> </span>-<span class="w"> </span>/app/.venv/bin/python
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>cachedir:<span class="w"> </span>.pytest_cache
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a>rootdir:<span class="w"> </span>/app
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a>configfile:<span class="w"> </span>pyproject.toml
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-4.1.0,<span class="w"> </span>Faker-20.1.0
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a>collected<span class="w"> </span><span class="m">27</span><span class="w"> </span>items
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a>
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>PASSED
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a>...
 </span></code></pre></div>
 <p>É importante notar que, embora o <code>docker-compose run</code> inicie as dependências necessárias para a execução do serviço especificado, ele não finaliza essas dependências após a conclusão do comando. Isso significa que após a execução dos testes, o serviço do banco de dados continuará ativo. Você precisará finalizá-lo manualmente com <code>docker-compose down</code> para encerrar todos os serviços e limpar o ambiente:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>docker-compose<span class="w"> </span>down
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span><span class="m">2</span>/2
-</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span><span class="m">09</span>-fastzero_database-1<span class="w">  </span>Removed<span class="w">    </span><span class="m">0</span>.4s<span class="w"> </span>
-</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w"> </span>✔<span class="w"> </span>Network<span class="w"> </span>09_default<span class="w">                </span>Removed
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>docker-compose<span class="w"> </span>down
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span><span class="m">2</span>/2
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span><span class="m">09</span>-fastzero_database-1<span class="w">  </span>Removed<span class="w">    </span><span class="m">0</span>.4s<span class="w"> </span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w"> </span>✔<span class="w"> </span>Network<span class="w"> </span>09_default<span class="w">                </span>Removed
 </span></code></pre></div>
 <p>Assim tendo o ambiente limpo novamente.</p>
 <h3 id="executando-os-testes-no-postgresql">Executando os testes no PostgreSQL</h3>
 <p>Embora nosso <code>docker-compose</code> esteja configurado para levantar o banco de dados PostgreSQL ao executar os testes, é importante ressaltar que o container do PostgreSQL não está sendo utilizado durante a execução dos testes. Isso acontece porque a fixture responsável por criar a sessão do banco de dados está com as instruções "hardcoded" para o SQLite, como no código abaixo:</p>
-<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/conftest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-28-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-28-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-28-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-28-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-28-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-28-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-28-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-28-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-28-10">10</a></span>
-<span class="normal"><a href="#__codelineno-28-11">11</a></span>
-<span class="normal"><a href="#__codelineno-28-12">12</a></span>
-<span class="normal"><a href="#__codelineno-28-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="k">def</span> <span class="nf">session</span><span class="p">():</span>
-</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="hll">    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
-</span></span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="hll">        <span class="s1">'sqlite:///:memory:'</span><span class="p">,</span>
-</span></span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="hll">        <span class="n">connect_args</span><span class="o">=</span><span class="p">{</span><span class="s1">'check_same_thread'</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
-</span></span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="hll">        <span class="n">poolclass</span><span class="o">=</span><span class="n">StaticPool</span><span class="p">,</span>
-</span></span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="hll">    <span class="p">)</span>
-</span></span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
-</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9"></a>
-</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10"></a>    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11"></a>        <span class="k">yield</span> <span class="n">session</span>
-</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12"></a>
-</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/conftest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-30-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-30-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-30-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-30-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-30-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-30-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-30-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-30-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-30-10">10</a></span>
+<span class="normal"><a href="#__codelineno-30-11">11</a></span>
+<span class="normal"><a href="#__codelineno-30-12">12</a></span>
+<span class="normal"><a href="#__codelineno-30-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="k">def</span> <span class="nf">session</span><span class="p">():</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="hll">    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
+</span></span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="hll">        <span class="s1">'sqlite:///:memory:'</span><span class="p">,</span>
+</span></span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="hll">        <span class="n">connect_args</span><span class="o">=</span><span class="p">{</span><span class="s1">'check_same_thread'</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+</span></span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="hll">        <span class="n">poolclass</span><span class="o">=</span><span class="n">StaticPool</span><span class="p">,</span>
+</span></span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7"></a><span class="hll">    <span class="p">)</span>
+</span></span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9"></a>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10"></a>    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11"></a>        <span class="k">yield</span> <span class="n">session</span>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12"></a>
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Por conta disso, os testes são executados no SQLite, mesmo com a presença do PostgreSQL no ambiente do Docker.</p>
 <p>No entanto, é importante que os testes sejam executados no mesmo ambiente que o que rodará em produção, para não encontrarmos problemas relacionados a incompatibilidade de operações no banco de dados. A alteração é relativamente simples, temos que tornar a nossa fixture o mais próximo possível do cliente da sessão de produção. Para fazer isso, precisamos alterar somente a chamada <code>create_engine</code> para carregar a varável de ambiente do banco de dados de testes. Desta forma:</p>
-<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/conftest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-29-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-29-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-29-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-29-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-29-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-29-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-29-10">10</a></span>
-<span class="normal"><a href="#__codelineno-29-11">11</a></span>
-<span class="normal"><a href="#__codelineno-29-12">12</a></span>
-<span class="normal"><a href="#__codelineno-29-13">13</a></span>
-<span class="normal"><a href="#__codelineno-29-14">14</a></span>
-<span class="normal"><a href="#__codelineno-29-15">15</a></span>
-<span class="normal"><a href="#__codelineno-29-16">16</a></span>
-<span class="normal"><a href="#__codelineno-29-17">17</a></span>
-<span class="normal"><a href="#__codelineno-29-18">18</a></span>
-<span class="normal"><a href="#__codelineno-29-19">19</a></span>
-<span class="normal"><a href="#__codelineno-29-20">20</a></span>
-<span class="normal"><a href="#__codelineno-29-21">21</a></span>
-<span class="normal"><a href="#__codelineno-29-22">22</a></span>
-<span class="normal"><a href="#__codelineno-29-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kn">import</span> <span class="nn">pytest</span>
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
-</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
-</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
-</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5"></a>
-</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
-</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="kn">from</span> <span class="nn">fast_zero.database</span> <span class="kn">import</span> <span class="n">get_session</span>
-</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">table_registry</span>
-</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9"></a><span class="hll"><span class="kn">from</span> <span class="nn">fast_zero.settings</span> <span class="kn">import</span> <span class="n">Settings</span>
-</span></span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10"></a><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="n">get_password_hash</span>
-</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11"></a><span class="kn">from</span> <span class="nn">tests.factories</span> <span class="kn">import</span> <span class="n">UserFactory</span>
-</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12"></a>
-</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13"></a>
-</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
-</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15"></a><span class="k">def</span> <span class="nf">session</span><span class="p">():</span>
-</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16"></a>    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">Settings</span><span class="p">()</span><span class="o">.</span><span class="n">DATABASE_URL</span><span class="p">)</span>
-</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17"></a><span class="hll">    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
-</span></span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18"></a>
-</span><span id="__span-29-19"><a id="__codelineno-29-19" name="__codelineno-29-19"></a>    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-</span><span id="__span-29-20"><a id="__codelineno-29-20" name="__codelineno-29-20"></a>        <span class="k">yield</span> <span class="n">session</span>
-</span><span id="__span-29-21"><a id="__codelineno-29-21" name="__codelineno-29-21"></a>        <span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
-</span><span id="__span-29-22"><a id="__codelineno-29-22" name="__codelineno-29-22"></a>
-</span><span id="__span-29-23"><a id="__codelineno-29-23" name="__codelineno-29-23"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/conftest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-31-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-31-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-31-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-31-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-31-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-31-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-31-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-31-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-31-10">10</a></span>
+<span class="normal"><a href="#__codelineno-31-11">11</a></span>
+<span class="normal"><a href="#__codelineno-31-12">12</a></span>
+<span class="normal"><a href="#__codelineno-31-13">13</a></span>
+<span class="normal"><a href="#__codelineno-31-14">14</a></span>
+<span class="normal"><a href="#__codelineno-31-15">15</a></span>
+<span class="normal"><a href="#__codelineno-31-16">16</a></span>
+<span class="normal"><a href="#__codelineno-31-17">17</a></span>
+<span class="normal"><a href="#__codelineno-31-18">18</a></span>
+<span class="normal"><a href="#__codelineno-31-19">19</a></span>
+<span class="normal"><a href="#__codelineno-31-20">20</a></span>
+<span class="normal"><a href="#__codelineno-31-21">21</a></span>
+<span class="normal"><a href="#__codelineno-31-22">22</a></span>
+<span class="normal"><a href="#__codelineno-31-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="kn">import</span> <span class="nn">pytest</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5"></a>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="kn">from</span> <span class="nn">fast_zero.database</span> <span class="kn">import</span> <span class="n">get_session</span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">table_registry</span>
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9"></a><span class="hll"><span class="kn">from</span> <span class="nn">fast_zero.settings</span> <span class="kn">import</span> <span class="n">Settings</span>
+</span></span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10"></a><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="n">get_password_hash</span>
+</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11"></a><span class="kn">from</span> <span class="nn">tests.factories</span> <span class="kn">import</span> <span class="n">UserFactory</span>
+</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12"></a>
+</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13"></a>
+</span><span id="__span-31-14"><a id="__codelineno-31-14" name="__codelineno-31-14"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
+</span><span id="__span-31-15"><a id="__codelineno-31-15" name="__codelineno-31-15"></a><span class="k">def</span> <span class="nf">session</span><span class="p">():</span>
+</span><span id="__span-31-16"><a id="__codelineno-31-16" name="__codelineno-31-16"></a>    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">Settings</span><span class="p">()</span><span class="o">.</span><span class="n">DATABASE_URL</span><span class="p">)</span>
+</span><span id="__span-31-17"><a id="__codelineno-31-17" name="__codelineno-31-17"></a><span class="hll">    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</span></span><span id="__span-31-18"><a id="__codelineno-31-18" name="__codelineno-31-18"></a>
+</span><span id="__span-31-19"><a id="__codelineno-31-19" name="__codelineno-31-19"></a>    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+</span><span id="__span-31-20"><a id="__codelineno-31-20" name="__codelineno-31-20"></a>        <span class="k">yield</span> <span class="n">session</span>
+</span><span id="__span-31-21"><a id="__codelineno-31-21" name="__codelineno-31-21"></a>        <span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+</span><span id="__span-31-22"><a id="__codelineno-31-22" name="__codelineno-31-22"></a>
+</span><span id="__span-31-23"><a id="__codelineno-31-23" name="__codelineno-31-23"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Com essa modificação, agora estamos apontando para o banco de dados PostgreSQL, conforme definido nas configurações da nossa aplicação (<code>Settings().DATABASE_URL</code>). A transição do SQLite para o PostgreSQL é facilitada pela abstração fornecida pelo SQLAlchemy, que nos permite mudar de um banco para outro sem problemas. É importante notar que essa flexibilidade se deve ao fato de não termos utilizado recursos específicos do PostgreSQL que não são suportados pelo SQLite. Caso contrário, a mudança poderia não ser tão direta.</p>
 <p>Agora, com a nova configuração, os testes utilizarão o PostgreSQL, proporcionando um ambiente de testes mais fiel ao ambiente de produção e, consequentemente, aumentando a confiabilidade dos testes executados:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
-</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="c1"># resultado esperado</span>
-</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
-</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                          </span>docker:default
-</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Creating<span class="w"> </span><span class="m">1</span>/0
-</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span><span class="m">09</span>-fastzero_database-1<span class="w">  </span>Running<span class="w">                     </span><span class="m">0</span>.0s<span class="w"> </span>
-</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                          </span>docker:default
-</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>
-</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="o">=======================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">=======================</span>
-</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>platform<span class="w"> </span>linux<span class="w"> </span>-<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.6,<span class="w"> </span>pytest-7.4.3,<span class="w"> </span>pluggy-1.3.0<span class="w"> </span>-<span class="w"> </span>/app/.venv/bin/python
-</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>cachedir:<span class="w"> </span>.pytest_cache
-</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>rootdir:<span class="w"> </span>/app
-</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>configfile:<span class="w"> </span>pyproject.toml
-</span><span id="__span-30-15"><a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-4.1.0,<span class="w"> </span>Faker-20.1.0
-</span><span id="__span-30-16"><a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a>collected<span class="w"> </span><span class="m">27</span><span class="w"> </span>items
-</span><span id="__span-30-17"><a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a>
-</span><span id="__span-30-18"><a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>PASSED
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="c1"># resultado esperado</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                          </span>docker:default
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Creating<span class="w"> </span><span class="m">1</span>/0
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span><span class="m">09</span>-fastzero_database-1<span class="w">  </span>Running<span class="w">                     </span><span class="m">0</span>.0s<span class="w"> </span>
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                          </span>docker:default
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="o">=======================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">=======================</span>
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>platform<span class="w"> </span>linux<span class="w"> </span>-<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.6,<span class="w"> </span>pytest-7.4.3,<span class="w"> </span>pluggy-1.3.0<span class="w"> </span>-<span class="w"> </span>/app/.venv/bin/python
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>cachedir:<span class="w"> </span>.pytest_cache
+</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>rootdir:<span class="w"> </span>/app
+</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>configfile:<span class="w"> </span>pyproject.toml
+</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-4.1.0,<span class="w"> </span>Faker-20.1.0
+</span><span id="__span-32-16"><a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a>collected<span class="w"> </span><span class="m">27</span><span class="w"> </span>items
+</span><span id="__span-32-17"><a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a>
+</span><span id="__span-32-18"><a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>PASSED
 </span></code></pre></div>
 <p>Dessa forma temos um ambiente mais coeso e podemos reproduzir nossas configurações de forma bastante simples em qualquer ambiente.</p>
 <h2 id="commit">Commit</h2>
-<p>Após criar nosso arquivo <code>Dockerfile</code> e <code>docker-compose.yaml</code>, executar os testes e construir nosso ambiente, podemos fazer o commit das alterações no Git:</p>
+<p>Após criar nosso arquivo <code>Dockerfile</code> e <code>compose.yaml</code>, executar os testes e construir nosso ambiente, podemos fazer o commit das alterações no Git:</p>
 <ol>
 <li>Adicionando todos os arquivos modificados nessa aula com <code>git add .</code></li>
 <li>Faça o commit das alterações com <code>git commit -m "Dockerizando nossa aplicação e alterando os testes para serem executados no PostgreSQL"</code></li>
@@ -1834,7 +1864,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 30, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2024</span>
   </span>
 
     
