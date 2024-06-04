@@ -693,21 +693,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testes-com-docker" class="md-nav__link">
+  <a href="#testes-e-docker" class="md-nav__link">
     <span class="md-ellipsis">
-      Testes com Docker
+      Testes e Docker
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Testes com Docker">
+    <nav class="md-nav" aria-label="Testes e Docker">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#executando-os-testes-no-postgresql" class="md-nav__link">
+  <a href="#executando-testes-com-o-banco-de-dados-em-um-container" class="md-nav__link">
     <span class="md-ellipsis">
-      Executando os testes no PostgreSQL
+      Executando testes com o banco de dados em um container
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containers-de-testes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Containers de testes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Containers de testes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixtures-de-sessao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixtures de sessão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixture-para-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixture para engine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1146,21 +1179,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testes-com-docker" class="md-nav__link">
+  <a href="#testes-e-docker" class="md-nav__link">
     <span class="md-ellipsis">
-      Testes com Docker
+      Testes e Docker
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Testes com Docker">
+    <nav class="md-nav" aria-label="Testes e Docker">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#executando-os-testes-no-postgresql" class="md-nav__link">
+  <a href="#executando-testes-com-o-banco-de-dados-em-um-container" class="md-nav__link">
     <span class="md-ellipsis">
-      Executando os testes no PostgreSQL
+      Executando testes com o banco de dados em um container
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containers-de-testes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Containers de testes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Containers de testes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixtures-de-sessao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixtures de sessão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixture-para-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fixture para engine
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1314,7 +1380,7 @@
 </div>
 <p>Vamos entender melhor esse último comando:</p>
 <ul>
-<li><code>poetry run</code> define o comando que será executado dentro do ambiente virtual criado pelo Poetry.</li>
+<li><code>poetry run</code> define o comando que será executado no ambiente virtual criado pelo Poetry.</li>
 <li><code>uvicorn</code> é o servidor ASGI que usamos para rodar nossa aplicação.</li>
 <li><code>--host</code> define o host que o servidor escutará. Especificamente, <code>"0.0.0.0"</code> é um endereço IP que permite que o servidor aceite conexões de qualquer endereço de rede disponível, tornando-o acessível externamente.</li>
 <li><code>fast_zero.app:app</code> define o <code>&lt;módulo python&gt;:&lt;objeto&gt;</code> que o servidor executará.</li>
@@ -1340,7 +1406,7 @@
 <p>Para executar o contêiner, usamos o comando <code>docker run</code>. Especificamos o nome do contêiner com a flag <code>--name</code>, indicamos a imagem que queremos executar e a tag que queremos usar <code>&lt;nome_da_imagem&gt;:&lt;tag&gt;</code>. A flag <code>-p</code> serve para mapear a porta do host para a porta do contêiner <code>&lt;porta_do_host&gt;:&lt;porta_do_contêiner&gt;</code>. Portanto, teremos o seguinte comando:</p>
 <div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>fastzeroapp<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>fast_zero:latest
 </span></code></pre></div>
-<p>Este comando iniciará nossa aplicação dentro de um contêiner Docker, que estará escutando na porta 8000. Para testar se tudo está funcionando corretamente, você pode acessar <code>http://localhost:8000</code> em um navegador ou usar um comando como:</p>
+<p>Este comando iniciará nossa aplicação em um contêiner Docker, que estará escutando na porta 8000. Para testar se tudo está funcionando corretamente, você pode acessar <code>http://localhost:8000</code> em um navegador ou usar um comando como:</p>
 <div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>http://localhost:8000
 </span></code></pre></div>
 <details class="danger" open="open">
@@ -1710,164 +1776,278 @@
 <p>Dessa forma, ele irá executar o comando <a href="https://www.postgresql.org/docs/current/app-pg-isready.html" target="_blank"><code>pg_isready</code></a> a cada 5 segundos por 10 vezes. <code>pg_isready</code> é um utilitário do PostgreSQL que verifica se ele já está operando e pronto para receber conexões. Desta forma, a inicialização do container só termina quando o postgres estiver ouvindo conexões.</p>
 <p>Dica do <a href="https://github.com/ayharano" target="_blank">@ayharano</a> nessa <a href="https://github.com/dunossauro/fastapi-do-zero/issues/48" target="_blank">issue</a>.</p>
 </details>
-<h2 id="testes-com-docker">Testes com Docker</h2>
-<p>Agora que temos o <code>docker-compose</code> configurado, realizar testes tornou-se uma tarefa simplificada. Podemos executar toda a suíte de testes com um único comando, sem a necessidade de ajustes adicionais ou configurações complexas. Isso é possível devido à maneira como o <code>docker-compose</code> gerencia os serviços e suas dependências.</p>
-<p>Para executar os testes, utilizamos o comando:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
-</span></code></pre></div>
-<p>Vamos entender melhor o que cada parte do comando faz:</p>
-<ul>
-<li>
-<p><code>docker-compose run</code>: este comando executa um serviço único definido no seu arquivo <code>compose.yaml</code>. Ao contrário do <code>docker-compose up</code>, que inicia todos os serviços, o <code>run</code> permite que você inicie um serviço específico.</p>
-</li>
-<li>
-<p><code>--entrypoint</code>: a flag <code>--entrypoint</code> substitui o ponto de entrada padrão do container. O ponto de entrada padrão é especificado no <code>Dockerfile</code> ou no <code>compose.yaml</code> e é normalmente o comando que inicia sua aplicação. Ao substituir o entrypoint, você pode executar comandos diferentes, como neste caso, onde queremos rodar nossos testes.</p>
-</li>
-<li>
-<p><code>"poetry run task test"</code>: este é o comando que substituirá o entrypoint padrão. Ele diz ao Docker para iniciar o container e executar a nossa suíte de testes com o Poetry, uma ferramenta para gerenciamento de dependências e pacotes em Python.</p>
-</li>
-<li>
-<p><code>fastzero_app</code>: este é o nome do serviço que definimos no <code>compose.yaml</code>. É o serviço que contém a nossa aplicação FastAPI e onde nossos testes serão executados.</p>
-</li>
-</ul>
-<p>Ao utilizar esse comando, o Docker Compose cuidará de iniciar os serviços dos quais <code>fastzero_app</code> depende, neste caso, o serviço <code>fastzero_database</code> do PostgreSQL. Isso é importante porque nossos testes podem depender de um banco de dados ativo para funcionar corretamente. O Compose garante que a ordem de inicialização dos serviços seja respeitada e que o serviço do banco de dados esteja pronto antes de iniciar os testes.</p>
-<p>Se executarmos o comando, vemos que ele inicia o banco de dados, inicia o container da aplicação e na sequência executa o comando que passamos no <code>--entrypoint</code> que é exatamente como executar os testes:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
-</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
-</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="c1"># Resulado esperado</span>
-</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                           </span>docker:default
-</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Creating<span class="w"> </span><span class="m">2</span>/2
-</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w"> </span>✔<span class="w"> </span>Network<span class="w"> </span>default<span class="w">                </span>Created<span class="w">                      </span><span class="m">0</span>.1s<span class="w"> </span>
-</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>fastzero_database-1<span class="w">  </span>Created<span class="w">                      </span><span class="m">0</span>.1s<span class="w"> </span>
-</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span><span class="m">1</span>/1
-</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>fastzero_database-1<span class="w">  </span>Started<span class="w">                      </span><span class="m">0</span>.3s<span class="w"> </span>
-</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                           </span>docker:default
-</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>
-</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="o">================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">================</span>
-</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>platform<span class="w"> </span>linux<span class="w"> </span>-<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.6,<span class="w"> </span>pytest-7.4.3,<span class="w"> </span>pluggy-1.3.0<span class="w"> </span>-<span class="w"> </span>/app/.venv/bin/python
-</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>cachedir:<span class="w"> </span>.pytest_cache
-</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>rootdir:<span class="w"> </span>/app
-</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>configfile:<span class="w"> </span>pyproject.toml
-</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-4.1.0,<span class="w"> </span>Faker-20.1.0
-</span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a>collected<span class="w"> </span><span class="m">27</span><span class="w"> </span>items
-</span><span id="__span-29-19"><a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a>
-</span><span id="__span-29-20"><a id="__codelineno-29-20" name="__codelineno-29-20" href="#__codelineno-29-20"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>PASSED
-</span><span id="__span-29-21"><a id="__codelineno-29-21" name="__codelineno-29-21" href="#__codelineno-29-21"></a>...
-</span></code></pre></div>
-<p>É importante notar que, embora o <code>docker-compose run</code> inicie as dependências necessárias para a execução do serviço especificado, ele não finaliza essas dependências após a conclusão do comando. Isso significa que após a execução dos testes, o serviço do banco de dados continuará ativo. Você precisará finalizá-lo manualmente com <code>docker-compose down</code> para encerrar todos os serviços e limpar o ambiente:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>docker-compose<span class="w"> </span>down
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Running<span class="w"> </span><span class="m">2</span>/2
-</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span><span class="m">09</span>-fastzero_database-1<span class="w">  </span>Removed<span class="w">    </span><span class="m">0</span>.4s<span class="w"> </span>
-</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w"> </span>✔<span class="w"> </span>Network<span class="w"> </span>09_default<span class="w">                </span>Removed
-</span></code></pre></div>
-<p>Assim tendo o ambiente limpo novamente.</p>
-<h3 id="executando-os-testes-no-postgresql">Executando os testes no PostgreSQL</h3>
-<p>Embora nosso <code>docker-compose</code> esteja configurado para levantar o banco de dados PostgreSQL ao executar os testes, é importante ressaltar que o container do PostgreSQL não está sendo utilizado durante a execução dos testes. Isso acontece porque a fixture responsável por criar a sessão do banco de dados está com as instruções "hardcoded" para o SQLite, como no código abaixo:</p>
-<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/conftest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-31-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-31-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-31-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-31-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-31-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-31-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-31-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-31-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-31-10">10</a></span>
-<span class="normal"><a href="#__codelineno-31-11">11</a></span>
-<span class="normal"><a href="#__codelineno-31-12">12</a></span>
-<span class="normal"><a href="#__codelineno-31-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="k">def</span> <span class="nf">session</span><span class="p">():</span>
-</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="hll">    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
-</span></span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="hll">        <span class="s1">'sqlite:///:memory:'</span><span class="p">,</span>
-</span></span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="hll">        <span class="n">connect_args</span><span class="o">=</span><span class="p">{</span><span class="s1">'check_same_thread'</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
-</span></span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="hll">        <span class="n">poolclass</span><span class="o">=</span><span class="n">StaticPool</span><span class="p">,</span>
-</span></span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="hll">    <span class="p">)</span>
-</span></span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
-</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9"></a>
-</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10"></a>    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11"></a>        <span class="k">yield</span> <span class="n">session</span>
-</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12"></a>
-</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<h2 id="testes-e-docker">Testes e Docker</h2>
+<p>Uma das partes importantes dos testes é tentar chegar o mais próximo possível do ambiente de desenvolvimento. Contudo, nessa aula, introduzimos uma dependência que vai além do python, o postgres.</p>
+<p>Isso pode tornar o nosso código mais complicado de testar, por existir um <a href="http://xunitpatterns.com/DOC.html" target="_blank">DoC</a>. Um "componente dependente" para ser executado. Nesse caso, porém, é interno ao sqlalchemy. Para usar o <code>psycopg</code>, temos uma dependência externa ao python, o banco de dados precisa estar sendo executado, caso contrário os testes falharão.</p>
+<h3 id="executando-testes-com-o-banco-de-dados-em-um-container">Executando testes com o banco de dados em um container</h3>
+<p>Os testes contemplam um ciclo de feedback positivo, eles têm que ser executados de forma rápida e eficiente. Adicionar o container do Postgres a nossa aplicação, torna o processo de testes um pouco mais complexo. Pois existe uma dependência ao nível de sistema para os testes serem executados.</p>
+<p>Começaremos começar com o contraexemplo. Vamos alterar o comportamento da fixture do banco de dados para usar o postgres:</p>
+<div class="language-python highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/conftest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-28-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-28-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-28-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-28-10">10</a></span>
+<span class="normal"><a href="#__codelineno-28-11">11</a></span>
+<span class="normal"><a href="#__codelineno-28-12">12</a></span>
+<span class="normal"><a href="#__codelineno-28-13">13</a></span>
+<span class="normal"><a href="#__codelineno-28-14">14</a></span>
+<span class="normal"><a href="#__codelineno-28-15">15</a></span>
+<span class="normal"><a href="#__codelineno-28-16">16</a></span>
+<span class="normal"><a href="#__codelineno-28-17">17</a></span>
+<span class="normal"><a href="#__codelineno-28-18">18</a></span>
+<span class="normal"><a href="#__codelineno-28-19">19</a></span>
+<span class="normal"><a href="#__codelineno-28-20">20</a></span>
+<span class="normal"><a href="#__codelineno-28-21">21</a></span>
+<span class="normal"><a href="#__codelineno-28-22">22</a></span>
+<span class="normal"><a href="#__codelineno-28-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="kn">from</span> <span class="nn">fast_zero.database</span> <span class="kn">import</span> <span class="n">get_session</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">table_registry</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="hll"><span class="kn">from</span> <span class="nn">fast_zero.settings</span> <span class="kn">import</span> <span class="n">Settings</span>
+</span></span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10"></a><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="n">get_password_hash</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="kn">from</span> <span class="nn">tests.factories</span> <span class="kn">import</span> <span class="n">UserFactory</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12"></a>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13"></a>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15"></a><span class="k">def</span> <span class="nf">session</span><span class="p">():</span>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16"></a><span class="hll">    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">Settings</span><span class="p">()</span><span class="o">.</span><span class="n">DATABASE_URL</span><span class="p">)</span>
+</span></span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18"></a>
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19"></a>    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20"></a>        <span class="k">yield</span> <span class="n">session</span>
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21"></a>        <span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+</span><span id="__span-28-22"><a id="__codelineno-28-22" name="__codelineno-28-22"></a>
+</span><span id="__span-28-23"><a id="__codelineno-28-23" name="__codelineno-28-23"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Por conta disso, os testes são executados no SQLite, mesmo com a presença do PostgreSQL no ambiente do Docker.</p>
-<p>No entanto, é importante que os testes sejam executados no mesmo ambiente que o que rodará em produção, para não encontrarmos problemas relacionados a incompatibilidade de operações no banco de dados. A alteração é relativamente simples, temos que tornar a nossa fixture o mais próximo possível do cliente da sessão de produção. Para fazer isso, precisamos alterar somente a chamada <code>create_engine</code> para carregar a varável de ambiente do banco de dados de testes. Desta forma:</p>
-<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">tests/conftest.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-32-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-32-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-32-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-32-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-32-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-32-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-32-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-32-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-32-10">10</a></span>
-<span class="normal"><a href="#__codelineno-32-11">11</a></span>
-<span class="normal"><a href="#__codelineno-32-12">12</a></span>
-<span class="normal"><a href="#__codelineno-32-13">13</a></span>
-<span class="normal"><a href="#__codelineno-32-14">14</a></span>
-<span class="normal"><a href="#__codelineno-32-15">15</a></span>
-<span class="normal"><a href="#__codelineno-32-16">16</a></span>
-<span class="normal"><a href="#__codelineno-32-17">17</a></span>
-<span class="normal"><a href="#__codelineno-32-18">18</a></span>
-<span class="normal"><a href="#__codelineno-32-19">19</a></span>
-<span class="normal"><a href="#__codelineno-32-20">20</a></span>
-<span class="normal"><a href="#__codelineno-32-21">21</a></span>
-<span class="normal"><a href="#__codelineno-32-22">22</a></span>
-<span class="normal"><a href="#__codelineno-32-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="kn">import</span> <span class="nn">pytest</span>
-</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
-</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
-</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="kn">from</span> <span class="nn">sqlalchemy.orm</span> <span class="kn">import</span> <span class="n">Session</span>
-</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5"></a>
-</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="kn">from</span> <span class="nn">fast_zero.app</span> <span class="kn">import</span> <span class="n">app</span>
-</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7"></a><span class="kn">from</span> <span class="nn">fast_zero.database</span> <span class="kn">import</span> <span class="n">get_session</span>
-</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8"></a><span class="kn">from</span> <span class="nn">fast_zero.models</span> <span class="kn">import</span> <span class="n">table_registry</span>
-</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9"></a><span class="hll"><span class="kn">from</span> <span class="nn">fast_zero.settings</span> <span class="kn">import</span> <span class="n">Settings</span>
-</span></span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10"></a><span class="kn">from</span> <span class="nn">fast_zero.security</span> <span class="kn">import</span> <span class="n">get_password_hash</span>
-</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11"></a><span class="kn">from</span> <span class="nn">tests.factories</span> <span class="kn">import</span> <span class="n">UserFactory</span>
-</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12"></a>
-</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13"></a>
-</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
-</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15"></a><span class="k">def</span> <span class="nf">session</span><span class="p">():</span>
-</span><span id="__span-32-16"><a id="__codelineno-32-16" name="__codelineno-32-16"></a>    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">Settings</span><span class="p">()</span><span class="o">.</span><span class="n">DATABASE_URL</span><span class="p">)</span>
-</span><span id="__span-32-17"><a id="__codelineno-32-17" name="__codelineno-32-17"></a><span class="hll">    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
-</span></span><span id="__span-32-18"><a id="__codelineno-32-18" name="__codelineno-32-18"></a>
-</span><span id="__span-32-19"><a id="__codelineno-32-19" name="__codelineno-32-19"></a>    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-</span><span id="__span-32-20"><a id="__codelineno-32-20" name="__codelineno-32-20"></a>        <span class="k">yield</span> <span class="n">session</span>
-</span><span id="__span-32-21"><a id="__codelineno-32-21" name="__codelineno-32-21"></a>        <span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
-</span><span id="__span-32-22"><a id="__codelineno-32-22" name="__codelineno-32-22"></a>
-</span><span id="__span-32-23"><a id="__codelineno-32-23" name="__codelineno-32-23"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
-</span></code></pre></div></td></tr></table></div>
-<p>Com essa modificação, agora estamos apontando para o banco de dados PostgreSQL, conforme definido nas configurações da nossa aplicação (<code>Settings().DATABASE_URL</code>). A transição do SQLite para o PostgreSQL é facilitada pela abstração fornecida pelo SQLAlchemy, que nos permite mudar de um banco para outro sem problemas. É importante notar que essa flexibilidade se deve ao fato de não termos utilizado recursos específicos do PostgreSQL que não são suportados pelo SQLite. Caso contrário, a mudança poderia não ser tão direta.</p>
-<p>Agora, com a nova configuração, os testes utilizarão o PostgreSQL, proporcionando um ambiente de testes mais fiel ao ambiente de produção e, consequentemente, aumentando a confiabilidade dos testes executados:</p>
-<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
-</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
-</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="c1"># resultado esperado</span>
-</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>docker-compose<span class="w"> </span>run<span class="w"> </span>--entrypoint<span class="o">=</span><span class="s2">"poetry run task test"</span><span class="w"> </span>fastzero_app
-</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                          </span>docker:default
-</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Creating<span class="w"> </span><span class="m">1</span>/0
-</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span><span class="m">09</span>-fastzero_database-1<span class="w">  </span>Running<span class="w">                     </span><span class="m">0</span>.0s<span class="w"> </span>
-</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">0</span>.0s<span class="w"> </span><span class="o">(</span><span class="m">0</span>/0<span class="o">)</span><span class="w">                                          </span>docker:default
+<p>Com essa modificação, agora estamos apontando para o PostgreSQL, conforme definido nas configurações da nossa aplicação (<code>Settings().DATABASE_URL</code>). A transição do SQLite para o PostgreSQL é facilitada pela abstração fornecida pelo SQLAlchemy, que nos permite mudar de um banco para outro sem problemas.</p>
+<blockquote>
+<p>É importante notar que essa flexibilidade se deve ao fato de não termos utilizado recursos específicos do PostgreSQL que não são suportados pelo SQLite. Caso contrário, a mudança poderia não ser tão direta.</p>
+</blockquote>
+<p>Partindo desse exemplo, para os testes serem executados, o banco de dados precisaria estar de pé. O que nos cobraria um container em execução para os testes poderem rodar.</p>
+<p>Por exemplo:</p>
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>task<span class="w"> </span><span class="nb">test</span>
+</span></code></pre></div>
+<p>Isso originaria esse erro:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="o">=============================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">==============================</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>platform<span class="w"> </span>linux<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.12.3,<span class="w"> </span>pytest-8.2.1,<span class="w"> </span>pluggy-1.5.0<span class="w"> </span>--<span class="w"> </span>/home/dunossauro/git/fastapi-do-zero/codigo_das_aulas/10/.venv/bin/python
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>cachedir:<span class="w"> </span>.pytest_cache
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>rootdir:<span class="w"> </span>/home/dunossauro/git/fastapi-do-zero/codigo_das_aulas/10
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>configfile:<span class="w"> </span>pyproject.toml
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>plugins:<span class="w"> </span>anyio-4.4.0,<span class="w"> </span>cov-5.0.0,<span class="w"> </span>Faker-25.4.0
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>collecting<span class="w"> </span>...<span class="w"> </span>collected<span class="w"> </span><span class="m">28</span><span class="w"> </span>items
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span><span class="nv">ERROR</span>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="o">====================================</span><span class="w"> </span><span class="nv">ERRORS</span><span class="w"> </span><span class="o">====================================</span>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>___________<span class="w"> </span>ERROR<span class="w"> </span>at<span class="w"> </span>setup<span class="w"> </span>of<span class="w"> </span>test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>___________
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a>
+</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a><span class="nv">self</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>&lt;sqlalchemy.engine.base.Connection<span class="w"> </span>object<span class="w"> </span>at<span class="w"> </span>0x7ad981fb7380&gt;
+</span><span id="__span-30-15"><a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a><span class="nv">engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Engine<span class="o">(</span>postgresql+psycopg://app_user:***@localhost:5432/app_db<span class="o">)</span>
+</span><span id="__span-30-16"><a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a><span class="nv">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>None,<span class="w"> </span><span class="nv">_has_events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>None,<span class="w"> </span><span class="nv">_allow_revalidate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+</span><span id="__span-30-17"><a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a><span class="nv">_allow_autobegin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>True
+</span><span id="__span-30-18"><a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a>
+</span><span id="__span-30-19"><a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a><span class="c1"># ...</span>
+</span><span id="__span-30-20"><a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span>not<span class="w"> </span>rv:
+</span><span id="__span-30-21"><a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a><span class="w">            </span>assert<span class="w"> </span>last_ex
+</span><span id="__span-30-22"><a id="__codelineno-30-22" name="__codelineno-30-22" href="#__codelineno-30-22"></a>&gt;<span class="w">           </span>raise<span class="w"> </span>last_ex.with_traceback<span class="o">(</span>None<span class="o">)</span>
+</span><span id="__span-30-23"><a id="__codelineno-30-23" name="__codelineno-30-23" href="#__codelineno-30-23"></a><span class="hll">E<span class="w">           </span>psycopg.OperationalError:<span class="w"> </span>connection<span class="w"> </span>failed:<span class="w"> </span>connection<span class="w"> </span>to<span class="w"> </span>server<span class="w"> </span>at<span class="w"> </span><span class="s2">"127.0.0.1"</span>,<span class="w"> </span>port<span class="w"> </span><span class="m">5432</span><span class="w"> </span>failed:<span class="w"> </span>Connection<span class="w"> </span>refused
+</span></span><span id="__span-30-24"><a id="__codelineno-30-24" name="__codelineno-30-24" href="#__codelineno-30-24"></a>E<span class="w">               </span>Is<span class="w"> </span>the<span class="w"> </span>server<span class="w"> </span>running<span class="w"> </span>on<span class="w"> </span>that<span class="w"> </span>host<span class="w"> </span>and<span class="w"> </span>accepting<span class="w"> </span>TCP/IP<span class="w"> </span>connections?
+</span><span id="__span-30-25"><a id="__codelineno-30-25" name="__codelineno-30-25" href="#__codelineno-30-25"></a>
+</span><span id="__span-30-26"><a id="__codelineno-30-26" name="__codelineno-30-26" href="#__codelineno-30-26"></a>.venv/lib/python3.12/site-packages/psycopg/connection.py:748:<span class="w"> </span>OperationalError
+</span></code></pre></div>
+<p>Obtivemos o erro <code class="language-python highlight"><span class="n">psycopg</span><span class="o">.</span><span class="n">OperationalError</span><span class="p">:</span> <span class="n">connection</span> <span class="n">failed</span><span class="p">:</span> <span class="n">connection</span> <span class="n">to</span> <span class="n">server</span> <span class="n">at</span> <span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="n">port</span> <span class="mi">5432</span> <span class="n">failed</span><span class="p">:</span> <span class="n">Connection</span> <span class="n">refused</span></code>. Ele diz que ouve uma falha na comunicação com o nosso host na porta <code>5432</code>. O endereço que colocamos no <code>.env</code>. Para que ele fique acessível, temos que iniciar o container antes de executar os testes.</p>
+<p>Para isso:</p>
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>fastzero_database<span class="w"> </span><span class="c1">#(1)!</span>
+</span></code></pre></div>
+<ol>
+<li>Inicia somente o container no banco de dados via docker compose</li>
+</ol>
+<p>E em seguida executar os testes:</p>
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>task<span class="w"> </span><span class="nb">test</span>
+</span></code></pre></div>
+<p>Agora, sucesso. O resultado é exatamente o que esperávamos:</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>All<span class="w"> </span>checks<span class="w"> </span>passed!
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="o">==========</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">==========</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>platform<span class="w"> </span>linux<span class="w"> </span>--<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.12.3,<span class="w"> </span>pytest-8.2.1,<span class="w"> </span>pluggy-1.5.0<span class="w"> </span>--<span class="w"> </span>/.../10/.venv/bin/python
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>cachedir:<span class="w"> </span>.pytest_cache
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>rootdir:<span class="w"> </span>/home/dunossauro/git/fastapi-do-zero/codigo_das_aulas/10
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>configfile:<span class="w"> </span>pyproject.toml
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>plugins:<span class="w"> </span>anyio-4.4.0,<span class="w"> </span>cov-5.0.0,<span class="w"> </span>Faker-25.4.0
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>collected<span class="w"> </span><span class="m">28</span><span class="w"> </span>items
 </span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>
-</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="o">=======================</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>session<span class="w"> </span><span class="nv">starts</span><span class="w"> </span><span class="o">=======================</span>
-</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>platform<span class="w"> </span>linux<span class="w"> </span>-<span class="w"> </span>Python<span class="w"> </span><span class="m">3</span>.11.6,<span class="w"> </span>pytest-7.4.3,<span class="w"> </span>pluggy-1.3.0<span class="w"> </span>-<span class="w"> </span>/app/.venv/bin/python
-</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>cachedir:<span class="w"> </span>.pytest_cache
-</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>rootdir:<span class="w"> </span>/app
-</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>configfile:<span class="w"> </span>pyproject.toml
-</span><span id="__span-33-15"><a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>plugins:<span class="w"> </span>cov-4.1.0,<span class="w"> </span>anyio-4.1.0,<span class="w"> </span>Faker-20.1.0
-</span><span id="__span-33-16"><a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a>collected<span class="w"> </span><span class="m">27</span><span class="w"> </span>items
-</span><span id="__span-33-17"><a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a>
-</span><span id="__span-33-18"><a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>PASSED
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>tests/test_app.py::test_root_deve_retornar_ok_e_ola_mundo<span class="w"> </span>PASSED
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>tests/test_auth.py::test_get_token<span class="w"> </span>PASSED
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>tests/test_auth.py::test_token_expired_after_time<span class="w"> </span>PASSED
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>tests/test_auth.py::test_token_inexistent_user<span class="w"> </span>PASSED
+</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>tests/test_auth.py::test_token_wrong_password<span class="w"> </span>PASSED
+</span><span id="__span-33-15"><a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>tests/test_auth.py::test_refresh_token<span class="w"> </span>PASSED
+</span><span id="__span-33-16"><a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a>tests/test_auth.py::test_token_expired_dont_refresh<span class="w"> </span>PASSED
+</span><span id="__span-33-17"><a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a>tests/test_db.py::test_create_user<span class="w"> </span>PASSED
+</span><span id="__span-33-18"><a id="__codelineno-33-18" name="__codelineno-33-18" href="#__codelineno-33-18"></a>tests/test_db.py::test_create_todo<span class="w"> </span>PASSED
+</span><span id="__span-33-19"><a id="__codelineno-33-19" name="__codelineno-33-19" href="#__codelineno-33-19"></a>tests/test_security.py::test_jwt<span class="w"> </span>PASSED
+</span><span id="__span-33-20"><a id="__codelineno-33-20" name="__codelineno-33-20" href="#__codelineno-33-20"></a>tests/test_todos.py::test_create_todo<span class="w"> </span>PASSED
+</span><span id="__span-33-21"><a id="__codelineno-33-21" name="__codelineno-33-21" href="#__codelineno-33-21"></a>tests/test_todos.py::test_list_todos_should_return_5_todos<span class="w"> </span>PASSED
+</span><span id="__span-33-22"><a id="__codelineno-33-22" name="__codelineno-33-22" href="#__codelineno-33-22"></a>tests/test_todos.py::test_list_todos_pagination_should_return_2_todos<span class="w"> </span>PASSED
+</span><span id="__span-33-23"><a id="__codelineno-33-23" name="__codelineno-33-23" href="#__codelineno-33-23"></a>tests/test_todos.py::test_list_todos_filter_title_should_return_5_todos<span class="w"> </span>PASSED
+</span><span id="__span-33-24"><a id="__codelineno-33-24" name="__codelineno-33-24" href="#__codelineno-33-24"></a>tests/test_todos.py::test_list_todos_filter_description_should_return_5_todos<span class="w"> </span>PASSED
+</span><span id="__span-33-25"><a id="__codelineno-33-25" name="__codelineno-33-25" href="#__codelineno-33-25"></a>tests/test_todos.py::test_list_todos_filter_state_should_return_5_todos<span class="w"> </span>PASSED
+</span><span id="__span-33-26"><a id="__codelineno-33-26" name="__codelineno-33-26" href="#__codelineno-33-26"></a>tests/test_todos.py::test_list_todos_filter_combined_should_return_5_todos<span class="w"> </span>PASSED
+</span><span id="__span-33-27"><a id="__codelineno-33-27" name="__codelineno-33-27" href="#__codelineno-33-27"></a>tests/test_todos.py::test_patch_todo_error<span class="w"> </span>PASSED
+</span><span id="__span-33-28"><a id="__codelineno-33-28" name="__codelineno-33-28" href="#__codelineno-33-28"></a>tests/test_todos.py::test_patch_todo<span class="w"> </span>PASSED
+</span><span id="__span-33-29"><a id="__codelineno-33-29" name="__codelineno-33-29" href="#__codelineno-33-29"></a>tests/test_todos.py::test_delete_todo<span class="w"> </span>PASSED
+</span><span id="__span-33-30"><a id="__codelineno-33-30" name="__codelineno-33-30" href="#__codelineno-33-30"></a>tests/test_todos.py::test_delete_todo_error<span class="w"> </span>PASSED
+</span><span id="__span-33-31"><a id="__codelineno-33-31" name="__codelineno-33-31" href="#__codelineno-33-31"></a>tests/test_users.py::test_create_user<span class="w"> </span>PASSED
+</span><span id="__span-33-32"><a id="__codelineno-33-32" name="__codelineno-33-32" href="#__codelineno-33-32"></a>tests/test_users.py::test_read_users<span class="w"> </span>PASSED
+</span><span id="__span-33-33"><a id="__codelineno-33-33" name="__codelineno-33-33" href="#__codelineno-33-33"></a>tests/test_users.py::test_read_users_with_users<span class="w"> </span>PASSED
+</span><span id="__span-33-34"><a id="__codelineno-33-34" name="__codelineno-33-34" href="#__codelineno-33-34"></a>tests/test_users.py::test_update_user<span class="w"> </span>PASSED
+</span><span id="__span-33-35"><a id="__codelineno-33-35" name="__codelineno-33-35" href="#__codelineno-33-35"></a>tests/test_users.py::test_delete_user<span class="w"> </span>PASSED
+</span><span id="__span-33-36"><a id="__codelineno-33-36" name="__codelineno-33-36" href="#__codelineno-33-36"></a>tests/test_users.py::test_update_user_with_wrong_user<span class="w"> </span>PASSED
+</span><span id="__span-33-37"><a id="__codelineno-33-37" name="__codelineno-33-37" href="#__codelineno-33-37"></a>tests/test_users.py::test_delete_user_wrong_user<span class="w"> </span>PASSED
+</span><span id="__span-33-38"><a id="__codelineno-33-38" name="__codelineno-33-38" href="#__codelineno-33-38"></a>
+</span><span id="__span-33-39"><a id="__codelineno-33-39" name="__codelineno-33-39" href="#__codelineno-33-39"></a>----------<span class="w"> </span>coverage:<span class="w"> </span>platform<span class="w"> </span>linux,<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.12.3-final-0<span class="w"> </span>-----------
+</span><span id="__span-33-40"><a id="__codelineno-33-40" name="__codelineno-33-40" href="#__codelineno-33-40"></a>Name<span class="w">                         </span>Stmts<span class="w">   </span>Miss<span class="w">  </span>Cover
+</span><span id="__span-33-41"><a id="__codelineno-33-41" name="__codelineno-33-41" href="#__codelineno-33-41"></a>------------------------------------------------
+</span><span id="__span-33-42"><a id="__codelineno-33-42" name="__codelineno-33-42" href="#__codelineno-33-42"></a>fast_zero/__init__.py<span class="w">            </span><span class="m">0</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+</span><span id="__span-33-43"><a id="__codelineno-33-43" name="__codelineno-33-43" href="#__codelineno-33-43"></a>fast_zero/app.py<span class="w">                </span><span class="m">11</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+</span><span id="__span-33-44"><a id="__codelineno-33-44" name="__codelineno-33-44" href="#__codelineno-33-44"></a>fast_zero/database.py<span class="w">            </span><span class="m">7</span><span class="w">      </span><span class="m">2</span><span class="w">    </span><span class="m">71</span>%
+</span><span id="__span-33-45"><a id="__codelineno-33-45" name="__codelineno-33-45" href="#__codelineno-33-45"></a>fast_zero/models.py<span class="w">             </span><span class="m">29</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+</span><span id="__span-33-46"><a id="__codelineno-33-46" name="__codelineno-33-46" href="#__codelineno-33-46"></a>fast_zero/routers/auth.py<span class="w">       </span><span class="m">26</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+</span><span id="__span-33-47"><a id="__codelineno-33-47" name="__codelineno-33-47" href="#__codelineno-33-47"></a>fast_zero/routers/todos.py<span class="w">      </span><span class="m">50</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+</span><span id="__span-33-48"><a id="__codelineno-33-48" name="__codelineno-33-48" href="#__codelineno-33-48"></a>fast_zero/routers/users.py<span class="w">      </span><span class="m">47</span><span class="w">      </span><span class="m">4</span><span class="w">    </span><span class="m">91</span>%
+</span><span id="__span-33-49"><a id="__codelineno-33-49" name="__codelineno-33-49" href="#__codelineno-33-49"></a>fast_zero/schemas.py<span class="w">            </span><span class="m">35</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+</span><span id="__span-33-50"><a id="__codelineno-33-50" name="__codelineno-33-50" href="#__codelineno-33-50"></a>fast_zero/security.py<span class="w">           </span><span class="m">42</span><span class="w">      </span><span class="m">3</span><span class="w">    </span><span class="m">93</span>%
+</span><span id="__span-33-51"><a id="__codelineno-33-51" name="__codelineno-33-51" href="#__codelineno-33-51"></a>fast_zero/settings.py<span class="w">            </span><span class="m">7</span><span class="w">      </span><span class="m">0</span><span class="w">   </span><span class="m">100</span>%
+</span><span id="__span-33-52"><a id="__codelineno-33-52" name="__codelineno-33-52" href="#__codelineno-33-52"></a>------------------------------------------------
+</span><span id="__span-33-53"><a id="__codelineno-33-53" name="__codelineno-33-53" href="#__codelineno-33-53"></a>TOTAL<span class="w">                          </span><span class="m">254</span><span class="w">      </span><span class="m">9</span><span class="w">    </span><span class="m">96</span>%
+</span><span id="__span-33-54"><a id="__codelineno-33-54" name="__codelineno-33-54" href="#__codelineno-33-54"></a>
+</span><span id="__span-33-55"><a id="__codelineno-33-55" name="__codelineno-33-55" href="#__codelineno-33-55"></a>
+</span><span id="__span-33-56"><a id="__codelineno-33-56" name="__codelineno-33-56" href="#__codelineno-33-56"></a><span class="o">==========</span><span class="w"> </span><span class="m">28</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">4</span>.94s<span class="w"> </span><span class="o">==========</span>
+</span><span id="__span-33-57"><a id="__codelineno-33-57" name="__codelineno-33-57" href="#__codelineno-33-57"></a>Wrote<span class="w"> </span>HTML<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>htmlcov/index.html
 </span></code></pre></div>
-<p>Dessa forma temos um ambiente mais coeso e podemos reproduzir nossas configurações de forma bastante simples em qualquer ambiente.</p>
+<p>Embora essa seja uma abordagem que funciona, ela é trabalhosa e temos que garantir que o container sempre esteja de pé. E como garantir isso durante a execução dos testes?</p>
+<h3 id="containers-de-testes">Containers de testes</h3>
+<p>Uma forma de interessante de usar containers em testes, é usar <strong>containers específicos para testes</strong>. Em python temos uma biblioteca chamada <a href="https://testcontainers-python.readthedocs.io/en/latest/" target="_blank">testcontainers</a>.</p>
+<p>TestContainers é uma biblioteca que fornece uma interface python para executarmos os containers diretamente no código dos testes. Você importa o código referente a um container e ele te retorna todas as configurações para que você possa usar durante os testes. Desta forma, podemos controlar o fluxo de inicialização/finalização dos containers diretamente no código.</p>
+<p>A biblioteca TestContainers tem diversas opções de containers, principalmente de bancos de dados. Como MariaDB, MongoDB, InfluxDB, etc. Também temos a opção de iniciar o PostgreSQL. Para isso, vamos instalar o testcontainters:</p>
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>poetry<span class="w"> </span>add<span class="w"> </span>--group<span class="w"> </span>dev<span class="w"> </span>testcontainers
+</span></code></pre></div>
+<p>Com o <code>testcontainers</code> instalado iremos alterar a fixture de conexão com o banco de dados, para usar um container que será gerenciado pela fixture:</p>
+<div class="language-python highlight"><span class="filename">tests/conftest.py</span><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="kn">from</span> <span class="nn">testcontainers.postgres</span> <span class="kn">import</span> <span class="n">PostgresContainer</span> <span class="c1">#(1)!</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="c1"># ...</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="k">def</span> <span class="nf">session</span><span class="p">():</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="hll">    <span class="k">with</span> <span class="n">PostgresContainer</span><span class="p">(</span><span class="s1">'postgres:16'</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">'psycopg'</span><span class="p">)</span> <span class="k">as</span> <span class="n">postgres</span><span class="p">:</span> <span class="c1">#(2)!</span>
+</span></span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="hll">        <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">postgres</span><span class="o">.</span><span class="n">get_connection_url</span><span class="p">())</span> <span class="c1">#(3)!</span>
+</span></span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>        <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>        <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>            <span class="k">yield</span> <span class="n">session</span>
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>            <span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>
+</span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>        <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</span></code></pre></div>
+<ol>
+<li>Faz o import do <code>PostgresContainer</code> dos testcontainers. O que quer dizer que ela será iniciada somente uma vez durante toda a sessão de testes.</li>
+<li>Cria um container de postgres na versão 16. Usando o <code>psycopg</code> como driver.</li>
+<li><code>get_connection_url()</code> pega a URI do container postgres criado pelo <code>testcontainers</code>.</li>
+</ol>
+<p>Agora, todas às vezes em que a fixture de <code>session</code> for usada nos testes. Será iniciado um novo container postgres na versão 16. E as interações com o banco serão feitas nesse container.</p>
+<p>Tudo pronto para execução dos testes:</p>
+<div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>task<span class="w"> </span><span class="nb">test</span>
+</span></code></pre></div>
+<p>Os testes devem ser executados com sucesso, mas algumas mensagens estranhas podem começar a aparecer entre o nome dos testes. Algo como:</p>
+<div class="language-shell highlight"><span class="filename">$ Parte da resposta do comando de testes</span><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>tests/test_users.py::test_delete_user_wrong_user<span class="w"> </span>Pulling<span class="w"> </span>image<span class="w"> </span>postgres:16
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="hll">Container<span class="w"> </span>started:<span class="w"> </span>beff0853dde0
+</span></span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="hll">Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>container<span class="w"> </span>&lt;Container:<span class="w"> </span>beff0853dde0&gt;<span class="w"> </span>with<span class="w"> </span>image<span class="w"> </span>postgres:16<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>ready<span class="w"> </span>...
+</span></span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="hll">Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>container<span class="w"> </span>&lt;Container:<span class="w"> </span>beff0853dde0&gt;<span class="w"> </span>with<span class="w"> </span>image<span class="w"> </span>postgres:16<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>ready<span class="w"> </span>...
+</span></span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>PASSED
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="c1"># ...</span>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="o">=========</span><span class="w"> </span><ins class="critic">28<span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">80</span>.92s<span class="w"> </span><span class="o">(</span><span class="m">0</span>:01:20<span class="o">)</span></ins><span class="w"> </span><span class="o">=========</span>
+</span></code></pre></div>
+<p>A mensagem <code>Pulling image postgres:16</code> está dizendo que o container do postgres está sendo baixado do hub. Logo em seguida temos a mensagem <code>Container started: beff0853dde0</code>. Que diz que o container com id <code>beff0853dde0</code> foi iniciado. Após essa mensagem vemos o <code>Waiting for container</code>, que diz que está aguardando o container estar pronto para operar durante os testes.</p>
+<p>Uma coisa <em>preocupante</em> nessa execução é a mensagem final: <code>28 passed in 80.92s (0:01:20)</code>. Embora todos os testes tenham sido executados com sucesso, levaram 80 segundos para serem executados (isso na minha máquina).</p>
+<p>Isso faz com que o tempo de feedback dos testes seja alto. Quando isso acontece, tendemos a executar menos os testes, por conta da demora. Então, temos que melhorar esse tempo.</p>
+<h4 id="fixtures-de-sessao">Fixtures de sessão</h4>
+<p>As fixtures do pytest, por padrão, são executadas todas às vezes em que uma função de teste recebe a fixture como argumento:</p>
+<div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">código de exemplo</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1">1</a></span>
+<span class="normal"><a href="#__codelineno-38-2">2</a></span>
+<span class="normal"><a href="#__codelineno-38-3">3</a></span>
+<span class="normal"><a href="#__codelineno-38-4">4</a></span>
+<span class="normal"><a href="#__codelineno-38-5">5</a></span>
+<span class="normal"><a href="#__codelineno-38-6">6</a></span>
+<span class="normal"><a href="#__codelineno-38-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="k">def</span> <span class="nf">fixture_de_exemplo</span><span class="p">():</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3"></a>    <span class="c1"># arrange</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="hll">    <span class="k">yield</span>
+</span></span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5"></a>    <span class="c1"># teardown</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6"></a>
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7"></a><span class="hll"><span class="k">def</span> <span class="nf">teste_de_exemplo</span><span class="p">(</span><span class="n">fixture_de_exemplo</span><span class="p">):</span> <span class="o">...</span>
+</span></span></code></pre></div></td></tr></table></div>
+<p>Antes de executar o <code>teste_de_exemplo</code>, será executado o código da fixture até a instrução <code class="language-python highlight"><span class="k">yield</span></code> ser executada. A preparação para o teste (arrange). Quando a função de teste é finalizada, o bloco após o yield é executado. Chamamos ele de "teardown", para desfazer o efeito do "arrage". A volta do ambiente como era antes do "arrange".</p>
+<p>Dizemos que uma fixture "tradicional" tem o escopo de função. Pois ela é iniciada e finalizada em todas as funções de teste.</p>
+<p>Contudo, existem outros <a href="https://docs.pytest.org/en/latest/how-to/fixtures.html#fixture-scopes" target="_blank">escopos</a>, que precisam ser explícitos durante a declaração da fixture, pelo parâmetro <code>scope</code>. Existem diversos escopos:</p>
+<ul>
+<li><code>function</code>: executada em todas as funções de teste;</li>
+<li><code>class</code>: executada uma vez por classe de teste;</li>
+<li><code>module</code>: executada uma vez por módulo;</li>
+<li><code>package</code>: executada uma vez por pacote;</li>
+<li><code>session</code>: executava uma vez por execução dos testes;</li>
+</ul>
+<p>Para resolver o problema com a lentidão dos testes, iremos criar uma fixture para iniciar o container do banco de dados com o escopo <code class="language-python highlight"><span class="s2">"session"</span></code>.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    PytestRunner--&gt;&gt;Fixture: Executa a fixture até o yield
+    PytestRunner-&gt;&gt;Testes: Executa todos os testes
+    Testes--&gt;&gt;Testes: Executa um teste
+    PytestRunner--&gt;&gt;Fixture: Executa a fixture depois do yield</code></pre>
+<p>Dessa forma, a fixture é inicializada antes de todos os testes, está disponível durante a execução das funções, sendo finalizada após a execução de todos os testes.</p>
+<h4 id="fixture-para-engine">Fixture para engine</h4>
+<p>Para resolver o problema da lentidão, vamos criar nova fixture para a <code>engine</code> no escopo <code>session</code>. Ela ficará responsável por iniciar o container (arrange), criar a conexão persistente com o postgres (yield) e desfazer o container após a execução de todos os testes (teardown):</p>
+<div class="language-python highlight"><span class="filename">tests/conftest.py</span><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="hll"><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="s1">'session'</span><span class="p">)</span><span class="c1">#(1)!</span>
+</span></span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="k">def</span> <span class="nf">engine</span><span class="p">():</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>    <span class="k">with</span> <span class="n">PostgresContainer</span><span class="p">(</span><span class="s1">'postgres:16'</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">'psycopg'</span><span class="p">)</span> <span class="k">as</span> <span class="n">postgres</span><span class="p">:</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>        <span class="n">_engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="n">postgres</span><span class="o">.</span><span class="n">get_connection_url</span><span class="p">())</span>
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="hll">        <span class="k">with</span> <span class="n">_engine</span><span class="o">.</span><span class="n">begin</span><span class="p">():</span><span class="c1">#(2)!</span>
+</span></span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>            <span class="k">yield</span> <span class="n">_engine</span>
+</span></code></pre></div>
+<ol>
+<li>fixture sendo definida com o escopo <code class="language-python highlight"><span class="s1">'session'</span></code>.</li>
+<li>Inicia a conexão com o banco de dados. A <code>Session</code> originalmente inicia a conexão e a fecha. Contudo, como vamos criar diversas sessions, é interessante que o controle da conexão seja gerenciado pela engine.</li>
+</ol>
+<p>Desta forma, por consequência, não iremos mais definir a engine na fixture de <code>session</code>. Usaremos a fixture de engine, que será criada somente uma vez durante toda a execução dos testes:</p>
+<div class="language-python highlight"><span class="filename">tests/conftest.py</span><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="hll"><span class="k">def</span> <span class="nf">session</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span><span class="c1">#(1)!</span>
+</span></span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>        <span class="k">yield</span> <span class="n">session</span>
+</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>        <span class="n">session</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>
+</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</span></code></pre></div>
+<ol>
+<li><code>engine</code> agora é definida pela fixture de <code>engine</code>.</li>
+</ol>
+<p>Com isso, podemos executar os testes novamente e devemos ver uma diferença significativa de tempo:</p>
+<div class="language-shell no-copy highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>task<span class="w"> </span><span class="nb">test</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="c1"># ...</span>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="o">=========</span><span class="w"> </span><span class="m">28</span><span class="w"> </span>passed<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">7</span>.96s<span class="w"> </span><span class="o">=========</span>
+</span></code></pre></div>
+<p>Com o container sendo iniciado somente uma vez, o tempo total de execução dos testes caiu para <code>7.96s</code>, em comparação com os 80 segundos que tínhamos antes. Um tempo de feedback aceitável para execução de testes.</p>
+<hr>
+<p>Desta forma temos uma separação do nosso container postgres de desenvolvimento, do container usado pelos testes. Fazendo com que a execução dos testes não remova os dados inseridos durante o desenvolvimento da aplicação.</p>
 <h2 id="commit">Commit</h2>
-<p>Após criar nosso arquivo <code>Dockerfile</code> e <code>compose.yaml</code>, executar os testes e construir nosso ambiente, podemos fazer o commit das alterações no Git:</p>
+<p>Para finalizar, após criar nosso arquivo <code>Dockerfile</code> e <code>compose.yaml</code>, executar os testes e construir nosso ambiente, podemos fazer o commit das alterações no Git:</p>
 <ol>
 <li>Adicionando todos os arquivos modificados nessa aula com <code>git add .</code></li>
-<li>Faça o commit das alterações com <code>git commit -m "Dockerizando nossa aplicação e alterando os testes para serem executados no PostgreSQL"</code></li>
+<li>Faça o commit das alterações com <code>git commit -m "Dockerizando nossa aplicação e inserindo o PostgreSQL"</code></li>
 <li>Envie as alterações para o repositório remoto com <code>git push</code></li>
 </ol>
 <h2 id="conclusao">Conclusão</h2>
-<p>Dockerizar nossa aplicação FastAPI, junto com o PostgreSQL, nos permite garantir consistência em diferentes ambientes. A combinação de Docker e Docker Compose simplifica o processo de desenvolvimento e implantação. Na próxima aula, aprenderemos como levar nossa aplicação para o próximo nível executando os testes de forma remota com a integração contínua do GitHub Actions.</p></div>
+<p>Dockerizar nossa aplicação FastAPI, com o PostgreSQL, nos permite garantir consistência em diferentes ambientes. A combinação de Docker e Docker Compose simplifica o processo de desenvolvimento e implantação. Na próxima aula, aprenderemos como levar nossa aplicação para o próximo nível executando os testes de forma remota com a integração contínua do GitHub Actions.</p></div>
 
 
 
@@ -1888,7 +2068,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 3, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 4, 2024</span>
   </span>
 
     
