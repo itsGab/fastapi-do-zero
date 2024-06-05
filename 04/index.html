@@ -1342,6 +1342,11 @@
 <p><strong>ORM</strong>: ORM, ou Mapeamento Objeto-Relacional, é uma técnica que facilita a comunicação entre o código orientado a objetos e bancos de dados relacionais. Com o ORM do SQLAlchemy, os desenvolvedores podem interagir com o banco de dados utilizando classes e objetos Python, eliminando a necessidade de escrever instruções SQL diretamente.</p>
 </li>
 </ul>
+<details class="tip">
+<summary>Caso nunca tenha trabalhado com SQLAlchemy</summary>
+<p>Temos uma live de Python cobrindo as mudanças e o básico sobre o SQLAlchemy na versão 2+:</p>
+<p><a class="glightbox" href="https://www.youtube.com/embed/t4C1c62Z4Ag" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/t4C1c62Z4Ag" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
+</details>
 <p>Além do Core e do ORM, o SQLAlchemy conta com outros componentes cruciais que serão foco desta aula, a Engine e a Session:</p>
 <h3 id="engine">Engine</h3>
 <p>A 'Engine' do SQLAlchemy é o ponto de contato com o banco de dados, estabelecendo e gerenciando as conexões. Ela é instanciada através da função <code>create_engine()</code>, que recebe as credenciais do banco de dados, o endereço de conexão (URI) e configura o pool de conexões.</p>
@@ -1500,13 +1505,13 @@
 </span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
 </span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">()</span>
 </span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="k">def</span> <span class="nf">session</span><span class="p">():</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">'sqlite:///:memory:'</span><span class="p">)</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="n">engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">'sqlite:///:memory:'</span><span class="p">)</span><span class="c1">#(1)!</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">create_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span><span class="c1">#(2)!</span>
 </span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
 </span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>        <span class="k">yield</span> <span class="n">session</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>        <span class="k">yield</span> <span class="n">session</span><span class="c1">#(4)!</span>
 </span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>
-</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>    <span class="n">table_registry</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">drop_all</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span><span class="c1">#(3)!</span>
 </span></code></pre></div>
 <p>Aqui, estamos utilizando o SQLite como o banco de dados em memória para os testes. Essa é uma prática comum em testes unitários, pois a utilização de um banco de dados em memória é mais rápida do que um banco de dados persistido em disco. Com o SQLite em memória, podemos criar e destruir bancos de dados facilmente, o que é útil para isolar os testes e garantir que os dados de um teste não afetem outros testes. Além disso, não precisamos nos preocupar com a limpeza dos dados após a execução dos testes, já que o banco de dados em memória é descartado quando o programa é encerrado.</p>
 <p>O que cada linha da fixture faz?</p>
@@ -1549,13 +1554,18 @@
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="k">def</span> <span class="nf">test_create_user</span><span class="p">(</span><span class="n">session</span><span class="p">):</span>
 </span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="n">new_user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">'alice'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s1">'secret'</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">'teste@test'</span><span class="p">)</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_user</span><span class="p">)</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="n">session</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">new_user</span><span class="p">)</span><span class="c1">#(1)!</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a>    <span class="n">session</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span><span class="c1">#(2)!</span>
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span><span class="p">))</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">scalar</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span><span class="p">))</span><span class="c1">#(3)!</span>
 </span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12"></a>
 </span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13"></a>    <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span> <span class="o">==</span> <span class="s1">'alice'</span>
 </span></code></pre></div></td></tr></table></div>
+<ol>
+<li>O método <code>.add</code> da sessão, adiciona o registro a sessão. O dado fica em um estado transiente. Ele não foi adicionado ao banco de dados ainda. Mas já está reservado na sessão. Ele é uma aplicação do padrão de projeto <a href="https://martinfowler.com/eaaCatalog/unitOfWork.html" target="_blank">Unidade de trabalho</a>.</li>
+<li>No momento em que existem dados transientes na sessão e queremos "performar" efetivamente as ações no banco de dados. Usamos o método <code>.commit</code>.</li>
+<li>O método <code>.scalar</code> é usado para performar buscas no banco (queries). Ele pega o primeiro resultado da busca e faz uma operação de converter o resultado do banco de dados em um Objeto criado pelo SQLAlchemy, nesse caso, caso encontre um resultado, ele irá converter na classe <code>User</code>. A função de <code>select</code> é uma função de busca de dados no banco. Nesse caso estamos procurando em todos os <code>Users</code> onde (<code>where</code>) o nome é igual a <code class="language-python highlight"><span class="s2">"alice"</span></code>.</li>
+</ol>
 <h3 id="executando-o-teste">Executando o teste</h3>
 <p>A execução de testes é uma parte vital do desenvolvimento de qualquer aplicação. Os testes nos ajudam a identificar e corrigir problemas antes que eles se tornem mais sérios. Eles também fornecem a confiança de que nossas mudanças não quebraram nenhuma funcionalidade existente. No nosso caso, executaremos os testes para validar nossos modelos de usuário e garantir que eles estejam funcionando como esperado.</p>
 <p>Para executar os testes, digite o seguinte comando:</p>
@@ -1588,12 +1598,17 @@
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="n">model_config</span> <span class="o">=</span> <span class="n">SettingsConfigDict</span><span class="p">(</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        <span class="n">env_file</span><span class="o">=</span><span class="s1">'.env'</span><span class="p">,</span> <span class="n">env_file_encoding</span><span class="o">=</span><span class="s1">'utf-8'</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="n">model_config</span> <span class="o">=</span> <span class="n">SettingsConfigDict</span><span class="p">(</span> <span class="c1">#(1)!</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        <span class="n">env_file</span><span class="o">=</span><span class="s1">'.env'</span><span class="p">,</span> <span class="n">env_file_encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="c1">#(2)!</span>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="p">)</span>
 </span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="n">DATABASE_URL</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="n">DATABASE_URL</span><span class="p">:</span> <span class="nb">str</span><span class="c1">#(3)!</span>
 </span></code></pre></div>
+<ol>
+<li><code>SettingsConfigDict</code>: é um objeto do pydantic-settings que carrega as variáveis em um arquivo de configuração. Por exemplo, um <code>.env</code>.</li>
+<li>Aqui definimos o caminho para o arquivo de configuração e o encoding dele.</li>
+<li><code>DATABASE_URL</code>: Essa variável sera preenchida com o valor encontrado com o mesmo nome no arquivo <code>.env</code>.</li>
+</ol>
 <p>Agora, definiremos o <code>DATABASE_URL</code> no nosso arquivo de ambiente <code>.env</code>. Crie o arquivo na raiz do projeto e adicione a seguinte linha:</p>
 <div class="language-shell highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="s2">"sqlite:///database.db"</span>
 </span></code></pre></div>
@@ -1886,7 +1901,7 @@
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 11, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 5, 2024</span>
   </span>
 
     
