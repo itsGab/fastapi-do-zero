@@ -1288,8 +1288,14 @@
 </ol>
 <h2 id="instalacao-do-python">Instalação do Python</h2>
 <p>Se você precisar (re)construir o ambiente usado nesse curso, é <strong>extremamente recomendado</strong> que você use o <a href="https://github.com/pyenv/pyenv" target="_blank">pyenv</a>.</p>
-<p>Caso encontre dificuldades durante a instalação, o pyenv conta com dois assistentes simplificados para sua configuração. Para windows, use o <a href="https://pyenv-win.github.io/pyenv-win/" target="_blank">pyenv-windows</a>. Para GNU/Linux e MacOS, use o <a href="https://github.com/pyenv/pyenv-installer" target="_blank">pyenv-installer</a>.</p>
-<p>Navegue até o diretório onde fará os exercícios e irá executar os códigos de exemplo no seu terminal e digite os seguintes comandos:</p>
+<p>Pyenv é uma aplicação externa ao python que você instale diferentes versões do python no sistema e as isola. Podendo isolar versões específicas, para projetos específicos. Na computação, chamamos esse conceito de <a href="https://en.wikipedia.org/wiki/Shim_(computing)" target="_blank">shim</a>. Uma camada, onde toda vez que o python for chamado, ele redirecionará ao python na versão especificada no pyenv globalmente ou em uma versão fixada em projeto especifico. Uma espécie de "proxy".</p>
+<pre class="mermaid"><code>graph LR;
+  A["Executando o python no terminal"] --&gt; pyenv
+  pyenv["Pyenv shim"] --&gt; questao{"existe '.python-version'?"}
+  questao --&gt;|sim| B["Execute esta versão instalada no pyenv"]
+  questao --&gt;|não| C["Use a versão global do pyenv"]</code></pre>
+<p>A instalação do pyenv varia entre sistemas operacionais. Caso você esteja usando Windows, recomendo que você use o <a href="https://pyenv-win.github.io/pyenv-win/" target="_blank">pyenv-windows</a> para fazer a instalação, os passos estão descritos na página. Para GNU/Linux e MacOS, use o <a href="https://github.com/pyenv/pyenv-installer" target="_blank">pyenv-installer</a>, os passos para instalação também estão descritos.</p>
+<p>Navegue até o diretório onde fará os códigos e exercícios do curso e digite os seguintes comandos do pyenv:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Versão 3.11</label><label for="__tabbed_1_2">Versão 3.12</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1377,9 +1383,14 @@
 <p><a class="glightbox" href="https://www.youtube.com/embed/ZOSWdktsKf0" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><div class="video-container"><iframe src="https://www.youtube.com/embed/ZOSWdktsKf0" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></a></p>
 <p><a class="md-button" href="https://youtu.be/ZOSWdktsKf0"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 576 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></span> Link direto</a></p>
 </details>
-<p>Para instalar o Poetry, você pode seguir as instruções presentes na <a href="https://python-poetry.org/docs/#installation" target="_blank">documentação oficial</a> do Poetry para o seu sistema operacional. Alternativamente, se você optou por usar o pipx, pode instalar o Poetry com o seguinte comando:</p>
+<p>Para instalar o Poetry, você pode seguir as instruções presentes na <a href="https://python-poetry.org/docs/#installation" target="_blank">documentação oficial</a> do Poetry para o seu sistema operacional. Alternativamente, se você optou por usar o <a href="https://pipx.pypa.io/stable/">pipx</a>, pode instalar o Poetry com o seguinte comando:</p>
 <div class="language-shell highlight"><span class="filename">$ Execução no terminal!</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>pipx<span class="w"> </span>install<span class="w"> </span>poetry
 </span></code></pre></div>
+<details class="question">
+<summary>Caso queira usar o pipx e não o tenha instalado no seu ambiente</summary>
+<p>O <a href="https://pipx.pypa.io/stable/">pipx</a> é uma forma de instalar pacotes de forma global no seu sistema sem que eles interfiram no seu ambiente global do python. Ele cria um ambiente virtual isolado para cada ferramenta.</p>
+<p>O guia de instalação do pipx contempla diversos sistemas operacionais: <a href="https://pipx.pypa.io/stable/installation/#installing-pipx">guia</a></p>
+</details>
 <h2 id="criacao-do-projeto-fastapi-e-instalacao-das-dependencias">Criação do Projeto FastAPI e Instalação das Dependências</h2>
 <p>Agora que temos o Python e o Poetry prontos, podemos começar a criar nosso projeto FastAPI.</p>
 <p>Inicialmente criaremos um novo projeto python usando o Poetry, com o comando <code>poetry new</code> e em seguida navegaremos até o diretório criado:</p>
@@ -2119,7 +2130,7 @@ Esse comando diz ao uvicorn o seguinte: na pasta fast_zero existe um arquivo cha
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 15, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 6, 2024</span>
   </span>
 
     
