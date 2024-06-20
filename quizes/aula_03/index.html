@@ -1210,8 +1210,43 @@
     <section class="content hidden"></section>
     </div>
     
-<p>Mais questões ainda estão por vir nesse quiz.</p>
-<p><a href="../aulas/sincronas.md">Ele estará totalmente disponível no dia em que a aula síncrona for ministrada</a></p></div><style type="text/css">.quiz {
+<div class="quiz"><h3>08 - HTTPException tem a função de:</h3><form><fieldset><div><input type="radio" name="answer" value="0" id="quiz-5-0"><label for="quiz-5-0">Criar um erro de servidor</label></div><div><input type="radio" name="answer" value="1" id="quiz-5-1" correct><label for="quiz-5-1">Retornar um erro ao cliente</label></div><div><input type="radio" name="answer" value="2" id="quiz-5-2"><label for="quiz-5-2">Fazer uma validação HTTP</label></div></fieldset><button type="submit" class="quiz-button">Enviar</button></form><section class="content hidden"></section></div>
+
+<div class="quiz"><h3>09 - 'users/{user_id}' permite:</h3><form><fieldset><div><input type="checkbox" name="answer" value="0" id="quiz-6-0" correct><label for="quiz-6-0">Parametrizar a URL</label></div><div><input type="checkbox" name="answer" value="1" id="quiz-6-1" correct><label for="quiz-6-1">Pedir por um recurso com id específico</label></div><div><input type="checkbox" name="answer" value="2" id="quiz-6-2" correct><label for="quiz-6-2">Aumentar a flexibilidade dos endpoints</label></div></fieldset><button type="submit" class="quiz-button">Enviar</button></form><section class="content hidden"></section></div>
+
+<p>
+    </p><div class="quiz"><h3>10 - Qual a função desse bloco de código nos endpoints de PUT E DELETE?</h3>
+    <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">user_id</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">database</span><span class="p">)</span> <span class="ow">or</span> <span class="n">user_id</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+        <span class="n">status_code</span><span class="o">=</span><span class="n">HTTPStatus</span><span class="o">.</span><span class="n">NOT_FOUND</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s1">'User not found'</span>
+    <span class="p">)</span>
+</code></pre></div>
+    <form>
+    <fieldset>
+
+            <div>
+            <input type="radio" name="answer" value="Garantir que só sejam chamados id válidos" id="a" correct="">
+            <label for="a">Garantir que só sejam chamados id válidos</label>
+            </div>
+
+
+            <div>
+            <input type="radio" name="answer" value="Montar um novo schema do pydantic" id="b">
+            <label for="b">Montar um novo schema do pydantic</label>
+            </div>
+
+
+            <div>
+            <input type="radio" name="answer" value="Criar um erro de servidor" id="c">
+            <label for="c">Criar um erro de servidor</label>
+            </div>
+
+    </fieldset>
+    <button type="submit" class="quiz-button">Enviar</button>
+    </form>
+    <section class="content hidden"></section>
+    </div>
+    </div><style type="text/css">.quiz {
   border: 1px solid black;
   padding: 1rem;
   margin: 1rem 0;
@@ -1342,7 +1377,7 @@ function resetFieldset(fieldset) {
     <span class="md-icon" title="Última atualização">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 19, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 20, 2024</span>
   </span>
 
     
