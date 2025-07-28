@@ -21,7 +21,7 @@ description: Boas vindas ao nosso minicurso de FastAPI!
 	![type:video](https://www.youtube.com/embed/{{link}})
 
 	[Aula :fontawesome-brands-youtube:](https://youtu.be/{{link}}?list=PLOQgLBuj2-3IuFbt-wJw2p2NiV9WTRzIP){ .md-button }
-	[Slides :fontawesome-solid-file-powerpoint:](https://github.com/dunossauro/fastapi-do-zero/blob/{{current_tag}}/slides/pdf/aula_{{aula}}.pdf){ .md-button }
+	[Slides :fontawesome-solid-file-powerpoint:]({{page.canonical_url}}slides/aula_{{aula}}.html){ .md-button }
 
 > Esse material passa por atualizações periódicas. Você pode acompanhar as notas de alterações [aqui](alteracoes.md){:target="_blank"}.
 
@@ -74,7 +74,7 @@ Esse material será disponibilizado em duas formas diferentes:
 
 1. Em livro texto: todo o material está disponível nessa página;
 2. Em aulas síncronas ao vivo: para quem prefere o compromisso de acompanhar em grupo.
-    - [**Datas de 2025 já disponíveis**](aulas/2025.md){:target="_blank"}.
+    - Playlist das apresentações de 2025:
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=bbzMgz9dXoVXNdlR&amp;list=PLOQgLBuj2-3KT9ZWvPmaGFQ0KjIez0403" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 	- Playlist das apresentações de 2024:
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=bbzMgz9dXoVXNdlR&amp;list=PLOQgLBuj2-3IuFbt-wJw2p2NiV9WTRzIP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -114,16 +114,16 @@ Alguns outros tópicos não relativos a python também serão abordados. Então,
 
 ## Aulas
 
-1. [Configurando o Ambiente de Desenvolvimento](01.md){:target="_blank"}
+1. [Configurando o ambiente de desenvolvimento](01.md){:target="_blank"}
 2. [Introdução ao desenvolvimento WEB](02.md){:target="_blank"}
-3. [Estruturando seu Projeto e Criando Rotas CRUD](03.md){:target="_blank"}
-4. [Configurando Banco de Dados e Gerenciando Migrações com Alembic](04.md){:target="_blank"}
-5. [Integrando Banco de Dados a API](05.md){:target="_blank"}
-6. [Autenticação e Autorização](06.md){:target="_blank"}
-7. [Refatorando a Estrutura do Projeto](07.md){:target="_blank"}
+3. [Estruturando seu projeto e criando rotas CRUD](03.md){:target="_blank"}
+4. [Configurando o banco de dados e gerenciando migrações com Alembic](04.md){:target="_blank"}
+5. [Integrando o banco de dados à API](05.md){:target="_blank"}
+6. [Autenticação e Autorização com JWT](06.md){:target="_blank"}
+7. [Refatorando a estrutura do projeto](07.md){:target="_blank"}
 8. [Tornando o projeto assíncrono](08.md){:target="_blank"}
 9. [Tornando o sistema de autenticação robusto](09.md){:target="_blank"}
-10. [Criando Rotas CRUD para Tarefas](10.md){:target="_blank"}
+10. [Criando rotas CRUD para gerenciamento de tarefas](10.md){:target="_blank"}
 11. [Dockerizando a nossa aplicação e introduzindo o PostgreSQL](11.md){:target="_blank"}
 12. [Automatizando os testes com integração contínua](12.md){:target="_blank"}
 13. [Fazendo o deploy no Fly.io](13.md){:target="_blank"}

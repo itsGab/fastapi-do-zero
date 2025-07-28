@@ -1,3 +1,89 @@
+# 4.1.0 (2025-06-29)
+
+### Adicionado
+
+- Validações de querystrings com Fields do pydantic para valores numéricos [aula 07] ([#391](https://github.com/dunossauro/fastapi-do-zero/issues/391))
+- Validações de querystrings com Fields do pydantic para valores de texto [aula 10] ([#406](https://github.com/dunossauro/fastapi-do-zero/issues/406))
+- Novo exercício (06) a aula 10 para exercitar os filtros no schema dos todos ([#406](https://github.com/dunossauro/fastapi-do-zero/issues/406))
+- `Flyctl` nas versões de instalações em `C` ([#411](https://github.com/dunossauro/fastapi-do-zero/issues/411))
+- `refreshUrl` no `OAuth2PasswordBearer` ([#417](https://github.com/dunossauro/fastapi-do-zero/issues/417))
+
+### Correções
+
+- Typos na aula 07 por [@0xluc](https://github.com/0xluc) ([#393](https://github.com/dunossauro/fastapi-do-zero/issues/393))
+- Adicionando nota no windows para eventloop nas migrações async ([#420](https://github.com/dunossauro/fastapi-do-zero/issues/420))
+
+### Alterado
+
+- Instruções do SQLAlchemy para futura v2.1 ([#363](https://github.com/dunossauro/fastapi-do-zero/issues/363))
+
+### Atualizações
+
+- `alembic` 1.16.1 -> 1.16.2
+- `fastapi[standard]` 0.115.12 -> 0.115.14
+- `pydantic-settings` 2.9.1 -> 2.10.1
+- `pytest` 8.4.0 -> 8.4.1
+- `ruff` 0.11.13 -> 0.12.1
+
+### Interno
+
+- CI: Adicionando validações do windows para executar os testes da última aula
+- Versão do `flyctl` movida para o markdown-exec
+
+### Slides
+
+- Adicionando loop de eventos para windows na aula 11. ([#409](https://github.com/dunossauro/fastapi-do-zero/issues/409))
+- Removendo `aiosqlite` na aula 11 ([#412](https://github.com/dunossauro/fastapi-do-zero/issues/412))
+
+
+# 4.0.4 (2025-06-13)
+
+### Pontos da release
+
+- Atualizações gerais
+- Upgrades dos slides faltantes para 2025
+- Slides somente em HTML
+
+### Adicionado
+
+- Slides para aula 08 ([#283](https://github.com/dunossauro/fastapi-do-zero/issues/283))
+
+### Correções
+
+- Correção de typo na aula 03, por [@0xluc](https://github.com/0xluc) ([#388](https://github.com/dunossauro/fastapi-do-zero/issues/388))
+- Typos na aula 11, por [@0xluc](https://github.com/0xluc) ([#395](https://github.com/dunossauro/fastapi-do-zero/issues/395))
+- Correção de typo na aula 13, por [@0xluc](https://github.com/0xluc) ([#396](https://github.com/dunossauro/fastapi-do-zero/issues/396))
+- Correção de typo na aula 05, por [@thiagonebuloni](https://github.com/thiagonebuloni) ([#397](https://github.com/dunossauro/fastapi-do-zero/issues/397))
+- Correções de typos na aula 06 por [@renan-asantos](https://github.com/renan-asantos) ([#401](https://github.com/dunossauro/fastapi-do-zero/issues/401))
+- Correção de typo na aula 13
+- Revisão gramatical na aula `01`
+- Typo nos exercícios da aula 09
+
+### Alterado
+
+- Alterando as versões das actions para mais atuais ([#410](https://github.com/dunossauro/fastapi-do-zero/issues/410))
+- Padronização nos títulos das aulas
+
+### Atualizações
+
+- `coverage` 7.9.0 -> 7.9.1
+- `pydantic` 2.11.5 -> 2.11.6
+- `pytest-cov` 6.1.1 -> 6.2.1
+- `pytest` 8.3.5 -> 8.4.0
+- `ruff ` 0.11.11 -> 0.11.13
+
+### Interno
+
+- Slides servidos somente em html ([#402](https://github.com/dunossauro/fastapi-do-zero/issues/402))
+- `typos` 1.32.0 -> 1.33.1
+
+### Slides
+
+- Revisão de todos os slides para apresentações de 2025 ([#283](https://github.com/dunossauro/fastapi-do-zero/issues/283))
+- Correção de typos na aula 05 por [@thiagonebuloni](https://github.com/thiagonebuloni) ([#404](https://github.com/dunossauro/fastapi-do-zero/issues/404))
+- Correções nos testes async da aula `10` ([#408](https://github.com/dunossauro/fastapi-do-zero/issues/408))
+
+
 # 4.0.3 (2025-05-27)
 
 ### Adicionado

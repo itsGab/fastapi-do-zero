@@ -367,7 +367,7 @@ def test_token_wrong_password(client, user):
         '/auth/token',
         data={'username': user.email, 'password': 'wrong_password'}
     )
-    assert response.status_code == HTTPStatus.BAD_REQUEST
+    assert response.status_code == HTTPStatus.UNAUTHORIZED
     assert response.json() == {'detail': 'Incorrect email or password'}
 ```
 
@@ -381,7 +381,7 @@ def test_token_inexistent_user(client):
         '/auth/token',
         data={'username': 'no_user@no_domain.com', 'password': 'testtest'},
     )
-    assert response.status_code == HTTPStatus.BAD_REQUEST
+    assert response.status_code == HTTPStatus.UNAUTHORIZED
     assert response.json() == {'detail': 'Incorrect email or password'}
 ```
 
@@ -454,6 +454,21 @@ def test_token_expired_dont_refresh(client, user):
         assert response.status_code == HTTPStatus.UNAUTHORIZED
         assert response.json() == {'detail': 'Could not validate credentials'}
 ```
+
+---
+
+## Atualizando a documentação
+
+Agora que temos um endpoint de refresh, podemos adicioná-lo à documentação do OAuth:
+
+```python
+# security.py
+oauth2_scheme = OAuth2PasswordBearer(
+    tokenUrl='auth/token', refreshUrl='auth/refresh'
+)
+```
+
+Para checar: [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
 ---
 
